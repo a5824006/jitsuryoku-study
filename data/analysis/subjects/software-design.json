@@ -1,0 +1,845 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "software-design",
+  "name": "ソフトウェア設計",
+  "availableYears": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "prerequisites": [
+    "要求・仕様・機能要件・非機能要件・利害関係者の区別",
+    "開発工程の順序と反復型開発の考え方",
+    "構造化分析のデータ辞書における構成、反復、省略、選択の記法",
+    "条件と行動を漏れなく対応付ける決定表",
+    "UMLのクラス、オブジェクト、属性、操作、関連、多重度、集約・合成集約、継承の基本"
+  ],
+  "answerTraits": [
+    "用語補充、説明、データ辞書、決定表、UMLの図示が混在する。明示的な小問単位で2022は6、2023は6、2024は7、2025は6の計25設問。",
+    "データ辞書とクラス図・オブジェクト図の作成を全4年度で確認できる。説明から正しい記法に変換する力が中心となる。",
+    "2022・2023は与えられたシナリオや仕様を図式化し、2024・2025では具体例やデータ構成を自分で考える設問が増える。",
+    "複数の妥当なモデルや例があり得るため、文字列の完全一致だけで正誤を判定できない問題が多い。",
+    "指定語句、オブジェクト数、属性と値の組数、反復構造などの明示的条件がある一方、字数下限・配点・試験時間の記載はない。"
+  ],
+  "preparation": "毎年出題される要求・開発工程、データ辞書、クラス図・オブジェクト図を優先し、用語を説明できることと自分でモデルを作れることの両方を確認する。データ辞書は構成・反復・任意・選択を短い仕様から書く練習を行い、2025の自由設計では構成要素3つ以上、反復1つ以上、階層1つ以上の条件を自分で満たす。クラスと実体、属性の型と値、関連とリンクを対にして学び、2024の学生2・授業科目2・各オブジェクト属性値2組以上の条件を使って練習する。継承は3/4年度、決定表は2/4年度で確認できるので続けて準備し、2025で追加されたDFDの階層性、カプセル化、汎化セットを補う。図を描く練習を省いて用語補充だけを増やす学習は、収録原本の要求範囲を十分に覆わない。",
+  "overlaps": [
+    {
+      "subjectId": "dsa",
+      "knowledge": "データの構造と操作を抽象化し、実装の要点を説明する力。アルゴリズムの木と設計のデータ辞書・クラスは対象が違うため、直接同じ設問を解く共通知識とは区別する。"
+    },
+    {
+      "subjectId": "hci",
+      "knowledge": "利用者の要求と具体的な機能を対応付け、設計条件を明確にする考え方。UMLの記法や開発工程はソフトウェア設計側で個別に学ぶ。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "software-design-requirements",
+      "name": "要求、仕様、要件",
+      "description": "要求、仕様、機能要件・非機能要件、利害関係者。",
+      "prerequisite": true,
+      "studyAdvice": "要求と仕様の役割を区別し、機能と性能・運用条件などの非機能の具体例をセットにする。"
+    },
+    {
+      "id": "software-design-development-process",
+      "name": "開発工程モデル",
+      "description": "ウォーターフォール、軽量・反復的な開発、工程名と順序。",
+      "prerequisite": true,
+      "studyAdvice": "工程の名前を並べるだけでなく、各工程の成果と次の工程への流れを説明する。原本の指定語句を保つ。"
+    },
+    {
+      "id": "software-design-data-dictionary",
+      "name": "データ辞書",
+      "description": "データを構成、反復、任意、選択と階層によって定義する。",
+      "prerequisite": true,
+      "studyAdvice": "1人以上・0人以上・存在しない場合・またはを別の構造として記述し、文章と記法を往復する。"
+    },
+    {
+      "id": "software-design-decision-tables",
+      "name": "決定表",
+      "description": "金額と費目の条件から必要な行動を表にする。",
+      "prerequisite": false,
+      "studyAdvice": "条件の包含関係、金額の境界、例外が影響する行動を確認し、実現可能なルールを漏れなく列挙する。"
+    },
+    {
+      "id": "software-design-uml-classes",
+      "name": "UMLクラス図",
+      "description": "クラス、属性、操作、関連や継承を仕様・具体例から表す。",
+      "prerequisite": true,
+      "studyAdvice": "クラス名と属性、操作を区別し、仕様から多重度・関係を読み取る。自由設計では採用した条件を明記する。"
+    },
+    {
+      "id": "software-design-uml-objects",
+      "name": "UMLオブジェクト図",
+      "description": "クラスの具体的な実体、属性値、リンクをシナリオから表す。",
+      "prerequisite": true,
+      "studyAdvice": "オブジェクト名：クラス名、属性名と値、実体間のリンクを確認し、クラス図との整合性を点検する。"
+    },
+    {
+      "id": "software-design-inheritance",
+      "name": "継承と汎化セット",
+      "description": "クラス階層、スーパークラスとサブクラス、属性・操作、汎化セット。",
+      "prerequisite": false,
+      "studyAdvice": "『一種である』関係を選び、共通部分と固有部分を分ける。2025では汎化セットが指定語句に増えている。"
+    },
+    {
+      "id": "software-design-associations",
+      "name": "関連、多重度、集約",
+      "description": "関連の両端の数、全体と部分の関係、集約と合成集約。",
+      "prerequisite": false,
+      "studyAdvice": "両端の多重度を相手1つ当たりの個数として読み、継承や全体・部分の関係と混同しない。"
+    },
+    {
+      "id": "software-design-dfd",
+      "name": "データフロー図の階層性",
+      "description": "プロセスを段階的に分解し基本機能へ至る構造化分析。",
+      "prerequisite": false,
+      "studyAdvice": "データの流れとプロセスの分解を説明し、データ辞書やUMLとは別の図の役割を整理する。"
+    },
+    {
+      "id": "software-design-encapsulation",
+      "name": "カプセル化",
+      "description": "データと操作をまとめ、実装へのアクセスを制御する考え方と利点。",
+      "prerequisite": false,
+      "studyAdvice": "クラスの内部と外部からの利用を分け、情報隠蔽が変更や整合性の維持にどう役立つかを例で説明する。"
+    }
+  ],
+  "papers": [
+    {
+      "year": 2022,
+      "sourceFile": "９．ソフトウェア設計2022.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題1の(1-1)～(1-5)、問題5の(5-1)～(5-10)は空欄の集まりとしてそれぞれ1設問に数える。",
+        "問題5は属性のデータ型不要、属性名の順序は任意。",
+        "問題6は『オブジェクト名：クラス名』で表す。オブジェクト名は任意。",
+        "字数下限・配点・試験時間の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "software-design-2022-q1",
+          "number": "1",
+          "page": 1,
+          "title": "要求と開発モデルの用語補充",
+          "summary": "要求・仕様・機能・非機能・迅速で適応的な軽量開発モデルに関する5空欄を埋める。",
+          "topics": [
+            "software-design-requirements",
+            "software-design-development-process"
+          ],
+          "family": "software-design-requirements-process-terms",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023は利害関係者と工程順序を含む10空欄に拡大。2025は利害関係者・要求・仕様・機能と反復開発に関する5空欄に戻る。"
+        },
+        {
+          "id": "software-design-2022-q2",
+          "number": "2",
+          "page": 1,
+          "title": "ウォータフォールモデル",
+          "summary": "指定6語を用いてウォータフォールモデルの概要を説明する。",
+          "topics": [
+            "software-design-development-process"
+          ],
+          "family": "software-design-waterfall-explanation",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [
+            "要求分析",
+            "テスト",
+            "要求設計",
+            "運用",
+            "実装",
+            "ソフトウェア設計"
+          ],
+          "changeNote": "2024の同型問題は『要求設計』の代わりに『要件定義』を指定する。"
+        },
+        {
+          "id": "software-design-2022-q3",
+          "number": "3",
+          "page": 1,
+          "title": "社員のデータ辞書",
+          "summary": "社員リストは社員1人以上、社員はID・氏名・所属部署・給与から構成され、給与は基本給と省略可能な残業手当を持つ。",
+          "topics": [
+            "software-design-data-dictionary"
+          ],
+          "family": "software-design-data-dictionary-construction",
+          "formats": [
+            "structured"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023は学生・履修科目・担当教員の入れ子と職位の選択に拡張される。2024は書籍、2025は履修登録の自由設計に変わる。"
+        },
+        {
+          "id": "software-design-2022-q4",
+          "number": "4",
+          "page": 1,
+          "title": "集約と合成集約",
+          "summary": "森と木、注文と注文明細を例とするクラス図を作成し、集約と合成集約の違いを説明する。解答欄は2ページにも続く。",
+          "topics": [
+            "software-design-associations",
+            "software-design-uml-classes"
+          ],
+          "family": "software-design-aggregation-composition",
+          "formats": [
+            "diagram",
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": ""
+        },
+        {
+          "id": "software-design-2022-q5",
+          "number": "5",
+          "page": 2,
+          "title": "売買シナリオのクラス図補充",
+          "summary": "2人の顧客によるパソコン・テレビ・エアコンの注文シナリオから、図中のクラス名・属性名の10空欄を埋める。図は3クラスを関連と1・*の多重度で結ぶ。データ型不要、属性名の順序は任意。",
+          "topics": [
+            "software-design-uml-classes",
+            "software-design-associations"
+          ],
+          "family": "software-design-scenario-class-model",
+          "formats": [
+            "term",
+            "diagram"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023のクラス図は授業支援システムの文章仕様から一から作成する。2024は学生と授業科目、2025は自由な具体例へと変わる。"
+        },
+        {
+          "id": "software-design-2022-q6",
+          "number": "6",
+          "page": 2,
+          "title": "売買シナリオのオブジェクト図",
+          "summary": "問題5のクラス図とシナリオに対応するオブジェクト図を作成する。各実体を『オブジェクト名：クラス名』で表し、名前は任意。",
+          "topics": [
+            "software-design-uml-objects",
+            "software-design-associations"
+          ],
+          "family": "software-design-class-to-object-model",
+          "formats": [
+            "diagram"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023もクラス図から具体的なシナリオの実体化を求める。2024は実体数と属性値の個数、2025は具体例の属性・操作条件が明示される。"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "sourceFile": "9_ソフトウェア設計2023.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題1の10空欄は番号のない一連の用語補充として1設問に数える。",
+        "問題3の決定表は4ルールの解答欄。",
+        "問題6は『オブジェクト名：クラス名』で表す。オブジェクト名は任意。",
+        "字数下限・配点・試験時間の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "software-design-2023-q1",
+          "number": "1",
+          "page": 1,
+          "title": "要求とウォーターフォールの用語補充",
+          "summary": "利害関係者、仕様、ソフトウェアとして実現する機能、トップダウンの6工程の順序とモデル名の10空欄を埋める。",
+          "topics": [
+            "software-design-requirements",
+            "software-design-development-process"
+          ],
+          "family": "software-design-requirements-process-terms",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022の5空欄に比べ、工程順序まで空欄化されている。"
+        },
+        {
+          "id": "software-design-2023-q2",
+          "number": "2",
+          "page": 1,
+          "title": "学生・履修科目・担当教員のデータ辞書",
+          "summary": "学生は学生番号・氏名・1つ以上の履修科目。履修科目は科目ID・科目名・1人以上の担当教員。担当教員のオフィスアワーは省略可能、職位は教授・准教授・助教・助手の選択。",
+          "topics": [
+            "software-design-data-dictionary"
+          ],
+          "family": "software-design-data-dictionary-construction",
+          "formats": [
+            "structured"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022の反復と省略に加えて、さらに深い階層と職位の選択がある。"
+        },
+        {
+          "id": "software-design-2023-q3",
+          "number": "3",
+          "page": 1,
+          "title": "物品購入の決定表",
+          "summary": "20万円以上では相見積もりと備品登録が必要。ただしソフトウェア費目の場合は備品登録が不要。4ルールの決定表を完成する。",
+          "topics": [
+            "software-design-decision-tables"
+          ],
+          "family": "software-design-purchasing-decision-table",
+          "formats": [
+            "structured"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024は5万円・20万円の2つの金額条件と6ルールになる。ソフトウェアの例外は2023では備品登録だけ、2024では両方の行動に適用する。"
+        },
+        {
+          "id": "software-design-2023-q4",
+          "number": "4",
+          "page": 1,
+          "title": "飲食店を例にした継承",
+          "summary": "飲食店に関するクラス階層を例として、指定4語を使いクラスの継承を説明する。",
+          "topics": [
+            "software-design-inheritance"
+          ],
+          "family": "software-design-inheritance-example",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [
+            "スーパークラス",
+            "サブクラス",
+            "属性",
+            "操作"
+          ],
+          "changeNote": "2024は学生クラスが例に変わる。2025は再び飲食店で、指定語句に汎化セットが加わる。"
+        },
+        {
+          "id": "software-design-2023-q5",
+          "number": "5",
+          "page": 2,
+          "title": "授業支援システムのクラス図",
+          "summary": "ユーザを学生・教員・職員に分類し、属性を持たせる。授業科目は10～15回のクラス、0～1回の試験、担当教員1人以上、履修学生5人以上を持つ。文章仕様からUMLクラス図を作成する。",
+          "topics": [
+            "software-design-uml-classes",
+            "software-design-inheritance",
+            "software-design-associations"
+          ],
+          "family": "software-design-scenario-class-model",
+          "formats": [
+            "diagram"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022の既存図の空欄補充より、クラス階層と複数の数の制約を自力で表現する要求が強い。"
+        },
+        {
+          "id": "software-design-2023-q6",
+          "number": "6",
+          "page": 2,
+          "title": "授業支援システムのオブジェクト図",
+          "summary": "問題5のクラス図と、学生1人が2科目を履修し同じ教員が担当するシナリオ、2回のクラス実施日・タイトルなどをオブジェクト図にする。各実体は『オブジェクト名：クラス名』で表す。",
+          "topics": [
+            "software-design-uml-objects",
+            "software-design-associations"
+          ],
+          "family": "software-design-class-to-object-model",
+          "formats": [
+            "diagram"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022は売買シナリオ、2023は履修・担当・授業実施の関係を具体化する。仕様で示される最小個数と部分シナリオの関係に注意する。"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "最小の番号付き小問1.1、1.2、2.1、2.2、3.1、3.2、3.3を7設問として数える。",
+        "決定表では条件が真Y・偽N、行動を行うX・行わない-。6ルールの欄がある。",
+        "3.3は学生と授業科目の実体をそれぞれ2つずつ、各実体に属性名・属性値の組を2つ以上記述する。",
+        "字数下限・配点・試験時間の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "software-design-2024-q1-1",
+          "number": "1.1",
+          "page": 1,
+          "title": "ウォーターフォールモデル",
+          "summary": "指定6語を使って開発工程モデルの概要を説明する。",
+          "topics": [
+            "software-design-development-process"
+          ],
+          "family": "software-design-waterfall-explanation",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [
+            "ソフトウェア設計",
+            "要求分析",
+            "テスト",
+            "要件定義",
+            "運用",
+            "実装"
+          ],
+          "changeNote": "2022と同じ説明の型だが、指定語句の『要求設計』が『要件定義』に変わる。"
+        },
+        {
+          "id": "software-design-2024-q1-2",
+          "number": "1.2",
+          "page": 1,
+          "title": "機能要件と非機能要件",
+          "summary": "機能要件と非機能要件の違いを例を挙げて説明する。",
+          "topics": [
+            "software-design-requirements"
+          ],
+          "family": "software-design-requirements-difference",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023の用語補充から、概念を区別し例を自分で考える形式へ。"
+        },
+        {
+          "id": "software-design-2024-q2-1",
+          "number": "2.1",
+          "page": 1,
+          "title": "書籍のデータ辞書",
+          "summary": "書籍は書名・著者1人以上・編集者0人以上・出版社・発売日・省略可能なサポートWebページから構成される。著者のメールアドレスも省略可能。著者と出版社の下位構造を含むデータ辞書を作成する。",
+          "topics": [
+            "software-design-data-dictionary"
+          ],
+          "family": "software-design-data-dictionary-construction",
+          "formats": [
+            "structured"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023の学生・教員から書籍へ題材変更。0人以上の反復と任意の単一要素を区別する。"
+        },
+        {
+          "id": "software-design-2024-q2-2",
+          "number": "2.2",
+          "page": 1,
+          "title": "金額の2段階条件による決定表",
+          "summary": "5万円以上では管理番号シール貼付、20万円以上では相見積書提出が必要。ソフトウェア費目なら両行動が不要。Y・N・X・-で6ルールの表を完成する。",
+          "topics": [
+            "software-design-decision-tables"
+          ],
+          "family": "software-design-purchasing-decision-table",
+          "formats": [
+            "structured"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023の20万円条件1つから5万円・20万円の2段階へ。例外が両行動に影響し、真偽3条件を独立として8列にするのではなく、金額条件の包含関係を考える。"
+        },
+        {
+          "id": "software-design-2024-q3-1",
+          "number": "3.1",
+          "page": 2,
+          "title": "学生を例にした継承",
+          "summary": "学生クラスのクラス階層を例として継承を説明する。",
+          "topics": [
+            "software-design-inheritance"
+          ],
+          "family": "software-design-inheritance-example",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023と同型だが、飲食店から学生に題材が変わる。指定語句の列挙はない。"
+        },
+        {
+          "id": "software-design-2024-q3-2",
+          "number": "3.2",
+          "page": 2,
+          "title": "関連と多重度",
+          "summary": "学生クラスと授業科目クラスを対象に、UMLクラス図の関連と多重度を説明する。",
+          "topics": [
+            "software-design-associations",
+            "software-design-uml-classes"
+          ],
+          "family": "software-design-association-multiplicity-explanation",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023の図の作成や補充に含まれていた関連・多重度が独立の説明問題として現れる。"
+        },
+        {
+          "id": "software-design-2024-q3-3",
+          "number": "3.3",
+          "page": 2,
+          "title": "学生と授業科目のクラス図・オブジェクト図",
+          "summary": "学生と授業科目のクラス図とオブジェクト図を作成する。各クラスの実体は2つずつ、各オブジェクトの属性名・属性値の組は2つ以上とする。",
+          "topics": [
+            "software-design-uml-classes",
+            "software-design-uml-objects",
+            "software-design-associations"
+          ],
+          "family": "software-design-class-to-object-model",
+          "formats": [
+            "diagram",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023のシナリオ変換から、具体的な属性と値を自分で設定する形式へ。実体数と属性値の個数が指定される。"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "sourceFile": "8. ソフトウェア設計2025.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "最小の番号付き小問1.1、2.1、2.2、3.1、3.2、3.3を6設問として数える。",
+        "2.1は学生の構成要素3つ以上、反復構造1つ以上、さらに1要素の下位構造を定義する。",
+        "3.2はクラスの属性と操作をそれぞれ1つ以上含む。",
+        "字数下限・配点・試験時間の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "software-design-2025-q1-1",
+          "number": "1.1",
+          "page": 1,
+          "title": "要求と反復開発の用語補充",
+          "summary": "利害関係者、施主が描く構想、仕様文書、ソフトウェアの機能、設計とプロトタイピングを繰り返す開発モデルに関する5空欄を埋める。",
+          "topics": [
+            "software-design-requirements",
+            "software-design-development-process"
+          ],
+          "family": "software-design-requirements-process-terms",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "ウォーターフォールの工程列挙ではなく、設計とプロトタイピングを繰り返すモデルを問う。"
+        },
+        {
+          "id": "software-design-2025-q2-1",
+          "number": "2.1",
+          "page": 1,
+          "title": "履修登録システムのデータ辞書の自由設計",
+          "summary": "学生に関するデータ構造を自分で考える。構成要素3つ以上、繰り返し1つ以上を含み、1つの構成要素をさらに定義して階層的に記述する。",
+          "topics": [
+            "software-design-data-dictionary"
+          ],
+          "family": "software-design-data-dictionary-construction",
+          "formats": [
+            "structured",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022～2024はすべて具体的な構成要素の仕様が与えられた。2025は同じ記法を使いつつ、データ構造と名前を自分で設計する。"
+        },
+        {
+          "id": "software-design-2025-q2-2",
+          "number": "2.2",
+          "page": 1,
+          "title": "データフロー図の階層性",
+          "summary": "指定2語を用いてDFDの階層性を説明する。",
+          "topics": [
+            "software-design-dfd"
+          ],
+          "family": "software-design-dfd-hierarchy",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [
+            "プロセス",
+            "基本機能"
+          ],
+          "changeNote": "担当4年度の原本ではDFDの階層性の独立した説明問題は2025で初めて確認される。"
+        },
+        {
+          "id": "software-design-2025-q3-1",
+          "number": "3.1",
+          "page": 1,
+          "title": "カプセル化",
+          "summary": "カプセル化の意味と、行うことで得られる利点を説明する。",
+          "topics": [
+            "software-design-encapsulation"
+          ],
+          "family": "software-design-encapsulation-explanation",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "担当4年度の原本では独立したカプセル化説明は2025のみ。"
+        },
+        {
+          "id": "software-design-2025-q3-2",
+          "number": "3.2",
+          "page": 2,
+          "title": "クラスとオブジェクトの説明・図示",
+          "summary": "指定2語を用いてクラスとオブジェクトを説明し、UMLのクラス図とオブジェクト図で具体例を示す。クラスの属性と操作はそれぞれ1つ以上含める。",
+          "topics": [
+            "software-design-uml-classes",
+            "software-design-uml-objects"
+          ],
+          "family": "software-design-class-to-object-model",
+          "formats": [
+            "essay",
+            "diagram",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [
+            "属性",
+            "操作"
+          ],
+          "changeNote": "2024の学生2・授業科目2の実体数条件はない。2025は図と文章の両方、そして操作を最低1つ示すことが追加される。"
+        },
+        {
+          "id": "software-design-2025-q3-3",
+          "number": "3.3",
+          "page": 2,
+          "title": "飲食店の継承と汎化セット",
+          "summary": "飲食店に関するクラス階層を例として、指定5語を使い継承を説明する。",
+          "topics": [
+            "software-design-inheritance"
+          ],
+          "family": "software-design-inheritance-example",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [
+            "スーパークラス",
+            "サブクラス",
+            "属性",
+            "操作",
+            "汎化セット"
+          ],
+          "changeNote": "2023の飲食店・指定4語の問題に、2025では汎化セットが加わる。従来の答案の再利用時に追加要件を落とさない。"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "claim": "要求・仕様・要件、開発工程、データ辞書、クラス図、オブジェクト図はいずれも4/4年度で確認できる。",
+      "evidence": [
+        "software-design-2022-q1",
+        "software-design-2022-q2",
+        "software-design-2022-q3",
+        "software-design-2022-q5",
+        "software-design-2022-q6",
+        "software-design-2023-q1",
+        "software-design-2023-q2",
+        "software-design-2023-q5",
+        "software-design-2023-q6",
+        "software-design-2024-q1-1",
+        "software-design-2024-q1-2",
+        "software-design-2024-q2-1",
+        "software-design-2024-q3-3",
+        "software-design-2025-q1-1",
+        "software-design-2025-q2-1",
+        "software-design-2025-q3-2"
+      ],
+      "interpretation": "科目内の準備の中心は、用語の理解と、文章からデータ辞書・UMLへ変換する練習。これらは重複タグであり、年度数や設問数を足し合わせた総問題数ではない。"
+    },
+    {
+      "claim": "データ辞書は4年とも出題されるが、2025では仕様を写す問題から自分でデータ構造を設計する問題へ変わる。",
+      "evidence": [
+        "software-design-2022-q3",
+        "software-design-2023-q2",
+        "software-design-2024-q2-1",
+        "software-design-2025-q2-1"
+      ],
+      "interpretation": "題材は社員、学生・履修科目・教員、書籍、履修登録の学生へ変化する。反復・省略・選択・階層の意味を理解すると題材変更に対応できる。"
+    },
+    {
+      "claim": "クラス図とオブジェクト図は毎年出題され、具体例の生成と明示条件を満たすことが次第に強く求められる。",
+      "evidence": [
+        "software-design-2022-q5",
+        "software-design-2022-q6",
+        "software-design-2023-q5",
+        "software-design-2023-q6",
+        "software-design-2024-q3-3",
+        "software-design-2025-q3-2"
+      ],
+      "interpretation": "2022は図の補充、2023は詳細仕様から作成、2024は各2実体・属性値2組以上、2025は説明と具体例・操作1つ以上。題材を覚えるよりクラスと実体の違いと記法を確実にする。"
+    },
+    {
+      "claim": "継承は3/4年度、決定表は2/4年度で確認される。2025の継承問題は2023と同じ飲食店の例に汎化セットが追加される。",
+      "evidence": [
+        "software-design-2023-q4",
+        "software-design-2023-q5",
+        "software-design-2024-q3-1",
+        "software-design-2025-q3-3",
+        "software-design-2023-q3",
+        "software-design-2024-q2-2"
+      ],
+      "interpretation": "同型問題でも指定語句や例外の適用先が変わる。出題年度比較では、再利用できる考え方と新たに満たすべき条件を別に表示する。"
+    },
+    {
+      "claim": "2025ではデータフロー図の階層性とカプセル化が独立した説明問題として現れる。",
+      "evidence": [
+        "software-design-2025-q2-2",
+        "software-design-2025-q3-1"
+      ],
+      "interpretation": "4年間の頻度だけで優先度を固定すると、最新年度で実際に問われたテーマを落とす。毎年の軸を学んだ後、直近の追加テーマを補う。"
+    }
+  ],
+  "cautions": [
+    {
+      "year": 2022,
+      "number": "2",
+      "page": 1,
+      "description": "ウォータフォールの指定語句に『要求設計』があり、2024の同型問題では『要件定義』となっている。",
+      "handling": "原文の語を保存し、学習用の標準的な工程説明と原本語句を区別する。出題用語を無断で統一しない。"
+    },
+    {
+      "year": 2022,
+      "number": "5・6",
+      "page": 2,
+      "description": "売買シナリオは複数商品を一度に注文するが、提示図は顧客と商品を3クラスで結ぶ形。中間クラスを注文全体として読むか商品の注文単位として読むかで意味が変わる。",
+      "handling": "提示図の多重度と数量・日付の対応を確認して教材を作る。図を勝手に増やして一般的な売買モデルに置き換えず、採用する中間クラスの意味を説明する。"
+    },
+    {
+      "year": 2023,
+      "number": "6",
+      "page": 2,
+      "description": "設問5では授業科目にクラス10～15回・履修学生5人以上の制約があるが、設問6のシナリオは学生1人と実施クラス2回など部分情報だけ。",
+      "handling": "後続解説では対象範囲の部分的なオブジェクト図として扱うことを明記し、記載されていない学生や授業回を原本の事実として補わない。完全なスナップショットと解釈する場合は不足情報を確認する。"
+    },
+    {
+      "year": 2024,
+      "number": "2.1",
+      "page": 1,
+      "description": "編集者の人数は0人以上と指定されるが、編集者の下位構成は指定されていない。",
+      "handling": "編集者の属性を著者と同一だと原本から断定しない。データ辞書の解説では未定義の基礎要素として扱うか、追加の仮定を明示する。"
+    },
+    {
+      "year": 2024,
+      "number": "2.2",
+      "page": 1,
+      "description": "5万円以上と20万円以上の条件は独立ではない。6列の解答表があり、『20万円以上だが5万円未満』は実現しない。",
+      "handling": "真偽3条件の8組を無条件に並べる表を模範解答にしない。2つの金額境界とソフトウェアの例外を確認し、列順の違いは意味で照合する。"
+    },
+    {
+      "year": 2025,
+      "number": "1.1",
+      "page": 1,
+      "description": "設計とプロトタイピングを繰り返す開発モデルを問うが、原本には授業中の用語定義・参照教科書が付いていない。",
+      "handling": "教材の正答語を確定する段階で講義資料のモデル名と照合する。一般論だけで反復開発の類似名称を同一視しない。"
+    },
+    {
+      "year": 2025,
+      "number": "2.1",
+      "page": 1,
+      "description": "構成要素を自由に考えるため、一意の名称や構造は与えられていない。",
+      "handling": "構成要素3つ以上、反復1つ以上、下位構造1つ以上の条件と、データの意味の整合性を確認する。"
+    },
+    {
+      "year": 2025,
+      "number": "3.2・3.3",
+      "page": 2,
+      "description": "具体例を自由に考えるため、一意の名称・値・図を決める条件がない。汎化セットは新たに指定された用語。",
+      "handling": "例示した1答案への完全一致を採点条件にしない。UMLの汎化セットの厳密な説明は後続の解説作成時に一次仕様の本文と照合する。"
+    }
+  ],
+  "siteRecommendations": [
+    "要求・開発工程、構造化分析、UML・オブジェクト指向の3まとまりから基礎を学び、対応するテーマ別過去問へ移れるようにする。",
+    "データ辞書では文中の反復・省略・選択・階層を色分けして記法と対応させ、2025の自由設計条件を確認項目にする。",
+    "決定表は2023と2024を並べ、閾値だけでなく例外がどの行動に影響するかを比較する。列の並びが違っても意味で確認できるようにする。",
+    "クラス図とオブジェクト図を同時に参照できる表示、図の拡大、属性・値・操作・多重度の確認項目を用意する。",
+    "用語補充の空欄はまとめた原設問との関係を残し、一問一答化した個数を元の設問数と混同しない。",
+    "自由設計と説明・図示には模範例と根拠の確認項目を付け、複数の妥当な図や名称を許容する。",
+    "2023と2025の飲食店の継承問題を比較し、汎化セットが追加された点を見えるようにする。"
+  ],
+  "references": [
+    {
+      "title": "OMG: UML 2.5.1（UML一次仕様の所在と正式版の確認）",
+      "url": "https://www.omg.org/spec/UML/2.5.1"
+    }
+  ],
+  "reviewedPages": [
+    {
+      "year": 2022,
+      "page": 1
+    },
+    {
+      "year": 2022,
+      "page": 2
+    },
+    {
+      "year": 2023,
+      "page": 1
+    },
+    {
+      "year": 2023,
+      "page": 2
+    },
+    {
+      "year": 2024,
+      "page": 1
+    },
+    {
+      "year": 2024,
+      "page": 2
+    },
+    {
+      "year": 2025,
+      "page": 1
+    },
+    {
+      "year": 2025,
+      "page": 2
+    }
+  ]
+}

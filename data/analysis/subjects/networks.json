@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "networks",
+  "name": "情報ネットワーク",
+  "availableYears": [
+    2024,
+    2025
+  ],
+  "prerequisites": [
+    "OSIの参照モデルとTCP/IPの層・プロトコルの役割の区別",
+    "Wi-Fi・有線LAN・IPの役割とリンク層でのアクセス制御・再送",
+    "IPv4アドレスの2進数表現、プレフィックス長、ネットワーク・ブロードキャスト・ホスト範囲",
+    "ヘッダとペイロード、層ごとの誤り検査の役割",
+    "TCPのACK、タイムアウト、輻輳ウィンドウ、フロー制御との区別",
+    "HTTPの要求・応答とステートレスの意味",
+    "2進多項式、XOR、剰余を使うCRCの計算"
+  ],
+  "answerTraits": [
+    "原本の収録は2024・2025の2年度で各8問、計16設問。2022・2023は対象科目のPDFがないため、非出題年度と断定しない。",
+    "各年度とも選択2問、IPサブネットとCRCの計算2問、残り4問は用語の列挙や理由・仕組みの短文説明。長文の字数下限や図示指定はない。",
+    "2024問2は誤りを1つ選び、2025問2は誤りをすべて選ぶ。問1のOSIの選択とは回答数の条件が異なる。",
+    "問3・問8は数値条件が変わる同型の計算。途中計算の明示指定はないが、方法を学ぶため教材では手順を示す。",
+    "配点、試験時間、採点方式、次年度への継続条件は原本に記載がない。"
+  ],
+  "preparation": "2年度で繰り返されるOSI、LANとIP、IPv4サブネット、IPの誤り検査、TCP、HTTP、CRCの7テーマをまず準備する。ただし2/2年度を将来の出題確率や長期的な安定性として扱わない。計算はプレフィックス長を見てホスト範囲を求める手順と、データ末尾にCRC長分の0を付けてXOR除算する手順を繰り返す。説明は層の役割、端点と中継の役割、損失検出と検出後の動作の違いを短く言えるようにする。2025のNATは2024のDoSと置き換わっているので両方を補う。選択問題は答えの記号を記憶せず、各選択肢の主張を独立に検討し、単一選択と複数選択の指定を読む練習を行う。",
+  "overlaps": [
+    {
+      "subjectId": "information-mathematics",
+      "knowledge": "CRCでは2進多項式と剰余を用いる。情報数学Ⅱの符号に関する計算と、誤り検出・冗長性の考え方を共有するが、CRCの具体的手順は別に準備する。"
+    },
+    {
+      "subjectId": "multimedia",
+      "knowledge": "情報をビット列として表すことと符号化の基礎。圧縮符号化と誤り検出符号では目的が違うことを明示する。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "networks-layers",
+      "name": "OSIとプロトコルの階層",
+      "description": "参照モデルの目的と、実際の通信プロトコル・標準化機関との区別。",
+      "prerequisite": true,
+      "studyAdvice": "各層の役割に加え、モデルと個別のプロトコル仕様を同一視しないことを説明する。"
+    },
+    {
+      "id": "networks-link-access",
+      "name": "Wi-Fi、有線LAN、IP",
+      "description": "接続媒体、アクセス制御、リンク層の再送とIPの役割。",
+      "prerequisite": true,
+      "studyAdvice": "媒体が変わっても上位のIP通信とリンク層の処理を分けて考え、選択肢の一部分だけで判断しない。"
+    },
+    {
+      "id": "networks-subnet",
+      "name": "IPv4サブネット",
+      "description": "プレフィックス長から付与可能なホストアドレス範囲を計算する。",
+      "prerequisite": true,
+      "studyAdvice": "ホスト部のビット数、ネットワークアドレス、ブロードキャストアドレス、付与範囲の端点を順に求める。"
+    },
+    {
+      "id": "networks-ip-checksum",
+      "name": "IPv4の誤り検査",
+      "description": "ルータが扱うIPヘッダとデータ本体、層ごとの検査範囲。",
+      "prerequisite": false,
+      "studyAdvice": "IPv4ヘッダの検査範囲と中継時の変更を説明し、データ本体の検査やIPv6と区別する。"
+    },
+    {
+      "id": "networks-tcp",
+      "name": "TCP輻輳制御",
+      "description": "損失による輻輳の検出方法と、タイムアウト後のウィンドウ操作。",
+      "prerequisite": false,
+      "studyAdvice": "検出事象、検出後の動作、cwndと受信側のrwndを分けて説明する。1という値の単位も確認する。"
+    },
+    {
+      "id": "networks-http",
+      "name": "HTTPのステートレス性",
+      "description": "要求ごとに意味を解釈できるプロトコル設計。",
+      "prerequisite": false,
+      "studyAdvice": "ステートレスの意味を要求・応答に結び付け、接続再利用やアプリケーションのセッションと混同しない。"
+    },
+    {
+      "id": "networks-dos",
+      "name": "DoS",
+      "description": "サービス提供を妨げる攻撃の目的と仕組みの説明。",
+      "prerequisite": false,
+      "studyAdvice": "攻撃が可用性に与える影響を説明する。手段を1つの具体例だけに限定しない。"
+    },
+    {
+      "id": "networks-nat",
+      "name": "NAT",
+      "description": "IPアドレス変換によって内部と外部を接続する仕組み。",
+      "prerequisite": false,
+      "studyAdvice": "変換前後のアドレスと通信方向を整理し、ポート変換を含むNAPTとの区別を確認する。"
+    },
+    {
+      "id": "networks-crc",
+      "name": "CRCと2進多項式",
+      "description": "生成多項式と送信データから3ビットの検査値を求める。",
+      "prerequisite": true,
+      "studyAdvice": "生成多項式の次数とビット表現、付加する0の個数、XOR除算の余りを確認する。実際のEthernetのCRC32と練習用CRC3を混同しない。"
+    }
+  ],
+  "papers": [
+    {
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題1は適切な記述を選択、問題2は誤った記述を1つ選択する。",
+        "問題3は133.2.205.128/25の付与可能ホスト範囲を記す。",
+        "問題8は3ビットCRCの練習。生成多項式はX^3+X+1、データは10101111。",
+        "字数下限・配点・試験時間の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "networks-2024-q1",
+          "number": "1",
+          "page": 1,
+          "title": "OSI7階層モデル",
+          "summary": "OSI参照モデルを適切に表す記述を、4つの選択肢から選ぶ。標準と参照モデル、実際のプロトコルの関係を問う。",
+          "topics": [
+            "networks-layers"
+          ],
+          "family": "networks-osi-model-selection",
+          "formats": [
+            "choice"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025は選択肢(b)の『別の機関』がIETFの明記に変わる。"
+        },
+        {
+          "id": "networks-2024-q2",
+          "number": "2",
+          "page": 1,
+          "title": "Wi-Fiと有線LANの誤り選択",
+          "summary": "Wi-Fiと有線LANでもIPを使うか、アクセス制御を行うか、Wi-Fiの送出失敗時に再送するかという3記述から誤りを1つ選ぶ。",
+          "topics": [
+            "networks-link-access"
+          ],
+          "family": "networks-lan-ip-selection",
+          "formats": [
+            "choice"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025は誤りをすべて選ぶ複数選択へ。選択肢(a)も有線LANではIPを使わないという主張に変更される。"
+        },
+        {
+          "id": "networks-2024-q3",
+          "number": "3",
+          "page": 1,
+          "title": "IPv4 /25のホスト範囲",
+          "summary": "133.2.205.128/25に接続するホストへ付与できるIPv4アドレスの範囲を求める。",
+          "topics": [
+            "networks-subnet"
+          ],
+          "family": "networks-host-address-range",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025は同じネットワークアドレスでプレフィックスが/26に変わる。ホスト部の幅と終端が変わり、2024の範囲をそのまま使えない。"
+        },
+        {
+          "id": "networks-2024-q4",
+          "number": "4",
+          "page": 1,
+          "title": "IPヘッダのみの誤り検査",
+          "summary": "IPルータではヘッダの誤り検査を行いペイロードの検査は行わない理由を記す。",
+          "topics": [
+            "networks-ip-checksum"
+          ],
+          "family": "networks-header-payload-check",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025にも同じ説明要求がある。"
+        },
+        {
+          "id": "networks-2024-q5",
+          "number": "5",
+          "page": 1,
+          "title": "TCPの輻輳検出の2方法",
+          "summary": "TCP送信者が輻輳を検出する2種類の方法を記す。",
+          "topics": [
+            "networks-tcp"
+          ],
+          "family": "networks-tcp-congestion-detection",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025は2方法の列挙ではなく、そのうち送信ウィンドウを1に戻す場合の説明を問う。"
+        },
+        {
+          "id": "networks-2024-q6",
+          "number": "6",
+          "page": 1,
+          "title": "HTTPのステートレス性",
+          "summary": "HTTPがステートレスと言われる理由を説明する。",
+          "topics": [
+            "networks-http"
+          ],
+          "family": "networks-http-stateless-explanation",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025にも同じ説明要求がある。"
+        },
+        {
+          "id": "networks-2024-q7",
+          "number": "7",
+          "page": 1,
+          "title": "DoS攻撃",
+          "summary": "DoS（Denial of Service）攻撃を説明する。",
+          "topics": [
+            "networks-dos"
+          ],
+          "family": "networks-dos-explanation",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025の問題7はNATに置き換わる。同じ番号だが同じテーマではない。"
+        },
+        {
+          "id": "networks-2024-q8",
+          "number": "8",
+          "page": 1,
+          "title": "3ビットCRC",
+          "summary": "生成多項式G(X)=X^3+X+1を使い、8ビットデータ10101111に付与する3ビットCRCを求める。実際のIEEE 802.3の32ビットCRCとは別の練習条件。",
+          "topics": [
+            "networks-crc"
+          ],
+          "family": "networks-crc-polynomial-remainder",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025は生成多項式とCRC長は同じで、データが11111111に変わる。"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題1は適切な記述を選択、問題2は誤った記述をすべて選択する。",
+        "問題3は原本画像で133.2.205.128/26と確認。抽出テキストの『/2 6』は組版による空白。",
+        "問題5は送信ウィンドウサイズを1にリセットする場合の説明。",
+        "問題8は3ビットCRC、生成多項式X^3+X+1、データ11111111。",
+        "字数下限・配点・試験時間の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "networks-2025-q1",
+          "number": "1",
+          "page": 1,
+          "title": "OSI7階層モデルとIETF",
+          "summary": "OSI参照モデルの適切な説明を4選択肢から選ぶ。選択肢(b)では実際のプロトコルの標準化機関としてIETFが明記される。",
+          "topics": [
+            "networks-layers"
+          ],
+          "family": "networks-osi-model-selection",
+          "formats": [
+            "choice"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024の『別の機関』からIETFを明記。基本的な問いの型は同じ。"
+        },
+        {
+          "id": "networks-2025-q2",
+          "number": "2",
+          "page": 1,
+          "title": "Wi-Fiと有線LANの複数選択",
+          "summary": "Wi-FiのIP使用と有線LANのIP不使用、アクセス制御、送出失敗時の再送に関する3記述から誤りをすべて選ぶ。",
+          "topics": [
+            "networks-link-access"
+          ],
+          "family": "networks-lan-ip-selection",
+          "formats": [
+            "multiple-choice"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024の単一選択から複数選択へ。選択肢(a)の主張も変わるので、前年の記号を記憶するだけでは答えられない。"
+        },
+        {
+          "id": "networks-2025-q3",
+          "number": "3",
+          "page": 1,
+          "title": "IPv4 /26のホスト範囲",
+          "summary": "133.2.205.128/26に接続するホストへ付与できるIPv4アドレス範囲を求める。",
+          "topics": [
+            "networks-subnet"
+          ],
+          "family": "networks-host-address-range",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024からプレフィックス長だけが/25→/26へ変更され、計算方法は共通だが結果の終端は変わる。"
+        },
+        {
+          "id": "networks-2025-q4",
+          "number": "4",
+          "page": 1,
+          "title": "IPヘッダのみの誤り検査",
+          "summary": "IPルータでヘッダを検査しペイロードを検査しない理由を記す。",
+          "topics": [
+            "networks-ip-checksum"
+          ],
+          "family": "networks-header-payload-check",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024と同じ要求。"
+        },
+        {
+          "id": "networks-2025-q5",
+          "number": "5",
+          "page": 1,
+          "title": "TCPのウィンドウを1に戻す場合",
+          "summary": "TCPの2種類の輻輳検出のうち、送信ウィンドウサイズを1にリセットする場合を説明する。",
+          "topics": [
+            "networks-tcp"
+          ],
+          "family": "networks-tcp-congestion-detection",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024の検出方法の列挙から、検出とその後の動作の対応付けへ。数値1の単位とcwndの意味を教材で明示する。"
+        },
+        {
+          "id": "networks-2025-q6",
+          "number": "6",
+          "page": 1,
+          "title": "HTTPのステートレス性",
+          "summary": "HTTPがステートレスと言われる理由を説明する。",
+          "topics": [
+            "networks-http"
+          ],
+          "family": "networks-http-stateless-explanation",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024と同じ要求。"
+        },
+        {
+          "id": "networks-2025-q7",
+          "number": "7",
+          "page": 1,
+          "title": "NAT",
+          "summary": "NAT（Network Address Translation）を説明する。",
+          "topics": [
+            "networks-nat"
+          ],
+          "family": "networks-nat-explanation",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024のDoSに代わる説明テーマ。2025だけの収録実績として扱う。"
+        },
+        {
+          "id": "networks-2025-q8",
+          "number": "8",
+          "page": 1,
+          "title": "3ビットCRC",
+          "summary": "生成多項式G(X)=X^3+X+1を使い、8ビットデータ11111111に付与する3ビットCRCを求める。",
+          "topics": [
+            "networks-crc"
+          ],
+          "family": "networks-crc-polynomial-remainder",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024の10101111から11111111へ。生成多項式と3ビット長は共通。"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "claim": "8つの設問位置のうち問題7以外の7つは2年度で同じテーマを扱う。OSI、LANとIP、サブネット、IP誤り検査、TCP、HTTP、CRCはいずれも2/2年度。",
+      "evidence": [
+        "networks-2024-q1",
+        "networks-2024-q2",
+        "networks-2024-q3",
+        "networks-2024-q4",
+        "networks-2024-q5",
+        "networks-2024-q6",
+        "networks-2024-q8",
+        "networks-2025-q1",
+        "networks-2025-q2",
+        "networks-2025-q3",
+        "networks-2025-q4",
+        "networks-2025-q5",
+        "networks-2025-q6",
+        "networks-2025-q8"
+      ],
+      "interpretation": "反復の多い資料だが分母は2年しかない。反復を学習順に利用し、次回も同じ構成になると断定しない。"
+    },
+    {
+      "claim": "計算2問はともに条件を変える同型問題。サブネットの/25→/26、CRCの10101111→11111111を確認できる。",
+      "evidence": [
+        "networks-2024-q3",
+        "networks-2025-q3",
+        "networks-2024-q8",
+        "networks-2025-q8"
+      ],
+      "interpretation": "値の丸暗記ではなく、ビット幅と剰余計算の手順を演習化すると教材の再利用性が高い。"
+    },
+    {
+      "claim": "問題2は2024の『誤りを1つ』から2025の『すべて』へ変わり、選択肢(a)のIPに関する主張も変わる。",
+      "evidence": [
+        "networks-2024-q2",
+        "networks-2025-q2"
+      ],
+      "interpretation": "サイトの入力形式を原本の選択条件に対応させる。回答個数の指定と各選択肢の内容を比較できる教材が必要。"
+    },
+    {
+      "claim": "TCPは2方法の名称を記す要求から、ウィンドウを1に戻す場合を説明する要求へ変わる。",
+      "evidence": [
+        "networks-2024-q5",
+        "networks-2025-q5"
+      ],
+      "interpretation": "名称を覚えるだけでなく、検出事象と検出後の動作を区別して理解する。"
+    },
+    {
+      "claim": "問題7の短文説明はDoSからNATへ入れ替わる。",
+      "evidence": [
+        "networks-2024-q7",
+        "networks-2025-q7"
+      ],
+      "interpretation": "同じ設問位置でも説明すべき概念が替わる。両者を一つの問題familyや同一テーマとして集計しない。"
+    }
+  ],
+  "cautions": [
+    {
+      "year": 2025,
+      "number": "3",
+      "page": 1,
+      "description": "抽出テキストではプレフィックスが『/2 6』に分かれるが、画像は/26。",
+      "handling": "/26で分類・演習データを作り、2や6と誤読した問題を生成しない。"
+    },
+    {
+      "year": 2024,
+      "number": "4",
+      "page": 1,
+      "description": "原本は単にIPと書くが、ヘッダチェックサムの説明はIPv4を前提とする。",
+      "handling": "教材ではIPv4の問題であることを明示し、RFC 791のヘッダ検査と区別して説明する。IPv6一般にもヘッダチェックサムがあるという解説にしない。"
+    },
+    {
+      "year": 2025,
+      "number": "4",
+      "page": 1,
+      "description": "2024と同様、IPv4のヘッダチェックサムを前提とするがバージョンは明記されない。",
+      "handling": "前提をIPv4として明示する。『ペイロードに一切の誤り検査がない』と層全体に広げず、検査の担当範囲を整理する。"
+    },
+    {
+      "year": 2024,
+      "number": "5",
+      "page": 1,
+      "description": "輻輳検出を2種類とするのは損失を基にした基本的なTCPの出題枠組み。標準にはECNなど別の通知もある。",
+      "handling": "原本の列挙要求と、現在のTCPを含む一般的な方式の説明を分ける。教材では基本的な損失検出に範囲を合わせる。"
+    },
+    {
+      "year": 2025,
+      "number": "5",
+      "page": 1,
+      "description": "『送信ウィンドウサイズを1』と書くが単位とウィンドウ変数の指定はない。",
+      "handling": "RFC 5681のタイムアウト後の輻輳ウィンドウの説明に照合し、1は1バイトではなく1セグメントを単位とする基本的な表現だと明示する。受信ウィンドウrwndと混同しない。"
+    },
+    {
+      "year": 2024,
+      "number": "8",
+      "page": 1,
+      "description": "生成多項式と3ビット長を与える練習であり、Ethernet CRC32の詳細な初期値・反転処理などは指定しない。",
+      "handling": "後続解説では基本的な多項式剰余計算の規約を明記する。実際のEthernet用ライブラリのCRC32値を正答に使わない。"
+    },
+    {
+      "year": 2025,
+      "number": "8",
+      "page": 1,
+      "description": "2024と同じ練習用3ビットCRC。データは11111111であり、10101111ではない。",
+      "handling": "原本のビット列を保持し、データ末尾への0付加とXOR除算を独立に検算する。"
+    }
+  ],
+  "siteRecommendations": [
+    "収録2年という分母を頻度の近くに表示し、2022・2023に原本がない状態を未収録として示す。",
+    "問題2では単一選択と複数選択を使い分け、問題1と同じ固定入力形式にしない。",
+    "サブネットとCRCに条件変更演習を用意する。生成した条件を原本と区別し、結果だけでなく計算手順を参照できるようにする。",
+    "TCPは検出事象とウィンドウ動作を並べて比較し、2024と2025の解答要求の差を示す。",
+    "IPヘッダとペイロード、TCPとリンク層、HTTPとアプリケーションの状態を図で分けて学べる構成にする。",
+    "短文説明は概念の役割・理由の確認項目による自己評価にし、用語の完全一致だけで判定しない。",
+    "同じ番号の問題7がDoSからNATへ変わったことを年度差分に掲載する。"
+  ],
+  "references": [
+    {
+      "title": "ITU-T X.200: OSI Basic Reference Model（参照モデルの役割）",
+      "url": "https://www.itu.int/rec/T-REC-X.200/en/"
+    },
+    {
+      "title": "IETF RFC 791: Internet Protocol（IPv4ヘッダチェックサムの検査範囲）",
+      "url": "https://datatracker.ietf.org/doc/html/rfc791"
+    },
+    {
+      "title": "IETF RFC 8200: IPv6 Specification（IPv4との前提の区別）",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8200"
+    },
+    {
+      "title": "IETF RFC 5681: TCP Congestion Control（cwnd、タイムアウト、重複ACKとECN）",
+      "url": "https://datatracker.ietf.org/doc/html/rfc5681"
+    },
+    {
+      "title": "IETF RFC 9110: HTTP Semantics（要求の独立した解釈とステートレス性）",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9110"
+    },
+    {
+      "title": "IETF RFC 3022: Traditional NAT（NATとNAPTの区別）",
+      "url": "https://datatracker.ietf.org/doc/html/rfc3022"
+    }
+  ],
+  "reviewedPages": [
+    {
+      "year": 2024,
+      "page": 1
+    },
+    {
+      "year": 2025,
+      "page": 1
+    }
+  ]
+}

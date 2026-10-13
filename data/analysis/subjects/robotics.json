@@ -1,0 +1,610 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "robotics",
+  "name": "ロボット工学",
+  "availableYears": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "prerequisites": [
+    "行列の積と逆行列、列ベクトル、三角関数、単位ベクトル",
+    "右手系、回転軸、座標系間の位置と姿勢の表現、変換する向き",
+    "同次座標、平面方程式、法線、点と平面の位置関係",
+    "関節変数・リンク寸法と、順運動学と逆運動学の違い",
+    "移動ロボットの知覚・自己位置推定・計画・行動の流れ"
+  ],
+  "answerTraits": [
+    "行列を計算・導出する要求と、図から求め方を詳しく論じる要求が混在する。",
+    "式と図は出題条件の一部で、座標軸の方向・機構・輪配置・変換の向きを読み取る必要がある。",
+    "2023年の基準制御方式は六つの番号付き構成要素をそれぞれ説明する。",
+    "全年度に別ページの解答用紙があるが、追加設問として数えない。"
+  ],
+  "preparation": "回転・同次変換と座標系の扱いを最優先にする。具体的な問いは変わるが、回転や座標変換を明示的に使う設問が4/4年度にある。リンク変換は図の取り方に合った順序で組み立て、標準DHと修正DHを混同しない。次に、マニピュレータの順運動学と逆運動学（2022年・2025年の2/4年度）、平面の同次表現と位置判定（2024年・2025年の2/4年度）を学ぶ。2023年だけの移動ロボット制御構成と全方位3輪の運動学も学習対象に残す。『同次変換が毎年』は同一問題の反復を意味せず、数値の暗記より図から式へ変換する力が必要。",
+  "overlaps": [
+    {
+      "subjectId": "digital-media",
+      "knowledge": "回転行列、座標変換、行列を用いて図形や位置を表す基礎。"
+    },
+    {
+      "subjectId": "mathematical-modeling",
+      "knowledge": "線形代数、逆行列、幾何モデルから数式を導出して条件を代入する方法。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "robotics-coordinate-transform",
+      "name": "回転と座標変換",
+      "description": "軸回り回転、ZYZオイラー変換、同次変換、リンク座標系間の変換と行列積の順序。",
+      "prerequisite": true,
+      "studyAdvice": "どの座標系からどの座標系を見る行列かを明記し、図の軸に沿って回転・並進を組み立てる。"
+    },
+    {
+      "id": "robotics-manipulator-kinematics",
+      "name": "マニピュレータの運動学",
+      "description": "ひじ型と水平多関節型の順運動学、逆運動学、リンク変換の積と位置・姿勢の対応。",
+      "prerequisite": false,
+      "studyAdvice": "関節変数から手先を求める方向と、その逆を区別する。逆解では到達可能性、複数解、特異な姿勢や可動域を確認する。"
+    },
+    {
+      "id": "robotics-homogeneous-geometry",
+      "name": "平面の同次表現と幾何判定",
+      "description": "Pv=0、平面の方程式、法線、原点からの距離、平面の手前の頂点の判定。",
+      "prerequisite": false,
+      "studyAdvice": "点と平面の表現を分け、有限点のw=1と法線の正規化、原点と点の半空間の符号を確認する。"
+    },
+    {
+      "id": "robotics-mobile-kinematics",
+      "name": "全方位移動ロボットの運動学",
+      "description": "各車輪の転がり拘束式を重ねて速度関係を求め、車輪速度から機体の移動速度と回転角速度を計算する。",
+      "prerequisite": false,
+      "studyAdvice": "車輪数・α・β・半径と機体座標系を図から拾い、与えられたR(θ)の向きに合わせて式を導出する。"
+    },
+    {
+      "id": "robotics-navigation",
+      "name": "移動ロボットの制御構成",
+      "description": "センシング、情報の抽出と解釈、自己位置推定と地図構築、経路計画、経路実行、作用の六つの役割。",
+      "prerequisite": false,
+      "studyAdvice": "英語名を訳すだけでなく、入力する情報、出力する情報、実世界とのループを説明する。"
+    }
+  ],
+  "papers": [
+    {
+      "year": 2022,
+      "sourceFile": "８．ロボット工学2022.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題用紙1ページと解答用紙1ページを収録。解答用紙は設問として数えない。",
+        "可視原本には配点・最低文字数・回答言語の明示指定なし。"
+      ],
+      "questions": [
+        {
+          "id": "robotics-2022-q1",
+          "number": "【問１】",
+          "page": 1,
+          "title": "軸回り回転とZYZオイラー変換",
+          "summary": "単位軸kr=(kx,ky,kz)^Tの回転変換とversθ=1−cosθを与え、Rot(x,θ),Rot(y,θ),Rot(z,θ)を求める。続けてEuler(φ,θ,ψ)=Rot(z,φ)Rot(y,θ)Rot(z,ψ)を計算する。明示的な小問番号はないため1設問。",
+          "topics": [
+            "robotics-coordinate-transform"
+          ],
+          "family": "robotics-axis-euler-transform",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年は回転と並進を組み合わせるリンク変換、2025年は具体的ロボットのA行列へ展開。"
+        },
+        {
+          "id": "robotics-2022-q2",
+          "number": "【問２】",
+          "page": 1,
+          "title": "ひじ型マニピュレータの運動学",
+          "summary": "図1のひじ型マニピュレータについて運動学解と逆運動学解の求め方を詳しく説明する。図にはz0〜z6の関節軸とa2,a3,a4のリンク寸法がある。",
+          "topics": [
+            "robotics-coordinate-transform",
+            "robotics-manipulator-kinematics"
+          ],
+          "family": "robotics-manipulator-forward-inverse",
+          "formats": [
+            "essay",
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025年は水平多関節型に機構が変わり、リンクA行列の計算と逆運動学の議論を別小問で要求。"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題用紙1ページと解答用紙1ページを収録。解答用紙は設問として数えない。",
+        "可視原本には配点・最低文字数・回答言語の明示指定なし。"
+      ],
+      "questions": [
+        {
+          "id": "robotics-2023-q1-1",
+          "number": "【問１】(1)",
+          "page": 1,
+          "title": "Sensingの役割",
+          "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(1) Sensingの役割を説明する。実世界から取得する情報とセンサの役割を、図1のRaw Dataへの流れに対応させて説明する。",
+          "topics": [
+            "robotics-navigation"
+          ],
+          "family": "robotics-mobile-control-architecture",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。"
+        },
+        {
+          "id": "robotics-2023-q1-2",
+          "number": "【問１】(2)",
+          "page": 1,
+          "title": "Information Extraction and Interpretationの役割",
+          "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(2) Information Extraction and Interpretationの役割を説明する。生のセンサ情報から情報を取り出し解釈する役割を、図1のEnvironment Model/Local Mapへの流れに対応させて説明する。",
+          "topics": [
+            "robotics-navigation"
+          ],
+          "family": "robotics-mobile-control-architecture",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。"
+        },
+        {
+          "id": "robotics-2023-q1-3",
+          "number": "【問１】(3)",
+          "page": 1,
+          "title": "Localization Map Buildingの役割",
+          "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(3) Localization Map Buildingの役割を説明する。自己位置推定と地図構築の役割を、図1のPosition/Global Mapや知識データベースとの関係に対応させて説明する。",
+          "topics": [
+            "robotics-navigation"
+          ],
+          "family": "robotics-mobile-control-architecture",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。"
+        },
+        {
+          "id": "robotics-2023-q1-4",
+          "number": "【問１】(4)",
+          "page": 1,
+          "title": "Cognition Path Planningの役割",
+          "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(4) Cognition Path Planningの役割を説明する。目標や命令と位置・地図を受けて経路を計画する役割を、図1のPathへの流れに対応させて説明する。",
+          "topics": [
+            "robotics-navigation"
+          ],
+          "family": "robotics-mobile-control-architecture",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。"
+        },
+        {
+          "id": "robotics-2023-q1-5",
+          "number": "【問１】(5)",
+          "page": 1,
+          "title": "Path Executionの役割",
+          "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(5) Path Executionの役割を説明する。計画された経路の実行の役割を、図1のActuator Commandsへの流れに対応させて説明する。",
+          "topics": [
+            "robotics-navigation"
+          ],
+          "family": "robotics-mobile-control-architecture",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。"
+        },
+        {
+          "id": "robotics-2023-q1-6",
+          "number": "【問１】(6)",
+          "page": 1,
+          "title": "Actingの役割",
+          "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(6) Actingの役割を説明する。アクチュエータ等が実世界へ作用する役割を、図1のReal World/Environmentへの流れに対応させて説明する。",
+          "topics": [
+            "robotics-navigation"
+          ],
+          "family": "robotics-mobile-control-architecture",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。"
+        },
+        {
+          "id": "robotics-2023-q2-1",
+          "number": "【問２】(1)",
+          "page": 1,
+          "title": "全方位3輪の速度方程式の導出",
+          "summary": "図2の3輪配置と転がり拘束式から運動学方程式を導出する。α1=π/3,α2=π,α3=−π/3、β1=β2=β3=0。R(θ)=[cosθ,sinθ,0;−sinθ,cosθ,0;0,0,1]と、機体位置・姿勢の速度ベクトル、車輪速度ベクトルを与える。",
+          "topics": [
+            "robotics-mobile-kinematics",
+            "robotics-coordinate-transform"
+          ],
+          "family": "robotics-omniwheel-velocity",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "この機構は収録4年度中2023年のみ。式の構成と変換向きを図から導出する。"
+        },
+        {
+          "id": "robotics-2023-q2-2",
+          "number": "【問２】(2)",
+          "page": 1,
+          "title": "車輪速度から機体速度の計算",
+          "summary": "l=1、ri=1（i=1,2,3）、θ=0、φ̇1=4,φ̇2=1,φ̇3=2を(1)で導出した式へ代入し、移動速度と回転角速度を求める。",
+          "topics": [
+            "robotics-mobile-kinematics",
+            "robotics-coordinate-transform"
+          ],
+          "family": "robotics-omniwheel-velocity",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "導出した式を具体的な条件で適用する小問。2025年はマニピュレータへ対象が変わる。"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "sourceFile": "7_ロボット工学_2024.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題用紙1ページと解答用紙1ページを収録。解答用紙は設問として数えない。",
+        "可視原本には配点・最低文字数・回答言語の明示指定なし。"
+      ],
+      "questions": [
+        {
+          "id": "robotics-2024-q1-1",
+          "number": "【問１】（１）",
+          "page": 1,
+          "title": "平面方程式の導出",
+          "summary": "平面P=(a,b,c,d)、平面上の点の同次位置v=(x,y,z,w)^Tを与え、Pv=0から平面の方程式を導く。",
+          "topics": [
+            "robotics-homogeneous-geometry"
+          ],
+          "family": "robotics-plane-representation",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025年は具体的平面と立方体頂点による位置関係の判定へ変わる。"
+        },
+        {
+          "id": "robotics-2024-q1-2",
+          "number": "【問１】（２）",
+          "page": 1,
+          "title": "平面の単位法線",
+          "summary": "同じ平面Pに直交する単位ベクトルnを求める。",
+          "topics": [
+            "robotics-homogeneous-geometry"
+          ],
+          "family": "robotics-plane-normal-distance",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "平面の係数と法線の関係、正規化を問う。"
+        },
+        {
+          "id": "robotics-2024-q1-3",
+          "number": "【問１】（３）",
+          "page": 1,
+          "title": "原点と平面の距離",
+          "summary": "基準座標系Σ0の原点Oから平面Pへ下ろした垂線の長さlを求める。",
+          "topics": [
+            "robotics-homogeneous-geometry"
+          ],
+          "family": "robotics-plane-normal-distance",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025年の手前の頂点判定とは、求める幾何量が異なる。"
+        },
+        {
+          "id": "robotics-2024-q2",
+          "number": "【問２】",
+          "page": 1,
+          "title": "リンク座標系間の同次変換",
+          "summary": "図2の回転関節を介したΣi−1とΣiから、Σi−1から見たΣiの位置・姿勢を表す同次変換行列を並進・回転行列の積で求める。図にはai−1,αi−1,di,θiおよびai,αiがある。",
+          "topics": [
+            "robotics-coordinate-transform"
+          ],
+          "family": "robotics-link-transform",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年の純回転の積から、図で指定されたリンク座標系の回転と並進へ。2025年は各A行列を具体的機構で求める。"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "sourceFile": "7. ロボット工学2025.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題用紙1ページと解答用紙1ページを収録。解答用紙は設問として数えない。",
+        "可視原本には配点・最低文字数・回答言語の明示指定なし。"
+      ],
+      "questions": [
+        {
+          "id": "robotics-2025-q1",
+          "number": "（１）",
+          "page": 1,
+          "title": "平面の手前にある立方体頂点",
+          "summary": "図1の立方体の8頂点P1〜P8と平面R=(0,0.5,0,−1)について、基準座標系Σ0の原点Oから見て平面Rの手前にある点をすべて挙げ、計算で根拠を示す。図のy座標は1と3、x,zは±1の表示。",
+          "topics": [
+            "robotics-homogeneous-geometry"
+          ],
+          "family": "robotics-plane-side-classification",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年の一般平面の方程式・法線・距離から、図中頂点の半空間判定へ変化。"
+        },
+        {
+          "id": "robotics-2025-q2",
+          "number": "（２）",
+          "page": 1,
+          "title": "水平多関節型のA行列",
+          "summary": "図2の水平多関節型ロボットの各座標系のA行列を計算する。Aiは第(i−1)座標系から見た第i座標系の位置・姿勢。図はLa,Lb、θ1,θ2,d3,θ4を持つ4関節で、z0,z1,z2は上向き、z3,z4は下向き。",
+          "topics": [
+            "robotics-coordinate-transform",
+            "robotics-manipulator-kinematics"
+          ],
+          "family": "robotics-link-transform",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年の一般的なリンク変換から、軸方向が変わる具体的4関節ロボットへ。"
+        },
+        {
+          "id": "robotics-2025-q3",
+          "number": "（３）",
+          "page": 1,
+          "title": "水平多関節型の逆運動学",
+          "summary": "図2の逆運動学解の求め方を、原文のT6=A1A2A3A4と、回転成分n,o,aおよび位置成分pを持つ4×4行列を用いて論じる。",
+          "topics": [
+            "robotics-coordinate-transform",
+            "robotics-manipulator-kinematics"
+          ],
+          "family": "robotics-manipulator-forward-inverse",
+          "formats": [
+            "essay",
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年のひじ型から水平多関節型へ変わり、4リンク積が与えられる。T6の添字はリンク数と不整合。"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "claim": "回転・座標変換を明示的に使う設問が4/4年度にある。",
+      "evidence": [
+        "robotics-2022-q1",
+        "robotics-2022-q2",
+        "robotics-2023-q2-1",
+        "robotics-2023-q2-2",
+        "robotics-2024-q2",
+        "robotics-2025-q2",
+        "robotics-2025-q3"
+      ],
+      "interpretation": "共通する前提は行列、回転軸、座標系と変換の向き。同じ機構・同じ行列を毎年繰り返すという意味ではない。"
+    },
+    {
+      "claim": "マニピュレータの順運動学と逆運動学は2/4年度。",
+      "evidence": [
+        "robotics-2022-q2",
+        "robotics-2025-q2",
+        "robotics-2025-q3"
+      ],
+      "interpretation": "2022年はひじ型、2025年は水平多関節型。リンク寸法と関節変数から位置・姿勢を求め、逆方向で何を求めるか説明する共通の流れを学ぶ。"
+    },
+    {
+      "claim": "平面の同次表現は2/4年度で、2024年から2025年に要求が変化。",
+      "evidence": [
+        "robotics-2024-q1-1",
+        "robotics-2024-q1-2",
+        "robotics-2024-q1-3",
+        "robotics-2025-q1"
+      ],
+      "interpretation": "2024年は一般式・法線・距離、2025年は具体的平面と頂点の位置判定。係数への代入と幾何的解釈を結び付ける。"
+    },
+    {
+      "claim": "隣接リンクの変換を求める型は2/4年度。",
+      "evidence": [
+        "robotics-2024-q2",
+        "robotics-2025-q2"
+      ],
+      "interpretation": "図の座標系を出発点にする問題群。DH表や変換式の暗記だけでは、軸やリンク添字の違いに対応しにくい。"
+    },
+    {
+      "claim": "移動ロボットの制御構成と全方位3輪の運動学は2023年のみ（各1/4年度）。",
+      "evidence": [
+        "robotics-2023-q1-1",
+        "robotics-2023-q1-2",
+        "robotics-2023-q1-3",
+        "robotics-2023-q1-4",
+        "robotics-2023-q1-5",
+        "robotics-2023-q1-6",
+        "robotics-2023-q2-1",
+        "robotics-2023-q2-2"
+      ],
+      "interpretation": "単年テーマも無視せず、マニピュレータと区別して整理する。番号付き役割を6設問に分けても、テーマの年度頻度は1年度。"
+    }
+  ],
+  "cautions": [
+    {
+      "year": 2022,
+      "number": "【問１】",
+      "page": 1,
+      "description": "Euler(φ,θ,ψ)は原文でZ→Y→Zの積を指定。一般的なXYZのロール・ピッチ・ヨーや別の回転順序と交換できない。",
+      "handling": "ZYZの順序と列ベクトルへの作用順を問題ごとに明示し、三つの変換の積を原本どおりに保持する。"
+    },
+    {
+      "year": 2022,
+      "number": "【問２】",
+      "page": 1,
+      "description": "図では主にz軸とリンク寸法a2,a3,a4を示し、全てのリンクのx,y軸、ゼロ姿勢、寸法表を明示していない。",
+      "handling": "求め方を説明する問題として扱い、具体的なA行列・逆解の答案を作る段階では座標系の取り方と採用する仮定を明示し、講義の規約を確認する。"
+    },
+    {
+      "year": 2023,
+      "number": "【問２】(1)",
+      "page": 1,
+      "description": "本文は『メカナムホィール』と呼ぶが、原本図と式は3輪、α=(π/3,π,−π/3)、β=0の配置。一般的な4輪メカナムの式をそのまま使うと、行列のサイズも角度も一致しない。",
+      "handling": "名称だけでモデルを選ばず、原本の3輪配置・拘束式・角度を優先する。一般的なオムニホイールとメカナムの相違は別の説明として確認する。"
+    },
+    {
+      "year": 2023,
+      "number": "【問２】(1)",
+      "page": 1,
+      "description": "R(θ)の2×2部分は[cosθ,sinθ;−sinθ,cosθ]で、よく使う能動回転の符号配置とは逆。式(2)ではR(θ)の逆行列を使う。",
+      "handling": "世界座標系と機体座標系のどちらへ変換する式かを明示し、独自の回転式へ無断置換しない。"
+    },
+    {
+      "year": 2024,
+      "number": "【問１】（１）",
+      "page": 1,
+      "description": "同次点はwを含むが、通常のユークリッド座標の方程式へ移すための有限点の正規化条件を問題文で明示しない。法線には(a,b,c)が零でない条件が必要。",
+      "handling": "一般形ax+by+cz+dw=0を保持し、w=1の有限点として扱う条件と正規化を解説時に明示する。"
+    },
+    {
+      "year": 2024,
+      "number": "【問２】",
+      "page": 1,
+      "description": "図はai−1とαi−1を前リンクに置き、diとθiを現在の関節軸に置く。標準DHと修正DHでは変換順が異なる。",
+      "handling": "図の座標系に合う修正DHの形を候補として確認し、同じx軸の並進と回転を含む順序、続くz軸変換、添字と変換方向を照合する。解説時は採用規約を明示する。"
+    },
+    {
+      "year": 2025,
+      "number": "（２）",
+      "page": 1,
+      "description": "z3,z4は下向きで、z0,z1,z2の上向きと逆。水平位置だけを使った2次元回転の式では手先姿勢を表せない。",
+      "handling": "図の軸の反転とd3の正方向を明示し、A行列の回転部・並進部とゼロ姿勢を照合してから教材化する。"
+    },
+    {
+      "year": 2025,
+      "number": "（３）",
+      "page": 1,
+      "description": "原文はT6=A1A2A3A4と記載するが、図は4関節、積も四つのA行列。添字6は図と積のリンク数に整合しない。",
+      "handling": "T6の表記を原文として残し、A5,A6を勝手に補完しない。0から4までの四つの変換の積を扱う仮定を解説で明示し、講義資料を確認する。"
+    }
+  ],
+  "siteRecommendations": [
+    "図を拡大し、各座標軸・関節変数・リンク寸法・変換の向きを問題文と対応させる。",
+    "回転と並進の積を順に追い、同じ数式でも基準座標系と機体座標系で意味が変わることを説明する。",
+    "2024年のリンク図と2025年の4関節図を別の教材として扱い、採用するDH規約と軸反転を表示する。",
+    "順運動学から逆運動学へ進む段階を分け、位置・姿勢、到達可能性、複数解、関節範囲を自己評価の確認項目にする。",
+    "2023年の3輪の角度を一覧にし、拘束式→行列→逆変換→具体値代入を追える構成にする。",
+    "平面を原点と頂点の半空間の符号と結び付けて表示し、方程式、法線、距離、位置判定を関連付ける。",
+    "解答用紙を設問に重複計上せず、原文のT6等の表記疑義は問題の近くに注記する。"
+  ],
+  "references": [
+    {
+      "title": "Kevin M. Lynch and Frank C. Park, Modern Robotics 3.3.1: Homogeneous Transformation Matrices",
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/3-3-1-homogeneous-transformation-matrices/"
+    },
+    {
+      "title": "Modern Robotics 13.2: Omnidirectional Wheeled Mobile Robots, Part 1",
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/13-2-omnidirectional-wheeled-mobile-robots-part-1-of-2/"
+    },
+    {
+      "title": "Modern Robotics, Inverse Kinematics of Open Chains",
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/inverse-kinematics-of-open-chains/"
+    },
+    {
+      "title": "Peter Corke and Jesse Haviland, Robotics Toolbox DHLink source documentation: standard and modified DH transforms",
+      "url": "https://petercorke.github.io/robotics-toolbox-python/_modules/roboticstoolbox/robot/DHLink.html"
+    }
+  ],
+  "reviewedPages": [
+    {
+      "year": 2022,
+      "page": 1
+    },
+    {
+      "year": 2022,
+      "page": 2
+    },
+    {
+      "year": 2023,
+      "page": 1
+    },
+    {
+      "year": 2023,
+      "page": 2
+    },
+    {
+      "year": 2024,
+      "page": 1
+    },
+    {
+      "year": 2024,
+      "page": 2
+    },
+    {
+      "year": 2025,
+      "page": 1
+    },
+    {
+      "year": 2025,
+      "page": 2
+    }
+  ]
+}

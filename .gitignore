@@ -1,0 +1,9 @@
+work/
+tmp/
+node_modules/
+dist/
+__pycache__/
+*.pyc
+*.zip
+*.pdf
+.DS_Store

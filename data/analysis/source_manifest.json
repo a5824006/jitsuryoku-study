@@ -1,0 +1,262 @@
+{
+  "archive": "実力試験過去問（2022～2025年）.zip",
+  "archiveSha256": "99feeb1eec4746e93a0f83b0532fef1e450d954b697b90971d7275c69378d58b",
+  "papers": [
+    {
+      "id": "digital-media-2022",
+      "subjectId": "digital-media",
+      "year": 2022,
+      "file": "４．デジタルメディア設計2022.pdf",
+      "sha256": "25055fe086f6bf5f6f2a67e0ac80f8cce27fbffa5c810fa777f246074deb0f43",
+      "pageCount": 1
+    },
+    {
+      "id": "digital-media-2023",
+      "subjectId": "digital-media",
+      "year": 2023,
+      "file": "4_デジタルメディア設計2023.pdf",
+      "sha256": "87af4dbcdf429783655f6f90b2778167191f7e55dcadb68559a68afb8f4b4550",
+      "pageCount": 1
+    },
+    {
+      "id": "digital-media-2024",
+      "subjectId": "digital-media",
+      "year": 2024,
+      "file": "3_デジタルメディア設計_2024.pdf",
+      "sha256": "74edd05f01571bcf1075767f489a3bee85be10b6de0cadde608e65755b0d8894",
+      "pageCount": 1
+    },
+    {
+      "id": "digital-media-2025",
+      "subjectId": "digital-media",
+      "year": 2025,
+      "file": "4. デジタルメディア設計2025.pdf",
+      "sha256": "bb1b5ea79b44c0d0122b316f4ddf6a0af8c86d87cf0454cf5c9e7db763d0e5e7",
+      "pageCount": 1
+    },
+    {
+      "id": "dsa-2022",
+      "subjectId": "dsa",
+      "year": 2022,
+      "file": "２．データ構造とアルゴリズム2022.pdf",
+      "sha256": "ae5e50072b21d816bf8b74acfea1c79df474bf106f0c660f380c197b33598cc7",
+      "pageCount": 1
+    },
+    {
+      "id": "dsa-2023",
+      "subjectId": "dsa",
+      "year": 2023,
+      "file": "2_データ構造とアルゴリズム2023.pdf",
+      "sha256": "62299b9ca1bbdf163a06a899b49b3286a7f7910f39c10c6de7df5e71dbd405ab",
+      "pageCount": 1
+    },
+    {
+      "id": "dsa-2024",
+      "subjectId": "dsa",
+      "year": 2024,
+      "file": "2_データ構造とアルゴリズム_2024.pdf",
+      "sha256": "5769750927f6c38774f9b364533bcdccd97142e7478ae52269cd2bc0ea02140e",
+      "pageCount": 1
+    },
+    {
+      "id": "dsa-2025",
+      "subjectId": "dsa",
+      "year": 2025,
+      "file": "2. データ構造とアルゴリズム2025.pdf",
+      "sha256": "cd4e1b6f86bf86a1d56889f5ac876beee1166b69ab02b09a9ee6dc568c77a7b9",
+      "pageCount": 1
+    },
+    {
+      "id": "hci-2022",
+      "subjectId": "hci",
+      "year": 2022,
+      "file": "６．ヒューマンコンピュータインタラクション2022.pdf",
+      "sha256": "cdd67384635386b223c04b95f7a52627167dd944b63bd950c5d3f970f22ff434",
+      "pageCount": 1
+    },
+    {
+      "id": "hci-2023",
+      "subjectId": "hci",
+      "year": 2023,
+      "file": "6_ヒューマンコンピュータインタラクション2023.pdf",
+      "sha256": "14e613244334028d14359c0272745c36a9e5dd27123d79c8c0bf95445949cf1c",
+      "pageCount": 1
+    },
+    {
+      "id": "hci-2024",
+      "subjectId": "hci",
+      "year": 2024,
+      "file": "5_ヒューマンコンピュータインタラクション_2024.pdf",
+      "sha256": "2c4377e14af1d95630b8c14202e953458f7245a3b6a1e3ee80b839edf4d8c018",
+      "pageCount": 1
+    },
+    {
+      "id": "hci-2025",
+      "subjectId": "hci",
+      "year": 2025,
+      "file": "6. ヒューマンコンピュータインタラクション2025.pdf",
+      "sha256": "e4cae76eace9577be18e7270155d8165cac3062922cf6572db0bfb2e28606b9a",
+      "pageCount": 2
+    },
+    {
+      "id": "information-mathematics-2022",
+      "subjectId": "information-mathematics",
+      "year": 2022,
+      "file": "７．情報数学II2022.pdf",
+      "sha256": "b89e8053d2fb5fcefc17961eb4a5cbe651b4f90b69c807f49375a22fe2fcf351",
+      "pageCount": 1
+    },
+    {
+      "id": "information-mathematics-2023",
+      "subjectId": "information-mathematics",
+      "year": 2023,
+      "file": "7_情報数学II2023.pdf",
+      "sha256": "9a4b4f45e17c5b4879b74d98d2e63d606fcda7094701822a72cb89ed77063ea1",
+      "pageCount": 1
+    },
+    {
+      "id": "information-mathematics-2024",
+      "subjectId": "information-mathematics",
+      "year": 2024,
+      "file": "6_情報数学II_2024.pdf",
+      "sha256": "bf367a8d1aa1a49823efbd6655b235fcb3f982184bb79db55bae3b2aced9edbb",
+      "pageCount": 1
+    },
+    {
+      "id": "mathematical-modeling-2022",
+      "subjectId": "mathematical-modeling",
+      "year": 2022,
+      "file": "５．数理モデル解析法2022.pdf",
+      "sha256": "6a1926356e9ea14bbd7a66166ec691c48c9271788634f27cc5585b2268c899bd",
+      "pageCount": 1
+    },
+    {
+      "id": "mathematical-modeling-2023",
+      "subjectId": "mathematical-modeling",
+      "year": 2023,
+      "file": "5_数理モデル解析法2023.pdf",
+      "sha256": "339ad979dfa8bef60007910494dd5cca8e097a71144d78d9d92faefa5ca38a40",
+      "pageCount": 1
+    },
+    {
+      "id": "mathematical-modeling-2024",
+      "subjectId": "mathematical-modeling",
+      "year": 2024,
+      "file": "4_数理モデル解析法_2024.pdf",
+      "sha256": "403e64011aaa998b6fccba613cc588beabc931d9122c041e5bee8c4e427613c5",
+      "pageCount": 1
+    },
+    {
+      "id": "mathematical-modeling-2025",
+      "subjectId": "mathematical-modeling",
+      "year": 2025,
+      "file": "5. 数理モデル解析法2025.pdf",
+      "sha256": "9ddb703c16ace68c685401423c7032fb66e04b36e24da8c2f1bbdfd189eb674a",
+      "pageCount": 1
+    },
+    {
+      "id": "multimedia-2022",
+      "subjectId": "multimedia",
+      "year": 2022,
+      "file": "３．マルチメディア工学2022.pdf",
+      "sha256": "a829d4275f632180749d5d6bac0201de868826c0fffc51eb6f70ef2fda8edefd",
+      "pageCount": 2
+    },
+    {
+      "id": "multimedia-2023",
+      "subjectId": "multimedia",
+      "year": 2023,
+      "file": "3_マルチメディア工学2023.pdf",
+      "sha256": "126837f63856450a8848a802d194e5ded49e39cb368eb3ceabea59cea8c5dc63",
+      "pageCount": 2
+    },
+    {
+      "id": "multimedia-2025",
+      "subjectId": "multimedia",
+      "year": 2025,
+      "file": "3. マルチメディア2025.pdf",
+      "sha256": "0c0be42b46505eaf00b846b8c42d6a59b6b6da00586ac2b06d9188f1b7e709fa",
+      "pageCount": 2
+    },
+    {
+      "id": "networks-2024",
+      "subjectId": "networks",
+      "year": 2024,
+      "file": "1_情報ネットワーク_2024.pdf",
+      "sha256": "0db8cee5741fef5531133ed364422fe6cb39e9c3c8aaed94f69b67ac83fea2cf",
+      "pageCount": 1
+    },
+    {
+      "id": "networks-2025",
+      "subjectId": "networks",
+      "year": 2025,
+      "file": "1. 情報ネットワーク2025.pdf",
+      "sha256": "311c069b2f16f6972b456f7d1f75159d643c3cb1dac27bc8934d91209fdef8bd",
+      "pageCount": 1
+    },
+    {
+      "id": "robotics-2022",
+      "subjectId": "robotics",
+      "year": 2022,
+      "file": "８．ロボット工学2022.pdf",
+      "sha256": "e75133b56d4294f56d7524f50801e48fefb9ef80cda25209f5db9aa35d4ea3bc",
+      "pageCount": 2
+    },
+    {
+      "id": "robotics-2023",
+      "subjectId": "robotics",
+      "year": 2023,
+      "file": "8_ロボット工学2023.pdf",
+      "sha256": "26c31f2915c31ba74b4071d05b4bbe4396aa70c86971392b981be0fc8e143e63",
+      "pageCount": 2
+    },
+    {
+      "id": "robotics-2024",
+      "subjectId": "robotics",
+      "year": 2024,
+      "file": "7_ロボット工学_2024.pdf",
+      "sha256": "ad0a3019c8a6b9a268616901a491c7364d19a6dc17f016adeb660df44f87f97d",
+      "pageCount": 2
+    },
+    {
+      "id": "robotics-2025",
+      "subjectId": "robotics",
+      "year": 2025,
+      "file": "7. ロボット工学2025.pdf",
+      "sha256": "7456854ea5cd885bc02c17c16c92f010514b168377be8f35c548ad39b29b8f4c",
+      "pageCount": 2
+    },
+    {
+      "id": "software-design-2022",
+      "subjectId": "software-design",
+      "year": 2022,
+      "file": "９．ソフトウェア設計2022.pdf",
+      "sha256": "7bd277f52003fa16771374b24d880eca05d10043cf824d89930354cebc795fc6",
+      "pageCount": 2
+    },
+    {
+      "id": "software-design-2023",
+      "subjectId": "software-design",
+      "year": 2023,
+      "file": "9_ソフトウェア設計2023.pdf",
+      "sha256": "c74a24c1e5fbd87d4fb83b0ad4054063cea20219359e41b12b2c5aac70932777",
+      "pageCount": 2
+    },
+    {
+      "id": "software-design-2024",
+      "subjectId": "software-design",
+      "year": 2024,
+      "file": "8_ソフトウェア設計_2024.pdf",
+      "sha256": "77923a661896b09b741220f148b6113f919757d86e4ecf698e0fa67ad5793950",
+      "pageCount": 2
+    },
+    {
+      "id": "software-design-2025",
+      "subjectId": "software-design",
+      "year": 2025,
+      "file": "8. ソフトウェア設計2025.pdf",
+      "sha256": "3c2c31b5014dd3d6a4d5fcd8f883fbde324a8e1a0f9309699a979d8d993f0fb0",
+      "pageCount": 2
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "mathematical-modeling",
+  "name": "数理モデル解析法",
+  "availableYears": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "prerequisites": [
+    "行列・ベクトルの積と、積の順序",
+    "行列式の計算、特性多項式の因数分解、連立一次方程式",
+    "逆行列、正則行列、単位行列、転置と直交行列",
+    "行基本変形、行の入替、枢軸選択"
+  ],
+  "answerTraits": [
+    "2022・2023・2025年は5小問、2024年は4問。定義または証明から具体的な行列の計算へ進む構成。",
+    "固有値問題は特性方程式→固有値→対応する固有ベクトルという順を反復し、固有値の絶対値順を指定する。",
+    "2025年は相似変換と直交行列による変換の証明を追加。",
+    "2024年は行操作の行列表示と積の証明を経て逆行列を求める。個別配点は20・20・20・40点と明記。",
+    "最低文字数や答案の正規化（固有ベクトルの長さ）の指定はない。"
+  ],
+  "preparation": "最優先は固有値・固有ベクトルの一連の計算で、収録4年のうち3年（2022・2023・2025）に出題。行列式をλの多項式に直し、根を絶対値順に並べ、各根について連立方程式を解く流れを固定する。次に2025年の相似変換・直交行列の証明を、定義Ax=λxと行列積の順から再現する。2024年は逆行列にテーマが切り替わるため、1年だけの実績でも枢軸選択と行操作の行列表示を除外しない。原本には逆行列の積の最終段階に注意が必要で、暗記教材にする前に補足条件を確認する。",
+  "overlaps": [
+    {
+      "subjectId": "digital-media",
+      "knowledge": "線型変換、行列の積、連立一次方程式。図形変換と固有値計算は別の目的として整理する。"
+    },
+    {
+      "subjectId": "robotics",
+      "knowledge": "行列積、正則性、逆行列、直交行列。座標変換での行列の順序にもつながる。"
+    },
+    {
+      "subjectId": "information-mathematics",
+      "knowledge": "行列・連立方程式による表現。符号計算はGF(2)上であり実数上の計算と区別する。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "mathematical-modeling-eigen-definition",
+      "name": "固有値と固有ベクトルの定義",
+      "description": "Ax=λxの関係を式で表し、後続の計算・証明に用いる。",
+      "prerequisite": true,
+      "studyAdvice": "非零固有ベクトル、スカラーλ、ベクトルxの役割を区別する。"
+    },
+    {
+      "id": "mathematical-modeling-characteristic-equation",
+      "name": "固有方程式と特性方程式",
+      "description": "一般形を表し、指定行列からλの多項式を求める。",
+      "prerequisite": true,
+      "studyAdvice": "行列式の符号・単位行列の記号と原本の指定を確認し、展開から因数分解まで追う。"
+    },
+    {
+      "id": "mathematical-modeling-eigenvalues",
+      "name": "固有値の計算と絶対値順",
+      "description": "特性多項式の根を求め、指定された絶対値順に並べる。",
+      "prerequisite": false,
+      "studyAdvice": "値の大小順と絶対値順を取り違えない。重複する根は重複度も確認する。"
+    },
+    {
+      "id": "mathematical-modeling-eigenvectors",
+      "name": "固有ベクトルの計算",
+      "description": "各固有値について(A-λI)x=0の非零解を求める。",
+      "prerequisite": false,
+      "studyAdvice": "固有値とベクトルの対応を維持し、非零倍による別の表現や固有空間を扱う。"
+    },
+    {
+      "id": "mathematical-modeling-similarity",
+      "name": "相似変換と直交行列",
+      "description": "正則Mでの相似変換と、直交Mで逆行列を転置に置き換える証明。",
+      "prerequisite": false,
+      "studyAdvice": "定義を代入し、左右から掛ける行列の順序を明示して証明する。"
+    },
+    {
+      "id": "mathematical-modeling-pivot-elimination",
+      "name": "枢軸選択と行操作の行列表示",
+      "description": "行入替、スケーリング、第k列の消去をPk・Gkで表す。",
+      "prerequisite": true,
+      "studyAdvice": "操作前後の行列を分け、枢軸選択後の行位置と係数の参照先を確認する。"
+    },
+    {
+      "id": "mathematical-modeling-inverse-matrix",
+      "name": "消去法による逆行列",
+      "description": "行操作の積として逆行列を説明し、具体的な3×3行列に適用する。",
+      "prerequisite": false,
+      "studyAdvice": "全段階の消去と対角成分の正規化を追い、得た行列との積で単位行列になることを検算する。"
+    }
+  ],
+  "papers": [
+    {
+      "year": 2022,
+      "sourceFile": "５．数理モデル解析法2022.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "固有値は絶対値が大きい順に並べる。",
+        "個別配点・制限時間・最低文字数の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "mathematical-modeling-2022-q1",
+          "number": "(1)",
+          "page": 1,
+          "title": "固有値と固有ベクトルの定義",
+          "summary": "n×n行列Aの固有値λ∈Rと固有ベクトルx∈Rⁿの定義を式で表す。",
+          "topics": [
+            "mathematical-modeling-eigen-definition"
+          ],
+          "family": "mathematical-modeling-eigen-definition",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年で同じ要求。2025年は定義を用いた相似変換の証明へ拡大。"
+        },
+        {
+          "id": "mathematical-modeling-2022-q2",
+          "number": "(2)",
+          "page": 1,
+          "title": "固有方程式の一般形",
+          "summary": "λを求めるための固有方程式を、行列式|A|と単位行列Eの記法で表す。",
+          "topics": [
+            "mathematical-modeling-characteristic-equation"
+          ],
+          "family": "mathematical-modeling-characteristic-general",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年で同じ要求。"
+        },
+        {
+          "id": "mathematical-modeling-2022-q3",
+          "number": "(3)",
+          "page": 1,
+          "title": "指定行列の固有方程式",
+          "summary": "A=((0,6,3),(-2,7,2),(0,0,3))について固有方程式を求め、λの多項式の方程式で示す。",
+          "topics": [
+            "mathematical-modeling-characteristic-equation"
+          ],
+          "family": "mathematical-modeling-characteristic-numeric",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023・2025年は同じ3×3行列の特性多項式の型で、成分が変わる。"
+        },
+        {
+          "id": "mathematical-modeling-2022-q4",
+          "number": "(4)",
+          "page": 1,
+          "title": "固有値の計算と並べ替え",
+          "summary": "前問の方程式を解き、行列Aの固有値λをすべて求め、絶対値が大きい順に並べる。",
+          "topics": [
+            "mathematical-modeling-eigenvalues"
+          ],
+          "family": "mathematical-modeling-eigenvalue-solving",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023・2025年で絶対値順の指定を反復。"
+        },
+        {
+          "id": "mathematical-modeling-2022-q5",
+          "number": "(5)",
+          "page": 1,
+          "title": "対応する固有ベクトル",
+          "summary": "各固有値λに対応する固有ベクトルxを求め、固有値の絶対値が大きい順に並べる。",
+          "topics": [
+            "mathematical-modeling-eigenvectors"
+          ],
+          "family": "mathematical-modeling-eigenvector-solving",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年は同じ要求。2025年はx1,x2,x3と名付けて対応を示す。"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "sourceFile": "5_数理モデル解析法2023.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "固有値は絶対値が大きい順に並べる。",
+        "個別配点・制限時間・最低文字数の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "mathematical-modeling-2023-q1",
+          "number": "(1)",
+          "page": 1,
+          "title": "固有値と固有ベクトルの定義",
+          "summary": "n×n行列Aの固有値λ∈Rと固有ベクトルx∈Rⁿの定義を式で表す。",
+          "topics": [
+            "mathematical-modeling-eigen-definition"
+          ],
+          "family": "mathematical-modeling-eigen-definition",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年で同じ要求。2025年は定義を用いた相似変換の証明へ拡大。"
+        },
+        {
+          "id": "mathematical-modeling-2023-q2",
+          "number": "(2)",
+          "page": 1,
+          "title": "固有方程式の一般形",
+          "summary": "λを求めるための固有方程式を、行列式|A|と単位行列Eの記法で表す。",
+          "topics": [
+            "mathematical-modeling-characteristic-equation"
+          ],
+          "family": "mathematical-modeling-characteristic-general",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年で同じ要求。"
+        },
+        {
+          "id": "mathematical-modeling-2023-q3",
+          "number": "(3)",
+          "page": 1,
+          "title": "指定行列の固有方程式",
+          "summary": "A=((-1,4,4),(-2,5,7),(0,0,-2))について固有方程式を求め、λの多項式の方程式で示す。",
+          "topics": [
+            "mathematical-modeling-characteristic-equation"
+          ],
+          "family": "mathematical-modeling-characteristic-numeric",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023・2025年は同じ3×3行列の特性多項式の型で、成分が変わる。"
+        },
+        {
+          "id": "mathematical-modeling-2023-q4",
+          "number": "(4)",
+          "page": 1,
+          "title": "固有値の計算と並べ替え",
+          "summary": "前問の方程式を解き、行列Aの固有値λをすべて求め、絶対値が大きい順に並べる。",
+          "topics": [
+            "mathematical-modeling-eigenvalues"
+          ],
+          "family": "mathematical-modeling-eigenvalue-solving",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023・2025年で絶対値順の指定を反復。"
+        },
+        {
+          "id": "mathematical-modeling-2023-q5",
+          "number": "(5)",
+          "page": 1,
+          "title": "対応する固有ベクトル",
+          "summary": "各固有値λに対応する固有ベクトルxを求め、固有値の絶対値が大きい順に並べる。",
+          "topics": [
+            "mathematical-modeling-eigenvectors"
+          ],
+          "family": "mathematical-modeling-eigenvector-solving",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年は同じ要求。2025年はx1,x2,x3と名付けて対応を示す。"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "sourceFile": "4_数理モデル解析法_2024.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "問題1～4の配点は20・20・20・40点。",
+        "制限時間・最低文字数の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "mathematical-modeling-2024-q1",
+          "number": "1",
+          "page": 1,
+          "title": "入替・スケーリング・消去の行列表示",
+          "summary": "逆行列を枢軸選択付き消去法で求める。第k行と第ip行を入れ替えるPk、対角成分a(k,k)を1にスケーリングして第k列の他成分を消すGkが、図示した行列になることを証明する。",
+          "topics": [
+            "mathematical-modeling-pivot-elimination"
+          ],
+          "family": "mathematical-modeling-elementary-matrix-proof",
+          "formats": [
+            "proof"
+          ],
+          "points": 20,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "固有値問題から、行操作を左から掛ける行列として説明する問題へ切り替わる。"
+        },
+        {
+          "id": "mathematical-modeling-2024-q2",
+          "number": "2",
+          "page": 1,
+          "title": "消去行列の係数",
+          "summary": "Gkの第k列α(i,k)（i=1,…,n、i≠k）とα(k,k)を、第k-1列目の消去後の行列A^(k-1)の成分a^(k-1)(i,j)で表す。",
+          "topics": [
+            "mathematical-modeling-pivot-elimination"
+          ],
+          "family": "mathematical-modeling-elimination-coefficients",
+          "formats": [
+            "calculation"
+          ],
+          "points": 20,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "第k段階の操作を成分で追う。Pkによる入替と係数の参照先を整理する必要がある。"
+        },
+        {
+          "id": "mathematical-modeling-2024-q3",
+          "number": "3",
+          "page": 1,
+          "title": "逆行列を行操作の積で表す証明",
+          "summary": "n次正方行列Aの逆行列がG(n-1)P(n-1)…G2P2G1P1Iで表されることを証明する。Iは単位行列。",
+          "topics": [
+            "mathematical-modeling-pivot-elimination",
+            "mathematical-modeling-inverse-matrix"
+          ],
+          "family": "mathematical-modeling-inverse-product-proof",
+          "formats": [
+            "proof"
+          ],
+          "points": 20,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "原本の積の末尾段階はn-1。一般の逆行列公式として使うには後述の注意が必要。"
+        },
+        {
+          "id": "mathematical-modeling-2024-q4",
+          "number": "4",
+          "page": 1,
+          "title": "指定行列の逆行列",
+          "summary": "上記で証明した知識を使い、A=((1,2,0),(2,3,4),(0,3,-11))の逆行列を求める。",
+          "topics": [
+            "mathematical-modeling-pivot-elimination",
+            "mathematical-modeling-inverse-matrix"
+          ],
+          "family": "mathematical-modeling-inverse-numeric",
+          "formats": [
+            "calculation"
+          ],
+          "points": 40,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "証明した操作を3×3の数値行列に適用する。"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "sourceFile": "5. 数理モデル解析法2025.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "固有値は絶対値が大きい順に並べる。",
+        "個別配点・制限時間・最低文字数の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "mathematical-modeling-2025-q1",
+          "number": "(1)",
+          "page": 1,
+          "title": "相似変換の固有値・固有ベクトル",
+          "summary": "Ax=λx、正則Mに対しMAM⁻¹とM⁻¹AMの固有値がλ、対応する固有ベクトルがMx、M⁻¹xであることを証明する。x=M⁻¹yという変形を用いてよい。",
+          "topics": [
+            "mathematical-modeling-eigen-definition",
+            "mathematical-modeling-similarity"
+          ],
+          "family": "mathematical-modeling-similarity-eigen-proof",
+          "formats": [
+            "proof"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年冒頭の定義の式から、相似変換を使う証明へ変更。"
+        },
+        {
+          "id": "mathematical-modeling-2025-q2",
+          "number": "(2)",
+          "page": 1,
+          "title": "直交行列による相似変換",
+          "summary": "前問でMが直交行列の場合、MAMᵀとMᵀAMの固有値がλ、対応する固有ベクトルがMx、Mᵀxであることを証明する。Mᵀは転置行列。",
+          "topics": [
+            "mathematical-modeling-similarity"
+          ],
+          "family": "mathematical-modeling-orthogonal-similarity-proof",
+          "formats": [
+            "proof"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "相似変換の証明を、直交行列の逆行列と転置の関係へ接続する。"
+        },
+        {
+          "id": "mathematical-modeling-2025-q3",
+          "number": "(3)",
+          "page": 1,
+          "title": "指定行列の特性方程式",
+          "summary": "A=((-1,0,0),(1,3,1),(3,0,2))の固有値・固有ベクトルを求めるための特性方程式をλの方程式として示す。",
+          "topics": [
+            "mathematical-modeling-characteristic-equation"
+          ],
+          "family": "mathematical-modeling-characteristic-numeric",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年と同じ後半の型。行列成分を変更。"
+        },
+        {
+          "id": "mathematical-modeling-2025-q4",
+          "number": "(4)",
+          "page": 1,
+          "title": "三固有値の計算と絶対値順",
+          "summary": "前問の特性方程式を解きλ1,λ2,λ3を求め、|λ1|≥|λ2|≥|λ3|の順に並べる。",
+          "topics": [
+            "mathematical-modeling-eigenvalues"
+          ],
+          "family": "mathematical-modeling-eigenvalue-solving",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022・2023年の絶対値順の要求を添字付き不等式で明記。"
+        },
+        {
+          "id": "mathematical-modeling-2025-q5",
+          "number": "(5)",
+          "page": 1,
+          "title": "三固有値に対応するベクトル",
+          "summary": "λ1,λ2,λ3に対応する固有ベクトルx1,x2,x3を求める。",
+          "topics": [
+            "mathematical-modeling-eigenvectors"
+          ],
+          "family": "mathematical-modeling-eigenvector-solving",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "前問で付けた固有値の添字と固有ベクトルの対応を維持する。"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "claim": "固有値・固有ベクトル問題は3/4年で、特性方程式・固有値・固有ベクトルの後半3小問を反復する。",
+      "evidence": [
+        "mathematical-modeling-2022-q3",
+        "mathematical-modeling-2022-q4",
+        "mathematical-modeling-2022-q5",
+        "mathematical-modeling-2023-q3",
+        "mathematical-modeling-2023-q4",
+        "mathematical-modeling-2023-q5",
+        "mathematical-modeling-2025-q3",
+        "mathematical-modeling-2025-q4",
+        "mathematical-modeling-2025-q5"
+      ],
+      "interpretation": "同じ流れを数値違いで練習する教材が中心。2024年を含む4年を分母にし、毎年出題とはしない。"
+    },
+    {
+      "claim": "2022・2023年は冒頭2問が定義と一般の固有方程式、2025年は相似変換の2証明に置き換わる。",
+      "evidence": [
+        "mathematical-modeling-2022-q1",
+        "mathematical-modeling-2022-q2",
+        "mathematical-modeling-2023-q1",
+        "mathematical-modeling-2023-q2",
+        "mathematical-modeling-2025-q1",
+        "mathematical-modeling-2025-q2"
+      ],
+      "interpretation": "計算手順の暗記に加え、定義を使った行列積の証明が必要。"
+    },
+    {
+      "claim": "2024年は逆行列に集中し、証明・係数表示・証明・数値適用の順で、数値計算が40点を占める。",
+      "evidence": [
+        "mathematical-modeling-2024-q1",
+        "mathematical-modeling-2024-q2",
+        "mathematical-modeling-2024-q3",
+        "mathematical-modeling-2024-q4"
+      ],
+      "interpretation": "この年度は計算だけで全配点を覆えず、操作の理由を説明する練習が必要。配点は2024年の事実で他年度には転用しない。"
+    },
+    {
+      "claim": "固有値の並び順と、それに対応する固有ベクトルの並び順を繰り返し指定する。",
+      "evidence": [
+        "mathematical-modeling-2022-q4",
+        "mathematical-modeling-2022-q5",
+        "mathematical-modeling-2023-q4",
+        "mathematical-modeling-2023-q5",
+        "mathematical-modeling-2025-q4",
+        "mathematical-modeling-2025-q5"
+      ],
+      "interpretation": "正しい根やベクトルだけでなく、答案のラベル付けと対応も点検対象。"
+    }
+  ],
+  "cautions": [
+    {
+      "year": 2022,
+      "number": "(1)～(5)",
+      "page": 1,
+      "description": "本文と数式は画像中心で、PDFのテキスト抽出ではほぼ取得できない。画像で5小問と3×3行列の成分を確認。",
+      "handling": "画像から記録した設問・行列を正とし、空の抽出文から問題がないと判断しない。"
+    },
+    {
+      "year": 2023,
+      "number": "(1)～(5)",
+      "page": 1,
+      "description": "本文と数式は画像中心。抽出テキストの『5』は問題本文の5小問を代替するものではない。",
+      "handling": "画像から5小問を登録。左上の科目番号5は設問数として数えない。"
+    },
+    {
+      "year": 2024,
+      "number": "3",
+      "page": 1,
+      "description": "原本の逆行列の積はG(n-1)P(n-1)…G2P2G1P1Iで、最終の第n列の操作が含まれていない。対角成分を1にする一般の消去法では最後の正規化が必要になり得る。",
+      "handling": "原式を保持して確認対象とし、後続解説では成立条件または第n段階を含めた補足を明示する。誤記と確定して黙って書き換えない。"
+    },
+    {
+      "year": 2024,
+      "number": "2",
+      "page": 1,
+      "description": "A^(k-1)は第k-1列消去後と説明される一方、第k段階にPkで行を入れ替えるため、係数の成分を参照する行位置に注意が必要。",
+      "handling": "枢軸入替前・後を区別して導出する。A^(k-1)に入替を含むかを明示してから係数を解説する。"
+    },
+    {
+      "year": 2024,
+      "number": "1～4",
+      "page": 1,
+      "description": "抽出テキストではPk・Gk・逆行列の積や具体的行列が欠落する。下部の『解1～解4』は空の解答欄で、解答そのものは表示されていない。",
+      "handling": "図示行列の形は画像と照合する。解答欄を設問や模範解答として数えない。"
+    }
+  ],
+  "siteRecommendations": [
+    "固有方程式→固有値→固有ベクトルを、一連の問題と各小問の両方で学べるようにする。",
+    "3×3行列はコピーできるテキスト数式と画像照合を用意する。",
+    "絶対値順と添字対応を自己点検し、固有ベクトルは非零倍を同値として扱う。",
+    "証明はAx=λxから始めて変換を追う段階表示にする。",
+    "逆行列は行操作の理由、入替後の枢軸、操作順序、積による検算を確認する教材にする。",
+    "2024年の最終段階と係数の参照先は未確認事項として表示し、仮定を添えずに自動採点しない。"
+  ],
+  "references": [
+    {
+      "title": "MIT 18.06SC, Eigenvalues and Eigenvectors（一般的な定義・計算法）",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/eigenvalues-and-eigenvectors/"
+    },
+    {
+      "title": "MIT 18.06SC, Similar Matrices and Jordan Form（一般的な相似変換）",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/similar-matrices-and-jordan-form/"
+    },
+    {
+      "title": "MIT 18.06SC, Elimination with Matrices（一般的な行操作の行列表示）",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/elimination-with-matrices/"
+    }
+  ],
+  "reviewedPages": [
+    {
+      "year": 2022,
+      "page": 1
+    },
+    {
+      "year": 2023,
+      "page": 1
+    },
+    {
+      "year": 2024,
+      "page": 1
+    },
+    {
+      "year": 2025,
+      "page": 1
+    }
+  ]
+}

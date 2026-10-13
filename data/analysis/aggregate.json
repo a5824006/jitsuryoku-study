@@ -1,0 +1,5860 @@
+{
+  "schemaVersion": 1,
+  "analyzedAt": "2026-10-13",
+  "questionUnit": "原本にある最小の番号付き設問。番号のない要求と空欄の集まりは分割しない。",
+  "subjects": [
+    {
+      "subjectId": "dsa",
+      "name": "データ構造とアルゴリズム",
+      "availableYears": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "paperCount": 4,
+      "pageCount": 4,
+      "questionCount": 8,
+      "topicCount": 5,
+      "formatCounts": {
+        "essay": 8,
+        "pseudocode": 2,
+        "example": 1
+      },
+      "minimumCharacterQuestions": [
+        "dsa-2023-q1",
+        "dsa-2024-q2",
+        "dsa-2025-q1",
+        "dsa-2025-q2"
+      ],
+      "cautionCount": 4
+    },
+    {
+      "subjectId": "digital-media",
+      "name": "デジタルメディア設計",
+      "availableYears": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "paperCount": 4,
+      "pageCount": 4,
+      "questionCount": 24,
+      "topicCount": 9,
+      "formatCounts": {
+        "proof": 4,
+        "essay": 12,
+        "calculation": 12,
+        "term": 3
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 5
+    },
+    {
+      "subjectId": "mathematical-modeling",
+      "name": "数理モデル解析法",
+      "availableYears": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "paperCount": 4,
+      "pageCount": 4,
+      "questionCount": 19,
+      "topicCount": 7,
+      "formatCounts": {
+        "term": 4,
+        "calculation": 11,
+        "proof": 4
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 5
+    },
+    {
+      "subjectId": "information-mathematics",
+      "name": "情報数学Ⅱ",
+      "availableYears": [
+        2022,
+        2023,
+        2024
+      ],
+      "paperCount": 3,
+      "pageCount": 3,
+      "questionCount": 16,
+      "topicCount": 6,
+      "formatCounts": {
+        "calculation": 9,
+        "diagram": 2,
+        "term": 3,
+        "essay": 5,
+        "example": 3
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 7
+    },
+    {
+      "subjectId": "hci",
+      "name": "ヒューマンコンピュータインタラクション",
+      "availableYears": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "paperCount": 4,
+      "pageCount": 5,
+      "questionCount": 21,
+      "topicCount": 9,
+      "formatCounts": {
+        "term": 7,
+        "essay": 6,
+        "calculation": 11,
+        "example": 1
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 7
+    },
+    {
+      "subjectId": "multimedia",
+      "name": "マルチメディア工学",
+      "availableYears": [
+        2022,
+        2023,
+        2025
+      ],
+      "paperCount": 3,
+      "pageCount": 6,
+      "questionCount": 53,
+      "topicCount": 9,
+      "formatCounts": {
+        "example": 3,
+        "term": 11,
+        "essay": 9,
+        "calculation": 35
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 9
+    },
+    {
+      "subjectId": "robotics",
+      "name": "ロボット工学",
+      "availableYears": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "paperCount": 4,
+      "pageCount": 8,
+      "questionCount": 17,
+      "topicCount": 5,
+      "formatCounts": {
+        "calculation": 11,
+        "essay": 8
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 8
+    },
+    {
+      "subjectId": "software-design",
+      "name": "ソフトウェア設計",
+      "availableYears": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "paperCount": 4,
+      "pageCount": 8,
+      "questionCount": 25,
+      "topicCount": 10,
+      "formatCounts": {
+        "term": 4,
+        "essay": 11,
+        "structured": 6,
+        "diagram": 7,
+        "example": 9
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 8
+    },
+    {
+      "subjectId": "networks",
+      "name": "情報ネットワーク",
+      "availableYears": [
+        2024,
+        2025
+      ],
+      "paperCount": 2,
+      "pageCount": 2,
+      "questionCount": 16,
+      "topicCount": 9,
+      "formatCounts": {
+        "choice": 3,
+        "calculation": 4,
+        "essay": 7,
+        "term": 1,
+        "multiple-choice": 1
+      },
+      "minimumCharacterQuestions": [],
+      "cautionCount": 7
+    }
+  ],
+  "topics": [
+    {
+      "id": "dsa-complexity",
+      "name": "計算量とO記法",
+      "description": "明示された計算量の説明、O記法の定義・用途・求め方、操作の計算量。",
+      "prerequisite": true,
+      "studyAdvice": "O記法は漸近的な上界として定義し、定数と入力サイズの関係を短い反復処理の例で説明する。OとΘ、最悪時と平均時を混同しない。",
+      "subjectId": "dsa",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 3,
+      "questionIds": [
+        "dsa-2022-q1",
+        "dsa-2023-q1",
+        "dsa-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "dsa-sorting",
+      "name": "ソート",
+      "description": "比較型と非比較型、選択ソート、マージソートの仕組みと評価。",
+      "prerequisite": true,
+      "studyAdvice": "アルゴリズムごとに入力条件、手順、計算量、安定性、追加メモリを表にする。非比較型の効率はキーの範囲などの条件とセットで説明する。",
+      "subjectId": "dsa",
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 3,
+      "questionIds": [
+        "dsa-2022-q1",
+        "dsa-2023-q2",
+        "dsa-2024-q1"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "dsa-search-trees",
+      "name": "二分探索木と平衡木",
+      "description": "二分探索木の構造と探索、不均衡の問題、平衡木の仕組み・実装・操作。",
+      "prerequisite": true,
+      "studyAdvice": "探索不変条件、高さの影響、挿入・削除後の平衡化を、選んだ木の具体的な操作に結び付けて説明する。",
+      "subjectId": "dsa",
+      "years": [
+        2022,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "dsa-2022-q2",
+        "dsa-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "dsa-design-strategies",
+      "name": "アルゴリズムの設計方針",
+      "description": "自分で選ぶ設計方針の原理、使用条件とアルゴリズム例。",
+      "prerequisite": false,
+      "studyAdvice": "分割統治・動的計画法・貪欲法などから1つ選び、成立条件と具体例の対応を説明する。単なるアルゴリズム名の列挙を避ける。",
+      "subjectId": "dsa",
+      "years": [
+        2025
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 1,
+      "questionIds": [
+        "dsa-2025-q2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "dsa-np",
+      "name": "NP、帰着、計算量クラス",
+      "description": "P、NP、NP困難、NP完全と具体的な決定問題の関係。",
+      "prerequisite": false,
+      "studyAdvice": "用語を並べるだけでなく、検証可能性、帰着の向き、NP完全の条件を順に説明する。決定版と最適化版を区別する。",
+      "subjectId": "dsa",
+      "years": [
+        2024
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 1,
+      "questionIds": [
+        "dsa-2024-q2"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "digital-media-coordinate-transform",
+      "name": "座標変換の行列表現",
+      "description": "基底の像から行列を構成し、並進込みでは同次座標を扱う。",
+      "prerequisite": true,
+      "studyAdvice": "(1,0)と(0,1)の像と列を対応付け、原点の像が非零なら並進を分離する。",
+      "subjectId": "digital-media",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 4,
+      "questionIds": [
+        "digital-media-2022-q2",
+        "digital-media-2023-q3",
+        "digital-media-2024-q4",
+        "digital-media-2025-q2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "digital-media-inverse-transform",
+      "name": "確率密度の逆関数法",
+      "description": "比例で与えた密度から一様乱数を変換する式を導く。",
+      "prerequisite": true,
+      "studyAdvice": "定義域、正規化、累積分布、逆写像の順に導く。未指定の年度は仮定を明記する。",
+      "subjectId": "digital-media",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 4,
+      "questionIds": [
+        "digital-media-2022-q4",
+        "digital-media-2023-q5",
+        "digital-media-2024-q6",
+        "digital-media-2025-q5"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "digital-media-linear-map",
+      "name": "原点回転の線型性",
+      "description": "線型写像の定義や行列表現から原点回転を説明する。",
+      "prerequisite": true,
+      "studyAdvice": "加法性とスカラー倍の保存を回転行列と結び付けて説明する。",
+      "subjectId": "digital-media",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 4,
+      "questionIds": [
+        "digital-media-2022-q1",
+        "digital-media-2023-q2",
+        "digital-media-2024-q3",
+        "digital-media-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "digital-media-radiometry-brdf",
+      "name": "放射量とBRDF",
+      "description": "BRDFと放射束・放射照度・放射輝度の違い、関係。",
+      "prerequisite": false,
+      "studyAdvice": "用語を単独で覚えず、面積・方向・立体角との関係を表や式で整理する。",
+      "subjectId": "digital-media",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 3,
+      "questionIds": [
+        "digital-media-2023-q1",
+        "digital-media-2024-q2",
+        "digital-media-2025-q4"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "digital-media-solid-angle",
+      "name": "立体角",
+      "description": "立体角の定義説明。",
+      "prerequisite": true,
+      "studyAdvice": "放射輝度やBRDFに続けて学び、平面角との違いを把握する。",
+      "subjectId": "digital-media",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "digital-media-2024-q1",
+        "digital-media-2025-q3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "digital-media-barycentric",
+      "name": "三角形の重心座標",
+      "description": "頂点に対する重みと和が1となる条件で点を表す。",
+      "prerequisite": false,
+      "studyAdvice": "頂点と重みを対応付け、成分の連立方程式と和の条件を合わせて扱う。",
+      "subjectId": "digital-media",
+      "years": [
+        2022,
+        2023
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "digital-media-2022-q5",
+        "digital-media-2023-q6"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "digital-media-bezier",
+      "name": "ベジェ曲線",
+      "description": "曲線上の点の評価と、同じ曲線を表す次数上げ。",
+      "prerequisite": false,
+      "studyAdvice": "2022年の値の計算と2023年の次数上げを別の型として練習する。",
+      "subjectId": "digital-media",
+      "years": [
+        2022,
+        2023
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "digital-media-2022-q3",
+        "digital-media-2023-q4"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "digital-media-euler",
+      "name": "Euler法の比較",
+      "description": "Forward・Backward・Symplectic Euler法の説明と比較。",
+      "prerequisite": false,
+      "studyAdvice": "更新の順序を整理し、比較対象と評価条件を答案に示す。",
+      "subjectId": "digital-media",
+      "years": [
+        2022,
+        2024
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "digital-media-2022-q6",
+        "digital-media-2024-q5"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "digital-media-fluid-methods",
+      "name": "流体の格子法と粒子法",
+      "description": "物理量の時間微分を含めた表現方法の比較。",
+      "prerequisite": false,
+      "studyAdvice": "量を固定位置と移動粒子のどちらで追うかを、時間微分の議論につなぐ。",
+      "subjectId": "digital-media",
+      "years": [
+        2025
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 1,
+      "questionIds": [
+        "digital-media-2025-q6"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "mathematical-modeling-characteristic-equation",
+      "name": "固有方程式と特性方程式",
+      "description": "一般形を表し、指定行列からλの多項式を求める。",
+      "prerequisite": true,
+      "studyAdvice": "行列式の符号・単位行列の記号と原本の指定を確認し、展開から因数分解まで追う。",
+      "subjectId": "mathematical-modeling",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 5,
+      "questionIds": [
+        "mathematical-modeling-2022-q2",
+        "mathematical-modeling-2022-q3",
+        "mathematical-modeling-2023-q2",
+        "mathematical-modeling-2023-q3",
+        "mathematical-modeling-2025-q3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "mathematical-modeling-eigen-definition",
+      "name": "固有値と固有ベクトルの定義",
+      "description": "Ax=λxの関係を式で表し、後続の計算・証明に用いる。",
+      "prerequisite": true,
+      "studyAdvice": "非零固有ベクトル、スカラーλ、ベクトルxの役割を区別する。",
+      "subjectId": "mathematical-modeling",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 3,
+      "questionIds": [
+        "mathematical-modeling-2022-q1",
+        "mathematical-modeling-2023-q1",
+        "mathematical-modeling-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "mathematical-modeling-eigenvalues",
+      "name": "固有値の計算と絶対値順",
+      "description": "特性多項式の根を求め、指定された絶対値順に並べる。",
+      "prerequisite": false,
+      "studyAdvice": "値の大小順と絶対値順を取り違えない。重複する根は重複度も確認する。",
+      "subjectId": "mathematical-modeling",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 3,
+      "questionIds": [
+        "mathematical-modeling-2022-q4",
+        "mathematical-modeling-2023-q4",
+        "mathematical-modeling-2025-q4"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "mathematical-modeling-eigenvectors",
+      "name": "固有ベクトルの計算",
+      "description": "各固有値について(A-λI)x=0の非零解を求める。",
+      "prerequisite": false,
+      "studyAdvice": "固有値とベクトルの対応を維持し、非零倍による別の表現や固有空間を扱う。",
+      "subjectId": "mathematical-modeling",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 3,
+      "questionIds": [
+        "mathematical-modeling-2022-q5",
+        "mathematical-modeling-2023-q5",
+        "mathematical-modeling-2025-q5"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "mathematical-modeling-similarity",
+      "name": "相似変換と直交行列",
+      "description": "正則Mでの相似変換と、直交Mで逆行列を転置に置き換える証明。",
+      "prerequisite": false,
+      "studyAdvice": "定義を代入し、左右から掛ける行列の順序を明示して証明する。",
+      "subjectId": "mathematical-modeling",
+      "years": [
+        2025
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 2,
+      "questionIds": [
+        "mathematical-modeling-2025-q1",
+        "mathematical-modeling-2025-q2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "mathematical-modeling-pivot-elimination",
+      "name": "枢軸選択と行操作の行列表示",
+      "description": "行入替、スケーリング、第k列の消去をPk・Gkで表す。",
+      "prerequisite": true,
+      "studyAdvice": "操作前後の行列を分け、枢軸選択後の行位置と係数の参照先を確認する。",
+      "subjectId": "mathematical-modeling",
+      "years": [
+        2024
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 4,
+      "questionIds": [
+        "mathematical-modeling-2024-q1",
+        "mathematical-modeling-2024-q2",
+        "mathematical-modeling-2024-q3",
+        "mathematical-modeling-2024-q4"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "mathematical-modeling-inverse-matrix",
+      "name": "消去法による逆行列",
+      "description": "行操作の積として逆行列を説明し、具体的な3×3行列に適用する。",
+      "prerequisite": false,
+      "studyAdvice": "全段階の消去と対角成分の正規化を追い、得た行列との積で単位行列になることを検算する。",
+      "subjectId": "mathematical-modeling",
+      "years": [
+        2024
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 2,
+      "questionIds": [
+        "mathematical-modeling-2024-q3",
+        "mathematical-modeling-2024-q4"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "information-mathematics-hamming",
+      "name": "ハミング符号とシンドローム",
+      "description": "検査行列・生成行列の関係、符号語の計算、単一ビット誤りの判断。",
+      "prerequisite": false,
+      "studyAdvice": "3×7のHと4×7のGの向き、ビット位置を固定し、整合性を確認しながら例を作る。",
+      "subjectId": "information-mathematics",
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "appearanceYears": 3,
+      "availableYears": 3,
+      "ratio": 1.0,
+      "questionCount": 7,
+      "questionIds": [
+        "information-mathematics-2022-q2-1",
+        "information-mathematics-2022-q2-2",
+        "information-mathematics-2022-q2-3",
+        "information-mathematics-2023-q1-3",
+        "information-mathematics-2024-q3-1",
+        "information-mathematics-2024-q3-2",
+        "information-mathematics-2024-q3-3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "information-mathematics-huffman",
+      "name": "ハフマン符号",
+      "description": "ランレングスの符号化と通常の符号木の生成・割当。",
+      "prerequisite": false,
+      "studyAdvice": "木を作る手順、選んだ確率、平均符号長の単位を説明する。左右のビットの交換など等価な答えも扱う。",
+      "subjectId": "information-mathematics",
+      "years": [
+        2022,
+        2024
+      ],
+      "appearanceYears": 2,
+      "availableYears": 3,
+      "ratio": 0.6666666666666666,
+      "questionCount": 2,
+      "questionIds": [
+        "information-mathematics-2022-q1",
+        "information-mathematics-2024-q2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "information-mathematics-graph",
+      "name": "最短経路と郵便配達員問題",
+      "description": "ダイクストラ法の実行と、郵便配達員問題の定義・解法。",
+      "prerequisite": false,
+      "studyAdvice": "単一始点の最短経路と全辺を巡る最短閉路の違いを説明し、後者は扱うグラフの条件を明記する。",
+      "subjectId": "information-mathematics",
+      "years": [
+        2022,
+        2023
+      ],
+      "appearanceYears": 2,
+      "availableYears": 3,
+      "ratio": 0.6666666666666666,
+      "questionCount": 3,
+      "questionIds": [
+        "information-mathematics-2022-q3",
+        "information-mathematics-2023-q2-1",
+        "information-mathematics-2023-q2-2"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "information-mathematics-information-measures",
+      "name": "自己情報量と平均情報量",
+      "description": "カードの確率から自己情報量と平均情報量を計算し、分布の最大化を考える。",
+      "prerequisite": true,
+      "studyAdvice": "事象の数から確率を設定し、対数の底と提供された近似値を確認する。",
+      "subjectId": "information-mathematics",
+      "years": [
+        2024
+      ],
+      "appearanceYears": 1,
+      "availableYears": 3,
+      "ratio": 0.3333333333333333,
+      "questionCount": 2,
+      "questionIds": [
+        "information-mathematics-2024-q1-1",
+        "information-mathematics-2024-q1-2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "information-mathematics-linear-code",
+      "name": "2元線形符号の記法と次元",
+      "description": "(n,k)の情報・冗長ビット長、生成行列の独立行と次元。",
+      "prerequisite": true,
+      "studyAdvice": "nとkの意味を行列サイズに結び付け、GF(2)での演算を先に確認する。",
+      "subjectId": "information-mathematics",
+      "years": [
+        2023
+      ],
+      "appearanceYears": 1,
+      "availableYears": 3,
+      "ratio": 0.3333333333333333,
+      "questionCount": 1,
+      "questionIds": [
+        "information-mathematics-2023-q1-2"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "information-mathematics-markov",
+      "name": "マルコフ情報源の定常確率",
+      "description": "状態確率ベクトルと遷移行列から定常確率の連立方程式を表す。",
+      "prerequisite": false,
+      "studyAdvice": "行ベクトル・列ベクトルの約束と、確率の和が1という条件を確認する。",
+      "subjectId": "information-mathematics",
+      "years": [
+        2023
+      ],
+      "appearanceYears": 1,
+      "availableYears": 3,
+      "ratio": 0.3333333333333333,
+      "questionCount": 1,
+      "questionIds": [
+        "information-mathematics-2023-q1-1"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "hci-human-processing",
+      "name": "人の情報処理と記憶",
+      "description": "知覚・認知・運動プロセッサ、感覚記憶・短期記憶・長期記憶、チャンクと7±2。",
+      "prerequisite": true,
+      "studyAdvice": "処理の各段階や記憶の種類を説明し、原本が用いる歴史的モデルと一般的な人間の能力の断定を区別する。",
+      "subjectId": "hci",
+      "years": [
+        2022,
+        2024,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 3,
+      "questionIds": [
+        "hci-2022-q5",
+        "hci-2024-q1",
+        "hci-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "hci-ui-concepts",
+      "name": "GUIの基本概念と略語",
+      "description": "CLI・GUI、デスクトップメタファ、WIMP、WYSIWYG。",
+      "prerequisite": true,
+      "studyAdvice": "用語カードだけでなく、文章の役割から適切な略語を選ぶ。WYSIWYGの英文も確認する。",
+      "subjectId": "hci",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 4,
+      "questionIds": [
+        "hci-2022-q1",
+        "hci-2022-q2",
+        "hci-2023-q1",
+        "hci-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "hci-affordance",
+      "name": "アフォーダンスと具体例",
+      "description": "行為の可能性と、操作を理解しやすいデザインの説明。",
+      "prerequisite": false,
+      "studyAdvice": "単に『分かりやすい』で終わらず、どの形・手掛かりがどの操作を示すかを説明する。知覚されたアフォーダンスとシグニファイアも区別する。",
+      "subjectId": "hci",
+      "years": [
+        2023,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "hci-2023-q4",
+        "hci-2025-q5"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "hci-fitts",
+      "name": "フィッツの法則と設計評価",
+      "description": "T=a+b log2(D/W+1)に基づく定数推定、予測、幅と距離の改善比較。",
+      "prerequisite": false,
+      "studyAdvice": "DとWの単位をそろえ、二つの観測値からa,bを求める。改善はD/Wの変化と操作時間で説明する。",
+      "subjectId": "hci",
+      "years": [
+        2023,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 4,
+      "questionIds": [
+        "hci-2023-q1",
+        "hci-2023-q2",
+        "hci-2025-q3-1",
+        "hci-2025-q3-2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "hci-input-devices",
+      "name": "入力方式の原理と長短",
+      "description": "音声UI、マウス、ジョイスティック、抵抗膜方式・静電容量方式のタッチパネル。",
+      "prerequisite": false,
+      "studyAdvice": "方式名と検出原理を対応させ、利用場面を根拠に利点と欠点を説明する。",
+      "subjectId": "hci",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "hci-2024-q3",
+        "hci-2025-q5"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "hci-psychophysics",
+      "name": "心理物理法則と弁別閾",
+      "description": "感覚と刺激量、ウェーバー比、刺激量の対数、音量のクリック設計。",
+      "prerequisite": false,
+      "studyAdvice": "比例関係と対数関係を区別し、dBがどの物理量を表すかと増加率の仮定を明示する。",
+      "subjectId": "hci",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "hci-2024-q2",
+        "hci-2025-q2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "hci-display-metrics",
+      "name": "ディスプレイの寸法と画素密度",
+      "description": "画面とピクセルのアスペクト比、ppi、対角インチ。",
+      "prerequisite": false,
+      "studyAdvice": "物理寸法と画素数を別に扱い、縦横比・対角線・inchへの換算を区別する。",
+      "subjectId": "hci",
+      "years": [
+        2022,
+        2024
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 5,
+      "questionIds": [
+        "hci-2022-q4-1",
+        "hci-2022-q4-2",
+        "hci-2022-q4-3",
+        "hci-2022-q4-4",
+        "hci-2024-q4"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "hci-xr",
+      "name": "VRとAR、HMD",
+      "description": "AIPキューブと、光学シースルー・ビデオシースルーの比較。",
+      "prerequisite": false,
+      "studyAdvice": "構成要素を定義し、方式の仕組みから視認性・遅延・遮蔽などの長短を説明する。",
+      "subjectId": "hci",
+      "years": [
+        2022,
+        2023
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "hci-2022-q3",
+        "hci-2023-q3"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "hci-visual-physiology",
+      "name": "視覚の基礎",
+      "description": "眼球、網膜、視細胞、中心部、色感度とHUD。",
+      "prerequisite": false,
+      "studyAdvice": "部位・細胞・機能を結び付け、明暗と色の弁別を混同しない。",
+      "subjectId": "hci",
+      "years": [
+        2024
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 1,
+      "questionIds": [
+        "hci-2024-q1"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "multimedia-foundations",
+      "name": "メディアの用途と提示空間",
+      "description": "関連産業、非電気的なディジタル通信例、PC画面・ステレオ音響の提示空間。",
+      "prerequisite": true,
+      "studyAdvice": "問題文のpresentation spaceの定義を講義資料で確認し、画面の物理次元、音源配置、知覚される空間を混同しない。",
+      "subjectId": "multimedia",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 3,
+      "ratio": 1.0,
+      "questionCount": 6,
+      "questionIds": [
+        "multimedia-2022-q1",
+        "multimedia-2022-q2",
+        "multimedia-2023-q1",
+        "multimedia-2023-q3",
+        "multimedia-2025-q1",
+        "multimedia-2025-q3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-quantization",
+      "name": "A/D変換と量子化",
+      "description": "bit数、量子化レベル数、ステップ幅、量子化値、2進符号、量子化誤差。",
+      "prerequisite": true,
+      "studyAdvice": "数直線でレベルと閾値を分け、入力下限からのオフセット、丸め方、端点を含む方式かを明示する。",
+      "subjectId": "multimedia",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 3,
+      "ratio": 1.0,
+      "questionCount": 13,
+      "questionIds": [
+        "multimedia-2022-q7-1",
+        "multimedia-2022-q7-2",
+        "multimedia-2022-q7-3",
+        "multimedia-2022-q7-4",
+        "multimedia-2022-q7-5",
+        "multimedia-2023-q7-1",
+        "multimedia-2023-q7-2",
+        "multimedia-2023-q7-3",
+        "multimedia-2023-q7-4",
+        "multimedia-2025-q7-1",
+        "multimedia-2025-q7-2",
+        "multimedia-2025-q7-3",
+        "multimedia-2025-q7-4"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-sampling",
+      "name": "標本化とエイリアシング",
+      "description": "Shannonの標本化定理、標本化周期と周波数、波形図からの読取りと定理の判定。",
+      "prerequisite": true,
+      "studyAdvice": "T=1/Fs、単位換算、最大信号周波数とFsの関係を説明する。周期の長さと点の間隔を別々に読む。",
+      "subjectId": "multimedia",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 3,
+      "ratio": 1.0,
+      "questionCount": 13,
+      "questionIds": [
+        "multimedia-2022-q5",
+        "multimedia-2022-q6",
+        "multimedia-2022-q8-1",
+        "multimedia-2022-q8-2",
+        "multimedia-2022-q8-3",
+        "multimedia-2023-q5",
+        "multimedia-2023-q6",
+        "multimedia-2023-q9-1",
+        "multimedia-2023-q9-2",
+        "multimedia-2023-q9-3",
+        "multimedia-2023-q9-4",
+        "multimedia-2025-q5",
+        "multimedia-2025-q6"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-normalization",
+      "name": "正規化と標準化",
+      "description": "[0,1]・[-1,1]への区間変換、平均0・分散1への変換。",
+      "prerequisite": false,
+      "studyAdvice": "分母が範囲か標準偏差かを目的から選ぶ。定数信号等の分母0の条件も教材では説明する。",
+      "subjectId": "multimedia",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 3,
+      "ratio": 1.0,
+      "questionCount": 6,
+      "questionIds": [
+        "multimedia-2022-q9-a",
+        "multimedia-2022-q9-b",
+        "multimedia-2023-q8-a",
+        "multimedia-2023-q8-b",
+        "multimedia-2025-q8-a",
+        "multimedia-2025-q8-b"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-streams",
+      "name": "連続データストリームと伝送",
+      "description": "周期性・パケットサイズの変動分類と、isochronous・synchronous・asynchronousの伝送モード。",
+      "prerequisite": false,
+      "studyAdvice": "周期性、パケットサイズ、遅延制約は異なる観点。英語名称と、何を保証する分類かを対応させる。",
+      "subjectId": "multimedia",
+      "years": [
+        2022,
+        2023,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 3,
+      "ratio": 1.0,
+      "questionCount": 6,
+      "questionIds": [
+        "multimedia-2022-q3",
+        "multimedia-2022-q4",
+        "multimedia-2023-q2",
+        "multimedia-2023-q4",
+        "multimedia-2025-q2",
+        "multimedia-2025-q4"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-statistics",
+      "name": "信号の統計量",
+      "description": "数式から分散、中央値、最頻値、変動係数、歪みの指標を識別する。",
+      "prerequisite": true,
+      "studyAdvice": "名称の暗記に加え、式の分子・分母と測る性質を説明する。歪度の複数定義を区別する。",
+      "subjectId": "multimedia",
+      "years": [
+        2023,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 3,
+      "ratio": 0.6666666666666666,
+      "questionCount": 6,
+      "questionIds": [
+        "multimedia-2023-q8-a",
+        "multimedia-2023-q10",
+        "multimedia-2023-q11-a",
+        "multimedia-2023-q11-b",
+        "multimedia-2025-q8-a",
+        "multimedia-2025-q10"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-filtering",
+      "name": "平滑化と一次ローパスフィルタ",
+      "description": "移動平均、メディアンフィルタ、一次ローパスの再帰式と記号の意味。",
+      "prerequisite": false,
+      "studyAdvice": "窓幅3・シフト1の窓を順に追い、平均と中央値を比較する。再帰式では現在入力・前回出力・新出力を区別する。",
+      "subjectId": "multimedia",
+      "years": [
+        2023,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 3,
+      "ratio": 0.6666666666666666,
+      "questionCount": 4,
+      "questionIds": [
+        "multimedia-2023-q11-a",
+        "multimedia-2023-q11-b",
+        "multimedia-2023-q12",
+        "multimedia-2025-q12"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-sinusoid",
+      "name": "正弦波とフーリエ表現",
+      "description": "フーリエ変換の基本構成要素としての正弦波の式と、振幅・位相・角周波数。",
+      "prerequisite": false,
+      "studyAdvice": "A sin(ωx+φ)等の式で記号を特定し、角周波数とHzの周波数の違いを説明する。",
+      "subjectId": "multimedia",
+      "years": [
+        2022,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 3,
+      "ratio": 0.6666666666666666,
+      "questionCount": 2,
+      "questionIds": [
+        "multimedia-2022-q10",
+        "multimedia-2025-q9"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "multimedia-energy",
+      "name": "短時間エネルギー",
+      "description": "一次元信号の短い区間のエネルギーの式と各成分。",
+      "prerequisite": false,
+      "studyAdvice": "窓、時間インデックス、信号値の二乗と総和を対応させ、教材で採用する窓の定義を明示する。",
+      "subjectId": "multimedia",
+      "years": [
+        2025
+      ],
+      "appearanceYears": 1,
+      "availableYears": 3,
+      "ratio": 0.3333333333333333,
+      "questionCount": 1,
+      "questionIds": [
+        "multimedia-2025-q11"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "robotics-coordinate-transform",
+      "name": "回転と座標変換",
+      "description": "軸回り回転、ZYZオイラー変換、同次変換、リンク座標系間の変換と行列積の順序。",
+      "prerequisite": true,
+      "studyAdvice": "どの座標系からどの座標系を見る行列かを明記し、図の軸に沿って回転・並進を組み立てる。",
+      "subjectId": "robotics",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 7,
+      "questionIds": [
+        "robotics-2022-q1",
+        "robotics-2022-q2",
+        "robotics-2023-q2-1",
+        "robotics-2023-q2-2",
+        "robotics-2024-q2",
+        "robotics-2025-q2",
+        "robotics-2025-q3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "robotics-homogeneous-geometry",
+      "name": "平面の同次表現と幾何判定",
+      "description": "Pv=0、平面の方程式、法線、原点からの距離、平面の手前の頂点の判定。",
+      "prerequisite": false,
+      "studyAdvice": "点と平面の表現を分け、有限点のw=1と法線の正規化、原点と点の半空間の符号を確認する。",
+      "subjectId": "robotics",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 4,
+      "questionIds": [
+        "robotics-2024-q1-1",
+        "robotics-2024-q1-2",
+        "robotics-2024-q1-3",
+        "robotics-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "robotics-manipulator-kinematics",
+      "name": "マニピュレータの運動学",
+      "description": "ひじ型と水平多関節型の順運動学、逆運動学、リンク変換の積と位置・姿勢の対応。",
+      "prerequisite": false,
+      "studyAdvice": "関節変数から手先を求める方向と、その逆を区別する。逆解では到達可能性、複数解、特異な姿勢や可動域を確認する。",
+      "subjectId": "robotics",
+      "years": [
+        2022,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 3,
+      "questionIds": [
+        "robotics-2022-q2",
+        "robotics-2025-q2",
+        "robotics-2025-q3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "robotics-mobile-kinematics",
+      "name": "全方位移動ロボットの運動学",
+      "description": "各車輪の転がり拘束式を重ねて速度関係を求め、車輪速度から機体の移動速度と回転角速度を計算する。",
+      "prerequisite": false,
+      "studyAdvice": "車輪数・α・β・半径と機体座標系を図から拾い、与えられたR(θ)の向きに合わせて式を導出する。",
+      "subjectId": "robotics",
+      "years": [
+        2023
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 2,
+      "questionIds": [
+        "robotics-2023-q2-1",
+        "robotics-2023-q2-2"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "robotics-navigation",
+      "name": "移動ロボットの制御構成",
+      "description": "センシング、情報の抽出と解釈、自己位置推定と地図構築、経路計画、経路実行、作用の六つの役割。",
+      "prerequisite": false,
+      "studyAdvice": "英語名を訳すだけでなく、入力する情報、出力する情報、実世界とのループを説明する。",
+      "subjectId": "robotics",
+      "years": [
+        2023
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 6,
+      "questionIds": [
+        "robotics-2023-q1-1",
+        "robotics-2023-q1-2",
+        "robotics-2023-q1-3",
+        "robotics-2023-q1-4",
+        "robotics-2023-q1-5",
+        "robotics-2023-q1-6"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "software-design-data-dictionary",
+      "name": "データ辞書",
+      "description": "データを構成、反復、任意、選択と階層によって定義する。",
+      "prerequisite": true,
+      "studyAdvice": "1人以上・0人以上・存在しない場合・またはを別の構造として記述し、文章と記法を往復する。",
+      "subjectId": "software-design",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 4,
+      "questionIds": [
+        "software-design-2022-q3",
+        "software-design-2023-q2",
+        "software-design-2024-q2-1",
+        "software-design-2025-q2-1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "software-design-development-process",
+      "name": "開発工程モデル",
+      "description": "ウォーターフォール、軽量・反復的な開発、工程名と順序。",
+      "prerequisite": true,
+      "studyAdvice": "工程の名前を並べるだけでなく、各工程の成果と次の工程への流れを説明する。原本の指定語句を保つ。",
+      "subjectId": "software-design",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 5,
+      "questionIds": [
+        "software-design-2022-q1",
+        "software-design-2022-q2",
+        "software-design-2023-q1",
+        "software-design-2024-q1-1",
+        "software-design-2025-q1-1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "software-design-requirements",
+      "name": "要求、仕様、要件",
+      "description": "要求、仕様、機能要件・非機能要件、利害関係者。",
+      "prerequisite": true,
+      "studyAdvice": "要求と仕様の役割を区別し、機能と性能・運用条件などの非機能の具体例をセットにする。",
+      "subjectId": "software-design",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 4,
+      "questionIds": [
+        "software-design-2022-q1",
+        "software-design-2023-q1",
+        "software-design-2024-q1-2",
+        "software-design-2025-q1-1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "software-design-uml-classes",
+      "name": "UMLクラス図",
+      "description": "クラス、属性、操作、関連や継承を仕様・具体例から表す。",
+      "prerequisite": true,
+      "studyAdvice": "クラス名と属性、操作を区別し、仕様から多重度・関係を読み取る。自由設計では採用した条件を明記する。",
+      "subjectId": "software-design",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 6,
+      "questionIds": [
+        "software-design-2022-q4",
+        "software-design-2022-q5",
+        "software-design-2023-q5",
+        "software-design-2024-q3-2",
+        "software-design-2024-q3-3",
+        "software-design-2025-q3-2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "software-design-uml-objects",
+      "name": "UMLオブジェクト図",
+      "description": "クラスの具体的な実体、属性値、リンクをシナリオから表す。",
+      "prerequisite": true,
+      "studyAdvice": "オブジェクト名：クラス名、属性名と値、実体間のリンクを確認し、クラス図との整合性を点検する。",
+      "subjectId": "software-design",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 4,
+      "availableYears": 4,
+      "ratio": 1.0,
+      "questionCount": 4,
+      "questionIds": [
+        "software-design-2022-q6",
+        "software-design-2023-q6",
+        "software-design-2024-q3-3",
+        "software-design-2025-q3-2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "software-design-inheritance",
+      "name": "継承と汎化セット",
+      "description": "クラス階層、スーパークラスとサブクラス、属性・操作、汎化セット。",
+      "prerequisite": false,
+      "studyAdvice": "『一種である』関係を選び、共通部分と固有部分を分ける。2025では汎化セットが指定語句に増えている。",
+      "subjectId": "software-design",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 4,
+      "questionIds": [
+        "software-design-2023-q4",
+        "software-design-2023-q5",
+        "software-design-2024-q3-1",
+        "software-design-2025-q3-3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "software-design-associations",
+      "name": "関連、多重度、集約",
+      "description": "関連の両端の数、全体と部分の関係、集約と合成集約。",
+      "prerequisite": false,
+      "studyAdvice": "両端の多重度を相手1つ当たりの個数として読み、継承や全体・部分の関係と混同しない。",
+      "subjectId": "software-design",
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "appearanceYears": 3,
+      "availableYears": 4,
+      "ratio": 0.75,
+      "questionCount": 7,
+      "questionIds": [
+        "software-design-2022-q4",
+        "software-design-2022-q5",
+        "software-design-2022-q6",
+        "software-design-2023-q5",
+        "software-design-2023-q6",
+        "software-design-2024-q3-2",
+        "software-design-2024-q3-3"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "software-design-decision-tables",
+      "name": "決定表",
+      "description": "金額と費目の条件から必要な行動を表にする。",
+      "prerequisite": false,
+      "studyAdvice": "条件の包含関係、金額の境界、例外が影響する行動を確認し、実現可能なルールを漏れなく列挙する。",
+      "subjectId": "software-design",
+      "years": [
+        2023,
+        2024
+      ],
+      "appearanceYears": 2,
+      "availableYears": 4,
+      "ratio": 0.5,
+      "questionCount": 2,
+      "questionIds": [
+        "software-design-2023-q3",
+        "software-design-2024-q2-2"
+      ],
+      "inLatestAvailableYear": false
+    },
+    {
+      "id": "software-design-dfd",
+      "name": "データフロー図の階層性",
+      "description": "プロセスを段階的に分解し基本機能へ至る構造化分析。",
+      "prerequisite": false,
+      "studyAdvice": "データの流れとプロセスの分解を説明し、データ辞書やUMLとは別の図の役割を整理する。",
+      "subjectId": "software-design",
+      "years": [
+        2025
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 1,
+      "questionIds": [
+        "software-design-2025-q2-2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "software-design-encapsulation",
+      "name": "カプセル化",
+      "description": "データと操作をまとめ、実装へのアクセスを制御する考え方と利点。",
+      "prerequisite": false,
+      "studyAdvice": "クラスの内部と外部からの利用を分け、情報隠蔽が変更や整合性の維持にどう役立つかを例で説明する。",
+      "subjectId": "software-design",
+      "years": [
+        2025
+      ],
+      "appearanceYears": 1,
+      "availableYears": 4,
+      "ratio": 0.25,
+      "questionCount": 1,
+      "questionIds": [
+        "software-design-2025-q3-1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-crc",
+      "name": "CRCと2進多項式",
+      "description": "生成多項式と送信データから3ビットの検査値を求める。",
+      "prerequisite": true,
+      "studyAdvice": "生成多項式の次数とビット表現、付加する0の個数、XOR除算の余りを確認する。実際のEthernetのCRC32と練習用CRC3を混同しない。",
+      "subjectId": "networks",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 2,
+      "ratio": 1.0,
+      "questionCount": 2,
+      "questionIds": [
+        "networks-2024-q8",
+        "networks-2025-q8"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-layers",
+      "name": "OSIとプロトコルの階層",
+      "description": "参照モデルの目的と、実際の通信プロトコル・標準化機関との区別。",
+      "prerequisite": true,
+      "studyAdvice": "各層の役割に加え、モデルと個別のプロトコル仕様を同一視しないことを説明する。",
+      "subjectId": "networks",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 2,
+      "ratio": 1.0,
+      "questionCount": 2,
+      "questionIds": [
+        "networks-2024-q1",
+        "networks-2025-q1"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-link-access",
+      "name": "Wi-Fi、有線LAN、IP",
+      "description": "接続媒体、アクセス制御、リンク層の再送とIPの役割。",
+      "prerequisite": true,
+      "studyAdvice": "媒体が変わっても上位のIP通信とリンク層の処理を分けて考え、選択肢の一部分だけで判断しない。",
+      "subjectId": "networks",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 2,
+      "ratio": 1.0,
+      "questionCount": 2,
+      "questionIds": [
+        "networks-2024-q2",
+        "networks-2025-q2"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-subnet",
+      "name": "IPv4サブネット",
+      "description": "プレフィックス長から付与可能なホストアドレス範囲を計算する。",
+      "prerequisite": true,
+      "studyAdvice": "ホスト部のビット数、ネットワークアドレス、ブロードキャストアドレス、付与範囲の端点を順に求める。",
+      "subjectId": "networks",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 2,
+      "ratio": 1.0,
+      "questionCount": 2,
+      "questionIds": [
+        "networks-2024-q3",
+        "networks-2025-q3"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-http",
+      "name": "HTTPのステートレス性",
+      "description": "要求ごとに意味を解釈できるプロトコル設計。",
+      "prerequisite": false,
+      "studyAdvice": "ステートレスの意味を要求・応答に結び付け、接続再利用やアプリケーションのセッションと混同しない。",
+      "subjectId": "networks",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 2,
+      "ratio": 1.0,
+      "questionCount": 2,
+      "questionIds": [
+        "networks-2024-q6",
+        "networks-2025-q6"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-ip-checksum",
+      "name": "IPv4の誤り検査",
+      "description": "ルータが扱うIPヘッダとデータ本体、層ごとの検査範囲。",
+      "prerequisite": false,
+      "studyAdvice": "IPv4ヘッダの検査範囲と中継時の変更を説明し、データ本体の検査やIPv6と区別する。",
+      "subjectId": "networks",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 2,
+      "ratio": 1.0,
+      "questionCount": 2,
+      "questionIds": [
+        "networks-2024-q4",
+        "networks-2025-q4"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-tcp",
+      "name": "TCP輻輳制御",
+      "description": "損失による輻輳の検出方法と、タイムアウト後のウィンドウ操作。",
+      "prerequisite": false,
+      "studyAdvice": "検出事象、検出後の動作、cwndと受信側のrwndを分けて説明する。1という値の単位も確認する。",
+      "subjectId": "networks",
+      "years": [
+        2024,
+        2025
+      ],
+      "appearanceYears": 2,
+      "availableYears": 2,
+      "ratio": 1.0,
+      "questionCount": 2,
+      "questionIds": [
+        "networks-2024-q5",
+        "networks-2025-q5"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-nat",
+      "name": "NAT",
+      "description": "IPアドレス変換によって内部と外部を接続する仕組み。",
+      "prerequisite": false,
+      "studyAdvice": "変換前後のアドレスと通信方向を整理し、ポート変換を含むNAPTとの区別を確認する。",
+      "subjectId": "networks",
+      "years": [
+        2025
+      ],
+      "appearanceYears": 1,
+      "availableYears": 2,
+      "ratio": 0.5,
+      "questionCount": 1,
+      "questionIds": [
+        "networks-2025-q7"
+      ],
+      "inLatestAvailableYear": true
+    },
+    {
+      "id": "networks-dos",
+      "name": "DoS",
+      "description": "サービス提供を妨げる攻撃の目的と仕組みの説明。",
+      "prerequisite": false,
+      "studyAdvice": "攻撃が可用性に与える影響を説明する。手段を1つの具体例だけに限定しない。",
+      "subjectId": "networks",
+      "years": [
+        2024
+      ],
+      "appearanceYears": 1,
+      "availableYears": 2,
+      "ratio": 0.5,
+      "questionCount": 1,
+      "questionIds": [
+        "networks-2024-q7"
+      ],
+      "inLatestAvailableYear": false
+    }
+  ],
+  "questions": [
+    {
+      "id": "dsa-2022-q1",
+      "number": "第一問",
+      "page": 1,
+      "title": "O(n log n)より速いソート",
+      "summary": "効率的なソートにO(n log n)が多い理由を説明し、それより速いアルゴリズムを1つ選んで名前と仕組みを説明する。",
+      "topics": [
+        "dsa-sorting",
+        "dsa-complexity"
+      ],
+      "family": "dsa-noncomparison-sort",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "",
+      "year": 2022,
+      "sourceFile": "２．データ構造とアルゴリズム2022.pdf"
+    },
+    {
+      "id": "dsa-2022-q2",
+      "number": "第二問",
+      "page": 1,
+      "title": "二分探索木",
+      "summary": "構造と仕組みを説明し、探索を疑似コードで書き、二分探索木の問題点とその解決方法を述べる。",
+      "topics": [
+        "dsa-search-trees"
+      ],
+      "family": "dsa-tree-analysis",
+      "formats": [
+        "essay",
+        "pseudocode"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025第1問は関連する平衡木が主題で、操作の計算量と実装の要点を300字以上で説明する。2022の探索疑似コード指定とは要求が異なる。",
+      "year": 2022,
+      "sourceFile": "２．データ構造とアルゴリズム2022.pdf"
+    },
+    {
+      "id": "dsa-2023-q1",
+      "number": "問1",
+      "page": 1,
+      "title": "アルゴリズムの評価・O記法",
+      "summary": "O記法を定義と用途に結び付け、求め方を含めて300字以上で説明する。",
+      "topics": [
+        "dsa-complexity"
+      ],
+      "family": "dsa-big-o-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": 300,
+      "keywords": [],
+      "changeNote": "2022第一問ではソートを題材にした計算量の説明だったが、2023はO記法自体の定義・用途・求め方が主題。",
+      "year": 2023,
+      "sourceFile": "2_データ構造とアルゴリズム2023.pdf"
+    },
+    {
+      "id": "dsa-2023-q2",
+      "number": "問2",
+      "page": 1,
+      "title": "選択ソート",
+      "summary": "選択ソートの疑似コードを書き、利点と欠点を説明する。",
+      "topics": [
+        "dsa-sorting"
+      ],
+      "family": "dsa-selection-sort",
+      "formats": [
+        "pseudocode",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "ソートの出題は続くが、2022の自由選択から特定のアルゴリズムの疑似コードに変わる。2024ではマージソートに変わる。",
+      "year": 2023,
+      "sourceFile": "2_データ構造とアルゴリズム2023.pdf"
+    },
+    {
+      "id": "dsa-2024-q1",
+      "number": "問1",
+      "page": 1,
+      "title": "マージソート",
+      "summary": "マージソートのアルゴリズムを詳しく説明し、利点と欠点を述べる。",
+      "topics": [
+        "dsa-sorting"
+      ],
+      "family": "dsa-merge-sort",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023の選択ソートからマージソートへ。疑似コードの明示指定はなく、分割・再帰・併合の詳細説明が必要。",
+      "year": 2024,
+      "sourceFile": "2_データ構造とアルゴリズム_2024.pdf"
+    },
+    {
+      "id": "dsa-2024-q2",
+      "number": "問2",
+      "page": 1,
+      "title": "NP問題",
+      "summary": "10個の指定語句をできるだけすべて使い、合計300字以上でNP問題を説明する。",
+      "topics": [
+        "dsa-np"
+      ],
+      "family": "dsa-np-relationships",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": 300,
+      "keywords": [
+        "3SAT問題",
+        "帰着",
+        "P=NP",
+        "NP困難",
+        "NP完全",
+        "決定問題",
+        "P≠NP",
+        "独立集合問題",
+        "非決定性多項式時間",
+        "巡回セールスマン問題"
+      ],
+      "changeNote": "収録4年度でこの指定語句付きNP説明は2024のみ。独立した新しいテーマなので、ソートの反復と同じ頻出度として扱わない。",
+      "year": 2024,
+      "sourceFile": "2_データ構造とアルゴリズム_2024.pdf"
+    },
+    {
+      "id": "dsa-2025-q1",
+      "number": "第1問",
+      "page": 1,
+      "title": "平衡木",
+      "summary": "平衡木の種類を1つ選んで明記し、仕組み、実装の要点、それぞれの操作の計算量を300字以上で説明する。",
+      "topics": [
+        "dsa-search-trees",
+        "dsa-complexity"
+      ],
+      "family": "dsa-tree-analysis",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": 300,
+      "keywords": [],
+      "changeNote": "2022の二分探索木の問題点・解決から、平衡木1種類の実装と各操作の計算量を詳しく説明する要求へ。木の種類は指定されていない。",
+      "year": 2025,
+      "sourceFile": "2. データ構造とアルゴリズム2025.pdf"
+    },
+    {
+      "id": "dsa-2025-q2",
+      "number": "第2問",
+      "page": 1,
+      "title": "アルゴリズムの設計方針",
+      "summary": "設計方針を1つ選び、原理、使用上の条件、その方針で設計されたアルゴリズム例を300字以上で説明する。",
+      "topics": [
+        "dsa-design-strategies"
+      ],
+      "family": "dsa-design-strategy-explanation",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": 300,
+      "keywords": [],
+      "changeNote": "2022～2024の具体的アルゴリズムや計算量の問題に対し、2025は設計方針の自由選択と適用条件・例の説明を求める。選んだ例によって他テーマに触れても、出題頻度には任意のテーマを追加しない。",
+      "year": 2025,
+      "sourceFile": "2. データ構造とアルゴリズム2025.pdf"
+    },
+    {
+      "id": "digital-media-2022-q1",
+      "number": "問1",
+      "page": 1,
+      "title": "原点回転は線型写像か",
+      "summary": "原点周りの回転が線型写像であるかを理由とともに論じる。2次元平面内で考えてよい。",
+      "topics": [
+        "digital-media-linear-map"
+      ],
+      "family": "digital-media-rotation-linearity",
+      "formats": [
+        "proof",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023～2025年でも同じ論点を反復。",
+      "year": 2022,
+      "sourceFile": "４．デジタルメディア設計2022.pdf"
+    },
+    {
+      "id": "digital-media-2022-q2",
+      "number": "問2",
+      "page": 1,
+      "title": "基底の像から変換行列",
+      "summary": "A∈R^{2×2}で(0,1)ᵀ→(3,4)ᵀ、(1,0)ᵀ→(1,-1)ᵀ。行列の各成分と計算過程・考え方を答える。",
+      "topics": [
+        "digital-media-coordinate-transform"
+      ],
+      "family": "digital-media-basis-image-matrix",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年問2と数値まで同一。2023年は出力座標、2024年は並進の有無が変化。",
+      "year": 2022,
+      "sourceFile": "４．デジタルメディア設計2022.pdf"
+    },
+    {
+      "id": "digital-media-2022-q3",
+      "number": "問3",
+      "page": 1,
+      "title": "三次ベジェ曲線の評価",
+      "summary": "P0=(0,0)ᵀ、P1=(1,1)ᵀ、P2=(2,1)ᵀ、P3=(3,0)ᵀの三次曲線でC(0.3)を求める。t=0はP0、t=1はP3。計算過程と考え方を記す。",
+      "topics": [
+        "digital-media-bezier"
+      ],
+      "family": "digital-media-bezier-evaluation",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は点の評価ではなく二次から三次への次数上げ。",
+      "year": 2022,
+      "sourceFile": "４．デジタルメディア設計2022.pdf"
+    },
+    {
+      "id": "digital-media-2022-q4",
+      "number": "問4",
+      "page": 1,
+      "title": "三角関数型密度の逆関数法",
+      "summary": "p(θ)∝cosθ sin³θとしてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。θの定義域は原本にない。",
+      "topics": [
+        "digital-media-inverse-transform"
+      ],
+      "family": "digital-media-trigonometric-inverse-cdf",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023・2024年はsinの指数が1。2025年はcosの指数が2でθ∈[0,π/2]を明記。",
+      "year": 2022,
+      "sourceFile": "４．デジタルメディア設計2022.pdf"
+    },
+    {
+      "id": "digital-media-2022-q5",
+      "number": "問5",
+      "page": 1,
+      "title": "指定点の重心座標",
+      "summary": "Vα=(3,1)ᵀ、Vβ=(2,4)ᵀ、Vγ=(1,3)ᵀに対するV=(3,-1)ᵀの重みα,β,γを求める。α+β+γ=1。計算過程と考え方を記す。",
+      "topics": [
+        "digital-media-barycentric"
+      ],
+      "family": "digital-media-triangle-barycentric",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は三頂点が変わるが指定点と解法は共通。",
+      "year": 2022,
+      "sourceFile": "４．デジタルメディア設計2022.pdf"
+    },
+    {
+      "id": "digital-media-2022-q6",
+      "number": "問6",
+      "page": 1,
+      "title": "Symplectic Eulerの利点と欠点",
+      "summary": "Forward・Backward Euler法に対するSymplectic Euler法の利点と欠点を論じる。",
+      "topics": [
+        "digital-media-euler"
+      ],
+      "family": "digital-media-euler-comparison",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年は3法すべての説明と、それぞれの利点・欠点へ要求を拡大。",
+      "year": 2022,
+      "sourceFile": "４．デジタルメディア設計2022.pdf"
+    },
+    {
+      "id": "digital-media-2023-q1",
+      "number": "問1",
+      "page": 1,
+      "title": "BRDFの説明",
+      "summary": "BRDFを説明する。",
+      "topics": [
+        "digital-media-radiometry-brdf"
+      ],
+      "family": "digital-media-radiometry-brdf-explanation",
+      "formats": [
+        "term",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024・2025年は放射量の関係とセットで問う。",
+      "year": 2023,
+      "sourceFile": "4_デジタルメディア設計2023.pdf"
+    },
+    {
+      "id": "digital-media-2023-q2",
+      "number": "問2",
+      "page": 1,
+      "title": "原点回転の線型性の理由",
+      "summary": "原点周りの回転が線型写像である理由を論じる。",
+      "topics": [
+        "digital-media-linear-map"
+      ],
+      "family": "digital-media-rotation-linearity",
+      "formats": [
+        "proof",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "他年度の『線型写像であるかどうか』と異なり、線型である理由に限定した聞き方。",
+      "year": 2023,
+      "sourceFile": "4_デジタルメディア設計2023.pdf"
+    },
+    {
+      "id": "digital-media-2023-q3",
+      "number": "問3",
+      "page": 1,
+      "title": "基底の像から変換行列",
+      "summary": "A∈R^{2×2}で(0,1)ᵀ→(4,5)ᵀ、(1,0)ᵀ→(3,-2)ᵀ。行列の各成分と計算過程・考え方を答える。",
+      "topics": [
+        "digital-media-coordinate-transform"
+      ],
+      "family": "digital-media-basis-image-matrix",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年から出力座標のみを変更。",
+      "year": 2023,
+      "sourceFile": "4_デジタルメディア設計2023.pdf"
+    },
+    {
+      "id": "digital-media-2023-q4",
+      "number": "問4",
+      "page": 1,
+      "title": "二次ベジェ曲線の次数上げ",
+      "summary": "P0=(1,0)ᵀ、P1=(0,0)ᵀ、P2=(0,1)ᵀの二次曲線と同じ曲線を表す三次曲線の四制御点を求める。計算過程と考え方を記す。",
+      "topics": [
+        "digital-media-bezier"
+      ],
+      "family": "digital-media-bezier-degree-elevation",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の点の評価とは同じテーマ内で別の解法。",
+      "year": 2023,
+      "sourceFile": "4_デジタルメディア設計2023.pdf"
+    },
+    {
+      "id": "digital-media-2023-q5",
+      "number": "問5",
+      "page": 1,
+      "title": "三角関数型密度の逆関数法",
+      "summary": "p(θ)∝cosθ sinθとしてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。θの定義域は原本にない。",
+      "topics": [
+        "digital-media-inverse-transform"
+      ],
+      "family": "digital-media-trigonometric-inverse-cdf",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年問6と同じ条件。",
+      "year": 2023,
+      "sourceFile": "4_デジタルメディア設計2023.pdf"
+    },
+    {
+      "id": "digital-media-2023-q6",
+      "number": "問6",
+      "page": 1,
+      "title": "指定点の重心座標",
+      "summary": "Vα=(2,1)ᵀ、Vβ=(1,2)ᵀ、Vγ=(1,1)ᵀに対するV=(3,-1)ᵀの重みα,β,γを求める。α+β+γ=1。計算過程と考え方を記す。",
+      "topics": [
+        "digital-media-barycentric"
+      ],
+      "family": "digital-media-triangle-barycentric",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年から三頂点の数値が変わる。",
+      "year": 2023,
+      "sourceFile": "4_デジタルメディア設計2023.pdf"
+    },
+    {
+      "id": "digital-media-2024-q1",
+      "number": "問1",
+      "page": 1,
+      "title": "立体角の定義",
+      "summary": "立体角の定義を説明する。",
+      "topics": [
+        "digital-media-solid-angle"
+      ],
+      "family": "digital-media-solid-angle-definition",
+      "formats": [
+        "term",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年問3でも同じ要求。",
+      "year": 2024,
+      "sourceFile": "3_デジタルメディア設計_2024.pdf"
+    },
+    {
+      "id": "digital-media-2024-q2",
+      "number": "問2",
+      "page": 1,
+      "title": "放射量の関係とBRDF",
+      "summary": "放射束・放射照度・放射輝度の違いと関係性を説明し、BRDFも説明する。",
+      "topics": [
+        "digital-media-radiometry-brdf"
+      ],
+      "family": "digital-media-radiometry-brdf-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年のBRDF単独説明から拡大。2025年問4と同じ要求。",
+      "year": 2024,
+      "sourceFile": "3_デジタルメディア設計_2024.pdf"
+    },
+    {
+      "id": "digital-media-2024-q3",
+      "number": "問3",
+      "page": 1,
+      "title": "原点回転は線型写像か",
+      "summary": "原点周りの回転が線型写像であるかを理由とともに論じる。",
+      "topics": [
+        "digital-media-linear-map"
+      ],
+      "family": "digital-media-rotation-linearity",
+      "formats": [
+        "proof",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年と同じ論点。2次元で考えてよいという追記はない。",
+      "year": 2024,
+      "sourceFile": "3_デジタルメディア設計_2024.pdf"
+    },
+    {
+      "id": "digital-media-2024-q4",
+      "number": "問4",
+      "page": 1,
+      "title": "アフィン変換の同次行列",
+      "summary": "A∈R^{3×3}の2次元アフィン変換。(0,1)ᵀ→(2,3)ᵀ、(1,0)ᵀ→(4,0)ᵀ、(0,0)ᵀ→(1,-1)ᵀ。できるだけ簡単な考え方で各成分、計算過程、考え方を答える。",
+      "topics": [
+        "digital-media-coordinate-transform"
+      ],
+      "family": "digital-media-basis-image-matrix",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2×2の変換に原点の像を追加し、3×3同次座標による並進込みの型へ拡大。",
+      "year": 2024,
+      "sourceFile": "3_デジタルメディア設計_2024.pdf"
+    },
+    {
+      "id": "digital-media-2024-q5",
+      "number": "問5",
+      "page": 1,
+      "title": "三つのEuler法の比較",
+      "summary": "Forward・Backward・Symplectic Euler法を簡潔に説明し、それぞれの利点・欠点を論じる。",
+      "topics": [
+        "digital-media-euler"
+      ],
+      "family": "digital-media-euler-comparison",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年より説明対象が広い。",
+      "year": 2024,
+      "sourceFile": "3_デジタルメディア設計_2024.pdf"
+    },
+    {
+      "id": "digital-media-2024-q6",
+      "number": "問6",
+      "page": 1,
+      "title": "三角関数型密度の逆関数法",
+      "summary": "p(θ)∝cosθ sinθとしてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。θの定義域は原本にない。",
+      "topics": [
+        "digital-media-inverse-transform"
+      ],
+      "family": "digital-media-trigonometric-inverse-cdf",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年問5と同じ条件。",
+      "year": 2024,
+      "sourceFile": "3_デジタルメディア設計_2024.pdf"
+    },
+    {
+      "id": "digital-media-2025-q1",
+      "number": "問1",
+      "page": 1,
+      "title": "原点回転は線型写像か",
+      "summary": "原点周りの回転が線型写像であるかを理由とともに論じる。2次元平面内で考えてよい。",
+      "topics": [
+        "digital-media-linear-map"
+      ],
+      "family": "digital-media-rotation-linearity",
+      "formats": [
+        "proof",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年問1と同じ条件。",
+      "year": 2025,
+      "sourceFile": "4. デジタルメディア設計2025.pdf"
+    },
+    {
+      "id": "digital-media-2025-q2",
+      "number": "問2",
+      "page": 1,
+      "title": "基底の像から変換行列",
+      "summary": "A∈R^{2×2}で(0,1)ᵀ→(3,4)ᵀ、(1,0)ᵀ→(1,-1)ᵀ。行列の各成分と計算過程・考え方を答える。",
+      "topics": [
+        "digital-media-coordinate-transform"
+      ],
+      "family": "digital-media-basis-image-matrix",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年問2と同じ数値。2024年のアフィン変換から2×2の型に戻る。",
+      "year": 2025,
+      "sourceFile": "4. デジタルメディア設計2025.pdf"
+    },
+    {
+      "id": "digital-media-2025-q3",
+      "number": "問3",
+      "page": 1,
+      "title": "立体角の定義",
+      "summary": "立体角の定義を説明する。",
+      "topics": [
+        "digital-media-solid-angle"
+      ],
+      "family": "digital-media-solid-angle-definition",
+      "formats": [
+        "term",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年問1と同じ要求。",
+      "year": 2025,
+      "sourceFile": "4. デジタルメディア設計2025.pdf"
+    },
+    {
+      "id": "digital-media-2025-q4",
+      "number": "問4",
+      "page": 1,
+      "title": "放射量の関係とBRDF",
+      "summary": "放射束・放射照度・放射輝度の違いと関係性を説明し、BRDFも説明する。",
+      "topics": [
+        "digital-media-radiometry-brdf"
+      ],
+      "family": "digital-media-radiometry-brdf-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年問2と同じ要求。",
+      "year": 2025,
+      "sourceFile": "4. デジタルメディア設計2025.pdf"
+    },
+    {
+      "id": "digital-media-2025-q5",
+      "number": "問5",
+      "page": 1,
+      "title": "定義域付き密度の逆関数法",
+      "summary": "p(θ)∝cos²θ sinθ、θ∈[0,π/2]としてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。",
+      "topics": [
+        "digital-media-inverse-transform"
+      ],
+      "family": "digital-media-trigonometric-inverse-cdf",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "cosの指数が2となり、過去3年になかったθの定義域を明記。",
+      "year": 2025,
+      "sourceFile": "4. デジタルメディア設計2025.pdf"
+    },
+    {
+      "id": "digital-media-2025-q6",
+      "number": "問6",
+      "page": 1,
+      "title": "流体の格子法と粒子法",
+      "summary": "格子法と粒子法の違いを、物理量の時間微分の議論を含めて説明する。",
+      "topics": [
+        "digital-media-fluid-methods"
+      ],
+      "family": "digital-media-fluid-representation-comparison",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "収録過去3年度にはない新しい比較説明。",
+      "year": 2025,
+      "sourceFile": "4. デジタルメディア設計2025.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2022-q1",
+      "number": "(1)",
+      "page": 1,
+      "title": "固有値と固有ベクトルの定義",
+      "summary": "n×n行列Aの固有値λ∈Rと固有ベクトルx∈Rⁿの定義を式で表す。",
+      "topics": [
+        "mathematical-modeling-eigen-definition"
+      ],
+      "family": "mathematical-modeling-eigen-definition",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年で同じ要求。2025年は定義を用いた相似変換の証明へ拡大。",
+      "year": 2022,
+      "sourceFile": "５．数理モデル解析法2022.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2022-q2",
+      "number": "(2)",
+      "page": 1,
+      "title": "固有方程式の一般形",
+      "summary": "λを求めるための固有方程式を、行列式|A|と単位行列Eの記法で表す。",
+      "topics": [
+        "mathematical-modeling-characteristic-equation"
+      ],
+      "family": "mathematical-modeling-characteristic-general",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年で同じ要求。",
+      "year": 2022,
+      "sourceFile": "５．数理モデル解析法2022.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2022-q3",
+      "number": "(3)",
+      "page": 1,
+      "title": "指定行列の固有方程式",
+      "summary": "A=((0,6,3),(-2,7,2),(0,0,3))について固有方程式を求め、λの多項式の方程式で示す。",
+      "topics": [
+        "mathematical-modeling-characteristic-equation"
+      ],
+      "family": "mathematical-modeling-characteristic-numeric",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023・2025年は同じ3×3行列の特性多項式の型で、成分が変わる。",
+      "year": 2022,
+      "sourceFile": "５．数理モデル解析法2022.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2022-q4",
+      "number": "(4)",
+      "page": 1,
+      "title": "固有値の計算と並べ替え",
+      "summary": "前問の方程式を解き、行列Aの固有値λをすべて求め、絶対値が大きい順に並べる。",
+      "topics": [
+        "mathematical-modeling-eigenvalues"
+      ],
+      "family": "mathematical-modeling-eigenvalue-solving",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023・2025年で絶対値順の指定を反復。",
+      "year": 2022,
+      "sourceFile": "５．数理モデル解析法2022.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2022-q5",
+      "number": "(5)",
+      "page": 1,
+      "title": "対応する固有ベクトル",
+      "summary": "各固有値λに対応する固有ベクトルxを求め、固有値の絶対値が大きい順に並べる。",
+      "topics": [
+        "mathematical-modeling-eigenvectors"
+      ],
+      "family": "mathematical-modeling-eigenvector-solving",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年は同じ要求。2025年はx1,x2,x3と名付けて対応を示す。",
+      "year": 2022,
+      "sourceFile": "５．数理モデル解析法2022.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2023-q1",
+      "number": "(1)",
+      "page": 1,
+      "title": "固有値と固有ベクトルの定義",
+      "summary": "n×n行列Aの固有値λ∈Rと固有ベクトルx∈Rⁿの定義を式で表す。",
+      "topics": [
+        "mathematical-modeling-eigen-definition"
+      ],
+      "family": "mathematical-modeling-eigen-definition",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年で同じ要求。2025年は定義を用いた相似変換の証明へ拡大。",
+      "year": 2023,
+      "sourceFile": "5_数理モデル解析法2023.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2023-q2",
+      "number": "(2)",
+      "page": 1,
+      "title": "固有方程式の一般形",
+      "summary": "λを求めるための固有方程式を、行列式|A|と単位行列Eの記法で表す。",
+      "topics": [
+        "mathematical-modeling-characteristic-equation"
+      ],
+      "family": "mathematical-modeling-characteristic-general",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年で同じ要求。",
+      "year": 2023,
+      "sourceFile": "5_数理モデル解析法2023.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2023-q3",
+      "number": "(3)",
+      "page": 1,
+      "title": "指定行列の固有方程式",
+      "summary": "A=((-1,4,4),(-2,5,7),(0,0,-2))について固有方程式を求め、λの多項式の方程式で示す。",
+      "topics": [
+        "mathematical-modeling-characteristic-equation"
+      ],
+      "family": "mathematical-modeling-characteristic-numeric",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023・2025年は同じ3×3行列の特性多項式の型で、成分が変わる。",
+      "year": 2023,
+      "sourceFile": "5_数理モデル解析法2023.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2023-q4",
+      "number": "(4)",
+      "page": 1,
+      "title": "固有値の計算と並べ替え",
+      "summary": "前問の方程式を解き、行列Aの固有値λをすべて求め、絶対値が大きい順に並べる。",
+      "topics": [
+        "mathematical-modeling-eigenvalues"
+      ],
+      "family": "mathematical-modeling-eigenvalue-solving",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023・2025年で絶対値順の指定を反復。",
+      "year": 2023,
+      "sourceFile": "5_数理モデル解析法2023.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2023-q5",
+      "number": "(5)",
+      "page": 1,
+      "title": "対応する固有ベクトル",
+      "summary": "各固有値λに対応する固有ベクトルxを求め、固有値の絶対値が大きい順に並べる。",
+      "topics": [
+        "mathematical-modeling-eigenvectors"
+      ],
+      "family": "mathematical-modeling-eigenvector-solving",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年は同じ要求。2025年はx1,x2,x3と名付けて対応を示す。",
+      "year": 2023,
+      "sourceFile": "5_数理モデル解析法2023.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2024-q1",
+      "number": "1",
+      "page": 1,
+      "title": "入替・スケーリング・消去の行列表示",
+      "summary": "逆行列を枢軸選択付き消去法で求める。第k行と第ip行を入れ替えるPk、対角成分a(k,k)を1にスケーリングして第k列の他成分を消すGkが、図示した行列になることを証明する。",
+      "topics": [
+        "mathematical-modeling-pivot-elimination"
+      ],
+      "family": "mathematical-modeling-elementary-matrix-proof",
+      "formats": [
+        "proof"
+      ],
+      "points": 20,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "固有値問題から、行操作を左から掛ける行列として説明する問題へ切り替わる。",
+      "year": 2024,
+      "sourceFile": "4_数理モデル解析法_2024.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2024-q2",
+      "number": "2",
+      "page": 1,
+      "title": "消去行列の係数",
+      "summary": "Gkの第k列α(i,k)（i=1,…,n、i≠k）とα(k,k)を、第k-1列目の消去後の行列A^(k-1)の成分a^(k-1)(i,j)で表す。",
+      "topics": [
+        "mathematical-modeling-pivot-elimination"
+      ],
+      "family": "mathematical-modeling-elimination-coefficients",
+      "formats": [
+        "calculation"
+      ],
+      "points": 20,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "第k段階の操作を成分で追う。Pkによる入替と係数の参照先を整理する必要がある。",
+      "year": 2024,
+      "sourceFile": "4_数理モデル解析法_2024.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2024-q3",
+      "number": "3",
+      "page": 1,
+      "title": "逆行列を行操作の積で表す証明",
+      "summary": "n次正方行列Aの逆行列がG(n-1)P(n-1)…G2P2G1P1Iで表されることを証明する。Iは単位行列。",
+      "topics": [
+        "mathematical-modeling-pivot-elimination",
+        "mathematical-modeling-inverse-matrix"
+      ],
+      "family": "mathematical-modeling-inverse-product-proof",
+      "formats": [
+        "proof"
+      ],
+      "points": 20,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "原本の積の末尾段階はn-1。一般の逆行列公式として使うには後述の注意が必要。",
+      "year": 2024,
+      "sourceFile": "4_数理モデル解析法_2024.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2024-q4",
+      "number": "4",
+      "page": 1,
+      "title": "指定行列の逆行列",
+      "summary": "上記で証明した知識を使い、A=((1,2,0),(2,3,4),(0,3,-11))の逆行列を求める。",
+      "topics": [
+        "mathematical-modeling-pivot-elimination",
+        "mathematical-modeling-inverse-matrix"
+      ],
+      "family": "mathematical-modeling-inverse-numeric",
+      "formats": [
+        "calculation"
+      ],
+      "points": 40,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "証明した操作を3×3の数値行列に適用する。",
+      "year": 2024,
+      "sourceFile": "4_数理モデル解析法_2024.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2025-q1",
+      "number": "(1)",
+      "page": 1,
+      "title": "相似変換の固有値・固有ベクトル",
+      "summary": "Ax=λx、正則Mに対しMAM⁻¹とM⁻¹AMの固有値がλ、対応する固有ベクトルがMx、M⁻¹xであることを証明する。x=M⁻¹yという変形を用いてよい。",
+      "topics": [
+        "mathematical-modeling-eigen-definition",
+        "mathematical-modeling-similarity"
+      ],
+      "family": "mathematical-modeling-similarity-eigen-proof",
+      "formats": [
+        "proof"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年冒頭の定義の式から、相似変換を使う証明へ変更。",
+      "year": 2025,
+      "sourceFile": "5. 数理モデル解析法2025.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2025-q2",
+      "number": "(2)",
+      "page": 1,
+      "title": "直交行列による相似変換",
+      "summary": "前問でMが直交行列の場合、MAMᵀとMᵀAMの固有値がλ、対応する固有ベクトルがMx、Mᵀxであることを証明する。Mᵀは転置行列。",
+      "topics": [
+        "mathematical-modeling-similarity"
+      ],
+      "family": "mathematical-modeling-orthogonal-similarity-proof",
+      "formats": [
+        "proof"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "相似変換の証明を、直交行列の逆行列と転置の関係へ接続する。",
+      "year": 2025,
+      "sourceFile": "5. 数理モデル解析法2025.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2025-q3",
+      "number": "(3)",
+      "page": 1,
+      "title": "指定行列の特性方程式",
+      "summary": "A=((-1,0,0),(1,3,1),(3,0,2))の固有値・固有ベクトルを求めるための特性方程式をλの方程式として示す。",
+      "topics": [
+        "mathematical-modeling-characteristic-equation"
+      ],
+      "family": "mathematical-modeling-characteristic-numeric",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年と同じ後半の型。行列成分を変更。",
+      "year": 2025,
+      "sourceFile": "5. 数理モデル解析法2025.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2025-q4",
+      "number": "(4)",
+      "page": 1,
+      "title": "三固有値の計算と絶対値順",
+      "summary": "前問の特性方程式を解きλ1,λ2,λ3を求め、|λ1|≥|λ2|≥|λ3|の順に並べる。",
+      "topics": [
+        "mathematical-modeling-eigenvalues"
+      ],
+      "family": "mathematical-modeling-eigenvalue-solving",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023年の絶対値順の要求を添字付き不等式で明記。",
+      "year": 2025,
+      "sourceFile": "5. 数理モデル解析法2025.pdf"
+    },
+    {
+      "id": "mathematical-modeling-2025-q5",
+      "number": "(5)",
+      "page": 1,
+      "title": "三固有値に対応するベクトル",
+      "summary": "λ1,λ2,λ3に対応する固有ベクトルx1,x2,x3を求める。",
+      "topics": [
+        "mathematical-modeling-eigenvectors"
+      ],
+      "family": "mathematical-modeling-eigenvector-solving",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "前問で付けた固有値の添字と固有ベクトルの対応を維持する。",
+      "year": 2025,
+      "sourceFile": "5. 数理モデル解析法2025.pdf"
+    },
+    {
+      "id": "information-mathematics-2022-q1",
+      "number": "1",
+      "page": 1,
+      "title": "ランレングスハフマン符号",
+      "summary": "無記憶情報源の記号a,b,cの確率は0.7,0.2,0.1。長さ3までのaのランに対する2元ランレングスハフマン符号と、1情報源記号あたりの平均符号長を示す。必要なら小数点以下第4位を四捨五入。",
+      "topics": [
+        "information-mathematics-huffman"
+      ],
+      "family": "information-mathematics-run-length-huffman",
+      "formats": [
+        "calculation",
+        "diagram"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年は通常の5記号ハフマン符号の例を自分で設定し、木と割当手順を説明する。",
+      "year": 2022,
+      "sourceFile": "７．情報数学II2022.pdf"
+    },
+    {
+      "id": "information-mathematics-2022-q2-1",
+      "number": "2.(1)",
+      "page": 1,
+      "title": "検査行列の補完",
+      "summary": "(7,4)ハミング符号の検査行列H=((1,0,1,□,1,0,0),(□,□,0,□,0,1,0),(□,□,1,0,0,0,1))の6空欄を埋め、行列全体を記す。",
+      "topics": [
+        "information-mathematics-hamming"
+      ],
+      "family": "information-mathematics-hamming-check-matrix",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は成分の異なる完成した検査行列を与える。2024年は構成方法と自作例を問う。",
+      "year": 2022,
+      "sourceFile": "７．情報数学II2022.pdf"
+    },
+    {
+      "id": "information-mathematics-2022-q2-2",
+      "number": "2.(2)",
+      "page": 1,
+      "title": "生成行列を示す",
+      "summary": "前問で完成させた検査行列に対する生成行列を示す。",
+      "topics": [
+        "information-mathematics-hamming"
+      ],
+      "family": "information-mathematics-hamming-generator-matrix",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年問3.(2)でも、自分で例示した検査行列に対応する生成行列を示す。",
+      "year": 2022,
+      "sourceFile": "７．情報数学II2022.pdf"
+    },
+    {
+      "id": "information-mathematics-2022-q2-3",
+      "number": "2.(3)",
+      "page": 1,
+      "title": "情報ビットから符号語",
+      "summary": "前問の行列を使い、情報ビット1010の符号語を求める。",
+      "topics": [
+        "information-mathematics-hamming"
+      ],
+      "family": "information-mathematics-hamming-encoding",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は情報ビット1101と異なる検査行列を使い、シンドローム・誤り位置とまとめて問う。",
+      "year": 2022,
+      "sourceFile": "７．情報数学II2022.pdf"
+    },
+    {
+      "id": "information-mathematics-2022-q3",
+      "number": "3",
+      "page": 1,
+      "title": "ダイクストラ法の実行",
+      "summary": "図の10頂点a～j、非負重み付きグラフでaからjへの最短経路・距離と、各頂点の距離確定順を求める。画像の辺と重みはa-b:4、a-d:2、b-c:2、c-d:1、b-e:7、b-f:4、c-f:3、c-i:6、d-g:3、e-f:6、f-g:4、e-j:5、f-h:6、g-i:6、h-j:2、h-i:1、j-i:4。",
+      "topics": [
+        "information-mathematics-graph"
+      ],
+      "family": "information-mathematics-dijkstra-trace",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は同じグラフ分野でも郵便配達員問題の定義・解法の説明に変更。",
+      "year": 2022,
+      "sourceFile": "７．情報数学II2022.pdf"
+    },
+    {
+      "id": "information-mathematics-2023-q1-1",
+      "number": "1.(1)",
+      "page": 1,
+      "title": "マルコフ情報源の定常確率",
+      "summary": "状態確率ベクトルū、遷移確率行列P̄から各状態の定常確率を求める連立方程式の空欄アを埋める。",
+      "topics": [
+        "information-mathematics-markov"
+      ],
+      "family": "information-mathematics-stationary-distribution-equations",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "収録他2年度に同じ設問はない。",
+      "year": 2023,
+      "sourceFile": "7_情報数学II2023.pdf"
+    },
+    {
+      "id": "information-mathematics-2023-q1-2",
+      "number": "1.(2)",
+      "page": 1,
+      "title": "線形符号の長さと生成行列",
+      "summary": "2元(n,k)線形符号の情報ビット長・冗長ビット長、および生成行列の独立行ベクトルの個数と次元について、イ～オの空欄を埋める。",
+      "topics": [
+        "information-mathematics-linear-code"
+      ],
+      "family": "information-mathematics-linear-code-dimensions",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "ハミング符号の具体計算に先立ち、一般の(n,k)記法と行列の次元を問う。",
+      "year": 2023,
+      "sourceFile": "7_情報数学II2023.pdf"
+    },
+    {
+      "id": "information-mathematics-2023-q1-3",
+      "number": "1.(3)",
+      "page": 1,
+      "title": "シンドローム・誤り位置・符号語",
+      "summary": "(7,4)ハミング符号のH=((1,1,1,0,1,0,0),(0,1,1,1,0,1,0),(1,0,1,1,0,0,1))を使い、受信語1010110のシンドロームと誤りビット位置、情報ビット列1101の符号語の空欄カ～クを埋める。",
+      "topics": [
+        "information-mathematics-hamming"
+      ],
+      "family": "information-mathematics-hamming-syndrome-encoding",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年とは検査行列の成分と情報ビットが異なり、受信語のシンドロームと誤り位置の判断も加わる。2024年は例を自分で作って利用方法を説明する。",
+      "year": 2023,
+      "sourceFile": "7_情報数学II2023.pdf"
+    },
+    {
+      "id": "information-mathematics-2023-q2-1",
+      "number": "2.(1)",
+      "page": 1,
+      "title": "郵便配達員問題の定義",
+      "summary": "郵便配達員問題のグラフを用いた定義を述べる。",
+      "topics": [
+        "information-mathematics-graph"
+      ],
+      "family": "information-mathematics-postman-definition",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の特定グラフでの最短経路計算とは目的が異なる。",
+      "year": 2023,
+      "sourceFile": "7_情報数学II2023.pdf"
+    },
+    {
+      "id": "information-mathematics-2023-q2-2",
+      "number": "2.(2)",
+      "page": 1,
+      "title": "郵便配達員問題の解法",
+      "summary": "郵便配達員問題に対するグラフを用いた解法を説明する。",
+      "topics": [
+        "information-mathematics-graph"
+      ],
+      "family": "information-mathematics-postman-algorithm",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "数値グラフは指定されず、一般的な解法の説明を要求する。",
+      "year": 2023,
+      "sourceFile": "7_情報数学II2023.pdf"
+    },
+    {
+      "id": "information-mathematics-2024-q1-1",
+      "number": "1.(1)",
+      "page": 1,
+      "title": "自己情報量と平均情報量",
+      "summary": "ジョーカーなし52枚のカードで黒/赤を出力するAの各自己情報量・平均情報量と、絵札なら1、それ以外は0とするBの平均情報量、その関数名を埋める。log₂3=1.58、log₂5=2.32、log₂13=3.70を使用。",
+      "topics": [
+        "information-mathematics-information-measures"
+      ],
+      "family": "information-mathematics-entropy-calculation",
+      "formats": [
+        "calculation",
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "記号確率を直接与える2022年と異なり、カードの内訳から確率を決める。",
+      "year": 2024,
+      "sourceFile": "6_情報数学II_2024.pdf"
+    },
+    {
+      "id": "information-mathematics-2024-q1-2",
+      "number": "1.(2)",
+      "page": 1,
+      "title": "平均情報量の最大化",
+      "summary": "同じ形・重さの金・銀・銅のメダル計30枚から1枚を取り出して色を通知する情報源。平均情報量を最大にする各色の枚数を空欄f～hに示す。",
+      "topics": [
+        "information-mathematics-information-measures"
+      ],
+      "family": "information-mathematics-maximum-entropy",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "同年度1.(1)の情報量計算から、分布の条件を考える問題へ接続。",
+      "year": 2024,
+      "sourceFile": "6_情報数学II_2024.pdf"
+    },
+    {
+      "id": "information-mathematics-2024-q2",
+      "number": "2",
+      "page": 1,
+      "title": "具体例によるハフマン符号の説明",
+      "summary": "5情報源記号a,b,c,d,eの確率を任意に決め、2元ハフマン符号木の生成方法と符号語の割当方法を具体例で説明する。",
+      "topics": [
+        "information-mathematics-huffman"
+      ],
+      "family": "information-mathematics-huffman-tree-construction",
+      "formats": [
+        "essay",
+        "diagram",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年は指定確率とランレングス、2024年は通常の5記号で確率を自分で設定する。",
+      "year": 2024,
+      "sourceFile": "6_情報数学II_2024.pdf"
+    },
+    {
+      "id": "information-mathematics-2024-q3-1",
+      "number": "3.(1)",
+      "page": 1,
+      "title": "検査行列の構成方法と例",
+      "summary": "2元(7,4)ハミング符号の検査行列の構成方法を説明し、1つの行列を例示する。",
+      "topics": [
+        "information-mathematics-hamming"
+      ],
+      "family": "information-mathematics-hamming-check-matrix",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の空欄補完から、構成原理の説明と自作例へ変更。",
+      "year": 2024,
+      "sourceFile": "6_情報数学II_2024.pdf"
+    },
+    {
+      "id": "information-mathematics-2024-q3-2",
+      "number": "3.(2)",
+      "page": 1,
+      "title": "自作の検査行列に対する生成行列",
+      "summary": "前問で例示した検査行列に対する生成行列を示す。",
+      "topics": [
+        "information-mathematics-hamming"
+      ],
+      "family": "information-mathematics-hamming-generator-matrix",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年と同じ対応関係を問うが、起点となる検査行列を自分で選ぶ。",
+      "year": 2024,
+      "sourceFile": "6_情報数学II_2024.pdf"
+    },
+    {
+      "id": "information-mathematics-2024-q3-3",
+      "number": "3.(3)",
+      "page": 1,
+      "title": "シンドロームの意味と利用例",
+      "summary": "シンドロームとは何かを説明し、具体例を通して利用方法を示す。",
+      "topics": [
+        "information-mathematics-hamming"
+      ],
+      "family": "information-mathematics-hamming-syndrome-encoding",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年の指定受信語の計算から、説明と自作例を求める形式へ変わる。",
+      "year": 2024,
+      "sourceFile": "6_情報数学II_2024.pdf"
+    },
+    {
+      "id": "hci-2022-q1",
+      "number": "1.",
+      "page": 1,
+      "title": "GUIの基本用語",
+      "summary": "コマンド中心のUI、デスクトップメタファのUI、WIMPを構成する要素等について6空欄を埋める。",
+      "topics": [
+        "hci-ui-concepts"
+      ],
+      "family": "hci-ui-vocabulary",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年と2025年にも基本用語の文章穴埋めがある。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2022-q2",
+      "number": "2.",
+      "page": 1,
+      "title": "WYSIWYGの正式な英文",
+      "summary": "問1の下線部WYSIWYGを略す前の英文を記載する。",
+      "topics": [
+        "hci-ui-concepts"
+      ],
+      "family": "hci-acronym-expansion",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年・2025年は略語そのものを穴埋めで問う。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2022-q3",
+      "number": "3.",
+      "page": 1,
+      "title": "AIPキューブの構成要素",
+      "summary": "究極のVR環境を目指す考え方としてAIPキューブの構成要素を説明する。",
+      "topics": [
+        "hci-xr"
+      ],
+      "family": "hci-xr-concept",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年にはARのHMD方式の比較へ変化。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2022-q4-1",
+      "number": "4.(1)",
+      "page": 1,
+      "title": "画面アスペクト比",
+      "summary": "横32cm・縦18cm、1920×1080画素のディスプレイの画面アスペクト比（横:縦）を求める。",
+      "topics": [
+        "hci-display-metrics"
+      ],
+      "family": "hci-display-ratio",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年はppiの計算と説明に絞られる。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2022-q4-2",
+      "number": "4.(2)",
+      "page": 1,
+      "title": "ピクセルアスペクト比",
+      "summary": "横32cm・縦18cm、1920×1080画素のディスプレイのピクセルアスペクト比（横:縦）を求める。",
+      "topics": [
+        "hci-display-metrics"
+      ],
+      "family": "hci-display-ratio",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "画面全体の比と1画素の比を別設問で区別させる。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2022-q4-3",
+      "number": "4.(3)",
+      "page": 1,
+      "title": "画面解像度ppi",
+      "summary": "同じ仕様のppiを1の位まで求める。1inch=2.54cm、√337=18.4の条件を用い、途中式を記す。",
+      "topics": [
+        "hci-display-metrics"
+      ],
+      "family": "hci-pixel-density",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年もppiを求めるが画素数・対角インチが変わる。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2022-q4-4",
+      "number": "4.(4)",
+      "page": 1,
+      "title": "画面サイズの対角インチ",
+      "summary": "同じ仕様の画面サイズを小数点以下1桁まで求める。1inch=2.54cm、√337=18.4。",
+      "topics": [
+        "hci-display-metrics"
+      ],
+      "family": "hci-display-diagonal",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年は対角インチを与えてppiを求める逆方向の条件。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2022-q5",
+      "number": "5.",
+      "page": 1,
+      "title": "情報処理モデルによる所要時間",
+      "summary": "知覚100ms・認知70ms・運動70msのモデルを用い、知人の顔を認識し、名前を思い出し、手を挙げる決定と動作までの処理時間を途中式付きで求める。",
+      "topics": [
+        "hci-human-processing"
+      ],
+      "family": "hci-processing-time",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年・2025年は人の記憶特性を用語で問う。",
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf"
+    },
+    {
+      "id": "hci-2023-q1",
+      "number": "1.",
+      "page": 1,
+      "title": "GUIの用語とフィッツの法則",
+      "summary": "文字UIとGUI、デスクトップメタファ、WIMP、WYSIWYG、およびT=a+b log2(D/W+1)の法則名を8空欄で問う。式中Wは原本では『ターゲットの短辺の長さ』と定義。",
+      "topics": [
+        "hci-ui-concepts",
+        "hci-fitts"
+      ],
+      "family": "hci-ui-vocabulary",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の基本用語にメタファとフィッツの法則名が加わる。",
+      "year": 2023,
+      "sourceFile": "6_ヒューマンコンピュータインタラクション2023.pdf"
+    },
+    {
+      "id": "hci-2023-q2",
+      "number": "2.",
+      "page": 1,
+      "title": "フィッツの法則による予測",
+      "summary": "7cm離れた10mm×15mmの矩形で300ms、6cm離れた半径10mmの円で250msから、15cm離れた10mm×30mmの矩形までの時間を予測。画面の辺や隅にない条件と途中式を含む。",
+      "topics": [
+        "hci-fitts"
+      ],
+      "family": "hci-fitts-calibration",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年はpx単位でa,bを直接求め、改善案比較も行う。",
+      "year": 2023,
+      "sourceFile": "6_ヒューマンコンピュータインタラクション2023.pdf"
+    },
+    {
+      "id": "hci-2023-q3",
+      "number": "3.",
+      "page": 1,
+      "title": "ARのシースルーHMD比較",
+      "summary": "光学シースルーとビデオシースルーの方式の違い、長所、短所を説明する。",
+      "topics": [
+        "hci-xr"
+      ],
+      "family": "hci-xr-device-comparison",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年のVR構成要素説明から、AR実現方式の比較へ。",
+      "year": 2023,
+      "sourceFile": "6_ヒューマンコンピュータインタラクション2023.pdf"
+    },
+    {
+      "id": "hci-2023-q4",
+      "number": "4.",
+      "page": 1,
+      "title": "アフォーダンスの定義と例",
+      "summary": "アフォーダンスを説明し、コンピュータ利用時に上手く利用されている具体例を挙げて論じる。",
+      "topics": [
+        "hci-affordance"
+      ],
+      "family": "hci-affordance-example",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年はジョイスティックの握る操作を例に用語を穴埋めで問う。",
+      "year": 2023,
+      "sourceFile": "6_ヒューマンコンピュータインタラクション2023.pdf"
+    },
+    {
+      "id": "hci-2024-q1",
+      "number": "1.",
+      "page": 1,
+      "title": "視覚生理と記憶モデル",
+      "summary": "眼球・視細胞・色感度の用語と、感覚記憶・短期記憶・長期記憶・チャンク・7±2について10空欄を埋める。空欄⑥の参照には矛盾がある。",
+      "topics": [
+        "hci-visual-physiology",
+        "hci-human-processing"
+      ],
+      "family": "hci-human-vocabulary",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "GUI中心の穴埋めから、視覚と記憶特性を問う内容に変更。2025年はGUIと記憶を統合。",
+      "year": 2024,
+      "sourceFile": "5_ヒューマンコンピュータインタラクション_2024.pdf"
+    },
+    {
+      "id": "hci-2024-q2",
+      "number": "2.",
+      "page": 1,
+      "title": "心理物理法則と弁別閾",
+      "summary": "刺激量の対数に比例する感覚の法則名を答え、100gに対する弁別閾8gから400gに対する弁別閾を途中式付きで求める。",
+      "topics": [
+        "hci-psychophysics"
+      ],
+      "family": "hci-weber-threshold",
+      "formats": [
+        "term",
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年は音量を10dB増やすクリック数へ応用。",
+      "year": 2024,
+      "sourceFile": "5_ヒューマンコンピュータインタラクション_2024.pdf"
+    },
+    {
+      "id": "hci-2024-q3",
+      "number": "3.",
+      "page": 1,
+      "title": "音声UIの利点と欠点",
+      "summary": "NUIの一種として、音声を使うUIの利点と欠点を述べる。",
+      "topics": [
+        "hci-input-devices"
+      ],
+      "family": "hci-input-mode-comparison",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年はマウス・タッチパネル等の検出方式を穴埋めで問う。",
+      "year": 2024,
+      "sourceFile": "5_ヒューマンコンピュータインタラクション_2024.pdf"
+    },
+    {
+      "id": "hci-2024-q4",
+      "number": "4.",
+      "page": 1,
+      "title": "ppi計算とディスプレイの評価",
+      "summary": "1440×3120pixel、横2.99inch・縦6.45inch・対角6.7inchの仕様を用いてppiを計算し、問題文の458ppi基準と比較して論じる。√205=14.3、対角線からppiを求める式を指定。",
+      "topics": [
+        "hci-display-metrics"
+      ],
+      "family": "hci-pixel-density",
+      "formats": [
+        "calculation",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の寸法換算から、与えられた仕様を根拠に評価を述べる問題へ。",
+      "year": 2024,
+      "sourceFile": "5_ヒューマンコンピュータインタラクション_2024.pdf"
+    },
+    {
+      "id": "hci-2025-q1",
+      "number": "1.",
+      "page": 1,
+      "title": "GUIと短期記憶の用語",
+      "summary": "CLI・GUI・WIMP・WYSIWYGと、短期記憶・長期記憶・チャンク・7±2に関する10空欄を埋める。",
+      "topics": [
+        "hci-ui-concepts",
+        "hci-human-processing"
+      ],
+      "family": "hci-ui-vocabulary",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年・2023年のGUI用語と2024年の記憶特性を同一文章に統合。",
+      "year": 2025,
+      "sourceFile": "6. ヒューマンコンピュータインタラクション2025.pdf"
+    },
+    {
+      "id": "hci-2025-q2",
+      "number": "2.",
+      "page": 1,
+      "title": "ウェーバー比と音量操作",
+      "summary": "1クリックを検知限ギリギリの変化にした場合、10dB増加に必要なクリック数を計算。ウェーバー比0.048、log10(1.048)=0.02を与え、途中式を要求。",
+      "topics": [
+        "hci-psychophysics"
+      ],
+      "family": "hci-weber-threshold",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年の重量の弁別閾から、対数と反復増加を用いるUI設計問題へ。",
+      "year": 2025,
+      "sourceFile": "6. ヒューマンコンピュータインタラクション2025.pdf"
+    },
+    {
+      "id": "hci-2025-q3-1",
+      "number": "3.(1)",
+      "page": 1,
+      "title": "フィッツの法則の定数推定",
+      "summary": "D=300px,W=20px,T=0.55秒と、D=315px,W=5px,T=0.75秒から、a,bを求める。",
+      "topics": [
+        "hci-fitts"
+      ],
+      "family": "hci-fitts-calibration",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年の測定例から予測する問題の前半を、定数を求める小問として明示。",
+      "year": 2025,
+      "sourceFile": "6. ヒューマンコンピュータインタラクション2025.pdf"
+    },
+    {
+      "id": "hci-2025-q3-2",
+      "number": "3.(2)",
+      "page": 1,
+      "title": "ターゲット幅と距離の改善比較",
+      "summary": "幅を1.5倍にする案と距離を60px近づける案について、フィッツの法則を用いて操作効率への寄与を比較し、理由を述べる。",
+      "topics": [
+        "hci-fitts"
+      ],
+      "family": "hci-fitts-design-comparison",
+      "formats": [
+        "calculation",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "単純な所要時間予測から、二つの設計改善案の比較まで要求する。",
+      "year": 2025,
+      "sourceFile": "6. ヒューマンコンピュータインタラクション2025.pdf"
+    },
+    {
+      "id": "hci-2025-q5",
+      "number": "5.",
+      "page": 1,
+      "title": "入力装置とアフォーダンス",
+      "summary": "ボール式とLED反射光を用いるマウス、ジョイスティック、抵抗によるタッチ検出と電荷によるタッチ検出、および握って操作できるデザイン特性について6空欄を埋める。解答欄の④〜⑥は2ページ目。",
+      "topics": [
+        "hci-input-devices",
+        "hci-affordance"
+      ],
+      "family": "hci-input-vocabulary",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "原本は問4がなく問5へ進む。用語の意味を機器の原理やデザイン例に結び付ける。",
+      "year": 2025,
+      "sourceFile": "6. ヒューマンコンピュータインタラクション2025.pdf"
+    },
+    {
+      "id": "multimedia-2022-q1",
+      "number": "1.",
+      "page": 1,
+      "title": "関連する産業の例",
+      "summary": "マルチメディア開発と強く関連する産業を少なくとも3つ挙げる。",
+      "topics": [
+        "multimedia-foundations"
+      ],
+      "family": "multimedia-industry-examples",
+      "formats": [
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年も関連産業を問うが、少なくとも3つから2つに変更。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q2",
+      "number": "2.",
+      "page": 1,
+      "title": "PCディスプレイの提示空間",
+      "summary": "PCディスプレイのpresentation spaceが何次元かを答える。",
+      "topics": [
+        "multimedia-foundations"
+      ],
+      "family": "multimedia-presentation-dimension",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年・2025年はstereophonyの提示空間へ変更。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q3",
+      "number": "3.",
+      "page": 1,
+      "title": "ストリームの周期性分類",
+      "summary": "continuous data streamsのperiodicity characterizationの分類名を列挙する。",
+      "topics": [
+        "multimedia-streams"
+      ],
+      "family": "multimedia-stream-periodicity",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年も同じ観点を問う。2025年はパケットサイズの観点へ。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q4",
+      "number": "4.",
+      "page": 1,
+      "title": "パケットサイズ変動の分類",
+      "summary": "continuous data streamsのpacket size variation characterizationの分類名を列挙する。",
+      "topics": [
+        "multimedia-streams"
+      ],
+      "family": "multimedia-packet-size-characterization",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年もパケットサイズの分類を問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q5",
+      "number": "5.",
+      "page": 1,
+      "title": "標本化定理の定義",
+      "summary": "Shannon's sampling theoremを定義する。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-definition",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年・2025年も同じ定義を問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q6",
+      "number": "6.",
+      "page": 1,
+      "title": "標本化間隔への換算",
+      "summary": "Fs=250Hzのsampling intervalを秒単位で求める。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-reciprocal",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は1250Hz、2025年は周期125μsから周波数を求める逆向きの問題。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q7-1",
+      "number": "7. ①",
+      "page": 1,
+      "title": "量子化レベル数",
+      "summary": "3bit・入力範囲0〜5VのA/D変換。量子化レベル数Lを求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は4bit・0〜3V、2025年は4bit・1〜4Vへ変更。2022年だけ量子化誤差も問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q7-2",
+      "number": "7. ②",
+      "page": 1,
+      "title": "量子化のステップ幅",
+      "summary": "3bit・入力範囲0〜5VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は4bit・0〜3V、2025年は4bit・1〜4Vへ変更。2022年だけ量子化誤差も問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q7-3",
+      "number": "7. ③",
+      "page": 1,
+      "title": "入力電圧の量子化値",
+      "summary": "3bit・入力範囲0〜5VのA/D変換。アナログ入力3.2Vの量子化値xqを求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は4bit・0〜3V、2025年は4bit・1〜4Vへ変更。2022年だけ量子化誤差も問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q7-4",
+      "number": "7. ④",
+      "page": 1,
+      "title": "A/D変換の2進符号",
+      "summary": "3bit・入力範囲0〜5VのA/D変換。アナログ入力3.2Vに対応する2進符号を求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は4bit・0〜3V、2025年は4bit・1〜4Vへ変更。2022年だけ量子化誤差も問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q7-5",
+      "number": "7. ⑤",
+      "page": 1,
+      "title": "量子化誤差",
+      "summary": "3bit・入力範囲0〜5VのA/D変換。同じ入力3.2Vの量子化誤差eqを求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は4bit・0〜3V、2025年は4bit・1〜4Vへ変更。2022年だけ量子化誤差も問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q8-1",
+      "number": "8. ①",
+      "page": 2,
+      "title": "波形の最大周波数成分",
+      "summary": "横軸Time(sec)が0〜0.1秒の波形図から最大周波数成分を答える。連続波形と標本点を読み分ける。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-figure",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は横軸msecの別の波形図へ変更。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q8-2",
+      "number": "8. ②",
+      "page": 2,
+      "title": "図から標本化周波数",
+      "summary": "波形図の標本点の間隔からsampling frequencyを求める。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-figure",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は標本化間隔も独立の小問になる。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q8-3",
+      "number": "8. ③",
+      "page": 2,
+      "title": "図から標本化定理の判定",
+      "summary": "同じ図の信号と標本化に対してsampling theoremが成立するか答える。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-figure",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年は判定に加えて理由も明示的に要求。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q9-a",
+      "number": "9.(a)",
+      "page": 2,
+      "title": "[0,1]への正規化",
+      "summary": "デジタル信号Xを[0,1]の範囲に正規化する式を書く。",
+      "topics": [
+        "multimedia-normalization"
+      ],
+      "family": "multimedia-range-normalization",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年の(a)は平均0・分散1へ変更。2025年の(b)で[0,1]を問う。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q9-b",
+      "number": "9.(b)",
+      "page": 2,
+      "title": "[-1,1]への正規化",
+      "summary": "デジタル信号Xを[-1,1]の範囲に正規化する式を書く。",
+      "topics": [
+        "multimedia-normalization"
+      ],
+      "family": "multimedia-range-normalization",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年も[-1,1]、2025年は[0,1]へ変更。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2022-q10",
+      "number": "10.",
+      "page": 2,
+      "title": "正弦波の各成分",
+      "summary": "可視原本に示されたA sin(ωx+φ)のA,φ,ωのEnglish/Japanese nameを記す。",
+      "topics": [
+        "multimedia-sinusoid"
+      ],
+      "family": "multimedia-sinusoid-components",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年は式そのものと成分名を両方書く。",
+      "year": 2022,
+      "sourceFile": "３．マルチメディア工学2022.pdf"
+    },
+    {
+      "id": "multimedia-2023-q1",
+      "number": "1.",
+      "page": 1,
+      "title": "電気を要しないディジタル通信例",
+      "summary": "電気を必要としないdigital communication meansを2つ挙げる。",
+      "topics": [
+        "multimedia-foundations"
+      ],
+      "family": "multimedia-communication-examples",
+      "formats": [
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年・2025年の関連産業の例とは異なる要求。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q2",
+      "number": "2.",
+      "page": 1,
+      "title": "三つの伝送モードの定義",
+      "summary": "Isochronous, Synchronous, Asynchronousの各media transmission modeを定義する。3名称は番号のない説明群として1設問。",
+      "topics": [
+        "multimedia-streams"
+      ],
+      "family": "multimedia-transmission-modes",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年も同じ三つのモードを定義する。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q3",
+      "number": "3.",
+      "page": 1,
+      "title": "ステレオ音響の提示空間",
+      "summary": "stereophony presentation spaceが何次元か答える。",
+      "topics": [
+        "multimedia-foundations"
+      ],
+      "family": "multimedia-presentation-dimension",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年のPC displayからstereophonyへ対象が変わる。2025年は同じ対象。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q4",
+      "number": "4.",
+      "page": 1,
+      "title": "ストリームの周期性分類",
+      "summary": "continuous data streamsのperiodicity characterizationの分類名を列挙する。",
+      "topics": [
+        "multimedia-streams"
+      ],
+      "family": "multimedia-stream-periodicity",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年と同じ観点。2025年はパケットサイズ分類。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q5",
+      "number": "5.",
+      "page": 1,
+      "title": "標本化定理の定義",
+      "summary": "Shannon's sampling theoremを定義する。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-definition",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "収録3年度とも反復。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q6",
+      "number": "6.",
+      "page": 1,
+      "title": "標本化間隔への換算",
+      "summary": "Fs=1250Hzのsampling intervalを秒単位で求める。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-reciprocal",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の250Hzから数値変更。2025年は周期を与える。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q7-1",
+      "number": "7. ①",
+      "page": 1,
+      "title": "量子化レベル数",
+      "summary": "4bit・入力範囲0〜3VのA/D変換。量子化レベル数Lを求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の3bitから4bitへ変更。量子化値の入力2.35Vと符号化の入力2Vが異なる。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q7-2",
+      "number": "7. ②",
+      "page": 1,
+      "title": "量子化のステップ幅",
+      "summary": "4bit・入力範囲0〜3VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の3bitから4bitへ変更。量子化値の入力2.35Vと符号化の入力2Vが異なる。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q7-3",
+      "number": "7. ③",
+      "page": 1,
+      "title": "入力電圧の量子化値",
+      "summary": "4bit・入力範囲0〜3VのA/D変換。アナログ入力2.35Vの量子化値xqを求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の3bitから4bitへ変更。量子化値の入力2.35Vと符号化の入力2Vが異なる。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q7-4",
+      "number": "7. ④",
+      "page": 1,
+      "title": "A/D変換の2進符号",
+      "summary": "4bit・入力範囲0〜3VのA/D変換。アナログ入力2Vに対応する2進符号を求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の3bitから4bitへ変更。量子化値の入力2.35Vと符号化の入力2Vが異なる。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q8-a",
+      "number": "8.(a)",
+      "page": 1,
+      "title": "平均0・分散1への標準化",
+      "summary": "デジタル信号Xの平均を0、分散を1にする式を書く。",
+      "topics": [
+        "multimedia-normalization",
+        "multimedia-statistics"
+      ],
+      "family": "multimedia-standardization",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年(a)の[0,1]区間変換から変更。2025年にも同じ条件。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q8-b",
+      "number": "8.(b)",
+      "page": 1,
+      "title": "[-1,1]への正規化",
+      "summary": "デジタル信号Xを[-1,1]へ正規化する式を書く。",
+      "topics": [
+        "multimedia-normalization"
+      ],
+      "family": "multimedia-range-normalization",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年は[0,1]へ変更。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q9-1",
+      "number": "9. ①",
+      "page": 2,
+      "title": "波形の最大周波数成分",
+      "summary": "横軸measurement time(msec)が0〜16msの波形と標本の図から最大周波数成分を求める。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-figure",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年のsec表記からmsecへ変更。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q9-2",
+      "number": "9. ②",
+      "page": 2,
+      "title": "図から標本化間隔",
+      "summary": "同じ波形図の標本点の間隔を求める。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-figure",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年には独立した標本化間隔の小問なし。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q9-3",
+      "number": "9. ③",
+      "page": 2,
+      "title": "図から標本化周波数",
+      "summary": "同じ図からsampling frequencyを求める。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-figure",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年と同じ解法だが図・横軸単位が変わる。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q9-4",
+      "number": "9. ④",
+      "page": 2,
+      "title": "標本化定理の判定と理由",
+      "summary": "図の標本化について定理が成立するか、理由付きで答える。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-figure",
+      "formats": [
+        "calculation",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の成否確認にwhyの説明要求を加える。2025年には波形判定の問題はない。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q10",
+      "number": "10.",
+      "page": 2,
+      "title": "統計量の式の識別",
+      "summary": "密度の微分が0となるx、二次中心モーメント、σ/μ、(μ−最頻値)/σの4つの式に対応する統計量名を書く。式群には個別の小問番号がない。",
+      "topics": [
+        "multimedia-statistics"
+      ],
+      "family": "multimedia-statistic-identification",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年は密度微分の式から累積分布が0.5となる式へ変更。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q11-a",
+      "number": "11.a.",
+      "page": 2,
+      "title": "移動平均フィルタ",
+      "summary": "入力1,2,3,7,8,0,4,9に窓幅3・シフト1の移動平均を適用し、図の出力A〜Fを求める。",
+      "topics": [
+        "multimedia-filtering",
+        "multimedia-statistics"
+      ],
+      "family": "multimedia-window-filter",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年には窓処理の数値演習はなく、短時間エネルギーの公式が加わる。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q11-b",
+      "number": "11.b.",
+      "page": 2,
+      "title": "メディアンフィルタ",
+      "summary": "同じ入力1,2,3,7,8,0,4,9に窓幅3・シフト1のメディアンフィルタを適用し、A〜Fを求める。",
+      "topics": [
+        "multimedia-filtering",
+        "multimedia-statistics"
+      ],
+      "family": "multimedia-window-filter",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "平均と中央値の二つの処理を同じデータで比較できる構成。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2023-q12",
+      "number": "12.",
+      "page": 2,
+      "title": "一次ローパスフィルタ",
+      "summary": "first order low pass filterの式を書き、各記号を説明する。",
+      "topics": [
+        "multimedia-filtering"
+      ],
+      "family": "multimedia-recursive-lowpass",
+      "formats": [
+        "calculation",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年も同じ種類の公式と成分説明を要求。",
+      "year": 2023,
+      "sourceFile": "3_マルチメディア工学2023.pdf"
+    },
+    {
+      "id": "multimedia-2025-q1",
+      "number": "1.",
+      "page": 1,
+      "title": "関連する産業の例",
+      "summary": "マルチメディア開発と強く関連するindustry namesを2つ挙げる。",
+      "topics": [
+        "multimedia-foundations"
+      ],
+      "family": "multimedia-industry-examples",
+      "formats": [
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の少なくとも3つから2つへ変更。2023年の非電気的な通信例とは異なる。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q2",
+      "number": "2.",
+      "page": 1,
+      "title": "三つの伝送モードの定義",
+      "summary": "Isochronous, Synchronous, Asynchronousの各media transmission modeを定義する。番号のない3要求をまとめる。",
+      "topics": [
+        "multimedia-streams"
+      ],
+      "family": "multimedia-transmission-modes",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年と同じ三方式。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q3",
+      "number": "3.",
+      "page": 1,
+      "title": "ステレオ音響の提示空間",
+      "summary": "stereophony presentation spaceが何次元か答える。",
+      "topics": [
+        "multimedia-foundations"
+      ],
+      "family": "multimedia-presentation-dimension",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年と同じ対象。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q4",
+      "number": "4.",
+      "page": 1,
+      "title": "パケットサイズの分類",
+      "summary": "continuous data streamsのpacket size characterizationの分類名を列挙する。",
+      "topics": [
+        "multimedia-streams"
+      ],
+      "family": "multimedia-packet-size-characterization",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年の周期性からパケットサイズへ変化。2022年問4と同じ観点。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q5",
+      "number": "5.",
+      "page": 1,
+      "title": "標本化定理の定義",
+      "summary": "Shannon's sampling theoremを定義する。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-definition",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "収録3年度とも反復。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q6",
+      "number": "6.",
+      "page": 1,
+      "title": "標本化周波数への換算",
+      "summary": "sampling period T=125microsecondsからsampling rateを求める。",
+      "topics": [
+        "multimedia-sampling"
+      ],
+      "family": "multimedia-sampling-reciprocal",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "過去2年度は周波数を与えて秒の間隔を求めたが、逆方向でμs換算が加わる。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q7-1",
+      "number": "7. ①",
+      "page": 1,
+      "title": "量子化レベル数",
+      "summary": "4bit・入力範囲1〜4VのA/D変換。量子化レベル数Lを求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "入力下限が0Vから1Vへ移り、量子化値と符号化の入力を2.45Vにそろえる。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q7-2",
+      "number": "7. ②",
+      "page": 1,
+      "title": "量子化のステップ幅",
+      "summary": "4bit・入力範囲1〜4VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "入力下限が0Vから1Vへ移り、量子化値と符号化の入力を2.45Vにそろえる。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q7-3",
+      "number": "7. ③",
+      "page": 1,
+      "title": "入力電圧の量子化値",
+      "summary": "4bit・入力範囲1〜4VのA/D変換。アナログ入力2.45Vの量子化値xqを求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "入力下限が0Vから1Vへ移り、量子化値と符号化の入力を2.45Vにそろえる。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q7-4",
+      "number": "7. ④",
+      "page": 1,
+      "title": "A/D変換の2進符号",
+      "summary": "4bit・入力範囲1〜4VのA/D変換。アナログ入力2.45Vに対応する2進符号を求める。",
+      "topics": [
+        "multimedia-quantization"
+      ],
+      "family": "multimedia-adc-chain",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "入力下限が0Vから1Vへ移り、量子化値と符号化の入力を2.45Vにそろえる。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q8-a",
+      "number": "8.(a)",
+      "page": 2,
+      "title": "平均0・分散1への標準化",
+      "summary": "デジタル信号の平均を0、分散を1にする式を書く。",
+      "topics": [
+        "multimedia-normalization",
+        "multimedia-statistics"
+      ],
+      "family": "multimedia-standardization",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年と同じ条件。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q8-b",
+      "number": "8.(b)",
+      "page": 2,
+      "title": "[0,1]への正規化",
+      "summary": "デジタル信号を[0,1]の区間へ正規化する式を書く。",
+      "topics": [
+        "multimedia-normalization"
+      ],
+      "family": "multimedia-range-normalization",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年の[-1,1]から変更。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q9",
+      "number": "9.",
+      "page": 2,
+      "title": "正弦波の式と成分",
+      "summary": "Fourier Transformのbasic building blockを表す式を書き、その各成分のEnglish or Japanese nameを示す。",
+      "topics": [
+        "multimedia-sinusoid"
+      ],
+      "family": "multimedia-sinusoid-components",
+      "formats": [
+        "calculation",
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年は式が示され成分名だけを問うが、今回は式自体の記述も必要。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q10",
+      "number": "10.",
+      "page": 2,
+      "title": "統計量の式の識別",
+      "summary": "分散の積分式、累積分布が0.5となる式、σ/μ、(μ−最頻値)/σの4式に対応する統計量名を書く。個別の小問番号はない。",
+      "topics": [
+        "multimedia-statistics"
+      ],
+      "family": "multimedia-statistic-identification",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年の最頻値の式を中央値の式へ変更。可視原本の分散式には偏差の2乗がある。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q11",
+      "number": "11.",
+      "page": 2,
+      "title": "短時間エネルギーの公式",
+      "summary": "一次元信号のshort-term energyを表す式を書き、各成分を説明する。",
+      "topics": [
+        "multimedia-energy"
+      ],
+      "family": "multimedia-short-term-energy",
+      "formats": [
+        "calculation",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年に初めて現れるテーマ。2023年問11の窓幅3のフィルタ計算から要求内容が変わる。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "multimedia-2025-q12",
+      "number": "12.",
+      "page": 2,
+      "title": "一次ローパスフィルタ",
+      "summary": "first-order low-pass filterの式を書き、各成分を説明する。",
+      "topics": [
+        "multimedia-filtering"
+      ],
+      "family": "multimedia-recursive-lowpass",
+      "formats": [
+        "calculation",
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年問12と同じ公式・成分説明の型。",
+      "year": 2025,
+      "sourceFile": "3. マルチメディア2025.pdf"
+    },
+    {
+      "id": "robotics-2022-q1",
+      "number": "【問１】",
+      "page": 1,
+      "title": "軸回り回転とZYZオイラー変換",
+      "summary": "単位軸kr=(kx,ky,kz)^Tの回転変換とversθ=1−cosθを与え、Rot(x,θ),Rot(y,θ),Rot(z,θ)を求める。続けてEuler(φ,θ,ψ)=Rot(z,φ)Rot(y,θ)Rot(z,ψ)を計算する。明示的な小問番号はないため1設問。",
+      "topics": [
+        "robotics-coordinate-transform"
+      ],
+      "family": "robotics-axis-euler-transform",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年は回転と並進を組み合わせるリンク変換、2025年は具体的ロボットのA行列へ展開。",
+      "year": 2022,
+      "sourceFile": "８．ロボット工学2022.pdf"
+    },
+    {
+      "id": "robotics-2022-q2",
+      "number": "【問２】",
+      "page": 1,
+      "title": "ひじ型マニピュレータの運動学",
+      "summary": "図1のひじ型マニピュレータについて運動学解と逆運動学解の求め方を詳しく説明する。図にはz0〜z6の関節軸とa2,a3,a4のリンク寸法がある。",
+      "topics": [
+        "robotics-coordinate-transform",
+        "robotics-manipulator-kinematics"
+      ],
+      "family": "robotics-manipulator-forward-inverse",
+      "formats": [
+        "essay",
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年は水平多関節型に機構が変わり、リンクA行列の計算と逆運動学の議論を別小問で要求。",
+      "year": 2022,
+      "sourceFile": "８．ロボット工学2022.pdf"
+    },
+    {
+      "id": "robotics-2023-q1-1",
+      "number": "【問１】(1)",
+      "page": 1,
+      "title": "Sensingの役割",
+      "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(1) Sensingの役割を説明する。実世界から取得する情報とセンサの役割を、図1のRaw Dataへの流れに対応させて説明する。",
+      "topics": [
+        "robotics-navigation"
+      ],
+      "family": "robotics-mobile-control-architecture",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2023-q1-2",
+      "number": "【問１】(2)",
+      "page": 1,
+      "title": "Information Extraction and Interpretationの役割",
+      "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(2) Information Extraction and Interpretationの役割を説明する。生のセンサ情報から情報を取り出し解釈する役割を、図1のEnvironment Model/Local Mapへの流れに対応させて説明する。",
+      "topics": [
+        "robotics-navigation"
+      ],
+      "family": "robotics-mobile-control-architecture",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2023-q1-3",
+      "number": "【問１】(3)",
+      "page": 1,
+      "title": "Localization Map Buildingの役割",
+      "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(3) Localization Map Buildingの役割を説明する。自己位置推定と地図構築の役割を、図1のPosition/Global Mapや知識データベースとの関係に対応させて説明する。",
+      "topics": [
+        "robotics-navigation"
+      ],
+      "family": "robotics-mobile-control-architecture",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2023-q1-4",
+      "number": "【問１】(4)",
+      "page": 1,
+      "title": "Cognition Path Planningの役割",
+      "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(4) Cognition Path Planningの役割を説明する。目標や命令と位置・地図を受けて経路を計画する役割を、図1のPathへの流れに対応させて説明する。",
+      "topics": [
+        "robotics-navigation"
+      ],
+      "family": "robotics-mobile-control-architecture",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2023-q1-5",
+      "number": "【問１】(5)",
+      "page": 1,
+      "title": "Path Executionの役割",
+      "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(5) Path Executionの役割を説明する。計画された経路の実行の役割を、図1のActuator Commandsへの流れに対応させて説明する。",
+      "topics": [
+        "robotics-navigation"
+      ],
+      "family": "robotics-mobile-control-architecture",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2023-q1-6",
+      "number": "【問１】(6)",
+      "page": 1,
+      "title": "Actingの役割",
+      "summary": "図1の移動ロボットシステムの基準制御方式の構成要素(6) Actingの役割を説明する。アクチュエータ等が実世界へ作用する役割を、図1のReal World/Environmentへの流れに対応させて説明する。",
+      "topics": [
+        "robotics-navigation"
+      ],
+      "family": "robotics-mobile-control-architecture",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023年だけの制御構成の出題。六つの明示番号を別設問として分類。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2023-q2-1",
+      "number": "【問２】(1)",
+      "page": 1,
+      "title": "全方位3輪の速度方程式の導出",
+      "summary": "図2の3輪配置と転がり拘束式から運動学方程式を導出する。α1=π/3,α2=π,α3=−π/3、β1=β2=β3=0。R(θ)=[cosθ,sinθ,0;−sinθ,cosθ,0;0,0,1]と、機体位置・姿勢の速度ベクトル、車輪速度ベクトルを与える。",
+      "topics": [
+        "robotics-mobile-kinematics",
+        "robotics-coordinate-transform"
+      ],
+      "family": "robotics-omniwheel-velocity",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "この機構は収録4年度中2023年のみ。式の構成と変換向きを図から導出する。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2023-q2-2",
+      "number": "【問２】(2)",
+      "page": 1,
+      "title": "車輪速度から機体速度の計算",
+      "summary": "l=1、ri=1（i=1,2,3）、θ=0、φ̇1=4,φ̇2=1,φ̇3=2を(1)で導出した式へ代入し、移動速度と回転角速度を求める。",
+      "topics": [
+        "robotics-mobile-kinematics",
+        "robotics-coordinate-transform"
+      ],
+      "family": "robotics-omniwheel-velocity",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "導出した式を具体的な条件で適用する小問。2025年はマニピュレータへ対象が変わる。",
+      "year": 2023,
+      "sourceFile": "8_ロボット工学2023.pdf"
+    },
+    {
+      "id": "robotics-2024-q1-1",
+      "number": "【問１】（１）",
+      "page": 1,
+      "title": "平面方程式の導出",
+      "summary": "平面P=(a,b,c,d)、平面上の点の同次位置v=(x,y,z,w)^Tを与え、Pv=0から平面の方程式を導く。",
+      "topics": [
+        "robotics-homogeneous-geometry"
+      ],
+      "family": "robotics-plane-representation",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年は具体的平面と立方体頂点による位置関係の判定へ変わる。",
+      "year": 2024,
+      "sourceFile": "7_ロボット工学_2024.pdf"
+    },
+    {
+      "id": "robotics-2024-q1-2",
+      "number": "【問１】（２）",
+      "page": 1,
+      "title": "平面の単位法線",
+      "summary": "同じ平面Pに直交する単位ベクトルnを求める。",
+      "topics": [
+        "robotics-homogeneous-geometry"
+      ],
+      "family": "robotics-plane-normal-distance",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "平面の係数と法線の関係、正規化を問う。",
+      "year": 2024,
+      "sourceFile": "7_ロボット工学_2024.pdf"
+    },
+    {
+      "id": "robotics-2024-q1-3",
+      "number": "【問１】（３）",
+      "page": 1,
+      "title": "原点と平面の距離",
+      "summary": "基準座標系Σ0の原点Oから平面Pへ下ろした垂線の長さlを求める。",
+      "topics": [
+        "robotics-homogeneous-geometry"
+      ],
+      "family": "robotics-plane-normal-distance",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025年の手前の頂点判定とは、求める幾何量が異なる。",
+      "year": 2024,
+      "sourceFile": "7_ロボット工学_2024.pdf"
+    },
+    {
+      "id": "robotics-2024-q2",
+      "number": "【問２】",
+      "page": 1,
+      "title": "リンク座標系間の同次変換",
+      "summary": "図2の回転関節を介したΣi−1とΣiから、Σi−1から見たΣiの位置・姿勢を表す同次変換行列を並進・回転行列の積で求める。図にはai−1,αi−1,di,θiおよびai,αiがある。",
+      "topics": [
+        "robotics-coordinate-transform"
+      ],
+      "family": "robotics-link-transform",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年の純回転の積から、図で指定されたリンク座標系の回転と並進へ。2025年は各A行列を具体的機構で求める。",
+      "year": 2024,
+      "sourceFile": "7_ロボット工学_2024.pdf"
+    },
+    {
+      "id": "robotics-2025-q1",
+      "number": "（１）",
+      "page": 1,
+      "title": "平面の手前にある立方体頂点",
+      "summary": "図1の立方体の8頂点P1〜P8と平面R=(0,0.5,0,−1)について、基準座標系Σ0の原点Oから見て平面Rの手前にある点をすべて挙げ、計算で根拠を示す。図のy座標は1と3、x,zは±1の表示。",
+      "topics": [
+        "robotics-homogeneous-geometry"
+      ],
+      "family": "robotics-plane-side-classification",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年の一般平面の方程式・法線・距離から、図中頂点の半空間判定へ変化。",
+      "year": 2025,
+      "sourceFile": "7. ロボット工学2025.pdf"
+    },
+    {
+      "id": "robotics-2025-q2",
+      "number": "（２）",
+      "page": 1,
+      "title": "水平多関節型のA行列",
+      "summary": "図2の水平多関節型ロボットの各座標系のA行列を計算する。Aiは第(i−1)座標系から見た第i座標系の位置・姿勢。図はLa,Lb、θ1,θ2,d3,θ4を持つ4関節で、z0,z1,z2は上向き、z3,z4は下向き。",
+      "topics": [
+        "robotics-coordinate-transform",
+        "robotics-manipulator-kinematics"
+      ],
+      "family": "robotics-link-transform",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024年の一般的なリンク変換から、軸方向が変わる具体的4関節ロボットへ。",
+      "year": 2025,
+      "sourceFile": "7. ロボット工学2025.pdf"
+    },
+    {
+      "id": "robotics-2025-q3",
+      "number": "（３）",
+      "page": 1,
+      "title": "水平多関節型の逆運動学",
+      "summary": "図2の逆運動学解の求め方を、原文のT6=A1A2A3A4と、回転成分n,o,aおよび位置成分pを持つ4×4行列を用いて論じる。",
+      "topics": [
+        "robotics-coordinate-transform",
+        "robotics-manipulator-kinematics"
+      ],
+      "family": "robotics-manipulator-forward-inverse",
+      "formats": [
+        "essay",
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022年のひじ型から水平多関節型へ変わり、4リンク積が与えられる。T6の添字はリンク数と不整合。",
+      "year": 2025,
+      "sourceFile": "7. ロボット工学2025.pdf"
+    },
+    {
+      "id": "software-design-2022-q1",
+      "number": "1",
+      "page": 1,
+      "title": "要求と開発モデルの用語補充",
+      "summary": "要求・仕様・機能・非機能・迅速で適応的な軽量開発モデルに関する5空欄を埋める。",
+      "topics": [
+        "software-design-requirements",
+        "software-design-development-process"
+      ],
+      "family": "software-design-requirements-process-terms",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023は利害関係者と工程順序を含む10空欄に拡大。2025は利害関係者・要求・仕様・機能と反復開発に関する5空欄に戻る。",
+      "year": 2022,
+      "sourceFile": "９．ソフトウェア設計2022.pdf"
+    },
+    {
+      "id": "software-design-2022-q2",
+      "number": "2",
+      "page": 1,
+      "title": "ウォータフォールモデル",
+      "summary": "指定6語を用いてウォータフォールモデルの概要を説明する。",
+      "topics": [
+        "software-design-development-process"
+      ],
+      "family": "software-design-waterfall-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [
+        "要求分析",
+        "テスト",
+        "要求設計",
+        "運用",
+        "実装",
+        "ソフトウェア設計"
+      ],
+      "changeNote": "2024の同型問題は『要求設計』の代わりに『要件定義』を指定する。",
+      "year": 2022,
+      "sourceFile": "９．ソフトウェア設計2022.pdf"
+    },
+    {
+      "id": "software-design-2022-q3",
+      "number": "3",
+      "page": 1,
+      "title": "社員のデータ辞書",
+      "summary": "社員リストは社員1人以上、社員はID・氏名・所属部署・給与から構成され、給与は基本給と省略可能な残業手当を持つ。",
+      "topics": [
+        "software-design-data-dictionary"
+      ],
+      "family": "software-design-data-dictionary-construction",
+      "formats": [
+        "structured"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023は学生・履修科目・担当教員の入れ子と職位の選択に拡張される。2024は書籍、2025は履修登録の自由設計に変わる。",
+      "year": 2022,
+      "sourceFile": "９．ソフトウェア設計2022.pdf"
+    },
+    {
+      "id": "software-design-2022-q4",
+      "number": "4",
+      "page": 1,
+      "title": "集約と合成集約",
+      "summary": "森と木、注文と注文明細を例とするクラス図を作成し、集約と合成集約の違いを説明する。解答欄は2ページにも続く。",
+      "topics": [
+        "software-design-associations",
+        "software-design-uml-classes"
+      ],
+      "family": "software-design-aggregation-composition",
+      "formats": [
+        "diagram",
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "",
+      "year": 2022,
+      "sourceFile": "９．ソフトウェア設計2022.pdf"
+    },
+    {
+      "id": "software-design-2022-q5",
+      "number": "5",
+      "page": 2,
+      "title": "売買シナリオのクラス図補充",
+      "summary": "2人の顧客によるパソコン・テレビ・エアコンの注文シナリオから、図中のクラス名・属性名の10空欄を埋める。図は3クラスを関連と1・*の多重度で結ぶ。データ型不要、属性名の順序は任意。",
+      "topics": [
+        "software-design-uml-classes",
+        "software-design-associations"
+      ],
+      "family": "software-design-scenario-class-model",
+      "formats": [
+        "term",
+        "diagram"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023のクラス図は授業支援システムの文章仕様から一から作成する。2024は学生と授業科目、2025は自由な具体例へと変わる。",
+      "year": 2022,
+      "sourceFile": "９．ソフトウェア設計2022.pdf"
+    },
+    {
+      "id": "software-design-2022-q6",
+      "number": "6",
+      "page": 2,
+      "title": "売買シナリオのオブジェクト図",
+      "summary": "問題5のクラス図とシナリオに対応するオブジェクト図を作成する。各実体を『オブジェクト名：クラス名』で表し、名前は任意。",
+      "topics": [
+        "software-design-uml-objects",
+        "software-design-associations"
+      ],
+      "family": "software-design-class-to-object-model",
+      "formats": [
+        "diagram"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023もクラス図から具体的なシナリオの実体化を求める。2024は実体数と属性値の個数、2025は具体例の属性・操作条件が明示される。",
+      "year": 2022,
+      "sourceFile": "９．ソフトウェア設計2022.pdf"
+    },
+    {
+      "id": "software-design-2023-q1",
+      "number": "1",
+      "page": 1,
+      "title": "要求とウォーターフォールの用語補充",
+      "summary": "利害関係者、仕様、ソフトウェアとして実現する機能、トップダウンの6工程の順序とモデル名の10空欄を埋める。",
+      "topics": [
+        "software-design-requirements",
+        "software-design-development-process"
+      ],
+      "family": "software-design-requirements-process-terms",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022の5空欄に比べ、工程順序まで空欄化されている。",
+      "year": 2023,
+      "sourceFile": "9_ソフトウェア設計2023.pdf"
+    },
+    {
+      "id": "software-design-2023-q2",
+      "number": "2",
+      "page": 1,
+      "title": "学生・履修科目・担当教員のデータ辞書",
+      "summary": "学生は学生番号・氏名・1つ以上の履修科目。履修科目は科目ID・科目名・1人以上の担当教員。担当教員のオフィスアワーは省略可能、職位は教授・准教授・助教・助手の選択。",
+      "topics": [
+        "software-design-data-dictionary"
+      ],
+      "family": "software-design-data-dictionary-construction",
+      "formats": [
+        "structured"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022の反復と省略に加えて、さらに深い階層と職位の選択がある。",
+      "year": 2023,
+      "sourceFile": "9_ソフトウェア設計2023.pdf"
+    },
+    {
+      "id": "software-design-2023-q3",
+      "number": "3",
+      "page": 1,
+      "title": "物品購入の決定表",
+      "summary": "20万円以上では相見積もりと備品登録が必要。ただしソフトウェア費目の場合は備品登録が不要。4ルールの決定表を完成する。",
+      "topics": [
+        "software-design-decision-tables"
+      ],
+      "family": "software-design-purchasing-decision-table",
+      "formats": [
+        "structured"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024は5万円・20万円の2つの金額条件と6ルールになる。ソフトウェアの例外は2023では備品登録だけ、2024では両方の行動に適用する。",
+      "year": 2023,
+      "sourceFile": "9_ソフトウェア設計2023.pdf"
+    },
+    {
+      "id": "software-design-2023-q4",
+      "number": "4",
+      "page": 1,
+      "title": "飲食店を例にした継承",
+      "summary": "飲食店に関するクラス階層を例として、指定4語を使いクラスの継承を説明する。",
+      "topics": [
+        "software-design-inheritance"
+      ],
+      "family": "software-design-inheritance-example",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [
+        "スーパークラス",
+        "サブクラス",
+        "属性",
+        "操作"
+      ],
+      "changeNote": "2024は学生クラスが例に変わる。2025は再び飲食店で、指定語句に汎化セットが加わる。",
+      "year": 2023,
+      "sourceFile": "9_ソフトウェア設計2023.pdf"
+    },
+    {
+      "id": "software-design-2023-q5",
+      "number": "5",
+      "page": 2,
+      "title": "授業支援システムのクラス図",
+      "summary": "ユーザを学生・教員・職員に分類し、属性を持たせる。授業科目は10～15回のクラス、0～1回の試験、担当教員1人以上、履修学生5人以上を持つ。文章仕様からUMLクラス図を作成する。",
+      "topics": [
+        "software-design-uml-classes",
+        "software-design-inheritance",
+        "software-design-associations"
+      ],
+      "family": "software-design-scenario-class-model",
+      "formats": [
+        "diagram"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022の既存図の空欄補充より、クラス階層と複数の数の制約を自力で表現する要求が強い。",
+      "year": 2023,
+      "sourceFile": "9_ソフトウェア設計2023.pdf"
+    },
+    {
+      "id": "software-design-2023-q6",
+      "number": "6",
+      "page": 2,
+      "title": "授業支援システムのオブジェクト図",
+      "summary": "問題5のクラス図と、学生1人が2科目を履修し同じ教員が担当するシナリオ、2回のクラス実施日・タイトルなどをオブジェクト図にする。各実体は『オブジェクト名：クラス名』で表す。",
+      "topics": [
+        "software-design-uml-objects",
+        "software-design-associations"
+      ],
+      "family": "software-design-class-to-object-model",
+      "formats": [
+        "diagram"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022は売買シナリオ、2023は履修・担当・授業実施の関係を具体化する。仕様で示される最小個数と部分シナリオの関係に注意する。",
+      "year": 2023,
+      "sourceFile": "9_ソフトウェア設計2023.pdf"
+    },
+    {
+      "id": "software-design-2024-q1-1",
+      "number": "1.1",
+      "page": 1,
+      "title": "ウォーターフォールモデル",
+      "summary": "指定6語を使って開発工程モデルの概要を説明する。",
+      "topics": [
+        "software-design-development-process"
+      ],
+      "family": "software-design-waterfall-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [
+        "ソフトウェア設計",
+        "要求分析",
+        "テスト",
+        "要件定義",
+        "運用",
+        "実装"
+      ],
+      "changeNote": "2022と同じ説明の型だが、指定語句の『要求設計』が『要件定義』に変わる。",
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf"
+    },
+    {
+      "id": "software-design-2024-q1-2",
+      "number": "1.2",
+      "page": 1,
+      "title": "機能要件と非機能要件",
+      "summary": "機能要件と非機能要件の違いを例を挙げて説明する。",
+      "topics": [
+        "software-design-requirements"
+      ],
+      "family": "software-design-requirements-difference",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023の用語補充から、概念を区別し例を自分で考える形式へ。",
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf"
+    },
+    {
+      "id": "software-design-2024-q2-1",
+      "number": "2.1",
+      "page": 1,
+      "title": "書籍のデータ辞書",
+      "summary": "書籍は書名・著者1人以上・編集者0人以上・出版社・発売日・省略可能なサポートWebページから構成される。著者のメールアドレスも省略可能。著者と出版社の下位構造を含むデータ辞書を作成する。",
+      "topics": [
+        "software-design-data-dictionary"
+      ],
+      "family": "software-design-data-dictionary-construction",
+      "formats": [
+        "structured"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023の学生・教員から書籍へ題材変更。0人以上の反復と任意の単一要素を区別する。",
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf"
+    },
+    {
+      "id": "software-design-2024-q2-2",
+      "number": "2.2",
+      "page": 1,
+      "title": "金額の2段階条件による決定表",
+      "summary": "5万円以上では管理番号シール貼付、20万円以上では相見積書提出が必要。ソフトウェア費目なら両行動が不要。Y・N・X・-で6ルールの表を完成する。",
+      "topics": [
+        "software-design-decision-tables"
+      ],
+      "family": "software-design-purchasing-decision-table",
+      "formats": [
+        "structured"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023の20万円条件1つから5万円・20万円の2段階へ。例外が両行動に影響し、真偽3条件を独立として8列にするのではなく、金額条件の包含関係を考える。",
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf"
+    },
+    {
+      "id": "software-design-2024-q3-1",
+      "number": "3.1",
+      "page": 2,
+      "title": "学生を例にした継承",
+      "summary": "学生クラスのクラス階層を例として継承を説明する。",
+      "topics": [
+        "software-design-inheritance"
+      ],
+      "family": "software-design-inheritance-example",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2023と同型だが、飲食店から学生に題材が変わる。指定語句の列挙はない。",
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf"
+    },
+    {
+      "id": "software-design-2024-q3-2",
+      "number": "3.2",
+      "page": 2,
+      "title": "関連と多重度",
+      "summary": "学生クラスと授業科目クラスを対象に、UMLクラス図の関連と多重度を説明する。",
+      "topics": [
+        "software-design-associations",
+        "software-design-uml-classes"
+      ],
+      "family": "software-design-association-multiplicity-explanation",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023の図の作成や補充に含まれていた関連・多重度が独立の説明問題として現れる。",
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf"
+    },
+    {
+      "id": "software-design-2024-q3-3",
+      "number": "3.3",
+      "page": 2,
+      "title": "学生と授業科目のクラス図・オブジェクト図",
+      "summary": "学生と授業科目のクラス図とオブジェクト図を作成する。各クラスの実体は2つずつ、各オブジェクトの属性名・属性値の組は2つ以上とする。",
+      "topics": [
+        "software-design-uml-classes",
+        "software-design-uml-objects",
+        "software-design-associations"
+      ],
+      "family": "software-design-class-to-object-model",
+      "formats": [
+        "diagram",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022・2023のシナリオ変換から、具体的な属性と値を自分で設定する形式へ。実体数と属性値の個数が指定される。",
+      "year": 2024,
+      "sourceFile": "8_ソフトウェア設計_2024.pdf"
+    },
+    {
+      "id": "software-design-2025-q1-1",
+      "number": "1.1",
+      "page": 1,
+      "title": "要求と反復開発の用語補充",
+      "summary": "利害関係者、施主が描く構想、仕様文書、ソフトウェアの機能、設計とプロトタイピングを繰り返す開発モデルに関する5空欄を埋める。",
+      "topics": [
+        "software-design-requirements",
+        "software-design-development-process"
+      ],
+      "family": "software-design-requirements-process-terms",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "ウォーターフォールの工程列挙ではなく、設計とプロトタイピングを繰り返すモデルを問う。",
+      "year": 2025,
+      "sourceFile": "8. ソフトウェア設計2025.pdf"
+    },
+    {
+      "id": "software-design-2025-q2-1",
+      "number": "2.1",
+      "page": 1,
+      "title": "履修登録システムのデータ辞書の自由設計",
+      "summary": "学生に関するデータ構造を自分で考える。構成要素3つ以上、繰り返し1つ以上を含み、1つの構成要素をさらに定義して階層的に記述する。",
+      "topics": [
+        "software-design-data-dictionary"
+      ],
+      "family": "software-design-data-dictionary-construction",
+      "formats": [
+        "structured",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2022～2024はすべて具体的な構成要素の仕様が与えられた。2025は同じ記法を使いつつ、データ構造と名前を自分で設計する。",
+      "year": 2025,
+      "sourceFile": "8. ソフトウェア設計2025.pdf"
+    },
+    {
+      "id": "software-design-2025-q2-2",
+      "number": "2.2",
+      "page": 1,
+      "title": "データフロー図の階層性",
+      "summary": "指定2語を用いてDFDの階層性を説明する。",
+      "topics": [
+        "software-design-dfd"
+      ],
+      "family": "software-design-dfd-hierarchy",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [
+        "プロセス",
+        "基本機能"
+      ],
+      "changeNote": "担当4年度の原本ではDFDの階層性の独立した説明問題は2025で初めて確認される。",
+      "year": 2025,
+      "sourceFile": "8. ソフトウェア設計2025.pdf"
+    },
+    {
+      "id": "software-design-2025-q3-1",
+      "number": "3.1",
+      "page": 1,
+      "title": "カプセル化",
+      "summary": "カプセル化の意味と、行うことで得られる利点を説明する。",
+      "topics": [
+        "software-design-encapsulation"
+      ],
+      "family": "software-design-encapsulation-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "担当4年度の原本では独立したカプセル化説明は2025のみ。",
+      "year": 2025,
+      "sourceFile": "8. ソフトウェア設計2025.pdf"
+    },
+    {
+      "id": "software-design-2025-q3-2",
+      "number": "3.2",
+      "page": 2,
+      "title": "クラスとオブジェクトの説明・図示",
+      "summary": "指定2語を用いてクラスとオブジェクトを説明し、UMLのクラス図とオブジェクト図で具体例を示す。クラスの属性と操作はそれぞれ1つ以上含める。",
+      "topics": [
+        "software-design-uml-classes",
+        "software-design-uml-objects"
+      ],
+      "family": "software-design-class-to-object-model",
+      "formats": [
+        "essay",
+        "diagram",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [
+        "属性",
+        "操作"
+      ],
+      "changeNote": "2024の学生2・授業科目2の実体数条件はない。2025は図と文章の両方、そして操作を最低1つ示すことが追加される。",
+      "year": 2025,
+      "sourceFile": "8. ソフトウェア設計2025.pdf"
+    },
+    {
+      "id": "software-design-2025-q3-3",
+      "number": "3.3",
+      "page": 2,
+      "title": "飲食店の継承と汎化セット",
+      "summary": "飲食店に関するクラス階層を例として、指定5語を使い継承を説明する。",
+      "topics": [
+        "software-design-inheritance"
+      ],
+      "family": "software-design-inheritance-example",
+      "formats": [
+        "essay",
+        "example"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [
+        "スーパークラス",
+        "サブクラス",
+        "属性",
+        "操作",
+        "汎化セット"
+      ],
+      "changeNote": "2023の飲食店・指定4語の問題に、2025では汎化セットが加わる。従来の答案の再利用時に追加要件を落とさない。",
+      "year": 2025,
+      "sourceFile": "8. ソフトウェア設計2025.pdf"
+    },
+    {
+      "id": "networks-2024-q1",
+      "number": "1",
+      "page": 1,
+      "title": "OSI7階層モデル",
+      "summary": "OSI参照モデルを適切に表す記述を、4つの選択肢から選ぶ。標準と参照モデル、実際のプロトコルの関係を問う。",
+      "topics": [
+        "networks-layers"
+      ],
+      "family": "networks-osi-model-selection",
+      "formats": [
+        "choice"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025は選択肢(b)の『別の機関』がIETFの明記に変わる。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2024-q2",
+      "number": "2",
+      "page": 1,
+      "title": "Wi-Fiと有線LANの誤り選択",
+      "summary": "Wi-Fiと有線LANでもIPを使うか、アクセス制御を行うか、Wi-Fiの送出失敗時に再送するかという3記述から誤りを1つ選ぶ。",
+      "topics": [
+        "networks-link-access"
+      ],
+      "family": "networks-lan-ip-selection",
+      "formats": [
+        "choice"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025は誤りをすべて選ぶ複数選択へ。選択肢(a)も有線LANではIPを使わないという主張に変更される。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2024-q3",
+      "number": "3",
+      "page": 1,
+      "title": "IPv4 /25のホスト範囲",
+      "summary": "133.2.205.128/25に接続するホストへ付与できるIPv4アドレスの範囲を求める。",
+      "topics": [
+        "networks-subnet"
+      ],
+      "family": "networks-host-address-range",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025は同じネットワークアドレスでプレフィックスが/26に変わる。ホスト部の幅と終端が変わり、2024の範囲をそのまま使えない。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2024-q4",
+      "number": "4",
+      "page": 1,
+      "title": "IPヘッダのみの誤り検査",
+      "summary": "IPルータではヘッダの誤り検査を行いペイロードの検査は行わない理由を記す。",
+      "topics": [
+        "networks-ip-checksum"
+      ],
+      "family": "networks-header-payload-check",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025にも同じ説明要求がある。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2024-q5",
+      "number": "5",
+      "page": 1,
+      "title": "TCPの輻輳検出の2方法",
+      "summary": "TCP送信者が輻輳を検出する2種類の方法を記す。",
+      "topics": [
+        "networks-tcp"
+      ],
+      "family": "networks-tcp-congestion-detection",
+      "formats": [
+        "term"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025は2方法の列挙ではなく、そのうち送信ウィンドウを1に戻す場合の説明を問う。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2024-q6",
+      "number": "6",
+      "page": 1,
+      "title": "HTTPのステートレス性",
+      "summary": "HTTPがステートレスと言われる理由を説明する。",
+      "topics": [
+        "networks-http"
+      ],
+      "family": "networks-http-stateless-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025にも同じ説明要求がある。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2024-q7",
+      "number": "7",
+      "page": 1,
+      "title": "DoS攻撃",
+      "summary": "DoS（Denial of Service）攻撃を説明する。",
+      "topics": [
+        "networks-dos"
+      ],
+      "family": "networks-dos-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025の問題7はNATに置き換わる。同じ番号だが同じテーマではない。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2024-q8",
+      "number": "8",
+      "page": 1,
+      "title": "3ビットCRC",
+      "summary": "生成多項式G(X)=X^3+X+1を使い、8ビットデータ10101111に付与する3ビットCRCを求める。実際のIEEE 802.3の32ビットCRCとは別の練習条件。",
+      "topics": [
+        "networks-crc"
+      ],
+      "family": "networks-crc-polynomial-remainder",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2025は生成多項式とCRC長は同じで、データが11111111に変わる。",
+      "year": 2024,
+      "sourceFile": "1_情報ネットワーク_2024.pdf"
+    },
+    {
+      "id": "networks-2025-q1",
+      "number": "1",
+      "page": 1,
+      "title": "OSI7階層モデルとIETF",
+      "summary": "OSI参照モデルの適切な説明を4選択肢から選ぶ。選択肢(b)では実際のプロトコルの標準化機関としてIETFが明記される。",
+      "topics": [
+        "networks-layers"
+      ],
+      "family": "networks-osi-model-selection",
+      "formats": [
+        "choice"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024の『別の機関』からIETFを明記。基本的な問いの型は同じ。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    },
+    {
+      "id": "networks-2025-q2",
+      "number": "2",
+      "page": 1,
+      "title": "Wi-Fiと有線LANの複数選択",
+      "summary": "Wi-FiのIP使用と有線LANのIP不使用、アクセス制御、送出失敗時の再送に関する3記述から誤りをすべて選ぶ。",
+      "topics": [
+        "networks-link-access"
+      ],
+      "family": "networks-lan-ip-selection",
+      "formats": [
+        "multiple-choice"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024の単一選択から複数選択へ。選択肢(a)の主張も変わるので、前年の記号を記憶するだけでは答えられない。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    },
+    {
+      "id": "networks-2025-q3",
+      "number": "3",
+      "page": 1,
+      "title": "IPv4 /26のホスト範囲",
+      "summary": "133.2.205.128/26に接続するホストへ付与できるIPv4アドレス範囲を求める。",
+      "topics": [
+        "networks-subnet"
+      ],
+      "family": "networks-host-address-range",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024からプレフィックス長だけが/25→/26へ変更され、計算方法は共通だが結果の終端は変わる。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    },
+    {
+      "id": "networks-2025-q4",
+      "number": "4",
+      "page": 1,
+      "title": "IPヘッダのみの誤り検査",
+      "summary": "IPルータでヘッダを検査しペイロードを検査しない理由を記す。",
+      "topics": [
+        "networks-ip-checksum"
+      ],
+      "family": "networks-header-payload-check",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024と同じ要求。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    },
+    {
+      "id": "networks-2025-q5",
+      "number": "5",
+      "page": 1,
+      "title": "TCPのウィンドウを1に戻す場合",
+      "summary": "TCPの2種類の輻輳検出のうち、送信ウィンドウサイズを1にリセットする場合を説明する。",
+      "topics": [
+        "networks-tcp"
+      ],
+      "family": "networks-tcp-congestion-detection",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024の検出方法の列挙から、検出とその後の動作の対応付けへ。数値1の単位とcwndの意味を教材で明示する。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    },
+    {
+      "id": "networks-2025-q6",
+      "number": "6",
+      "page": 1,
+      "title": "HTTPのステートレス性",
+      "summary": "HTTPがステートレスと言われる理由を説明する。",
+      "topics": [
+        "networks-http"
+      ],
+      "family": "networks-http-stateless-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024と同じ要求。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    },
+    {
+      "id": "networks-2025-q7",
+      "number": "7",
+      "page": 1,
+      "title": "NAT",
+      "summary": "NAT（Network Address Translation）を説明する。",
+      "topics": [
+        "networks-nat"
+      ],
+      "family": "networks-nat-explanation",
+      "formats": [
+        "essay"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024のDoSに代わる説明テーマ。2025だけの収録実績として扱う。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    },
+    {
+      "id": "networks-2025-q8",
+      "number": "8",
+      "page": 1,
+      "title": "3ビットCRC",
+      "summary": "生成多項式G(X)=X^3+X+1を使い、8ビットデータ11111111に付与する3ビットCRCを求める。",
+      "topics": [
+        "networks-crc"
+      ],
+      "family": "networks-crc-polynomial-remainder",
+      "formats": [
+        "calculation"
+      ],
+      "points": null,
+      "minimumCharacters": null,
+      "keywords": [],
+      "changeNote": "2024の10101111から11111111へ。生成多項式と3ビット長は共通。",
+      "year": 2025,
+      "sourceFile": "1. 情報ネットワーク2025.pdf"
+    }
+  ]
+}

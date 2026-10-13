@@ -1,0 +1,702 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "hci",
+  "name": "ヒューマンコンピュータインタラクション",
+  "availableYears": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "prerequisites": [
+    "CLI・GUI、デスクトップメタファ、WIMP、WYSIWYGの意味と英語略語",
+    "比、単位換算（cm・mm・inch・pixel・秒・ms）、平方根と対角線",
+    "対数の底、連立一次方程式、指数的増加とdB表現",
+    "知覚・認知・運動の段階、短期記憶・長期記憶・チャンク",
+    "インタフェース方式の仕組みと、利点・欠点を根拠とともに説明する力"
+  ],
+  "answerTraits": [
+    "一つの文章の複数空欄を埋める用語問題が全4年度にある。空欄数ではなく番号付き設問を集計する。",
+    "各年度に計算問題があり、式への代入だけでなく単位換算や定数の推定が必要。",
+    "方式の比較、定義と具体例、設計改善の理由など、説明要求の種類が異なる。",
+    "2025年は問題番号が1・2・3・5で、問3に(1)(2)がある。2ページ目は問5の解答欄の続き。"
+  ],
+  "preparation": "GUIの基本用語と人の情報処理・記憶を最初に整理する（それぞれ3/4年度）。次に、ディスプレイ計算、フィッツの法則、ウェーバー比を、式の意味・単位・計算過程まで練習する（各2/4年度で、フィッツとウェーバー比は2025年にも出題）。AR/VR、アフォーダンス、音声やタッチなどの方式は、定義→仕組み→利点と欠点→具体例の順で短い説明を作る。2024年の視覚生理も対象に残す。年度数が少なく、過去問の数値や用語だけを覚えて今年の出題を保証することはできない。",
+  "overlaps": [
+    {
+      "subjectId": "digital-media",
+      "knowledge": "表示・知覚に関わる概念と、数式やモデルを用いて説明する力。"
+    },
+    {
+      "subjectId": "multimedia",
+      "knowledge": "ディスプレイ・音声・感覚を扱う基礎。単位、対数、信号の表現。"
+    },
+    {
+      "subjectId": "mathematical-modeling",
+      "knowledge": "測定値から定数を求め、モデルで予測し、条件変更の影響を比較する考え方。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "hci-ui-concepts",
+      "name": "GUIの基本概念と略語",
+      "description": "CLI・GUI、デスクトップメタファ、WIMP、WYSIWYG。",
+      "prerequisite": true,
+      "studyAdvice": "用語カードだけでなく、文章の役割から適切な略語を選ぶ。WYSIWYGの英文も確認する。"
+    },
+    {
+      "id": "hci-display-metrics",
+      "name": "ディスプレイの寸法と画素密度",
+      "description": "画面とピクセルのアスペクト比、ppi、対角インチ。",
+      "prerequisite": false,
+      "studyAdvice": "物理寸法と画素数を別に扱い、縦横比・対角線・inchへの換算を区別する。"
+    },
+    {
+      "id": "hci-human-processing",
+      "name": "人の情報処理と記憶",
+      "description": "知覚・認知・運動プロセッサ、感覚記憶・短期記憶・長期記憶、チャンクと7±2。",
+      "prerequisite": true,
+      "studyAdvice": "処理の各段階や記憶の種類を説明し、原本が用いる歴史的モデルと一般的な人間の能力の断定を区別する。"
+    },
+    {
+      "id": "hci-visual-physiology",
+      "name": "視覚の基礎",
+      "description": "眼球、網膜、視細胞、中心部、色感度とHUD。",
+      "prerequisite": false,
+      "studyAdvice": "部位・細胞・機能を結び付け、明暗と色の弁別を混同しない。"
+    },
+    {
+      "id": "hci-fitts",
+      "name": "フィッツの法則と設計評価",
+      "description": "T=a+b log2(D/W+1)に基づく定数推定、予測、幅と距離の改善比較。",
+      "prerequisite": false,
+      "studyAdvice": "DとWの単位をそろえ、二つの観測値からa,bを求める。改善はD/Wの変化と操作時間で説明する。"
+    },
+    {
+      "id": "hci-psychophysics",
+      "name": "心理物理法則と弁別閾",
+      "description": "感覚と刺激量、ウェーバー比、刺激量の対数、音量のクリック設計。",
+      "prerequisite": false,
+      "studyAdvice": "比例関係と対数関係を区別し、dBがどの物理量を表すかと増加率の仮定を明示する。"
+    },
+    {
+      "id": "hci-xr",
+      "name": "VRとAR、HMD",
+      "description": "AIPキューブと、光学シースルー・ビデオシースルーの比較。",
+      "prerequisite": false,
+      "studyAdvice": "構成要素を定義し、方式の仕組みから視認性・遅延・遮蔽などの長短を説明する。"
+    },
+    {
+      "id": "hci-affordance",
+      "name": "アフォーダンスと具体例",
+      "description": "行為の可能性と、操作を理解しやすいデザインの説明。",
+      "prerequisite": false,
+      "studyAdvice": "単に『分かりやすい』で終わらず、どの形・手掛かりがどの操作を示すかを説明する。知覚されたアフォーダンスとシグニファイアも区別する。"
+    },
+    {
+      "id": "hci-input-devices",
+      "name": "入力方式の原理と長短",
+      "description": "音声UI、マウス、ジョイスティック、抵抗膜方式・静電容量方式のタッチパネル。",
+      "prerequisite": false,
+      "studyAdvice": "方式名と検出原理を対応させ、利用場面を根拠に利点と欠点を説明する。"
+    }
+  ],
+  "papers": [
+    {
+      "year": 2022,
+      "sourceFile": "６．ヒューマンコンピュータインタラクション2022.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "配点と文字数指定は可視原本に記載なし。",
+        "計算を求める設問では途中の計算過程を記す。",
+        "問2はWYSIWYGを略す前の英文を記載する指定。"
+      ],
+      "questions": [
+        {
+          "id": "hci-2022-q1",
+          "number": "1.",
+          "page": 1,
+          "title": "GUIの基本用語",
+          "summary": "コマンド中心のUI、デスクトップメタファのUI、WIMPを構成する要素等について6空欄を埋める。",
+          "topics": [
+            "hci-ui-concepts"
+          ],
+          "family": "hci-ui-vocabulary",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年と2025年にも基本用語の文章穴埋めがある。"
+        },
+        {
+          "id": "hci-2022-q2",
+          "number": "2.",
+          "page": 1,
+          "title": "WYSIWYGの正式な英文",
+          "summary": "問1の下線部WYSIWYGを略す前の英文を記載する。",
+          "topics": [
+            "hci-ui-concepts"
+          ],
+          "family": "hci-acronym-expansion",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年・2025年は略語そのものを穴埋めで問う。"
+        },
+        {
+          "id": "hci-2022-q3",
+          "number": "3.",
+          "page": 1,
+          "title": "AIPキューブの構成要素",
+          "summary": "究極のVR環境を目指す考え方としてAIPキューブの構成要素を説明する。",
+          "topics": [
+            "hci-xr"
+          ],
+          "family": "hci-xr-concept",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年にはARのHMD方式の比較へ変化。"
+        },
+        {
+          "id": "hci-2022-q4-1",
+          "number": "4.(1)",
+          "page": 1,
+          "title": "画面アスペクト比",
+          "summary": "横32cm・縦18cm、1920×1080画素のディスプレイの画面アスペクト比（横:縦）を求める。",
+          "topics": [
+            "hci-display-metrics"
+          ],
+          "family": "hci-display-ratio",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年はppiの計算と説明に絞られる。"
+        },
+        {
+          "id": "hci-2022-q4-2",
+          "number": "4.(2)",
+          "page": 1,
+          "title": "ピクセルアスペクト比",
+          "summary": "横32cm・縦18cm、1920×1080画素のディスプレイのピクセルアスペクト比（横:縦）を求める。",
+          "topics": [
+            "hci-display-metrics"
+          ],
+          "family": "hci-display-ratio",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "画面全体の比と1画素の比を別設問で区別させる。"
+        },
+        {
+          "id": "hci-2022-q4-3",
+          "number": "4.(3)",
+          "page": 1,
+          "title": "画面解像度ppi",
+          "summary": "同じ仕様のppiを1の位まで求める。1inch=2.54cm、√337=18.4の条件を用い、途中式を記す。",
+          "topics": [
+            "hci-display-metrics"
+          ],
+          "family": "hci-pixel-density",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年もppiを求めるが画素数・対角インチが変わる。"
+        },
+        {
+          "id": "hci-2022-q4-4",
+          "number": "4.(4)",
+          "page": 1,
+          "title": "画面サイズの対角インチ",
+          "summary": "同じ仕様の画面サイズを小数点以下1桁まで求める。1inch=2.54cm、√337=18.4。",
+          "topics": [
+            "hci-display-metrics"
+          ],
+          "family": "hci-display-diagonal",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年は対角インチを与えてppiを求める逆方向の条件。"
+        },
+        {
+          "id": "hci-2022-q5",
+          "number": "5.",
+          "page": 1,
+          "title": "情報処理モデルによる所要時間",
+          "summary": "知覚100ms・認知70ms・運動70msのモデルを用い、知人の顔を認識し、名前を思い出し、手を挙げる決定と動作までの処理時間を途中式付きで求める。",
+          "topics": [
+            "hci-human-processing"
+          ],
+          "family": "hci-processing-time",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年・2025年は人の記憶特性を用語で問う。"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "sourceFile": "6_ヒューマンコンピュータインタラクション2023.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "配点と文字数指定は可視原本に記載なし。",
+        "計算を求める設問では途中の計算過程を記す。"
+      ],
+      "questions": [
+        {
+          "id": "hci-2023-q1",
+          "number": "1.",
+          "page": 1,
+          "title": "GUIの用語とフィッツの法則",
+          "summary": "文字UIとGUI、デスクトップメタファ、WIMP、WYSIWYG、およびT=a+b log2(D/W+1)の法則名を8空欄で問う。式中Wは原本では『ターゲットの短辺の長さ』と定義。",
+          "topics": [
+            "hci-ui-concepts",
+            "hci-fitts"
+          ],
+          "family": "hci-ui-vocabulary",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年の基本用語にメタファとフィッツの法則名が加わる。"
+        },
+        {
+          "id": "hci-2023-q2",
+          "number": "2.",
+          "page": 1,
+          "title": "フィッツの法則による予測",
+          "summary": "7cm離れた10mm×15mmの矩形で300ms、6cm離れた半径10mmの円で250msから、15cm離れた10mm×30mmの矩形までの時間を予測。画面の辺や隅にない条件と途中式を含む。",
+          "topics": [
+            "hci-fitts"
+          ],
+          "family": "hci-fitts-calibration",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025年はpx単位でa,bを直接求め、改善案比較も行う。"
+        },
+        {
+          "id": "hci-2023-q3",
+          "number": "3.",
+          "page": 1,
+          "title": "ARのシースルーHMD比較",
+          "summary": "光学シースルーとビデオシースルーの方式の違い、長所、短所を説明する。",
+          "topics": [
+            "hci-xr"
+          ],
+          "family": "hci-xr-device-comparison",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年のVR構成要素説明から、AR実現方式の比較へ。"
+        },
+        {
+          "id": "hci-2023-q4",
+          "number": "4.",
+          "page": 1,
+          "title": "アフォーダンスの定義と例",
+          "summary": "アフォーダンスを説明し、コンピュータ利用時に上手く利用されている具体例を挙げて論じる。",
+          "topics": [
+            "hci-affordance"
+          ],
+          "family": "hci-affordance-example",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025年はジョイスティックの握る操作を例に用語を穴埋めで問う。"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "sourceFile": "5_ヒューマンコンピュータインタラクション_2024.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "配点と文字数指定は可視原本に記載なし。",
+        "計算を求める設問では途中の計算過程を記す。"
+      ],
+      "questions": [
+        {
+          "id": "hci-2024-q1",
+          "number": "1.",
+          "page": 1,
+          "title": "視覚生理と記憶モデル",
+          "summary": "眼球・視細胞・色感度の用語と、感覚記憶・短期記憶・長期記憶・チャンク・7±2について10空欄を埋める。空欄⑥の参照には矛盾がある。",
+          "topics": [
+            "hci-visual-physiology",
+            "hci-human-processing"
+          ],
+          "family": "hci-human-vocabulary",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "GUI中心の穴埋めから、視覚と記憶特性を問う内容に変更。2025年はGUIと記憶を統合。"
+        },
+        {
+          "id": "hci-2024-q2",
+          "number": "2.",
+          "page": 1,
+          "title": "心理物理法則と弁別閾",
+          "summary": "刺激量の対数に比例する感覚の法則名を答え、100gに対する弁別閾8gから400gに対する弁別閾を途中式付きで求める。",
+          "topics": [
+            "hci-psychophysics"
+          ],
+          "family": "hci-weber-threshold",
+          "formats": [
+            "term",
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025年は音量を10dB増やすクリック数へ応用。"
+        },
+        {
+          "id": "hci-2024-q3",
+          "number": "3.",
+          "page": 1,
+          "title": "音声UIの利点と欠点",
+          "summary": "NUIの一種として、音声を使うUIの利点と欠点を述べる。",
+          "topics": [
+            "hci-input-devices"
+          ],
+          "family": "hci-input-mode-comparison",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2025年はマウス・タッチパネル等の検出方式を穴埋めで問う。"
+        },
+        {
+          "id": "hci-2024-q4",
+          "number": "4.",
+          "page": 1,
+          "title": "ppi計算とディスプレイの評価",
+          "summary": "1440×3120pixel、横2.99inch・縦6.45inch・対角6.7inchの仕様を用いてppiを計算し、問題文の458ppi基準と比較して論じる。√205=14.3、対角線からppiを求める式を指定。",
+          "topics": [
+            "hci-display-metrics"
+          ],
+          "family": "hci-pixel-density",
+          "formats": [
+            "calculation",
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年の寸法換算から、与えられた仕様を根拠に評価を述べる問題へ。"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "sourceFile": "6. ヒューマンコンピュータインタラクション2025.pdf",
+      "pageCount": 2,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "配点と文字数指定は可視原本に記載なし。",
+        "問2は途中の計算過程を記す指定。問3(2)は改善案の比較理由を論じる指定。"
+      ],
+      "questions": [
+        {
+          "id": "hci-2025-q1",
+          "number": "1.",
+          "page": 1,
+          "title": "GUIと短期記憶の用語",
+          "summary": "CLI・GUI・WIMP・WYSIWYGと、短期記憶・長期記憶・チャンク・7±2に関する10空欄を埋める。",
+          "topics": [
+            "hci-ui-concepts",
+            "hci-human-processing"
+          ],
+          "family": "hci-ui-vocabulary",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年・2023年のGUI用語と2024年の記憶特性を同一文章に統合。"
+        },
+        {
+          "id": "hci-2025-q2",
+          "number": "2.",
+          "page": 1,
+          "title": "ウェーバー比と音量操作",
+          "summary": "1クリックを検知限ギリギリの変化にした場合、10dB増加に必要なクリック数を計算。ウェーバー比0.048、log10(1.048)=0.02を与え、途中式を要求。",
+          "topics": [
+            "hci-psychophysics"
+          ],
+          "family": "hci-weber-threshold",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年の重量の弁別閾から、対数と反復増加を用いるUI設計問題へ。"
+        },
+        {
+          "id": "hci-2025-q3-1",
+          "number": "3.(1)",
+          "page": 1,
+          "title": "フィッツの法則の定数推定",
+          "summary": "D=300px,W=20px,T=0.55秒と、D=315px,W=5px,T=0.75秒から、a,bを求める。",
+          "topics": [
+            "hci-fitts"
+          ],
+          "family": "hci-fitts-calibration",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年の測定例から予測する問題の前半を、定数を求める小問として明示。"
+        },
+        {
+          "id": "hci-2025-q3-2",
+          "number": "3.(2)",
+          "page": 1,
+          "title": "ターゲット幅と距離の改善比較",
+          "summary": "幅を1.5倍にする案と距離を60px近づける案について、フィッツの法則を用いて操作効率への寄与を比較し、理由を述べる。",
+          "topics": [
+            "hci-fitts"
+          ],
+          "family": "hci-fitts-design-comparison",
+          "formats": [
+            "calculation",
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "単純な所要時間予測から、二つの設計改善案の比較まで要求する。"
+        },
+        {
+          "id": "hci-2025-q5",
+          "number": "5.",
+          "page": 1,
+          "title": "入力装置とアフォーダンス",
+          "summary": "ボール式とLED反射光を用いるマウス、ジョイスティック、抵抗によるタッチ検出と電荷によるタッチ検出、および握って操作できるデザイン特性について6空欄を埋める。解答欄の④〜⑥は2ページ目。",
+          "topics": [
+            "hci-input-devices",
+            "hci-affordance"
+          ],
+          "family": "hci-input-vocabulary",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "原本は問4がなく問5へ進む。用語の意味を機器の原理やデザイン例に結び付ける。"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "claim": "GUIの基本概念は3/4年度に出題。",
+      "evidence": [
+        "hci-2022-q1",
+        "hci-2022-q2",
+        "hci-2023-q1",
+        "hci-2025-q1"
+      ],
+      "interpretation": "空欄の位置や数は変わるが、CLI/GUI・WIMP・WYSIWYGを文脈から取り出す型が反復。2024年にはこのテーマの設問がない。"
+    },
+    {
+      "claim": "人の情報処理と記憶は3/4年度に出題。",
+      "evidence": [
+        "hci-2022-q5",
+        "hci-2024-q1",
+        "hci-2025-q1"
+      ],
+      "interpretation": "同じ問題の反復ではなく、2022年は処理時間、2024年・2025年は記憶モデル。学習テーマと問題familyを区別する必要がある。"
+    },
+    {
+      "claim": "全4年度に途中式を要する計算問題がある。",
+      "evidence": [
+        "hci-2022-q4-1",
+        "hci-2022-q4-2",
+        "hci-2022-q4-3",
+        "hci-2022-q4-4",
+        "hci-2022-q5",
+        "hci-2023-q2",
+        "hci-2024-q2",
+        "hci-2024-q4",
+        "hci-2025-q2",
+        "hci-2025-q3-1",
+        "hci-2025-q3-2"
+      ],
+      "interpretation": "用語暗記だけでは範囲を満たさない。比・対角線・単位換算・連立方程式・対数の基本操作を科目の前提として用意する。"
+    },
+    {
+      "claim": "フィッツの法則と心理物理法則はそれぞれ2/4年度で、2025年にも出題。",
+      "evidence": [
+        "hci-2023-q1",
+        "hci-2023-q2",
+        "hci-2024-q2",
+        "hci-2025-q2",
+        "hci-2025-q3-1",
+        "hci-2025-q3-2"
+      ],
+      "interpretation": "2025年は定数推定、設計案比較、音量操作のように、法則を設計の判断に使う形へ広がる。"
+    },
+    {
+      "claim": "ディスプレイ計算、XR、アフォーダンス、入力方式は各2/4年度。",
+      "evidence": [
+        "hci-2022-q3",
+        "hci-2022-q4-1",
+        "hci-2022-q4-2",
+        "hci-2022-q4-3",
+        "hci-2022-q4-4",
+        "hci-2023-q3",
+        "hci-2023-q4",
+        "hci-2024-q3",
+        "hci-2024-q4",
+        "hci-2025-q5"
+      ],
+      "interpretation": "説明系と計算系を両方用意し、単年の視覚生理も除外しない。複数テーマが同一設問に現れるため件数を足して設問数にしない。"
+    }
+  ],
+  "cautions": [
+    {
+      "year": 2023,
+      "number": "1.",
+      "page": 1,
+      "description": "WYSIWYGの説明で『①の重要な発明』とあるが、①は文字入出力のUI、②はGUIを指す文脈。",
+      "handling": "原文は保持し、文脈上の参照矛盾として注記。穴埋めの想定内容を確定する段階で講義資料と照合する。"
+    },
+    {
+      "year": 2024,
+      "number": "1.",
+      "page": 1,
+      "description": "⑥は注意前の情報を蓄える感覚記憶として記述した後、『このうち⑥記憶では』に7±2チャンクを結び付けている。",
+      "handling": "空欄番号の矛盾として保持し、短期記憶との混同をそのまま教材へ転記しない。講義資料を参照して解答時の仮定を明記する。"
+    },
+    {
+      "year": 2024,
+      "number": "4.",
+      "page": 1,
+      "description": "横2.99inch・縦6.45inchから求まる対角長は約7.11inchで、与えられた6.7inchと一致しない。『Super Retina』をppiの数値だけで判定する問題文も、Apple製品の名称と一般的な視覚限界を区別する必要がある。",
+      "handling": "演習では問題が指定する対角6.7inchと式を使う条件を明示し、実機の仕様として紹介しない。名称と人の視認条件に関する注記を付ける。"
+    },
+    {
+      "year": 2025,
+      "number": "1.",
+      "page": 1,
+      "description": "7±2を一般的な容量として記述している。試験が問う歴史的モデルを、すべての記憶課題やUI項目数へ一律に当てはめない配慮が必要。",
+      "handling": "過去問の表現とモデルの学習として提示する。現代の研究知見を追加する場合は別の一次資料で確認する。"
+    },
+    {
+      "year": 2025,
+      "number": "2.",
+      "page": 1,
+      "description": "『音の大きさ』のウェーバー比が音圧か音の強さ（パワー）かを明記せず、dBの換算に影響する。",
+      "handling": "解説段階で10log10か20log10かの採用対象を明示し、講義で使う刺激量の定義を確認する。現段階では一つの数値解を確定しない。"
+    },
+    {
+      "year": 2025,
+      "number": "3.(2)",
+      "page": 1,
+      "description": "幅を拡大・距離を近づける際の基準となるD,Wが、(1)の二つの測定例のどちらか明記されていない。",
+      "handling": "比較の基準を明示して式を立てる教材にする。両測定例や一般式で結論を確認してから答案例を作る。"
+    },
+    {
+      "year": 2025,
+      "number": "5.",
+      "page": 1,
+      "description": "問題番号は1,2,3,5で問4がない。2ページ目には問5の解答欄④〜⑥のみがある。",
+      "handling": "欠番を補完せず原番号を保持。解答欄の続きは追加問題に数えず、両ページの表示を関連付ける。"
+    }
+  ],
+  "siteRecommendations": [
+    "文章穴埋めは一つの設問内に複数の回答欄を持たせ、略語と日本語の表記揺れを確認できるようにする。",
+    "フィッツの法則はD,W,a,bと単位を明示し、観測値からの推定、予測、改善案比較を段階ごとに練習できるようにする。",
+    "ディスプレイは縦横の寸法・画素数・対角線を図で分けて表示し、ppiとアスペクト比の混同を防ぐ。",
+    "説明問題は『定義』『原理』『利点』『欠点』『具体例』『根拠』の要求に応じた自己評価項目を用意する。",
+    "2024年の参照番号・寸法の矛盾と、2025年の欠番・計算上の仮定を問題の近くに注記する。",
+    "2025年問5は本文と2ページ目の解答欄を一つの問題として提示する。"
+  ],
+  "references": [
+    {
+      "title": "I. Scott MacKenzie, Fitts' Law (2018), author-hosted chapter",
+      "url": "https://www.yorku.ca/mack/hhci2018.html"
+    },
+    {
+      "title": "Don Norman, Affordances and Design",
+      "url": "https://jnd.org/affordances-and-design/"
+    },
+    {
+      "title": "Apple, iPhone X Technical Specifications",
+      "url": "https://support.apple.com/en-ie/111864"
+    }
+  ],
+  "reviewedPages": [
+    {
+      "year": 2022,
+      "page": 1
+    },
+    {
+      "year": 2023,
+      "page": 1
+    },
+    {
+      "year": 2024,
+      "page": 1
+    },
+    {
+      "year": 2025,
+      "page": 1
+    },
+    {
+      "year": 2025,
+      "page": 2
+    }
+  ]
+}

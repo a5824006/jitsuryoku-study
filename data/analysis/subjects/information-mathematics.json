@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "information-mathematics",
+  "name": "情報数学Ⅱ",
+  "availableYears": [
+    2022,
+    2023,
+    2024
+  ],
+  "prerequisites": [
+    "確率分布、自己情報量、対数、平均値",
+    "2元符号木、接頭語符号、平均符号長",
+    "GF(2)上の加算・乗算、行列と線形独立性",
+    "グラフの頂点・辺・重み、経路と閉路、次数"
+  ],
+  "answerTraits": [
+    "最小の番号付き設問は2022年5件、2023年5件、2024年6件。空欄の集まりはその親の小問1件として扱う。",
+    "計算結果や式の空欄補充に加え、2023・2024年は定義や解法の説明を含む。",
+    "2022年のグラフ問題では最短経路と距離に加え、頂点の確定順も要求する。",
+    "2024年はハフマン符号の確率、ハミング符号の検査行列、シンドロームの利用例を自分で設定する。",
+    "生成行列と符号語の対応、ビット列の順序、平均符号長の単位を守る必要がある。"
+  ],
+  "preparation": "最優先はハミング符号で、収録3/3年に検査行列・生成行列・符号語またはシンドロームが登場する。GF(2)の計算と行列の次元を基礎に、HからGへの対応、符号化、シンドロームから誤り位置を読む流れを練習する。ハフマン符号は2/3年だが2022年のランレングスと2024年の通常の木を同一の設問型とせず学ぶ。グラフは2/3年で、最短経路と全辺を巡る問題の目的を分けて学ぶ。自己情報量・平均情報量、定常確率も準備する。最新収録の2024年は自作の具体例を要求するため、既存例を読むだけでなく、条件を満たす例を一つ説明できる状態にする。2025年原本はこの資料に収録されていないので、3年を分母にし、不出題とは断定しない。",
+  "overlaps": [
+    {
+      "subjectId": "networks",
+      "knowledge": "デジタル情報、誤り検出・訂正、グラフとしての経路。ネットワークのCRCとハミング符号は別方式として扱う。"
+    },
+    {
+      "subjectId": "multimedia",
+      "knowledge": "情報量と符号化・圧縮。ハフマン符号の木と平均符号長の考え方。"
+    },
+    {
+      "subjectId": "dsa",
+      "knowledge": "グラフの表現、最短経路、アルゴリズムの手順。郵便配達員問題は訪問する頂点ではなく辺が中心。"
+    },
+    {
+      "subjectId": "mathematical-modeling",
+      "knowledge": "行列と連立方程式。ただし2元線形符号は実数の行列計算と異なりGF(2)上で扱う。"
+    },
+    {
+      "subjectId": "digital-media",
+      "knowledge": "確率の正規化。離散情報源と連続密度の積分を学び分ける。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "information-mathematics-information-measures",
+      "name": "自己情報量と平均情報量",
+      "description": "カードの確率から自己情報量と平均情報量を計算し、分布の最大化を考える。",
+      "prerequisite": true,
+      "studyAdvice": "事象の数から確率を設定し、対数の底と提供された近似値を確認する。"
+    },
+    {
+      "id": "information-mathematics-huffman",
+      "name": "ハフマン符号",
+      "description": "ランレングスの符号化と通常の符号木の生成・割当。",
+      "prerequisite": false,
+      "studyAdvice": "木を作る手順、選んだ確率、平均符号長の単位を説明する。左右のビットの交換など等価な答えも扱う。"
+    },
+    {
+      "id": "information-mathematics-markov",
+      "name": "マルコフ情報源の定常確率",
+      "description": "状態確率ベクトルと遷移行列から定常確率の連立方程式を表す。",
+      "prerequisite": false,
+      "studyAdvice": "行ベクトル・列ベクトルの約束と、確率の和が1という条件を確認する。"
+    },
+    {
+      "id": "information-mathematics-linear-code",
+      "name": "2元線形符号の記法と次元",
+      "description": "(n,k)の情報・冗長ビット長、生成行列の独立行と次元。",
+      "prerequisite": true,
+      "studyAdvice": "nとkの意味を行列サイズに結び付け、GF(2)での演算を先に確認する。"
+    },
+    {
+      "id": "information-mathematics-hamming",
+      "name": "ハミング符号とシンドローム",
+      "description": "検査行列・生成行列の関係、符号語の計算、単一ビット誤りの判断。",
+      "prerequisite": false,
+      "studyAdvice": "3×7のHと4×7のGの向き、ビット位置を固定し、整合性を確認しながら例を作る。"
+    },
+    {
+      "id": "information-mathematics-graph",
+      "name": "最短経路と郵便配達員問題",
+      "description": "ダイクストラ法の実行と、郵便配達員問題の定義・解法。",
+      "prerequisite": false,
+      "studyAdvice": "単一始点の最短経路と全辺を巡る最短閉路の違いを説明し、後者は扱うグラフの条件を明記する。"
+    }
+  ],
+  "papers": [
+    {
+      "year": 2022,
+      "sourceFile": "７．情報数学II2022.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "個別配点・制限時間・最低文字数の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "information-mathematics-2022-q1",
+          "number": "1",
+          "page": 1,
+          "title": "ランレングスハフマン符号",
+          "summary": "無記憶情報源の記号a,b,cの確率は0.7,0.2,0.1。長さ3までのaのランに対する2元ランレングスハフマン符号と、1情報源記号あたりの平均符号長を示す。必要なら小数点以下第4位を四捨五入。",
+          "topics": [
+            "information-mathematics-huffman"
+          ],
+          "family": "information-mathematics-run-length-huffman",
+          "formats": [
+            "calculation",
+            "diagram"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年は通常の5記号ハフマン符号の例を自分で設定し、木と割当手順を説明する。"
+        },
+        {
+          "id": "information-mathematics-2022-q2-1",
+          "number": "2.(1)",
+          "page": 1,
+          "title": "検査行列の補完",
+          "summary": "(7,4)ハミング符号の検査行列H=((1,0,1,□,1,0,0),(□,□,0,□,0,1,0),(□,□,1,0,0,0,1))の6空欄を埋め、行列全体を記す。",
+          "topics": [
+            "information-mathematics-hamming"
+          ],
+          "family": "information-mathematics-hamming-check-matrix",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年は成分の異なる完成した検査行列を与える。2024年は構成方法と自作例を問う。"
+        },
+        {
+          "id": "information-mathematics-2022-q2-2",
+          "number": "2.(2)",
+          "page": 1,
+          "title": "生成行列を示す",
+          "summary": "前問で完成させた検査行列に対する生成行列を示す。",
+          "topics": [
+            "information-mathematics-hamming"
+          ],
+          "family": "information-mathematics-hamming-generator-matrix",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2024年問3.(2)でも、自分で例示した検査行列に対応する生成行列を示す。"
+        },
+        {
+          "id": "information-mathematics-2022-q2-3",
+          "number": "2.(3)",
+          "page": 1,
+          "title": "情報ビットから符号語",
+          "summary": "前問の行列を使い、情報ビット1010の符号語を求める。",
+          "topics": [
+            "information-mathematics-hamming"
+          ],
+          "family": "information-mathematics-hamming-encoding",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年は情報ビット1101と異なる検査行列を使い、シンドローム・誤り位置とまとめて問う。"
+        },
+        {
+          "id": "information-mathematics-2022-q3",
+          "number": "3",
+          "page": 1,
+          "title": "ダイクストラ法の実行",
+          "summary": "図の10頂点a～j、非負重み付きグラフでaからjへの最短経路・距離と、各頂点の距離確定順を求める。画像の辺と重みはa-b:4、a-d:2、b-c:2、c-d:1、b-e:7、b-f:4、c-f:3、c-i:6、d-g:3、e-f:6、f-g:4、e-j:5、f-h:6、g-i:6、h-j:2、h-i:1、j-i:4。",
+          "topics": [
+            "information-mathematics-graph"
+          ],
+          "family": "information-mathematics-dijkstra-trace",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年は同じグラフ分野でも郵便配達員問題の定義・解法の説明に変更。"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "sourceFile": "7_情報数学II2023.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "個別配点・制限時間・最低文字数の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "information-mathematics-2023-q1-1",
+          "number": "1.(1)",
+          "page": 1,
+          "title": "マルコフ情報源の定常確率",
+          "summary": "状態確率ベクトルū、遷移確率行列P̄から各状態の定常確率を求める連立方程式の空欄アを埋める。",
+          "topics": [
+            "information-mathematics-markov"
+          ],
+          "family": "information-mathematics-stationary-distribution-equations",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "収録他2年度に同じ設問はない。"
+        },
+        {
+          "id": "information-mathematics-2023-q1-2",
+          "number": "1.(2)",
+          "page": 1,
+          "title": "線形符号の長さと生成行列",
+          "summary": "2元(n,k)線形符号の情報ビット長・冗長ビット長、および生成行列の独立行ベクトルの個数と次元について、イ～オの空欄を埋める。",
+          "topics": [
+            "information-mathematics-linear-code"
+          ],
+          "family": "information-mathematics-linear-code-dimensions",
+          "formats": [
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "ハミング符号の具体計算に先立ち、一般の(n,k)記法と行列の次元を問う。"
+        },
+        {
+          "id": "information-mathematics-2023-q1-3",
+          "number": "1.(3)",
+          "page": 1,
+          "title": "シンドローム・誤り位置・符号語",
+          "summary": "(7,4)ハミング符号のH=((1,1,1,0,1,0,0),(0,1,1,1,0,1,0),(1,0,1,1,0,0,1))を使い、受信語1010110のシンドロームと誤りビット位置、情報ビット列1101の符号語の空欄カ～クを埋める。",
+          "topics": [
+            "information-mathematics-hamming"
+          ],
+          "family": "information-mathematics-hamming-syndrome-encoding",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年とは検査行列の成分と情報ビットが異なり、受信語のシンドロームと誤り位置の判断も加わる。2024年は例を自分で作って利用方法を説明する。"
+        },
+        {
+          "id": "information-mathematics-2023-q2-1",
+          "number": "2.(1)",
+          "page": 1,
+          "title": "郵便配達員問題の定義",
+          "summary": "郵便配達員問題のグラフを用いた定義を述べる。",
+          "topics": [
+            "information-mathematics-graph"
+          ],
+          "family": "information-mathematics-postman-definition",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年の特定グラフでの最短経路計算とは目的が異なる。"
+        },
+        {
+          "id": "information-mathematics-2023-q2-2",
+          "number": "2.(2)",
+          "page": 1,
+          "title": "郵便配達員問題の解法",
+          "summary": "郵便配達員問題に対するグラフを用いた解法を説明する。",
+          "topics": [
+            "information-mathematics-graph"
+          ],
+          "family": "information-mathematics-postman-algorithm",
+          "formats": [
+            "essay"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "数値グラフは指定されず、一般的な解法の説明を要求する。"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "sourceFile": "6_情報数学II_2024.pdf",
+      "pageCount": 1,
+      "answerLanguage": "unspecified",
+      "rules": [
+        "個別配点・制限時間・最低文字数の記載はない。"
+      ],
+      "questions": [
+        {
+          "id": "information-mathematics-2024-q1-1",
+          "number": "1.(1)",
+          "page": 1,
+          "title": "自己情報量と平均情報量",
+          "summary": "ジョーカーなし52枚のカードで黒/赤を出力するAの各自己情報量・平均情報量と、絵札なら1、それ以外は0とするBの平均情報量、その関数名を埋める。log₂3=1.58、log₂5=2.32、log₂13=3.70を使用。",
+          "topics": [
+            "information-mathematics-information-measures"
+          ],
+          "family": "information-mathematics-entropy-calculation",
+          "formats": [
+            "calculation",
+            "term"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "記号確率を直接与える2022年と異なり、カードの内訳から確率を決める。"
+        },
+        {
+          "id": "information-mathematics-2024-q1-2",
+          "number": "1.(2)",
+          "page": 1,
+          "title": "平均情報量の最大化",
+          "summary": "同じ形・重さの金・銀・銅のメダル計30枚から1枚を取り出して色を通知する情報源。平均情報量を最大にする各色の枚数を空欄f～hに示す。",
+          "topics": [
+            "information-mathematics-information-measures"
+          ],
+          "family": "information-mathematics-maximum-entropy",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "同年度1.(1)の情報量計算から、分布の条件を考える問題へ接続。"
+        },
+        {
+          "id": "information-mathematics-2024-q2",
+          "number": "2",
+          "page": 1,
+          "title": "具体例によるハフマン符号の説明",
+          "summary": "5情報源記号a,b,c,d,eの確率を任意に決め、2元ハフマン符号木の生成方法と符号語の割当方法を具体例で説明する。",
+          "topics": [
+            "information-mathematics-huffman"
+          ],
+          "family": "information-mathematics-huffman-tree-construction",
+          "formats": [
+            "essay",
+            "diagram",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年は指定確率とランレングス、2024年は通常の5記号で確率を自分で設定する。"
+        },
+        {
+          "id": "information-mathematics-2024-q3-1",
+          "number": "3.(1)",
+          "page": 1,
+          "title": "検査行列の構成方法と例",
+          "summary": "2元(7,4)ハミング符号の検査行列の構成方法を説明し、1つの行列を例示する。",
+          "topics": [
+            "information-mathematics-hamming"
+          ],
+          "family": "information-mathematics-hamming-check-matrix",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年の空欄補完から、構成原理の説明と自作例へ変更。"
+        },
+        {
+          "id": "information-mathematics-2024-q3-2",
+          "number": "3.(2)",
+          "page": 1,
+          "title": "自作の検査行列に対する生成行列",
+          "summary": "前問で例示した検査行列に対する生成行列を示す。",
+          "topics": [
+            "information-mathematics-hamming"
+          ],
+          "family": "information-mathematics-hamming-generator-matrix",
+          "formats": [
+            "calculation"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2022年と同じ対応関係を問うが、起点となる検査行列を自分で選ぶ。"
+        },
+        {
+          "id": "information-mathematics-2024-q3-3",
+          "number": "3.(3)",
+          "page": 1,
+          "title": "シンドロームの意味と利用例",
+          "summary": "シンドロームとは何かを説明し、具体例を通して利用方法を示す。",
+          "topics": [
+            "information-mathematics-hamming"
+          ],
+          "family": "information-mathematics-hamming-syndrome-encoding",
+          "formats": [
+            "essay",
+            "example"
+          ],
+          "points": null,
+          "minimumCharacters": null,
+          "keywords": [],
+          "changeNote": "2023年の指定受信語の計算から、説明と自作例を求める形式へ変わる。"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "claim": "ハミング符号は収録3/3年。検査行列・生成行列・符号語・シンドロームの複数の操作を扱う。",
+      "evidence": [
+        "information-mathematics-2022-q2-1",
+        "information-mathematics-2022-q2-2",
+        "information-mathematics-2022-q2-3",
+        "information-mathematics-2023-q1-3",
+        "information-mathematics-2024-q3-1",
+        "information-mathematics-2024-q3-2",
+        "information-mathematics-2024-q3-3"
+      ],
+      "interpretation": "定義から行列とビット列までを連続して練習する中心教材にする。小問数ではなく登場年度数で頻度を表示。"
+    },
+    {
+      "claim": "ハフマン符号は2/3年だが、ランレングスの指定計算と通常の木の具体例説明は別の問題型。",
+      "evidence": [
+        "information-mathematics-2022-q1",
+        "information-mathematics-2024-q2"
+      ],
+      "interpretation": "テーマ共通でも解法を一つにまとめず、通常の木を基礎としてランレングスを別演習にする。"
+    },
+    {
+      "claim": "グラフは2/3年。2022年は最短経路の数値実行、2023年は郵便配達員問題の説明。",
+      "evidence": [
+        "information-mathematics-2022-q3",
+        "information-mathematics-2023-q2-1",
+        "information-mathematics-2023-q2-2"
+      ],
+      "interpretation": "同じ『グラフ』タグでも目的と手順が異なるので別問題群にする。"
+    },
+    {
+      "claim": "2024年はハフマン符号・ハミング符号・シンドロームに、自分で例を作る要求が並ぶ。",
+      "evidence": [
+        "information-mathematics-2024-q2",
+        "information-mathematics-2024-q3-1",
+        "information-mathematics-2024-q3-3"
+      ],
+      "interpretation": "例の選択、構成原理の説明、例の整合性の確認を自己評価に含める。固定答案の文字列一致には適さない。"
+    },
+    {
+      "claim": "自己情報量・平均情報量は2024年、定常確率と線形符号の一般記法は2023年に登場する。",
+      "evidence": [
+        "information-mathematics-2024-q1-1",
+        "information-mathematics-2024-q1-2",
+        "information-mathematics-2023-q1-1",
+        "information-mathematics-2023-q1-2"
+      ],
+      "interpretation": "ハミング符号だけを練習せず、符号化の基礎となる確率と行列の用語も補う。"
+    }
+  ],
+  "cautions": [
+    {
+      "year": 2022,
+      "number": "2.(1)～2.(3)",
+      "page": 1,
+      "description": "検査行列の6空欄と成分は図扱いで、抽出テキストに行列が入らない。",
+      "handling": "ページ画像から3×7行列と空欄位置を登録した。生成行列や符号語を解説するときはGF(2)とビット位置を明記する。"
+    },
+    {
+      "year": 2022,
+      "number": "3",
+      "page": 1,
+      "description": "重み付きグラフの頂点・辺・重みは抽出テキストにない。線が交差する箇所を新しい頂点として数えてはいけない。",
+      "handling": "丸印と頂点名で10頂点を確認し、17辺を画像から記録。サイト用に描き直す際は辺リストと原図を再照合する。"
+    },
+    {
+      "year": 2023,
+      "number": "1.(3)",
+      "page": 1,
+      "description": "抽出テキストの行列は読み順が崩れており、画像に示された行順と一致しない。",
+      "handling": "画像の3行を基準にHを記録。別教材の転置や列順と混ぜない。"
+    },
+    {
+      "year": 2022,
+      "number": "2.(2)・2.(3)",
+      "page": 1,
+      "description": "検査行列だけでは生成行列の基底や情報ビットの割当の約束は一意にならない。原本の末尾3列は単位行列の形である。",
+      "handling": "後続教材では情報4ビットを先頭とする組織符号など採用する約束を明記し、原本にない約束を出題条件として扱わない。"
+    },
+    {
+      "year": 2023,
+      "number": "2.(1)・2.(2)",
+      "page": 1,
+      "description": "郵便配達員問題のグラフの有向・無向、重み、連結性などの条件は設問文で具体的に限定されていない。",
+      "handling": "一般的な説明を作る段階で扱うグラフの条件を明記。無向グラフの解法をすべての種類に適用するとは書かない。"
+    },
+    {
+      "year": 2024,
+      "number": "2・3.(1)・3.(3)",
+      "page": 1,
+      "description": "確率・検査行列・シンドローム利用例は受験者が任意に設定するため、複数の妥当な答案がある。",
+      "handling": "具体例の整合性と説明要件を確認し、唯一の固定文字列による自動採点を避ける。"
+    },
+    {
+      "year": 2024,
+      "number": "1.(1)・1.(2)",
+      "page": 1,
+      "description": "解答欄のbとfが大文字B・Fで印刷され、本文の空欄は小文字b・f。",
+      "handling": "同じ位置に対応する欄として扱い、別の空欄や別設問として数えない。"
+    }
+  ],
+  "siteRecommendations": [
+    "検査行列→生成行列→符号化→シンドロームを一連の学習と年度別の小問で行き来できるようにする。",
+    "GF(2)の手計算と行列の向きを示し、等価な生成行列・例を扱う採点方針を設ける。",
+    "ハフマン木は結合順を段階表示し、確率を自分で設定する演習とランレングスの平均長を扱う演習を分ける。",
+    "ダイクストラ法は暫定距離・確定頂点・確定順を記録できるようにし、原図を再現したグラフを使う。",
+    "郵便配達員問題は目的とグラフ条件を明記する説明演習にし、最短経路問題との違いを示す。",
+    "2024年の自作例はチェック項目で自己評価し、例の自由度を保つ。",
+    "収録は2022～2024年の3年度と表示し、2025年を0回として頻度の分母に加えない。"
+  ],
+  "references": [
+    {
+      "title": "MIT 6.02 Notes, Chapter 2: Information, Entropy, and the Motivation for Source Codes（一般的な情報量）",
+      "url": "https://ocw.mit.edu/courses/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/4bcb4b872e8e98459ce71e77d4fe9c42_MIT6_02F12_chap02.pdf"
+    },
+    {
+      "title": "MIT 6.02 Notes, Chapter 3: Compression Algorithms（一般的なハフマン木）",
+      "url": "https://ocw.mit.edu/courses/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/95605227801c1ef2e1b6ddfd8da7a8a2_MIT6_02F12_chap03.pdf"
+    },
+    {
+      "title": "MIT 6.02 Notes, Chapter 6: Linear Block Codes: Encoding and Syndrome Decoding（一般的な符号化とシンドローム）",
+      "url": "https://ocw.mit.edu/courses/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/34b7d78e0b90235095ef81542f6aa2dc_MIT6_02F12_chap06.pdf"
+    },
+    {
+      "title": "MIT Urban Operations Research, 6.4.4 Solving the Chinese Postman's Problem（無向グラフでの一般的解法）",
+      "url": "https://web.mit.edu/urban_or_book/www/book/chapter6/6.4.4.html"
+    },
+    {
+      "title": "MIT 18.S096, Stochastic Processes I（一般的なマルコフ連鎖の定常分布）",
+      "url": "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/f5784e4facf3de690210d17c97358eba_MIT18_S096F13_lecnote5.pdf"
+    }
+  ],
+  "reviewedPages": [
+    {
+      "year": 2022,
+      "page": 1
+    },
+    {
+      "year": 2023,
+      "page": 1
+    },
+    {
+      "year": 2024,
+      "page": 1
+    }
+  ]
+}
