@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1180" viewBox="0 0 1200 1180" role="img" aria-labelledby="title"><title id="title">2023：授業支援システムのクラス図</title>
+<rect width="100%" height="100%" fill="#f9f7f2"/><g font-family="sans-serif" font-size="18" fill="#172b41">
+<text x="30" y="32" font-size="23" font-weight="bold">2023：授業支援システムのクラス図</text>
+<path d="M195,300 L600,182" stroke="#526a7b" fill="none" stroke-width="2"/>
+<path d="M600,182 L590,202 L610,202 Z" fill="white" stroke="#526a7b" stroke-width="2"/>
+<path d="M600,300 L600,182" stroke="#526a7b" fill="none" stroke-width="2"/>
+<path d="M600,182 L590,202 L610,202 Z" fill="white" stroke="#526a7b" stroke-width="2"/>
+<path d="M1010,300 L600,182" stroke="#526a7b" fill="none" stroke-width="2"/>
+<path d="M600,182 L590,202 L610,202 Z" fill="white" stroke="#526a7b" stroke-width="2"/>
+<path d="M355,382 L400,672" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="377.5" y="518.0" text-anchor="middle">履修</text>
+<path d="M600,412 L600,600" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="600.0" y="497.0" text-anchor="middle">担当</text>
+<path d="M400,742 L385,960" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="392.5" y="842.0" text-anchor="middle">構成</text>
+<path d="M800,742 L850,960" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="825.0" y="842.0" text-anchor="middle">構成</text>
+<rect x="435" y="70" width="330" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="600.0" y="101" text-anchor="middle" font-weight="bold">ユーザ</text>
+<path d="M435,115 H765" stroke="#526a7b"/>
+<text x="447" y="142">アカウントID</text>
+<text x="447" y="172">氏名</text>
+<rect x="35" y="300" width="320" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="195.0" y="331" text-anchor="middle" font-weight="bold">学生</text>
+<path d="M35,345 H355" stroke="#526a7b"/>
+<text x="47" y="372">学生番号</text>
+<text x="47" y="402">所属学部</text>
+<rect x="435" y="300" width="330" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="600.0" y="331" text-anchor="middle" font-weight="bold">教員</text>
+<path d="M435,345 H765" stroke="#526a7b"/>
+<text x="447" y="372">教員番号</text>
+<text x="447" y="402">所属学部</text>
+<rect x="850" y="300" width="320" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="1010.0" y="331" text-anchor="middle" font-weight="bold">職員</text>
+<path d="M850,345 H1170" stroke="#526a7b"/>
+<text x="862" y="372">職員番号</text>
+<text x="862" y="402">所属部署</text>
+<rect x="400" y="600" width="400" height="142" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="600.0" y="631" text-anchor="middle" font-weight="bold">授業科目</text>
+<path d="M400,645 H800" stroke="#526a7b"/>
+<text x="412" y="672">授業科目名</text>
+<text x="412" y="702">開講年度</text>
+<text x="412" y="732">開講学期</text>
+<rect x="35" y="930" width="350" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="210.0" y="961" text-anchor="middle" font-weight="bold">クラス（授業回）</text>
+<path d="M35,975 H385" stroke="#526a7b"/>
+<text x="47" y="1002">授業実施日</text>
+<text x="47" y="1032">タイトル</text>
+<rect x="850" y="930" width="320" height="82" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="1010.0" y="961" text-anchor="middle" font-weight="bold">試験</text>
+<path d="M850,975 H1170" stroke="#526a7b"/>
+<text x="862" y="1002">試験実施日</text>
+<text x="367" y="372" text-anchor="start">5..*</text>
+<text x="388" y="662" text-anchor="end">0..*</text>
+<text x="608" y="438" text-anchor="start">1..*</text>
+<text x="608" y="588" text-anchor="start">0..*</text>
+<text x="388" y="732" text-anchor="end">1</text>
+<text x="397" y="950" text-anchor="start">10..15</text>
+<text x="812" y="732" text-anchor="start">1</text>
+<text x="838" y="950" text-anchor="end">0..1</text>
+<text x="30" y="1110" font-size="16">学生・教員から見た科目数と、授業回・試験の単一所属は例の仮定。</text>
+</g></svg>

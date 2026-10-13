@@ -1,0 +1,889 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "robotics",
+  "lessons": [
+    {
+      "topicId": "robotics-coordinate-transform",
+      "title": "回転と座標変換",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "右手系で列ベクトルを使う。z軸回転は$R_z(\\theta)=\\begin{bmatrix}\\cos\\theta&-\\sin\\theta&0\\\\\\sin\\theta&\\cos\\theta&0\\\\0&0&1\\end{bmatrix}$。積$R_1R_2v$は右の変換から作用する。同次変換$T=\\begin{bmatrix}R&p\\\\0&1\\end{bmatrix}$は位置と姿勢を一緒に表す。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "どの座標系からどの座標系を見る行列かを明記し、図の軸に沿って回転・並進を組み立てる。"
+        }
+      ],
+      "example": {
+        "prompt": "点(1,0,0)をz軸まわり90°回転。",
+        "steps": [
+          "θ=π/2をRzへ代入する。",
+          "第1列が変換後の点。"
+        ],
+        "answer": "(0,1,0)。"
+      },
+      "quizzes": [
+        {
+          "id": "robotics-coordinate-transform-c1",
+          "prompt": "z軸90°回転後の(1,0,0)のy成分は。",
+          "kind": "number",
+          "explanation": "右手系の正回転。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 1,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "robotics-coordinate-transform-c2",
+          "prompt": "3次元剛体の同次変換行列の行数は。",
+          "kind": "number",
+          "explanation": "回転3×3に並進と同次成分を加える。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 4,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "robotics-coordinate-transform-c3",
+          "prompt": "R1 R2 vで先に作用する行列名は。",
+          "kind": "text",
+          "explanation": "列ベクトルでは右から。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "R2"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "robotics-coordinate-transform-retest",
+        "prompt": "z軸180°回転後の(1,0,0)のx成分は。",
+        "kind": "number",
+        "explanation": "cosπ=−1。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": -1,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "robotics-manipulator-kinematics",
+      "title": "マニピュレータの運動学",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "robotics-coordinate-transform"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "順運動学は関節変数から手先の位置・姿勢を求めること。各リンクの変換を$T=A_1A_2\\cdots A_n$と連鎖する。逆運動学は目標Tから関節変数を求める。2リンク平面腕では$c_2=(x^2+y^2-L_1^2-L_2^2)/(2L_1L_2)$、$\\theta_2=\\operatorname{atan2}(\\pm\\sqrt{1-c_2^2},c_2)$。複数解、特異点、可動域を確認する。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "関節変数から手先を求める方向と、その逆を区別する。逆解では到達可能性、複数解、特異な姿勢や可動域を確認する。"
+        }
+      ],
+      "example": {
+        "prompt": "L1=L2=1、目標(x,y)=(1,1)。",
+        "steps": [
+          "c2=(2−1−1)/2=0。",
+          "θ2=±π/2。",
+          "θ1=atan2(1,1)−atan2(sinθ2,1+cosθ2)。"
+        ],
+        "answer": "(θ1,θ2)=(0,π/2)または(π/2,−π/2)。"
+      },
+      "quizzes": [
+        {
+          "id": "robotics-manipulator-kinematics-c1",
+          "prompt": "関節角から手先位置を求める計算名は。",
+          "kind": "text",
+          "explanation": "逆は手先から関節。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "順運動学",
+            "forward kinematics"
+          ]
+        },
+        {
+          "id": "robotics-manipulator-kinematics-c2",
+          "prompt": "目標位置から関節角を求める計算名は。",
+          "kind": "text",
+          "explanation": "複数解があり得る。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "逆運動学",
+            "inverse kinematics"
+          ]
+        },
+        {
+          "id": "robotics-manipulator-kinematics-c3",
+          "prompt": "長さ1と1の平面2リンクが届く最大半径は。",
+          "kind": "number",
+          "explanation": "L1+L2。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "robotics-manipulator-kinematics-retest",
+        "prompt": "2リンクの逆運動学に肘上・肘下の2解があるか。「ある」「ない」で答える。",
+        "kind": "text",
+        "explanation": "θ2のsin符号で分岐。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "ある"
+        ]
+      }
+    },
+    {
+      "topicId": "robotics-homogeneous-geometry",
+      "title": "平面の同次表現と幾何判定",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "robotics-coordinate-transform"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "点の同次座標$(x,y,z,1)^T$、平面$P=(a,b,c,d)$を内積すると$ax+by+cz+d=0$。法線は$(a,b,c)$で単位法線はこれを長さで割る。原点距離は$|d|/\\sqrt{a^2+b^2+c^2}$。点が原点と同じ側かどうかは$P(0,0,0,1)^T$と$Pv$の符号を比較する。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "点と平面の表現を分け、有限点のw=1と法線の正規化、原点と点の半空間の符号を確認する。"
+        }
+      ],
+      "example": {
+        "prompt": "P=(0,1,0,−2)、点y=1とy=3を判定する。",
+        "steps": [
+          "原点ではPvo=−2。",
+          "y=1では−1、y=3では+1。"
+        ],
+        "answer": "y=1は原点と同じ側、y=3は反対側。原点距離2。"
+      },
+      "quizzes": [
+        {
+          "id": "robotics-homogeneous-geometry-c1",
+          "prompt": "P=(0,1,0,−2)の原点からの距離は。",
+          "kind": "number",
+          "explanation": "|−2|/1。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "robotics-homogeneous-geometry-c2",
+          "prompt": "有限点の標準同次座標の第4成分wは。",
+          "kind": "number",
+          "explanation": "w≠0を1へ正規化する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 1,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "robotics-homogeneous-geometry-c3",
+          "prompt": "平面の法線の成分はa,b,cかx,y,zか。「a,b,c」「x,y,z」で答える。",
+          "kind": "text",
+          "explanation": "平面式の係数。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "a,b,c"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "robotics-homogeneous-geometry-retest",
+        "prompt": "P=(0,.5,0,−1)はyがいくつの平面か。",
+        "kind": "number",
+        "explanation": ".5y−1=0。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 2,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "robotics-mobile-kinematics",
+      "title": "全方位移動ロボットの運動学",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "robotics-coordinate-transform"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "車輪の転がり拘束を3輪分並べて$J R(\\theta)\\dot\\xi= D\\dot\\varphi$とする。$D=\\operatorname{diag}(r_1,r_2,r_3)$。Jが正則なら$\\dot\\xi=R(\\theta)^{-1}J^{-1}D\\dot\\varphi$。機体座標と世界座標の速度を混同せず、各行の車輪角度・半径・回転方向を確認する。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "車輪数・α・β・半径と機体座標系を図から拾い、与えられたR(θ)の向きに合わせて式を導出する。"
+        }
+      ],
+      "example": {
+        "prompt": "姿勢0、l=1、β=0、α=π/3,π,−π/3。車輪速度4,1,2。",
+        "steps": [
+          "Jの各行を[sinα,−cosα,−1]とする。",
+          "連立方程式を解き、元の3拘束に代入する。"
+        ],
+        "answer": "(ẋ,ẏ,θ̇)=(2/√3,−4/3,−7/3)。"
+      },
+      "quizzes": [
+        {
+          "id": "robotics-mobile-kinematics-c1",
+          "prompt": "車輪角速度から位置速度へ変換する際、Jは正則である必要があるか。「必要」「不要」で答える。",
+          "kind": "text",
+          "explanation": "逆行列で一意に解く場合の条件。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "必要"
+          ]
+        },
+        {
+          "id": "robotics-mobile-kinematics-c2",
+          "prompt": "姿勢θ=0の座標回転行列は何行列か。",
+          "kind": "text",
+          "explanation": "世界と機体の向きが一致。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "単位行列",
+            "identity"
+          ]
+        },
+        {
+          "id": "robotics-mobile-kinematics-c3",
+          "prompt": "車輪半径をriとした対角行列Dの非対角成分は。",
+          "kind": "number",
+          "explanation": "半径を各車輪へ個別に掛ける。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "robotics-mobile-kinematics-retest",
+        "prompt": "3輪の速度を足した値が−3lθ̇になる配置で、速度1,1,1、l=1ならθ̇は。",
+        "kind": "number",
+        "explanation": "和3=−3θ̇。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": -1,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "robotics-navigation",
+      "title": "移動ロボットの制御構成",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "移動ロボットの制御は実世界との閉ループ。Sensingで生データを取得し、Information Extractionで障害物等を解釈、Localization/Map Buildingで位置と地図を推定、Cognition/Path Planningで経路を計画、Path Executionで追従の指令を作り、Actingで実際に動く。測定誤差や障害物の変化で再計画する。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "英語名を訳すだけでなく、入力する情報、出力する情報、実世界とのループを説明する。"
+        }
+      ],
+      "example": {
+        "prompt": "目標までの途中に新しい障害物を検出。",
+        "steps": [
+          "センサが取得し、情報抽出が障害物を認識する。",
+          "地図を更新し、安全な経路を計画し直す。",
+          "追従指令をアクチュエータへ送る。"
+        ],
+        "answer": "観測→解釈→推定→計画→実行→再観測の閉ループ。"
+      },
+      "quizzes": [
+        {
+          "id": "robotics-navigation-c1",
+          "prompt": "センサの生データを取得する段階の英語名は。",
+          "kind": "text",
+          "explanation": "実世界を測る。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "Sensing"
+          ]
+        },
+        {
+          "id": "robotics-navigation-c2",
+          "prompt": "自己位置推定の英語名は。",
+          "kind": "text",
+          "explanation": "位置と姿勢を地図へ対応付ける。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "Localization"
+          ]
+        },
+        {
+          "id": "robotics-navigation-c3",
+          "prompt": "経路計画の英語名は。",
+          "kind": "text",
+          "explanation": "位置・地図・目標から経路を選ぶ。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "Path Planning",
+            "Cognition Path Planning"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "robotics-navigation-retest",
+        "prompt": "アクチュエータを通して実世界へ作用する段階の英語名は。",
+        "kind": "text",
+        "explanation": "指令を実際の運動へ変える。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "Acting"
+        ]
+      }
+    }
+  ],
+  "solutions": [
+    {
+      "questionId": "robotics-2022-q1",
+      "status": "verified",
+      "problem": "単位軸kのRodrigues回転式$R=\\cos\\theta I+(1-\\cos\\theta)kk^T+\\sin\\theta[k]_\\times$からx,y,z軸回転を求め、$R_z(\\phi)R_y(\\theta)R_z(\\psi)$を計算する。同次変換4×4で示す。",
+      "basics": [
+        "単位軸に(1,0,0),(0,1,0),(0,0,1)を代入する。",
+        "Euler積は右側から作用する。"
+      ],
+      "steps": [
+        "$R_x=\\begin{bmatrix}1&0&0\\\\0&c&-s\\\\0&s&c\\end{bmatrix}$、$R_y=\\begin{bmatrix}c&0&s\\\\0&1&0\\\\-s&0&c\\end{bmatrix}$、$R_z=\\begin{bmatrix}c&-s&0\\\\s&c&0\\\\0&0&1\\end{bmatrix}$。c=cosθ、s=sinθ。",
+        "まず$R_y(\\theta)R_z(\\psi)$を計算し、左から$R_z(\\phi)$を掛ける。"
+      ],
+      "answer": "$c_u=\\cos u,s_u=\\sin u$として回転部分は$$\\begin{bmatrix}c_\\phi c_\\theta c_\\psi-s_\\phi s_\\psi&-c_\\phi c_\\theta s_\\psi-s_\\phi c_\\psi&c_\\phi s_\\theta\\\\s_\\phi c_\\theta c_\\psi+c_\\phi s_\\psi&-s_\\phi c_\\theta s_\\psi+c_\\phi c_\\psi&s_\\phi s_\\theta\\\\-s_\\theta c_\\psi&s_\\theta s_\\psi&c_\\theta\\end{bmatrix}$$。各回転とEuler行列とも第4列を(0,0,0,1)ᵀ、第4行を(0,0,0,1)にして同次変換へ拡張する。",
+      "checklist": [
+        "単位軸をx,y,z軸へそれぞれ代入した",
+        "3つの軸回転を同次4×4行列で示した",
+        "Rz(φ)Ry(θ)Rz(ψ)の順に積を計算した",
+        "回転ブロックと同次成分の0,1を保持した"
+      ],
+      "pitfalls": [
+        "列ベクトルでは右の行列から作用する。",
+        "y軸回転のsinの符号をz軸回転と同じ場所へ置かない。",
+        "ZYZオイラー角をZYXの式と混同しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "robotics-2022-q2",
+      "status": "conditional",
+      "problem": "ひじ型6関節マニピュレータの順運動学と逆運動学の求め方を説明する。原図のz0は基部の鉛直軸、z1,z2,z3は腕の回転軸、z4,z5,z6は手先側の軸、腕長a2,a3,a4を持つ。",
+      "basics": [
+        "関節軸と共通法線に沿ってリンク座標を定める。",
+        "変換規約と寸法表が先に必要。"
+      ],
+      "steps": [
+        "採用するDH規約を明記して、各軸の方向と共通法線からai,αi,di,θiの表を作る。",
+        "各Aiを求めてT=A1…A6を積算し、左上3×3を姿勢R、右上3×1を位置pとして読む。",
+        "目標T*から、先端オフセットをR*で回して引き、腕が到達すべき手首位置を求める。",
+        "基部角をatan2で求め、肩・肘の平面に投影して余弦定理で肘上/肘下を求める。",
+        "Rarmを用いてRwrist=RarmᵀR*を計算し、残る手首角を解く。",
+        "全候補を元のTへ代入し、可動域、到達可能性、特異姿勢を確認する。"
+      ],
+      "answer": "順運動学はリンク変換の積T=A1A2A3A4A5A6で位置と姿勢を得る。逆運動学は位置に対する腕の解と、残る姿勢に対する手首の解に分け、複数解を代入検証する。寸法と軸規約を固定すれば解析解、難しい場合は数値的にT(θ)=T*を解く。",
+      "checklist": [
+        "関節軸・共通法線に基づく座標規約を宣言した",
+        "各リンク変換を連鎖して順運動学を説明した",
+        "手首位置から腕の角度を解く手順を示した",
+        "残る姿勢から手首角を求めた",
+        "複数解・可動域・特異点を代入検証した"
+      ],
+      "pitfalls": [
+        "原図にないDH寸法を勝手に数値として置かない。",
+        "逆行列T⁻¹を求めるだけでは関節の逆運動学を解いたことにならない。",
+        "手先のオフセットを無視して腕の目標位置にしてしまわない。"
+      ],
+      "assumptions": [
+        "原図は全DHパラメータと手先オフセットの定義を数表で指定しないため、数値の関節解を一意には決めない。軸図から自分の座標規約を定めた上で上記手順を適用する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "diagram": {
+        "src": "figures/robotics-elbow.svg",
+        "alt": "原本の条件から再構成した腕の関節軸とリンク長"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q1-1",
+      "status": "verified",
+      "problem": "移動ロボットの閉ループ制御構成における(1) Sensingの役割を、入力・処理・出力の関係で説明する。",
+      "basics": [
+        "各段階を独立に暗記せず、情報が流れる順序で理解する。"
+      ],
+      "steps": [
+        "対象段階はSensing。",
+        "情報の流れは実世界→生データ。",
+        "センサで距離、画像、車輪回転などを観測し、実世界の状態をRaw Dataとして取得する。"
+      ],
+      "answer": "センサで距離、画像、車輪回転などを観測し、実世界の状態をRaw Dataとして取得する。",
+      "checklist": [
+        "入力として実世界を説明した",
+        "処理後の出力Raw Dataを説明した",
+        "隣接する段階との情報の流れを示した"
+      ],
+      "pitfalls": [
+        "Sensingは生の測定値を取得する段階で、物体の意味解釈や経路計画と区別する。",
+        "センサが測れない地図全体を直接出力すると説明しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "diagram": {
+        "src": "figures/robotics-navigation.svg",
+        "alt": "原本の条件から再構成した移動ロボット制御の情報の流れ"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q1-2",
+      "status": "verified",
+      "problem": "移動ロボットの閉ループ制御構成における(2) Information Extraction and Interpretationの役割を、入力・処理・出力の関係で説明する。",
+      "basics": [
+        "各段階を独立に暗記せず、情報が流れる順序で理解する。"
+      ],
+      "steps": [
+        "対象段階はInformation Extraction and Interpretation。",
+        "情報の流れは生データ→環境モデル/局所地図。",
+        "Raw Dataから障害物、特徴点、自由空間などを抽出して解釈し、Environment Model/Local Mapを作る。"
+      ],
+      "answer": "Raw Dataから障害物、特徴点、自由空間などを抽出して解釈し、Environment Model/Local Mapを作る。",
+      "checklist": [
+        "入力としてRaw Dataを説明した",
+        "処理後の出力Environment Model/Local Mapを説明した",
+        "隣接する段階との情報の流れを示した"
+      ],
+      "pitfalls": [
+        "画素や距離測定の列を受け取ることと、障害物・特徴へ解釈することを区別する。",
+        "局所環境モデルを作る段階で大域経路を直接生成すると説明しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "diagram": {
+        "src": "figures/robotics-navigation.svg",
+        "alt": "原本の条件から再構成した移動ロボット制御の情報の流れ"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q1-3",
+      "status": "verified",
+      "problem": "移動ロボットの閉ループ制御構成における(3) Localization Map Buildingの役割を、入力・処理・出力の関係で説明する。",
+      "basics": [
+        "各段階を独立に暗記せず、情報が流れる順序で理解する。"
+      ],
+      "steps": [
+        "対象段階はLocalization Map Building。",
+        "情報の流れは局所観測→位置/大域地図。",
+        "観測と知識データベースを使い自己位置・姿勢を推定し、地図を構築・更新する。Position/Global Mapを経路計画へ送る。"
+      ],
+      "answer": "観測と知識データベースを使い自己位置・姿勢を推定し、地図を構築・更新する。Position/Global Mapを経路計画へ送る。",
+      "checklist": [
+        "入力として観測・局所地図・知識データベースを説明した",
+        "処理後の出力Position/Global Mapを説明した",
+        "隣接する段階との情報の流れを示した"
+      ],
+      "pitfalls": [
+        "自己位置と地図の相互依存を無視しない。",
+        "位置推定を車輪指令の生成と混同しない。",
+        "推定には誤差があるので位置が常に確定するとは書かない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "diagram": {
+        "src": "figures/robotics-navigation.svg",
+        "alt": "原本の条件から再構成した移動ロボット制御の情報の流れ"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q1-4",
+      "status": "verified",
+      "problem": "移動ロボットの閉ループ制御構成における(4) Cognition Path Planningの役割を、入力・処理・出力の関係で説明する。",
+      "basics": [
+        "各段階を独立に暗記せず、情報が流れる順序で理解する。"
+      ],
+      "steps": [
+        "対象段階はCognition Path Planning。",
+        "情報の流れは目標/地図/位置→経路。",
+        "目標・命令とPosition/Global Mapを受け、安全性や到達性を考えて目標までのPathを計画する。"
+      ],
+      "answer": "目標・命令とPosition/Global Mapを受け、安全性や到達性を考えて目標までのPathを計画する。",
+      "checklist": [
+        "入力として目標・位置・地図を説明した",
+        "処理後の出力Pathを説明した",
+        "隣接する段階との情報の流れを示した"
+      ],
+      "pitfalls": [
+        "経路計画は目標・現在位置・地図から経路を選ぶ段階で、直接のモータ駆動とは異なる。",
+        "地図上の障害物や到達可能性を無視した直線だけの生成と断定しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "diagram": {
+        "src": "figures/robotics-navigation.svg",
+        "alt": "原本の条件から再構成した移動ロボット制御の情報の流れ"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q1-5",
+      "status": "verified",
+      "problem": "移動ロボットの閉ループ制御構成における(5) Path Executionの役割を、入力・処理・出力の関係で説明する。",
+      "basics": [
+        "各段階を独立に暗記せず、情報が流れる順序で理解する。"
+      ],
+      "steps": [
+        "対象段階はPath Execution。",
+        "情報の流れは経路→アクチュエータ指令。",
+        "計画Pathを追従するため、位置誤差から速度・操舵などのActuator Commandsを作る。"
+      ],
+      "answer": "計画Pathを追従するため、位置誤差から速度・操舵などのActuator Commandsを作る。",
+      "checklist": [
+        "入力としてPathと追従誤差を説明した",
+        "処理後の出力Actuator Commandsを説明した",
+        "隣接する段階との情報の流れを示した"
+      ],
+      "pitfalls": [
+        "Path Executionは計画済みの経路に追従する指令を作り、目標までの経路選択とは区別する。",
+        "実際の運動の誤差をフィードバックしない単なる指令の一括送信として説明しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "diagram": {
+        "src": "figures/robotics-navigation.svg",
+        "alt": "原本の条件から再構成した移動ロボット制御の情報の流れ"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q1-6",
+      "status": "verified",
+      "problem": "移動ロボットの閉ループ制御構成における(6) Actingの役割を、入力・処理・出力の関係で説明する。",
+      "basics": [
+        "各段階を独立に暗記せず、情報が流れる順序で理解する。"
+      ],
+      "steps": [
+        "対象段階はActing。",
+        "情報の流れは指令→実世界の運動。",
+        "アクチュエータが指令に従って車輪等を動かし、Real World/Environmentへ作用する。結果をセンサで再観測する。"
+      ],
+      "answer": "アクチュエータが指令に従って車輪等を動かし、Real World/Environmentへ作用する。結果をセンサで再観測する。",
+      "checklist": [
+        "入力としてActuator Commandsを説明した",
+        "処理後の出力実世界の運動を説明した",
+        "隣接する段階との情報の流れを示した"
+      ],
+      "pitfalls": [
+        "Actingは指令を実世界の動作へ変える段階で、センサデータの処理とは異なる。",
+        "作った指令が必ずそのまま実現するとは限らず、結果を再観測する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "diagram": {
+        "src": "figures/robotics-navigation.svg",
+        "alt": "原本の条件から再構成した移動ロボット制御の情報の流れ"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q2-1",
+      "status": "verified",
+      "problem": "車輪角度$\\alpha=(\\pi/3,\\pi,-\\pi/3)$、$\\beta_i=0$。各輪は$[\\sin(\\alpha_i+\\beta_i),-\\cos(\\alpha_i+\\beta_i),-l\\cos\\beta_i]R(\\theta)\\dot\\xi-r_i\\dot\\varphi_i=0$に従う。$R(\\theta)=[[\\cos\\theta,\\sin\\theta,0],[-\\sin\\theta,\\cos\\theta,0],[0,0,1]]$。運動学方程式を導く。",
+      "basics": [
+        "3拘束を縦に並べる。"
+      ],
+      "steps": [
+        "$J=\\begin{bmatrix}\\sqrt3/2&-1/2&-l\\\\0&1&-l\\\\-\\sqrt3/2&-1/2&-l\\end{bmatrix}$、$D=\\operatorname{diag}(r_1,r_2,r_3)$。",
+        "$J R(\\theta)\\dot\\xi=D\\dot\\varphi$なので逆行列を左から掛ける。",
+        "$J^{-1}=\\begin{bmatrix}1/\\sqrt3&0&-1/\\sqrt3\\\\-1/3&2/3&-1/3\\\\-1/(3l)&-1/(3l)&-1/(3l)\\end{bmatrix}$。"
+      ],
+      "answer": "$\\dot\\xi=R(\\theta)^{-1}J^{-1}D\\dot\\varphi$（l≠0）。",
+      "checklist": [
+        "α1=π/3、α2=π、α3=−π/3、β=0を各拘束へ代入した",
+        "3拘束からJを組み立てた",
+        "R⁻¹J⁻¹Dの掛け順を保持した",
+        "J⁻¹の成分とl≠0の条件を示した"
+      ],
+      "pitfalls": [
+        "原式の回転成分−lを+lへ変更しない。",
+        "Rは世界から機体への変換なので逆で戻す。",
+        "移動速度2成分と回転角速度の3成分を分けて示す。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "diagram": {
+        "src": "figures/robotics-three-wheel.svg",
+        "alt": "原本の条件から再構成した3輪の位置と角度"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2023-q2-2",
+      "status": "verified",
+      "problem": "車輪角度$\\alpha=(\\pi/3,\\pi,-\\pi/3)$、$\\beta_i=0$。各輪は$[\\sin(\\alpha_i+\\beta_i),-\\cos(\\alpha_i+\\beta_i),-l\\cos\\beta_i]R(\\theta)\\dot\\xi-r_i\\dot\\varphi_i=0$に従う。$R(\\theta)=[[\\cos\\theta,\\sin\\theta,0],[-\\sin\\theta,\\cos\\theta,0],[0,0,1]]$。l=1、r1=r2=r3=1、θ=0、車輪角速度(4,1,2)から(ẋ,ẏ,θ̇)を求める。",
+      "basics": [
+        "3拘束を縦に並べる。"
+      ],
+      "steps": [
+        "$J=\\begin{bmatrix}\\sqrt3/2&-1/2&-l\\\\0&1&-l\\\\-\\sqrt3/2&-1/2&-l\\end{bmatrix}$、$D=\\operatorname{diag}(r_1,r_2,r_3)$。",
+        "$J R(\\theta)\\dot\\xi=D\\dot\\varphi$なので逆行列を左から掛ける。",
+        "$J^{-1}=\\begin{bmatrix}1/\\sqrt3&0&-1/\\sqrt3\\\\-1/3&2/3&-1/3\\\\-1/(3l)&-1/(3l)&-1/(3l)\\end{bmatrix}$。",
+        "θ=0でR=I、半径1でD=I。",
+        "ẋ=(4−2)/√3、ẏ=(−4+2−2)/3、θ̇=−(4+1+2)/3。",
+        "元の拘束へ代入すると車輪速度は(4,1,2)に戻る。"
+      ],
+      "answer": "$(\\dot x,\\dot y,\\dot\\theta)=(2/\\sqrt3,-4/3,-7/3)$。",
+      "checklist": [
+        "α1=π/3、α2=π、α3=−π/3、β=0を各拘束へ代入した",
+        "3拘束からJを組み立てた",
+        "R⁻¹J⁻¹Dの掛け順を保持した",
+        "l=r1=r2=r3=1、θ=0を代入した",
+        "(4,1,2)から速度(2/√3,−4/3,−7/3)を求めた",
+        "元の拘束で車輪速度を再確認した"
+      ],
+      "pitfalls": [
+        "原式の回転成分−lを+lへ変更しない。",
+        "Rは世界から機体への変換なので逆で戻す。",
+        "移動速度2成分と回転角速度の3成分を分けて示す。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "diagram": {
+        "src": "figures/robotics-three-wheel.svg",
+        "alt": "原本の条件から再構成した3輪の位置と角度"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2024-q1-1",
+      "status": "verified",
+      "problem": "同次平面$P=(a,b,c,d)$、点$v=(x,y,z,w)^T$で$Pv=0$。平面方程式を導く。",
+      "basics": [
+        "平面係数と点の同次座標の内積を使う。"
+      ],
+      "steps": [
+        "$Pv=ax+by+cz+dw=0$。有限点はw=1へ正規化する。",
+        "法線は$(a,b,c)$で、その長さは$s=\\sqrt{a^2+b^2+c^2}$。"
+      ],
+      "answer": "w=1ならax+by+cz+d=0。一般の同次表示はax+by+cz+dw=0。",
+      "checklist": [
+        "Pvを展開してax+by+cz+dw=0とした",
+        "有限点でw=1へ正規化して平面式を示した"
+      ],
+      "pitfalls": [
+        "同次wを展開の時点で無条件に省略しない。"
+      ],
+      "assumptions": [
+        "(a,b,c)≠(0,0,0)、有限点ではw≠0を仮定する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "robotics-2024-q1-2",
+      "status": "verified",
+      "problem": "同次平面$P=(a,b,c,d)$、点$v=(x,y,z,w)^T$で$Pv=0$。直交する単位法線を求める。",
+      "basics": [
+        "平面係数と点の同次座標の内積を使う。"
+      ],
+      "steps": [
+        "$Pv=ax+by+cz+dw=0$。有限点はw=1へ正規化する。",
+        "法線は$(a,b,c)$で、その長さは$s=\\sqrt{a^2+b^2+c^2}$。"
+      ],
+      "answer": "$n=\\pm(a,b,c)^T/\\sqrt{a^2+b^2+c^2}$。",
+      "checklist": [
+        "法線の方向(a,b,c)を使った",
+        "√(a²+b²+c²)で割って単位長にした",
+        "逆方向の法線も可能と示した"
+      ],
+      "pitfalls": [
+        "法線に平面の定数dを混ぜない。",
+        "法線方向だけで終わらず長さ1へ正規化する。"
+      ],
+      "assumptions": [
+        "(a,b,c)≠(0,0,0)、有限点ではw≠0を仮定する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "robotics-2024-q1-3",
+      "status": "verified",
+      "problem": "同次平面$P=(a,b,c,d)$、点$v=(x,y,z,w)^T$で$Pv=0$。原点から平面までの距離を求める。",
+      "basics": [
+        "平面係数と点の同次座標の内積を使う。"
+      ],
+      "steps": [
+        "$Pv=ax+by+cz+dw=0$。有限点はw=1へ正規化する。",
+        "法線は$(a,b,c)$で、その長さは$s=\\sqrt{a^2+b^2+c^2}$。"
+      ],
+      "answer": "$l=|d|/\\sqrt{a^2+b^2+c^2}$。",
+      "checklist": [
+        "原点距離|d|/√(a²+b²+c²)を導いた",
+        "距離なので非負となる絶対値を付けた",
+        "(a,b,c)≠0を確認した"
+      ],
+      "pitfalls": [
+        "符号付き距離と垂線の長さを混同しない。",
+        "法線の長さで割るのを忘れない。"
+      ],
+      "assumptions": [
+        "(a,b,c)≠(0,0,0)、有限点ではw≠0を仮定する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "robotics-2024-q2",
+      "status": "conditional",
+      "problem": "リンク座標Σi−1からΣiへの同次変換を求める。原図のx_i−1方向の共通法線長a_i−1、その軸まわりのねじれα_i−1、z_i方向の移動d_i、z_iまわりの関節角θ_iを使う。",
+      "basics": [
+        "図の軸配置は修正DHの変換順序として読む。"
+      ],
+      "steps": [
+        "$T=T_x(a_{i-1})R_x(\\alpha_{i-1})R_z(\\theta_i)T_z(d_i)$。",
+        "x方向並進とx軸回転の後、z軸の回転と並進を行う。",
+        "標準DHのRz Tz Tx Rxと混ぜない。"
+      ],
+      "answer": "$c=\\cos\\theta_i,s=\\sin\\theta_i,c_\\alpha=\\cos\\alpha_{i-1},s_\\alpha=\\sin\\alpha_{i-1}$として$$T=\\begin{bmatrix}c&-s&0&a_{i-1}\\\\s c_\\alpha&c c_\\alpha&-s_\\alpha&-d_i s_\\alpha\\\\s s_\\alpha&c s_\\alpha&c_\\alpha&d_i c_\\alpha\\\\0&0&0&1\\end{bmatrix}$$。",
+      "checklist": [
+        "原図のa_i−1,α_i−1,d_i,θ_iを保持した",
+        "修正DH規約と変換の向きを宣言した",
+        "Tx(a)Rx(α)Rz(θ)Tz(d)の積を書いた",
+        "並進列(a,−d sinα,d cosα)を確認した"
+      ],
+      "pitfalls": [
+        "標準DHのRz Tz Tx Rxとは規約が異なる。",
+        "a_iとa_i−1、α_iとα_i−1を入れ替えない。",
+        "回転後のd並進はy,z成分へ分かれる。"
+      ],
+      "assumptions": [
+        "原図のx_i−1軸・z_i軸に対応する修正DH規約を採用する。独自の座標設定を使う場合、同じ物理姿勢でも成分の表現が変わる。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "robotics-2025-q1",
+      "status": "verified",
+      "problem": "平面R=(0,0.5,0,−1)と立方体の頂点を考える。P1=(−1,1,1)、P2=(−1,3,1)、P3=(1,3,1)、P4=(1,1,1)、P5=(−1,1,−1)、P6=(−1,3,−1)、P7=(1,3,−1)、P8=(1,1,−1)。原点から見て平面の手前の点を全て挙げ、計算で示す。",
+      "basics": [
+        "原点と同じ半空間側の点が「手前」。"
+      ],
+      "steps": [
+        "平面式は0.5y−1=0、つまりy=2。",
+        "原点は−1、y=1は−0.5、y=3は+0.5。",
+        "原点と同符号のy=1の点を選ぶ。"
+      ],
+      "answer": "P1,P4,P5,P8。いずれもRv=−0.5で原点の−1と同符号。他の4点は+0.5で反対側。",
+      "checklist": [
+        "平面をy=2と求めた",
+        "原点の内積−1を計算した",
+        "y=1の頂点の−0.5とy=3の+0.5を比較した",
+        "原点と同じ側のP1,P4,P5,P8を全て示した"
+      ],
+      "pitfalls": [
+        "頂点番号を見た目の奥・手前だけで選ばない。",
+        "平面式の符号だけでなく原点の符号と比較する。",
+        "x,zは今回の判定式に影響しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "diagram": {
+        "src": "figures/robotics-cube.svg",
+        "alt": "原本の条件から再構成した頂点番号と座標"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2025-q2",
+      "status": "conditional",
+      "problem": "水平多関節型4関節ロボット。リンク長La,Lb、関節変数θ1,θ2,d3,θ4。z0,z1,z2上向き、z3,z4下向き、x0とx1は肩で一致。A1〜A4を求める。",
+      "basics": [
+        "z0,z1,z2は上向き、z3,z4は下向き。",
+        "A_iは前フレームから見た次フレームの姿勢と位置。"
+      ],
+      "steps": [
+        "$A_1=R_z(\\theta_1)$、$A_2=T_x(L_a)R_z(\\theta_2)$。",
+        "$A_3=T_x(L_b)R_x(\\pi)T_z(d_3)$、$A_4=R_z(\\theta_4)$。",
+        "z2からz3の反転をRx(π)で表す。"
+      ],
+      "answer": "$c_i=\\cos\\theta_i,s_i=\\sin\\theta_i$として$$A_1=\\begin{bmatrix}c_1&-s_1&0&0\\\\s_1&c_1&0&0\\\\0&0&1&0\\\\0&0&0&1\\end{bmatrix},\\quad A_2=\\begin{bmatrix}c_2&-s_2&0&L_a\\\\s_2&c_2&0&0\\\\0&0&1&0\\\\0&0&0&1\\end{bmatrix}$$ $$A_3=\\begin{bmatrix}1&0&0&L_b\\\\0&-1&0&0\\\\0&0&-1&-d_3\\\\0&0&0&1\\end{bmatrix},\\quad A_4=\\begin{bmatrix}c_4&-s_4&0&0\\\\s_4&c_4&0&0\\\\0&0&1&0\\\\0&0&0&1\\end{bmatrix}$$。",
+      "checklist": [
+        "z0,z1,z2上向き、z3,z4下向きを保持した",
+        "肩の原点・固定高さ・下向きd3の規約を示した",
+        "A1〜A4の4行列を示した",
+        "A3でRx(π)の軸反転と−d3を含めた",
+        "La,Lbを該当する前フレームの並進列へ入れた"
+      ],
+      "pitfalls": [
+        "z3の下向きを無視するとd3とθ4の世界での符号が変わる。",
+        "Aiの並進列は基準座標ではなく第i−1座標で表す。",
+        "4関節なのに6つのA行列を作らない。"
+      ],
+      "assumptions": [
+        "第0・1座標の原点を肩の同一点、θ1=θ2=θ4=0でx軸を同方向、肩面の高さを0、d3を下向き正とする。図で明示されない固定の原点高さは0とする。",
+        "原本のT6は4関節の積A1A2A3A4を表す記号として扱う。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "diagram": {
+        "src": "figures/robotics-scara.svg",
+        "alt": "原本の条件から再構成した水平多関節型ロボットの軸と寸法"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "robotics-2025-q3",
+      "status": "conditional",
+      "problem": "同じ水平多関節型4関節ロボットのT=A1A2A3A4=[n o a p;0 0 0 1]を使い、目標位置p=(px,py,pz)、姿勢(n,o,a)から逆運動学の求め方を説明する。",
+      "basics": [
+        "z0,z1,z2は上向き、z3,z4は下向き。",
+        "A_iは前フレームから見た次フレームの姿勢と位置。"
+      ],
+      "steps": [
+        "$p_x=L_a\\cos\\theta_1+L_b\\cos(\\theta_1+\\theta_2)$、$p_y=L_a\\sin\\theta_1+L_b\\sin(\\theta_1+\\theta_2)$、$p_z=-d_3$。",
+        "$c_2=(p_x^2+p_y^2-L_a^2-L_b^2)/(2L_aL_b)$を計算し、|c2|≤1を確認する。",
+        "$s_2=\\pm\\sqrt{1-c_2^2}$、$\\theta_2=\\operatorname{atan2}(s_2,c_2)$。",
+        "$\\theta_1=\\operatorname{atan2}(p_y,p_x)-\\operatorname{atan2}(L_b s_2,L_a+L_b c_2)$。",
+        "$d_3=-p_z$、$\\psi=\\operatorname{atan2}(n_y,n_x)$、$\\theta_4=\\theta_1+\\theta_2-\\psi$。",
+        "姿勢はa=(0,0,−1)、o=(sinψ,−cosψ,0)となる制約を満たす必要がある。",
+        "肘上/肘下、角度の2π同値、可動域、特異点を確認して順運動学へ代入する。"
+      ],
+      "answer": "上記の2リンク余弦定理でθ1,θ2の候補を求め、位置のz成分からd3、平面内姿勢からθ4を決める。SCARAでは任意の3次元姿勢へ到達できず、手先のz軸が下向きである姿勢制約を確認する。",
+      "checklist": [
+        "目標位置とSCARAの姿勢制約を確認した",
+        "余弦定理でc2を求め|c2|≤1を検査した",
+        "s2の±で肘上・肘下を扱った",
+        "atan2でθ1,θ2を求めた",
+        "d3=−pz、θ4=θ1+θ2−ψを求めた",
+        "Tへ戻して可動域と特異点を確認した"
+      ],
+      "pitfalls": [
+        "SCARAは任意の3次元姿勢へ到達できない。",
+        "acosだけではsinの符号や象限が失われる。",
+        "原本のT6表記を6関節ロボットという意味へ変更しない。",
+        "肘が伸び切る等の特異姿勢では解の分岐に注意する。"
+      ],
+      "assumptions": [
+        "第0・1座標の原点を肩の同一点、θ1=θ2=θ4=0でx軸を同方向、肩面の高さを0、d3を下向き正とする。図で明示されない固定の原点高さは0とする。",
+        "原本のT6は4関節の積A1A2A3A4を表す記号として扱う。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "diagram": {
+        "src": "figures/robotics-scara.svg",
+        "alt": "原本の条件から再構成した水平多関節型ロボットの軸と寸法"
+      },
+      "diagramRole": "question"
+    }
+  ]
+}

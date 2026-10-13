@@ -1,0 +1,1164 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "mathematical-modeling",
+  "lessons": [
+    {
+      "topicId": "mathematical-modeling-eigen-definition",
+      "title": "固有値と固有ベクトルの定義",
+      "objectives": [
+        "Ax=λxにおける役割を区別する",
+        "零ベクトルを除外する理由を説明する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "固有対の定義",
+          "body": "正方行列 $A$ に対し、非零ベクトル $x$ とスカラー $\\lambda$ が $Ax=\\lambda x$ を満たすとき、$\\lambda$ が固有値、$x$ が対応する固有ベクトル。$\\lambda=0$ は許されるが、$x=0$ は除く。"
+        },
+        {
+          "title": "長さと方向",
+          "body": "$x$ が固有ベクトルなら非零定数 $c$ に対して $cx$ も固有ベクトル。固有値が負なら方向が反転する。「固有ベクトルが一意」とせず、対応する固有空間と非零倍を考える。"
+        }
+      ],
+      "example": {
+        "prompt": "A=diag(2,3) で x=(1,0) の固有値を確かめる。",
+        "steps": [
+          "Ax=(2,0)=2x。",
+          "x≠0なのでλ=2の固有ベクトル。"
+        ],
+        "answer": "λ=2"
+      },
+      "quizzes": [
+        {
+          "id": "mathematical-modeling-eigen-definition-c1",
+          "prompt": "固有ベクトルの条件は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "非零でAx=λx"
+            },
+            {
+              "id": "1",
+              "label": "必ず長さ1"
+            },
+            {
+              "id": "2",
+              "label": "必ず全成分が正"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "長さや符号は固定しない。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-eigen-definition-c2",
+          "prompt": "許されるものを選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "固有値0"
+            },
+            {
+              "id": "1",
+              "label": "固有ベクトルの非零倍"
+            },
+            {
+              "id": "2",
+              "label": "固有ベクトル0"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "λ=0でも非零核ベクトルがあればよい。",
+          "pitfall": "λとxのゼロ条件を逆にしない。"
+        },
+        {
+          "id": "mathematical-modeling-eigen-definition-c3",
+          "prompt": "A=diag(5,2),x=(0,1)。対応する固有値は？",
+          "kind": "number",
+          "numericAnswer": 2,
+          "tolerance": 1e-09,
+          "explanation": "Ax=(0,2)=2x。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "mathematical-modeling-eigen-definition-retest",
+        "prompt": "A=diag(−3,4),x=(2,0)。対応する固有値は？",
+        "kind": "number",
+        "numericAnswer": -3,
+        "tolerance": 1e-09,
+        "explanation": "Ax=(−6,0)=−3x。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "mathematical-modeling-characteristic-equation",
+      "title": "固有方程式と特性方程式",
+      "objectives": [
+        "非零解の条件を行列式へ変える",
+        "展開符号と次数を検算する"
+      ],
+      "prerequisiteTopicIds": [
+        "mathematical-modeling-eigen-definition"
+      ],
+      "sections": [
+        {
+          "title": "非零解の条件",
+          "body": "$Ax=\\lambda x$ は $(A-\\lambda I)x=0$。非零解があるのは $A-\\lambda I$ が非正則のときなので、特性方程式は $\\det(A-\\lambda I)=0$。$\\det(\\lambda I-A)=0$ でも根は同じ。"
+        },
+        {
+          "title": "三角・ブロック構造",
+          "body": "三角行列の行列式は対角成分の積。3×3行列で左下2成分が0なら、右下成分と左上2×2の行列式の積にできる。多項式の次数はn、$\\det(\\lambda I-A)$ は最高次係数1になる。"
+        }
+      ],
+      "example": {
+        "prompt": "A=((2,1),(0,3)) の特性方程式。",
+        "steps": [
+          "$\\lambda I-A=\\begin{pmatrix}\\lambda-2&-1\\\\0&\\lambda-3\\end{pmatrix}$。",
+          "$\\det(\\lambda I-A)=(\\lambda-2)(\\lambda-3)$。"
+        ],
+        "answer": "$(\\lambda-2)(\\lambda-3)=0$"
+      },
+      "quizzes": [
+        {
+          "id": "mathematical-modeling-characteristic-equation-c1",
+          "prompt": "固有値を求める条件は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "det(A−λI)=0"
+            },
+            {
+              "id": "1",
+              "label": "A−λI=0を全成分で満たす"
+            },
+            {
+              "id": "2",
+              "label": "det A=λに常に一致"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "非零の核を持つ条件が行列式0。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-characteristic-equation-c2",
+          "prompt": "正しいものを選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "det(λI−A)=0でも根は同じ"
+            },
+            {
+              "id": "1",
+              "label": "n×nの特性多項式は次数n"
+            },
+            {
+              "id": "2",
+              "label": "固有方程式は常に一次式"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "全体の符号は根を変えない。",
+          "pitfall": "行列の次元と多項式の次数を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-characteristic-equation-c3",
+          "prompt": "A=diag(2,5)。det(λI−A)の定数項は？",
+          "kind": "number",
+          "numericAnswer": 10,
+          "tolerance": 1e-09,
+          "explanation": "(λ−2)(λ−5)=λ²−7λ+10。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "mathematical-modeling-characteristic-equation-retest",
+        "prompt": "A=diag(1,3)。det(λI−A)のλの係数は？",
+        "kind": "number",
+        "numericAnswer": -4,
+        "tolerance": 1e-09,
+        "explanation": "λ²−4λ+3。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "mathematical-modeling-eigenvalues",
+      "title": "固有値の計算と絶対値順",
+      "objectives": [
+        "特性方程式の根を重複度付きで読む",
+        "絶対値順の指定を守る"
+      ],
+      "prerequisiteTopicIds": [
+        "mathematical-modeling-characteristic-equation"
+      ],
+      "sections": [
+        {
+          "title": "根と重複度",
+          "body": "特性方程式の根が固有値である。$(\\lambda-3)^2(\\lambda-4)=0$ なら、代数的重複度は3が2、4が1。異なる固有値は2個でも、重複度込みで3根となる。"
+        },
+        {
+          "title": "順序の指定",
+          "body": "絶対値順は大きさの順であり、符号付きの大小順ではない。$-5,3,1$ はこの順。絶対値が等しいときは与えられた追加条件がなければどちらの順も許せる。和は跡、積は行列式と照合できる。"
+        }
+      ],
+      "example": {
+        "prompt": "(λ+4)(λ−2)(λ−1)=0 の根を絶対値順にする。",
+        "steps": [
+          "根は −4,2,1。",
+          "絶対値は4,2,1。"
+        ],
+        "answer": "−4,2,1"
+      },
+      "quizzes": [
+        {
+          "id": "mathematical-modeling-eigenvalues-c1",
+          "prompt": "固有値を絶対値降順にした列は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "−5,3,1"
+            },
+            {
+              "id": "1",
+              "label": "3,1,−5"
+            },
+            {
+              "id": "2",
+              "label": "1,3,−5"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "符号を無視した大きさで並べる。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvalues-c2",
+          "prompt": "固有値の検算に使えるもの。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "固有値の和=跡"
+            },
+            {
+              "id": "1",
+              "label": "固有値の積=行列式"
+            },
+            {
+              "id": "2",
+              "label": "全固有値は必ず正"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "重複度込みで和と積を取る。",
+          "pitfall": "重根を1個として検算しない。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvalues-c3",
+          "prompt": "(λ−2)²(λ+1)=0 における固有値2の代数的重複度は？",
+          "kind": "number",
+          "numericAnswer": 2,
+          "tolerance": 1e-09,
+          "explanation": "因子の指数2。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "mathematical-modeling-eigenvalues-retest",
+        "prompt": "固有値 −7,3,2 のうち絶対値最大は？",
+        "kind": "number",
+        "numericAnswer": -7,
+        "tolerance": 1e-09,
+        "explanation": "絶対値は7,3,2。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "mathematical-modeling-eigenvectors",
+      "title": "固有ベクトルの計算",
+      "objectives": [
+        "固有値ごとに核を求める",
+        "固有空間と任意定数を示す"
+      ],
+      "prerequisiteTopicIds": [
+        "mathematical-modeling-eigen-definition",
+        "mathematical-modeling-eigenvalues"
+      ],
+      "sections": [
+        {
+          "title": "斉次方程式を解く",
+          "body": "各 $\\lambda$ について $(A-\\lambda I)x=0$ を解き、非零解を取る。自由変数が複数あれば基底を複数示す。固有値の代数的重複度と独立な固有ベクトルの数は必ずしも等しくない。"
+        },
+        {
+          "title": "対応を保って検算",
+          "body": "$Ax=\\lambda x$ を元のAへ代入して確認する。固有値を並べ替えたときは対応するベクトルも同じ順にする。正規化が要求されなければ整数成分のベクトルが計算しやすい。"
+        }
+      ],
+      "example": {
+        "prompt": "A=((2,1),(0,3)),λ=3 の固有ベクトル。",
+        "steps": [
+          "(A−3I)x=0 は −x1+x2=0。",
+          "x1=x2。非零値を選ぶ。"
+        ],
+        "answer": "x=c(1,1)ᵀ, c≠0"
+      },
+      "quizzes": [
+        {
+          "id": "mathematical-modeling-eigenvectors-c1",
+          "prompt": "固有ベクトルを求める連立方程式は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "(A−λI)x=0"
+            },
+            {
+              "id": "1",
+              "label": "Ax=0を常に解く"
+            },
+            {
+              "id": "2",
+              "label": "Ax=λと書く"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "λごとにA−λIを作る。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvectors-c2",
+          "prompt": "正しい解の確認方法。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "Ax=λxへ代入"
+            },
+            {
+              "id": "1",
+              "label": "非零であることを確認"
+            },
+            {
+              "id": "2",
+              "label": "必ず各成分を1にする"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "自由変数を全て0にすると固有ベクトルではない。",
+          "pitfall": "ベクトルとスカラーを混同しない。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvectors-c3",
+          "prompt": "A=((2,1),(0,3)),λ=3、x1=2ならx2は？",
+          "kind": "number",
+          "numericAnswer": 2,
+          "tolerance": 1e-09,
+          "explanation": "−x1+x2=0。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "mathematical-modeling-eigenvectors-retest",
+        "prompt": "A=diag(4,1),λ=4、x1=1ならx2は？",
+        "kind": "number",
+        "numericAnswer": 0,
+        "tolerance": 1e-09,
+        "explanation": "−3x2=0。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "mathematical-modeling-similarity",
+      "title": "相似変換と直交行列",
+      "objectives": [
+        "行列積の順序を守って証明する",
+        "直交行列の逆行列を転置で表す"
+      ],
+      "prerequisiteTopicIds": [
+        "mathematical-modeling-eigen-definition"
+      ],
+      "sections": [
+        {
+          "title": "相似変換",
+          "body": "$Ax=\\lambda x$、Mが正則のとき $B=MAM^{-1}$ と $y=Mx$ に対し、$By=MAx=\\lambda y$。Mは正則なので $x\\ne0$ なら $y\\ne0$。逆向きの $M^{-1}AM$ には $M^{-1}x$ が対応する。"
+        },
+        {
+          "title": "直交行列",
+          "body": "$M^TM=I$ なら $M^{-1}=M^T$。上の証明で逆行列を転置へ置き換えればよい。$A$ 自体を直交行列や対称行列だと仮定する必要はない。"
+        }
+      ],
+      "example": {
+        "prompt": "Ax=2x, B=MAM⁻¹, y=Mx の By。",
+        "steps": [
+          "By=MAM⁻¹Mx=MAx。",
+          "Ax=2x を代入し By=2Mx。"
+        ],
+        "answer": "By=2y"
+      },
+      "quizzes": [
+        {
+          "id": "mathematical-modeling-similarity-c1",
+          "prompt": "MAM⁻¹の固有ベクトルとして対応するのは？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "Mx"
+            },
+            {
+              "id": "1",
+              "label": "M⁻¹x"
+            },
+            {
+              "id": "2",
+              "label": "常にxそのもの"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "MAM⁻¹(Mx)=MAx。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-similarity-c2",
+          "prompt": "証明に必要なことを選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "Mが正則"
+            },
+            {
+              "id": "1",
+              "label": "Mx≠0"
+            },
+            {
+              "id": "2",
+              "label": "AとMが常に可換"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "可換性は不要、積の隣接する逆行列を消す。",
+          "pitfall": "行列の順序を入れ替えない。"
+        },
+        {
+          "id": "mathematical-modeling-similarity-c3",
+          "prompt": "直交行列Mの逆行列は？",
+          "kind": "text",
+          "acceptedAnswers": [
+            "M^T",
+            "Mᵀ",
+            "転置行列",
+            "転置"
+          ],
+          "explanation": "MᵀM=IよりM⁻¹=Mᵀ。",
+          "pitfall": "表記だけでなく意味も確認する。"
+        }
+      ],
+      "retest": {
+        "id": "mathematical-modeling-similarity-retest",
+        "prompt": "M⁻¹AMのλに対応するベクトルは？",
+        "kind": "choice",
+        "options": [
+          {
+            "id": "0",
+            "label": "M⁻¹x"
+          },
+          {
+            "id": "1",
+            "label": "Mx"
+          },
+          {
+            "id": "2",
+            "label": "Ax+M"
+          }
+        ],
+        "correctOptions": [
+          "0"
+        ],
+        "explanation": "(M⁻¹AM)(M⁻¹x)=M⁻¹Ax。",
+        "pitfall": "条件を読み、理由も言えるようにする。"
+      }
+    },
+    {
+      "topicId": "mathematical-modeling-pivot-elimination",
+      "title": "枢軸選択と行操作の行列表示",
+      "objectives": [
+        "行操作を左から掛ける行列にする",
+        "入替後の枢軸で係数を定義する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "入替は置換行列",
+          "body": "単位行列の第k行と第ip行を入れ替えた $P_k$ を左から掛けると、任意行列の同じ2行を交換する。行を交換した後の行列を $B=P_kA^{(k-1)}$ と分けて記す。"
+        },
+        {
+          "title": "消去行列の列",
+          "body": "枢軸 $b_{kk}\\ne0$ に対し、第k列以外は単位行列と同じとし、$g_{kk}=1/b_{kk}$、$g_{ik}=-b_{ik}/b_{kk}$（i≠k）とする。$G_kB$ は第k行を正規化し、他行から元の第k行の倍を引くので第k列が単位ベクトルになる。"
+        }
+      ],
+      "example": {
+        "prompt": "B=((2,1),(4,3)) の第1列を消去するG。",
+        "steps": [
+          "枢軸2なので g11=1/2。",
+          "g21=−4/2=−2。第2列は単位行列のまま。"
+        ],
+        "answer": "$G=\\begin{pmatrix}1/2&0\\\\-2&1\\end{pmatrix}$、$GB=\\begin{pmatrix}1&1/2\\\\0&1\\end{pmatrix}$"
+      },
+      "quizzes": [
+        {
+          "id": "mathematical-modeling-pivot-elimination-c1",
+          "prompt": "行入替を表すPkはAのどちらから掛ける？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "左"
+            },
+            {
+              "id": "1",
+              "label": "右"
+            },
+            {
+              "id": "2",
+              "label": "どちらでも同じ"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "左からの積で行の線形結合を作る。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-pivot-elimination-c2",
+          "prompt": "第k列の消去係数の条件。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "枢軸は非零"
+            },
+            {
+              "id": "1",
+              "label": "入替後の成分を参照する"
+            },
+            {
+              "id": "2",
+              "label": "gkkは常に1"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "gkk=1/bkk。",
+          "pitfall": "正規化と消去を同時に表す係数を区別する。"
+        },
+        {
+          "id": "mathematical-modeling-pivot-elimination-c3",
+          "prompt": "枢軸bkk=4を1にするgkkは？",
+          "kind": "number",
+          "numericAnswer": 0.25,
+          "tolerance": 1e-09,
+          "explanation": "1/4。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "mathematical-modeling-pivot-elimination-retest",
+        "prompt": "枢軸3、他行の第k列成分6。gikは？",
+        "kind": "number",
+        "numericAnswer": -2,
+        "tolerance": 1e-09,
+        "explanation": "−6/3=−2。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "mathematical-modeling-inverse-matrix",
+      "title": "消去法による逆行列",
+      "objectives": [
+        "拡大行列で逆行列を求める",
+        "全n列の処理を確認する"
+      ],
+      "prerequisiteTopicIds": [
+        "mathematical-modeling-pivot-elimination"
+      ],
+      "sections": [
+        {
+          "title": "同じ操作を単位行列へ",
+          "body": "$[A\\mid I]$ に行基本変形を施して $[I\\mid C]$ になれば $CA=I$。正方行列では $C=A^{-1}$。通常の上三角化だけでは左側はIにならないため、逆行列には対角成分の正規化と上下の消去を完了する。"
+        },
+        {
+          "title": "操作の積の順序",
+          "body": "$A^{(k)}=G_kP_kA^{(k-1)}$ とすると最終的に $I=G_nP_n\\cdots G_1P_1A$、従って $A^{-1}=G_nP_n\\cdots G_1P_1I$。操作が後のものほど左に来る。第n−1段階で止める公式は、残りの最後の対角が1という追加条件がないと一般には成立しない。"
+        }
+      ],
+      "example": {
+        "prompt": "A=((1,2),(0,1)) の逆行列。",
+        "steps": [
+          "第1行から第2行の2倍を引く。",
+          "同じ操作をIへ施すと ((1,−2),(0,1))。"
+        ],
+        "answer": "$A^{-1}=\\begin{pmatrix}1&-2\\\\0&1\\end{pmatrix}$"
+      },
+      "quizzes": [
+        {
+          "id": "mathematical-modeling-inverse-matrix-c1",
+          "prompt": "逆行列の検算は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "A C=IかつC A=I"
+            },
+            {
+              "id": "1",
+              "label": "A+C=I"
+            },
+            {
+              "id": "2",
+              "label": "AとCの対角だけ一致"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "行列積で単位行列を確認する。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-inverse-matrix-c2",
+          "prompt": "逆行列の消去で必要なこと。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "対角の正規化"
+            },
+            {
+              "id": "1",
+              "label": "必要な上側成分の消去"
+            },
+            {
+              "id": "2",
+              "label": "上三角になれば常に終了"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "左側をIまで変形する。",
+          "pitfall": "上三角化とGauss-Jordan法を混同しない。"
+        },
+        {
+          "id": "mathematical-modeling-inverse-matrix-c3",
+          "prompt": "A=diag(2,4) の逆行列の(2,2)成分は？",
+          "kind": "number",
+          "numericAnswer": 0.25,
+          "tolerance": 1e-09,
+          "explanation": "1/4。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "mathematical-modeling-inverse-matrix-retest",
+        "prompt": "A=((1,3),(0,1)) の逆行列の(1,2)成分は？",
+        "kind": "number",
+        "numericAnswer": -3,
+        "tolerance": 1e-09,
+        "explanation": "第1行から第2行の3倍を引く。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    }
+  ],
+  "solutions": [
+    {
+      "questionId": "mathematical-modeling-2022-q1",
+      "status": "verified",
+      "problem": "n×n行列Aの固有値λ∈Rと固有ベクトルx∈Rⁿの定義を式で表す。",
+      "basics": [
+        "零ベクトルはどんなλでも等式を満たすので除外する。"
+      ],
+      "steps": [
+        "$x\\in\\mathbb R^n\\setminus\\{0\\}$、$\\lambda\\in\\mathbb R$ と置く。",
+        "$Ax=\\lambda x$ を定義として示す。"
+      ],
+      "answer": "$Ax=\\lambda x,\\quad x\\ne0$。この非零xを固有ベクトル、対応するλを固有値という。",
+      "checklist": [
+        "式の両辺はベクトル",
+        "x≠0を明記"
+      ],
+      "pitfalls": [
+        "固有値λも必ず非零と書く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2022-q2",
+      "status": "verified",
+      "problem": "λを求めるための固有方程式を、行列式|A|と単位行列Eの記法で表す。",
+      "basics": [
+        "$(A-\\lambda E)x=0$ が非零解を持つ条件。"
+      ],
+      "steps": [
+        "固有値の定義を左辺へ移し $(A-\\lambda E)x=0$。",
+        "非零解があるため $A-\\lambda E$ は非正則。"
+      ],
+      "answer": "$|A-\\lambda E|=0$（または $|\\lambda E-A|=0$）。",
+      "checklist": [
+        "原本の単位行列記号Eを使う",
+        "行列式=0"
+      ],
+      "pitfalls": [
+        "行列自体を零行列と書く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2022-q3",
+      "status": "verified",
+      "problem": "A=((0,6,3),(-2,7,2),(0,0,3))について固有方程式を求め、λの多項式の方程式で示す。",
+      "basics": [
+        "$\\det(\\lambda I-A)=0$ の根を求める。"
+      ],
+      "steps": [
+        "$\\det(\\lambda I-A)=(\\lambda-3)[\\lambda(\\lambda-7)+12]=(\\lambda-3)(\\lambda^2-7\\lambda+12)$。",
+        "因数分解を展開し、λの多項式として記す。"
+      ],
+      "answer": "$(\\lambda-4)(\\lambda-3)^2=\\lambda^3-10\\lambda^2+33\\lambda-36=0$",
+      "checklist": [
+        "λの多項式の方程式",
+        "次数3",
+        "跡と定数項の検算"
+      ],
+      "pitfalls": [
+        "非対角成分もλを引く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2022-q4",
+      "status": "verified",
+      "problem": "前問の方程式を解き、行列Aの固有値λをすべて求め、絶対値が大きい順に並べる。 対象の行列は A=((0,6,3),(−2,7,2),(0,0,3))。",
+      "basics": [
+        "特性多項式の根を取り、絶対値降順で並べる。"
+      ],
+      "steps": [
+        "$(\\lambda-4)(\\lambda-3)^2=\\lambda^3-10\\lambda^2+33\\lambda-36=0$",
+        "各因子を0にして根を取り出す。",
+        "符号付きの大小ではなく絶対値を比較する。"
+      ],
+      "answer": "4,3,3（固有値3は代数的重複度2）。",
+      "checklist": [
+        "重複度と順序",
+        "全ての根を示す"
+      ],
+      "pitfalls": [
+        "負の固有値を最後へ機械的に置く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2022-q5",
+      "status": "verified",
+      "problem": "各固有値λに対応する固有ベクトルxを求め、固有値の絶対値が大きい順に並べる。 対象の行列は A=((0,6,3),(−2,7,2),(0,0,3))。",
+      "basics": [
+        "各根に対して $(A-\\lambda I)x=0$ の非零解を求める。"
+      ],
+      "steps": [
+        "λ=4では第3行からz=0、−4x+6y=0よりx=3y/2。",
+        "λ=3では−3x+6y+3z=0よりx=2y+z。他の非零行も同じ制約。",
+        "λ=3の固有空間は2次元なので基底 (2,1,0)ᵀ,(1,0,1)ᵀ を示す。"
+      ],
+      "answer": "$\\lambda=4:\\ x=c(3,2,0)^T$（c≠0）。$\\lambda=3:\\ x=s(2,1,0)^T+t(1,0,1)^T$（(s,t)≠(0,0)）。",
+      "checklist": [
+        "固有値との対応",
+        "非零条件",
+        "元のAで検算"
+      ],
+      "pitfalls": [
+        "重根に対し独立な解を1本だけと決め付ける"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2023-q1",
+      "status": "verified",
+      "problem": "n×n行列Aの固有値λ∈Rと固有ベクトルx∈Rⁿの定義を式で表す。",
+      "basics": [
+        "零ベクトルはどんなλでも等式を満たすので除外する。"
+      ],
+      "steps": [
+        "$x\\in\\mathbb R^n\\setminus\\{0\\}$、$\\lambda\\in\\mathbb R$ と置く。",
+        "$Ax=\\lambda x$ を定義として示す。"
+      ],
+      "answer": "$Ax=\\lambda x,\\quad x\\ne0$。この非零xを固有ベクトル、対応するλを固有値という。",
+      "checklist": [
+        "式の両辺はベクトル",
+        "x≠0を明記"
+      ],
+      "pitfalls": [
+        "固有値λも必ず非零と書く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2023-q2",
+      "status": "verified",
+      "problem": "λを求めるための固有方程式を、行列式|A|と単位行列Eの記法で表す。",
+      "basics": [
+        "$(A-\\lambda E)x=0$ が非零解を持つ条件。"
+      ],
+      "steps": [
+        "固有値の定義を左辺へ移し $(A-\\lambda E)x=0$。",
+        "非零解があるため $A-\\lambda E$ は非正則。"
+      ],
+      "answer": "$|A-\\lambda E|=0$（または $|\\lambda E-A|=0$）。",
+      "checklist": [
+        "原本の単位行列記号Eを使う",
+        "行列式=0"
+      ],
+      "pitfalls": [
+        "行列自体を零行列と書く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2023-q3",
+      "status": "verified",
+      "problem": "A=((-1,4,4),(-2,5,7),(0,0,-2))について固有方程式を求め、λの多項式の方程式で示す。",
+      "basics": [
+        "$\\det(\\lambda I-A)=0$ の根を求める。"
+      ],
+      "steps": [
+        "$\\det(\\lambda I-A)=(\\lambda+2)[(\\lambda+1)(\\lambda-5)+8]=(\\lambda+2)(\\lambda^2-4\\lambda+3)$。",
+        "因数分解を展開し、λの多項式として記す。"
+      ],
+      "answer": "$(\\lambda-3)(\\lambda+2)(\\lambda-1)=\\lambda^3-2\\lambda^2-5\\lambda+6=0$",
+      "checklist": [
+        "λの多項式の方程式",
+        "次数3",
+        "跡と定数項の検算"
+      ],
+      "pitfalls": [
+        "非対角成分もλを引く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2023-q4",
+      "status": "verified",
+      "problem": "前問の方程式を解き、行列Aの固有値λをすべて求め、絶対値が大きい順に並べる。 対象の行列は A=((−1,4,4),(−2,5,7),(0,0,−2))。",
+      "basics": [
+        "特性多項式の根を取り、絶対値降順で並べる。"
+      ],
+      "steps": [
+        "$(\\lambda-3)(\\lambda+2)(\\lambda-1)=\\lambda^3-2\\lambda^2-5\\lambda+6=0$",
+        "各因子を0にして根を取り出す。",
+        "符号付きの大小ではなく絶対値を比較する。"
+      ],
+      "answer": "3,−2,1（絶対値は3,2,1）。",
+      "checklist": [
+        "重複度と順序",
+        "全ての根を示す"
+      ],
+      "pitfalls": [
+        "負の固有値を最後へ機械的に置く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2023-q5",
+      "status": "verified",
+      "problem": "各固有値λに対応する固有ベクトルxを求め、固有値の絶対値が大きい順に並べる。 対象の行列は A=((−1,4,4),(−2,5,7),(0,0,−2))。",
+      "basics": [
+        "各根に対して $(A-\\lambda I)x=0$ の非零解を求める。"
+      ],
+      "steps": [
+        "λ=3: z=0、−4x+4y=0より x=y。",
+        "λ=−2: x+4y+4z=0、−2x+7y+7z=0。y=−z,x=0。",
+        "λ=1: z=0、−2x+4y=0よりx=2y。"
+      ],
+      "answer": "$\\lambda=3:\\ c(1,1,0)^T$、$\\lambda=-2:\\ c(0,-1,1)^T$、$\\lambda=1:\\ c(2,1,0)^T$（それぞれc≠0）。",
+      "checklist": [
+        "固有値との対応",
+        "非零条件",
+        "元のAで検算"
+      ],
+      "pitfalls": [
+        "重根に対し独立な解を1本だけと決め付ける"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2024-q1",
+      "status": "conditional",
+      "problem": "第k段階でk行とip行を交換するPk（単位行列の該当2行を交換）と、第k列以外が単位行列と同じで第k列がαikのGkが、行交換・枢軸の1への正規化・第k列の他成分の消去を表すことを証明する。",
+      "basics": [
+        "左からの行列積の第i行は元行列の行の線形結合。"
+      ],
+      "steps": [
+        "$P_k$ を単位行列のk行とip行を交換した行列とする。$(P_kA)_{ij}=a_{ip,j}$（i=k）、$a_{k,j}$（i=ip）、他は $a_{ij}$。",
+        "入替後をBとする。Gkは第k列以外が単位行列で、$g_{kk}=\\alpha_{kk}$、$g_{ik}=\\alpha_{ik}$。",
+        "$(G_kB)_{kj}=\\alpha_{kk}b_{kj}$、$(G_kB)_{ij}=b_{ij}+\\alpha_{ik}b_{kj}$（i≠k）。",
+        "$\\alpha_{kk}=1/b_{kk},\\alpha_{ik}=-b_{ik}/b_{kk}$ とすればk列は1と0になる。"
+      ],
+      "answer": "Pkの成分表示が2行の交換を実行し、Gkの成分表示が第k行のスケーリングと他行の消去を実行することは、上記の積の成分計算から示される。",
+      "checklist": [
+        "左からの積",
+        "入替後の成分",
+        "行操作を各成分で説明"
+      ],
+      "pitfalls": [
+        "Gkを右から掛けて行の操作とする"
+      ],
+      "assumptions": [
+        "枢軸は入替後の非零成分を使う。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2024-q2",
+      "status": "conditional",
+      "problem": "Gkの第k列α(i,k)（i=1,…,n、i≠k）とα(k,k)を、第k-1列目の消去後の行列A^(k-1)の成分a^(k-1)(i,j)で表す。",
+      "basics": [
+        "係数はPkで入替えた後の枢軸行に対して計算する。"
+      ],
+      "steps": [
+        "$B=P_kA^{(k-1)}$ とおく。",
+        "$\\alpha_{kk}b_{kk}=1$ より $\\alpha_{kk}=1/b_{kk}$。",
+        "$b_{ik}+\\alpha_{ik}b_{kk}=0$ より $\\alpha_{ik}=-b_{ik}/b_{kk}$。",
+        "元の成分を使うなら、行置換σで $b_{ij}=a^{(k-1)}_{\\sigma(i),j}$ とし、$\\alpha_{kk}=1/a^{(k-1)}_{ip,k}$、$\\alpha_{ik}=-a^{(k-1)}_{\\sigma(i),k}/a^{(k-1)}_{ip,k}$。"
+      ],
+      "answer": "入替後成分なら $\\alpha_{kk}=1/b_{kk}$、$\\alpha_{ik}=-b_{ik}/b_{kk}$（i≠k）。元のA^(k−1)を使うなら上記σ（k↔ip）を添えて表す。",
+      "checklist": [
+        "入替の反映",
+        "i=kとi≠kを分ける",
+        "分母非零"
+      ],
+      "pitfalls": [
+        "入替前のakkを分母に残す"
+      ],
+      "assumptions": [
+        "A^(k−1)は第k段階の入替前と解釈し、Pkによる行位置を明示する。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2024-q3",
+      "status": "conditional",
+      "problem": "n次正方行列Aの逆行列がG(n-1)P(n-1)…G2P2G1P1Iで表されることを証明する。Iは単位行列。",
+      "basics": [
+        "行操作の積をCとするとCA=Iになった時点でC=A⁻¹。"
+      ],
+      "steps": [
+        "$A^{(k)}=G_kP_kA^{(k-1)}$ を順に代入すると $A^{(n)}=G_nP_n\\cdots G_1P_1A$。",
+        "Gauss-Jordan法を全n列で完了すれば A^(n)=I。",
+        "右から $A^{-1}$ を掛けて $A^{-1}=G_nP_n\\cdots G_1P_1I$。",
+        "原本のn−1段階式は一般には偽。n=2でA=diag(1,2)なら第1列処理だけではdiag(1,2)が残り、操作積Iは逆行列diag(1,1/2)と違う。"
+      ],
+      "answer": "一般に正しい公式は $A^{-1}=G_nP_n\\cdots G_1P_1I$。原本の $G_{n-1}P_{n-1}\\cdots G_1P_1I$ は、その時点で最終対角成分も1となってIへ到達する場合に限る。",
+      "checklist": [
+        "原本のn−1表記を注記",
+        "全n列を処理",
+        "積の順序",
+        "反例で条件不足を確認"
+      ],
+      "pitfalls": [
+        "誤記を黙って正しい定理として暗記"
+      ],
+      "assumptions": [
+        "原本のn−1を一般公式としては採用せず、最後の列の正規化GnPnを補う。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2024-q4",
+      "status": "conditional",
+      "problem": "上記で証明した知識を使い、A=((1,2,0),(2,3,4),(0,3,-11))の逆行列を求める。",
+      "basics": [
+        "拡大行列[A|I]を[I|A⁻¹]へ変形する。"
+      ],
+      "steps": [
+        "R2←R2−2R1 により左側R2=(0,−1,4)。",
+        "R2←−R2、R1←R1−2R2、R3←R3−3R2 により左側は ((1,0,8),(0,1,−4),(0,0,1))。",
+        "この時点の右側は ((−3,2,0),(2,−1,0),(−6,3,1))。",
+        "R1←R1−8R3、R2←R2+4R3。左側I、右側が逆行列。"
+      ],
+      "answer": "$A^{-1}=\\begin{pmatrix}45&-22&-8\\\\-22&11&4\\\\-6&3&1\\end{pmatrix}$。Aとの左右の積はI。",
+      "checklist": [
+        "行操作を左右両ブロックへ適用",
+        "最後の上下消去",
+        "AC=CA=I"
+      ],
+      "pitfalls": [
+        "原本の一般公式の不足をこの数値例へ無条件に流用"
+      ],
+      "assumptions": [
+        "原本のn−1公式ではなく、全列の正規化・消去を完了する。"
+      ],
+      "verification": "分数のGauss-Jordan計算で導出し、A CとC Aの全9成分を整数で検算した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2025-q1",
+      "status": "verified",
+      "problem": "Ax=λx、正則Mに対しMAM⁻¹とM⁻¹AMの固有値がλ、対応する固有ベクトルがMx、M⁻¹xであることを証明する。x=M⁻¹yという変形を用いてよい。",
+      "basics": [
+        "$Ax=\\lambda x$、$x\\ne0$、M正則。"
+      ],
+      "steps": [
+        "$(MAM^{-1})(Mx)=MA(M^{-1}M)x=MAx=\\lambda Mx$。",
+        "$(M^{-1}AM)(M^{-1}x)=M^{-1}Ax=\\lambda M^{-1}x$。",
+        "MとM⁻¹は正則なので Mx,M⁻¹x はともに非零。"
+      ],
+      "answer": "固有値は双方ともλで、対応する固有ベクトルはそれぞれMx、M⁻¹x。上の等式と非零性により定義を満たす。",
+      "checklist": [
+        "積の順序",
+        "非零ベクトル",
+        "両変換の対応"
+      ],
+      "pitfalls": [
+        "MとAを交換する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2025-q2",
+      "status": "verified",
+      "problem": "Ax=λx、x≠0、Mが直交行列のとき、MAMᵀとMᵀAMの固有値λ、固有ベクトルMxとMᵀxを証明する。",
+      "basics": [
+        "直交行列は $M^TM=I$、従って $M^{-1}=M^T$。"
+      ],
+      "steps": [
+        "$(MAM^T)(Mx)=MAx=\\lambda Mx$。",
+        "$(M^TAM)(M^Tx)=M^TAx=\\lambda M^Tx$。",
+        "直交行列は正則なので対応ベクトルは非零。"
+      ],
+      "answer": "固有値はλ。MAMᵀにはMx、MᵀAMにはMᵀxが対応する。",
+      "checklist": [
+        "直交条件を書く",
+        "逆行列を転置に置換"
+      ],
+      "pitfalls": [
+        "任意のMで逆行列=転置と書く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2025-q3",
+      "status": "verified",
+      "problem": "A=((-1,0,0),(1,3,1),(3,0,2))の固有値・固有ベクトルを求めるための特性方程式をλの方程式として示す。",
+      "basics": [
+        "$\\det(\\lambda I-A)=0$ の根を求める。"
+      ],
+      "steps": [
+        "第1行で展開し $\\det(\\lambda I-A)=(\\lambda+1)(\\lambda-3)(\\lambda-2)$。",
+        "因数分解を展開し、λの多項式として記す。"
+      ],
+      "answer": "$(\\lambda+1)(\\lambda-3)(\\lambda-2)=\\lambda^3-4\\lambda^2+\\lambda+6=0$",
+      "checklist": [
+        "λの多項式の方程式",
+        "次数3",
+        "跡と定数項の検算"
+      ],
+      "pitfalls": [
+        "非対角成分もλを引く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2025-q4",
+      "status": "verified",
+      "problem": "前問の特性方程式を解きλ1,λ2,λ3を求め、|λ1|≥|λ2|≥|λ3|の順に並べる。 対象の行列は A=((−1,0,0),(1,3,1),(3,0,2))。",
+      "basics": [
+        "特性多項式の根を取り、絶対値降順で並べる。"
+      ],
+      "steps": [
+        "$(\\lambda+1)(\\lambda-3)(\\lambda-2)=\\lambda^3-4\\lambda^2+\\lambda+6=0$",
+        "各因子を0にして根を取り出す。",
+        "符号付きの大小ではなく絶対値を比較する。"
+      ],
+      "answer": "λ1=3,λ2=2,λ3=−1（絶対値は3,2,1）。",
+      "checklist": [
+        "重複度と順序",
+        "全ての根を示す"
+      ],
+      "pitfalls": [
+        "負の固有値を最後へ機械的に置く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "mathematical-modeling-2025-q5",
+      "status": "verified",
+      "problem": "λ1,λ2,λ3に対応する固有ベクトルx1,x2,x3を求める。 対象の行列は A=((−1,0,0),(1,3,1),(3,0,2))。",
+      "basics": [
+        "各根に対して $(A-\\lambda I)x=0$ の非零解を求める。"
+      ],
+      "steps": [
+        "λ1=3: 第1行でx=0、第3行でz=0、yは任意。",
+        "λ2=2: x=0、第2行でy+z=0。",
+        "λ3=−1: 第3行でz=−x、第2行でx+4y+z=0よりy=0。"
+      ],
+      "answer": "$x_1=c_1(0,1,0)^T,\\ x_2=c_2(0,-1,1)^T,\\ x_3=c_3(1,0,-1)^T$（各cᵢ≠0）。",
+      "checklist": [
+        "固有値との対応",
+        "非零条件",
+        "元のAで検算"
+      ],
+      "pitfalls": [
+        "重根に対し独立な解を1本だけと決め付ける"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="830" viewBox="0 0 1200 830" role="img" aria-labelledby="title"><title id="title">2024：2学生・2科目のクラス図とオブジェクト図</title>
+<rect width="100%" height="100%" fill="#f9f7f2"/><g font-family="sans-serif" font-size="18" fill="#172b41">
+<text x="30" y="32" font-size="23" font-weight="bold">2024：2学生・2科目のクラス図とオブジェクト図</text>
+<path d="M430,150 L760,150" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="595.0" y="120.0" text-anchor="middle">履修</text>
+<path d="M410,400 L670,400" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="540.0" y="370.0" text-anchor="middle">履修</text>
+<path d="M410,440 L670,630" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="540.0" y="526.0" text-anchor="middle">履修</text>
+<path d="M410,630 L670,440" stroke="#526a7b" fill="none" stroke-width="2"/>
+<text x="540.0" y="526.0" text-anchor="middle">履修</text>
+<rect x="80" y="80" width="350" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="255.0" y="111" text-anchor="middle" font-weight="bold">学生</text>
+<path d="M80,125 H430" stroke="#526a7b"/>
+<text x="92" y="152">学生番号</text>
+<text x="92" y="182">氏名</text>
+<rect x="760" y="80" width="370" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="945.0" y="111" text-anchor="middle" font-weight="bold">授業科目</text>
+<path d="M760,125 H1130" stroke="#526a7b"/>
+<text x="772" y="152">科目ID</text>
+<text x="772" y="182">科目名</text>
+<rect x="30" y="340" width="380" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="220.0" y="371" text-anchor="middle" font-weight="bold" text-decoration="underline">s1:学生</text>
+<path d="M30,385 H410" stroke="#526a7b"/>
+<text x="42" y="412">学生番号 = s001</text>
+<text x="42" y="442">氏名 = 青山太郎</text>
+<rect x="30" y="600" width="380" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="220.0" y="631" text-anchor="middle" font-weight="bold" text-decoration="underline">s2:学生</text>
+<path d="M30,645 H410" stroke="#526a7b"/>
+<text x="42" y="672">学生番号 = s002</text>
+<text x="42" y="702">氏名 = 青山花子</text>
+<rect x="670" y="340" width="480" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="910.0" y="371" text-anchor="middle" font-weight="bold" text-decoration="underline">c1:授業科目</text>
+<path d="M670,385 H1150" stroke="#526a7b"/>
+<text x="682" y="412">科目ID = cs01</text>
+<text x="682" y="442">科目名 = ソフトウェア設計</text>
+<rect x="670" y="600" width="480" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="910.0" y="631" text-anchor="middle" font-weight="bold" text-decoration="underline">c2:授業科目</text>
+<path d="M670,645 H1150" stroke="#526a7b"/>
+<text x="682" y="672">科目ID = cs02</text>
+<text x="682" y="702">科目名 = 情報ネットワーク</text>
+<text x="442" y="140" text-anchor="start">0..*</text>
+<text x="748" y="140" text-anchor="end">0..*</text>
+<text x="30" y="790" font-size="16">値と履修リンクは自由に設計した一例。各実体に属性値2組、合計4実体。</text>
+</g></svg>

@@ -1,0 +1,2345 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "multimedia",
+  "lessons": [
+    {
+      "topicId": "multimedia-foundations",
+      "title": "メディアの用途と提示空間",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "メディアには文字、画像、音声、映像などがある。開発と関係する産業は映画、放送、ゲーム、教育など。提示空間は画面の平面位置と、聴覚の空間的位置を区別する。ステレオの「2チャンネル」は提示空間の次元数とは別の量なので、講義での定義を確認する。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "問題文のpresentation spaceの定義を講義資料で確認し、画面の物理次元、音源配置、知覚される空間を混同しない。"
+        }
+      ],
+      "example": {
+        "prompt": "映画制作がマルチメディア産業である理由。",
+        "steps": [
+          "映像と音声を組み合わせる。",
+          "編集、符号化、伝送、提示技術を用いる。"
+        ],
+        "answer": "Film production and broadcasting are multimedia-related industries."
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-foundations-c1",
+          "prompt": "通常のPCディスプレイの提示平面は何次元か。",
+          "kind": "number",
+          "explanation": "横位置と縦位置。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-foundations-c2",
+          "prompt": "映画制作産業を英語で書く。",
+          "kind": "text",
+          "explanation": "映像と音声の統合。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "film industry",
+            "film production",
+            "movie industry"
+          ]
+        },
+        {
+          "id": "multimedia-foundations-c3",
+          "prompt": "ステレオの左右チャンネル数はいくつか。",
+          "kind": "number",
+          "explanation": "チャンネル数と空間次元は別。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "multimedia-foundations-retest",
+        "prompt": "ゲーム産業を英語で書く。",
+        "kind": "text",
+        "explanation": "画像・音・動的操作を統合する。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "game industry",
+          "video game industry",
+          "gaming industry"
+        ]
+      }
+    },
+    {
+      "topicId": "multimedia-streams",
+      "title": "連続データストリームと伝送",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "連続ストリームは時間順にデータを提示する。周期性は、固定間隔のstrongly periodic、変動を許すweakly/regularly periodic、非周期のaperiodicに分類できる。パケット長は一定、周期的に変動、不規則な変動を区別する。伝送の時間制約として、isochronousは遅延の上下限、synchronousは遅延の上限、asynchronousは時間上限を要求しない、と区別する講義上のモデルをここでは採用する。名称は文脈により異なる。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "周期性、パケットサイズ、遅延制約は異なる観点。英語名称と、何を保証する分類かを対応させる。"
+        }
+      ],
+      "example": {
+        "prompt": "毎20msに同じ長さの音声パケットを生成する。",
+        "steps": [
+          "生成時刻は固定間隔。",
+          "パケット長も一定。"
+        ],
+        "answer": "Strongly periodic in time and strongly regular in packet size."
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-streams-c1",
+          "prompt": "固定間隔で発生するストリームの周期性名を英語で書く。",
+          "kind": "text",
+          "explanation": "時刻間隔が一定。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "strongly periodic",
+            "periodic"
+          ]
+        },
+        {
+          "id": "multimedia-streams-c2",
+          "prompt": "周期のないストリームの英語名は。",
+          "kind": "text",
+          "explanation": "到着間隔が規則的でない。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "aperiodic",
+            "non-periodic",
+            "nonperiodic"
+          ]
+        },
+        {
+          "id": "multimedia-streams-c3",
+          "prompt": "この教材の時間制約モデルで遅延に上下限を持つモードは。",
+          "kind": "text",
+          "explanation": "遅延の変動を上下限で制約する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "isochronous"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "multimedia-streams-retest",
+        "prompt": "同じパケット長が続く分類の英語名は。",
+        "kind": "text",
+        "explanation": "パケット長の規則性。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "strongly regular",
+          "constant packet size",
+          "fixed packet size"
+        ]
+      }
+    },
+    {
+      "topicId": "multimedia-sampling",
+      "title": "標本化とエイリアシング",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "帯域制限された連続信号は、最大周波数$f_{max}$に対して標本化周波数$f_s>2f_{max}$なら理想的に復元できる。境界の等号は最高周波数と位相で退化し得る。標本間隔は$T_s=1/f_s$。波形の周期と、標本点の間隔を別々に読む。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "T=1/Fs、単位換算、最大信号周波数とFsの関係を説明する。周期の長さと点の間隔を別々に読む。"
+        }
+      ],
+      "example": {
+        "prompt": "1kHzの信号を8kHzで標本化する。",
+        "steps": [
+          "最高周波数の2倍は2kHz。",
+          "8kHz>2kHz。",
+          "標本間隔は1/8000秒。"
+        ],
+        "answer": "定理を満たし、標本間隔125µs。"
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-sampling-c1",
+          "prompt": "標本化周波数250Hzの標本間隔を秒で答える。",
+          "kind": "number",
+          "explanation": "1/250。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0.004,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-sampling-c2",
+          "prompt": "125µs間隔の標本化周波数をHzで答える。",
+          "kind": "number",
+          "explanation": "125µs=0.000125s。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 8000,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-sampling-c3",
+          "prompt": "100Hzの正弦波を150Hzで標本化すれば定理を満たすか。「満たさない」「満たす」で答える。",
+          "kind": "text",
+          "explanation": "150<2×100。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "満たさない"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "multimedia-sampling-retest",
+        "prompt": "標本間隔0.5msの周波数をHzで答える。",
+        "kind": "number",
+        "explanation": "0.5ms=0.0005秒。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 2000,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "multimedia-quantization",
+      "title": "A/D変換と量子化",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "multimedia-sampling"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "n bitの符号数は$L=2^n$。本教材の例は両端を含むL個の等間隔代表値を使い、$\\Delta=(V_{max}-V_{min})/(L-1)$、$k=round((x-V_{min})/\\Delta)$、$x_q=V_{min}+k\\Delta$とする。符号はkをn bitで表す。原本では規約が未指定なので、$\\Delta=(V_{max}-V_{min})/L$の区間分割方式もあり得る。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "数直線でレベルと閾値を分け、入力下限からのオフセット、丸め方、端点を含む方式かを明示する。"
+        }
+      ],
+      "example": {
+        "prompt": "3bit、0〜7V、最近接代表値、入力3.2V。",
+        "steps": [
+          "L=8、Δ=7/7=1V。",
+          "k=round(3.2)=3。",
+          "xq=3V、符号011、誤差xq−x=−0.2V。"
+        ],
+        "answer": "011、3V。"
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-quantization-c1",
+          "prompt": "4bitの量子化レベル数は。",
+          "kind": "number",
+          "explanation": "2^4。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 16,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-quantization-c2",
+          "prompt": "0〜3Vを両端込み16レベルにするとΔは何Vか。",
+          "kind": "number",
+          "explanation": "3/(16−1)。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0.2,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-quantization-c3",
+          "prompt": "4bitで整数7の2進符号は。",
+          "kind": "bits",
+          "explanation": "4桁へ0埋め。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "0111"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "multimedia-quantization-retest",
+        "prompt": "1〜4Vを両端込み16レベルにするとΔは何Vか。",
+        "kind": "number",
+        "explanation": "幅3Vを15間隔へ分ける。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 0.2,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "multimedia-normalization",
+      "title": "正規化と標準化",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "範囲[0,1]への正規化は$z=(x-x_{min})/(x_{max}-x_{min})$、[-1,1]へは$z=2(x-x_{min})/(x_{max}-x_{min})-1$。平均0・分散1の標準化は$z=(x-\\mu)/\\sigma$。分母が0の定数信号にはそのまま適用できない。標準化は値を[-1,1]へ収める保証がない。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "分母が範囲か標準偏差かを目的から選ぶ。定数信号等の分母0の条件も教材では説明する。"
+        }
+      ],
+      "example": {
+        "prompt": "最小2、最大10、x=6を正規化。",
+        "steps": [
+          "[0,1]では(6−2)/(10−2)=0.5。",
+          "[-1,1]では2×0.5−1=0。"
+        ],
+        "answer": "[0,1]で0.5、[-1,1]で0。"
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-normalization-c1",
+          "prompt": "最小2最大10のx=6を[0,1]へ変換すると。",
+          "kind": "number",
+          "explanation": "範囲の中点。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0.5,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-normalization-c2",
+          "prompt": "同じ値を[-1,1]へ変換すると。",
+          "kind": "number",
+          "explanation": "2×0.5−1。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-normalization-c3",
+          "prompt": "平均5標準偏差2のx=9を標準化すると。",
+          "kind": "number",
+          "explanation": "(9−5)/2。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "multimedia-normalization-retest",
+        "prompt": "標準化で割るのは分散か標準偏差か。",
+        "kind": "text",
+        "explanation": "分散で割ると分散1にならない。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "標準偏差"
+        ]
+      }
+    },
+    {
+      "topicId": "multimedia-sinusoid",
+      "title": "正弦波とフーリエ表現",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "基本正弦波は$x(t)=A\\sin(\\omega t+\\phi)$。Aは振幅、φは初期位相、ωは角周波数(rad/s)。通常の周波数f(Hz)とは$\\omega=2\\pi f$。フーリエ表現は異なる周波数の正弦波・余弦波または複素指数関数を重ね合わせる。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "A sin(ωx+φ)等の式で記号を特定し、角周波数とHzの周波数の違いを説明する。"
+        }
+      ],
+      "example": {
+        "prompt": "A=2、f=10Hz、φ=0の正弦波。",
+        "steps": [
+          "ω=2π×10=20π。",
+          "x(t)=2sin(20πt)。"
+        ],
+        "answer": "振幅2、周期0.1s。"
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-sinusoid-c1",
+          "prompt": "A sin(ωt+φ)のAの英語名は。",
+          "kind": "text",
+          "explanation": "振幅。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "amplitude"
+          ]
+        },
+        {
+          "id": "multimedia-sinusoid-c2",
+          "prompt": "φの英語名は。",
+          "kind": "text",
+          "explanation": "位相角。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "phase",
+            "initial phase"
+          ]
+        },
+        {
+          "id": "multimedia-sinusoid-c3",
+          "prompt": "ωの英語名は。",
+          "kind": "text",
+          "explanation": "frequencyだけではfと混同する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "angular frequency"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "multimedia-sinusoid-retest",
+        "prompt": "f=5Hzの周期を秒で答える。",
+        "kind": "number",
+        "explanation": "T=1/f。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 0.2,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "multimedia-statistics",
+      "title": "信号の統計量",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "分散は$E[(X-\\mu)^2]$、中央値mは累積確率が0.5となる位置、最頻値は密度が最大となる位置。$\\sigma/\\mu$は変動係数(μ≠0)。$(\\mu-mode)/\\sigma$はPearsonの第一歪度係数で、一般の三次中心モーメントによる歪度とは別の定義。密度の微分0だけでは最頻値を保証しない。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "名称の暗記に加え、式の分子・分母と測る性質を説明する。歪度の複数定義を区別する。"
+        }
+      ],
+      "example": {
+        "prompt": "μ=10、σ=2、mode=9。",
+        "steps": [
+          "変動係数=2/10。",
+          "Pearson第一歪度=(10−9)/2。"
+        ],
+        "answer": "変動係数0.2、Pearson第一歪度0.5。"
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-statistics-c1",
+          "prompt": "二次中心モーメントの名称は。",
+          "kind": "text",
+          "explanation": "平均からの偏差の二乗平均。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "分散",
+            "variance"
+          ]
+        },
+        {
+          "id": "multimedia-statistics-c2",
+          "prompt": "累積確率0.5の分位点の名称は。",
+          "kind": "text",
+          "explanation": "分布の中央。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "中央値",
+            "median"
+          ]
+        },
+        {
+          "id": "multimedia-statistics-c3",
+          "prompt": "σ/μの名称は。",
+          "kind": "text",
+          "explanation": "平均が0の場合は未定義。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "変動係数",
+            "coefficient of variation"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "multimedia-statistics-retest",
+        "prompt": "密度が最大になる位置の名称は。",
+        "kind": "text",
+        "explanation": "停留点がすべて最大とは限らない。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "最頻値",
+          "mode"
+        ]
+      }
+    },
+    {
+      "topicId": "multimedia-filtering",
+      "title": "平滑化と一次ローパスフィルタ",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "multimedia-sampling"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "幅3の移動平均は連続3値の和を3で割る。メディアンは3値を並べた中央で、外れ値の影響を抑えやすい。一次ローパスは$y[n]=r y[n-1]+(1-r)x[n]$、通常$0\\le r<1$。rが大きいほど過去の出力を残し、平滑化は強いが追従は遅い。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "窓幅3・シフト1の窓を順に追い、平均と中央値を比較する。再帰式では現在入力・前回出力・新出力を区別する。"
+        }
+      ],
+      "example": {
+        "prompt": "入力1,2,3,7に窓幅3、シフト1。",
+        "steps": [
+          "最初の窓1,2,3の平均と中央値は2。",
+          "次の窓2,3,7の平均は4、中央値は3。"
+        ],
+        "answer": "平均2,4、メディアン2,3。"
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-filtering-c1",
+          "prompt": "1,2,9の平均は。",
+          "kind": "number",
+          "explanation": "12/3。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 4,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-filtering-c2",
+          "prompt": "1,2,9の中央値は。",
+          "kind": "number",
+          "explanation": "並べた中央。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-filtering-c3",
+          "prompt": "r=.5、前回出力2、現在入力6の新出力は。",
+          "kind": "number",
+          "explanation": ".5×2+.5×6。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 4,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "multimedia-filtering-retest",
+        "prompt": "窓3の2,3,7の移動平均は。",
+        "kind": "number",
+        "explanation": "12/3。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 4,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "multimedia-energy",
+      "title": "短時間エネルギー",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "multimedia-sampling"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "短時間エネルギーは有限の窓内の信号の二乗和。例えば$E[n]=\\sum_{m=0}^{N-1}x[n-m]^2$はN標本の矩形窓を使う。一般に$E[n]=\\sum_m w[m]x[n-m]^2$と書ける。平均電力にするなら窓長等で割る。負の信号も二乗で正の寄与を持つ。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "窓、時間インデックス、信号値の二乗と総和を対応させ、教材で採用する窓の定義を明示する。"
+        }
+      ],
+      "example": {
+        "prompt": "窓内信号1,−2,3の短時間エネルギー。",
+        "steps": [
+          "各値を二乗して1,4,9。",
+          "足して14。"
+        ],
+        "answer": "エネルギー14、平均二乗値14/3。"
+      },
+      "quizzes": [
+        {
+          "id": "multimedia-energy-c1",
+          "prompt": "1,−2,3の二乗和は。",
+          "kind": "number",
+          "explanation": "1+4+9。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 14,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-energy-c2",
+          "prompt": "短時間エネルギーは信号値を何乗して加算するか。",
+          "kind": "number",
+          "explanation": "符号に依存しない強さを表す。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "multimedia-energy-c3",
+          "prompt": "3標本の二乗和が12なら平均二乗値は。",
+          "kind": "number",
+          "explanation": "窓長で割る。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 4,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "multimedia-energy-retest",
+        "prompt": "−1,1の二乗和は。",
+        "kind": "number",
+        "explanation": "1+1。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 2,
+        "tolerance": 1e-09
+      }
+    }
+  ],
+  "solutions": [
+    {
+      "questionId": "multimedia-2022-q1",
+      "status": "verified",
+      "problem": "マルチメディア開発と強く関連する産業を3つ挙げる。",
+      "basics": [
+        "複数メディアを制作・統合・配信する産業を挙げる。"
+      ],
+      "steps": [
+        "映像と音声の統合を考える。",
+        "産業名を指定数だけ列挙する。"
+      ],
+      "answer": "映画産業、放送産業、ゲーム産業。",
+      "checklist": [
+        "異なる産業を3つ以上挙げた",
+        "映画・放送・ゲーム等の産業名として答えた",
+        "映像・音声等を制作・統合・提示する産業を選んだ",
+        "英語で回答した"
+      ],
+      "pitfalls": [
+        "通信の手段や装置名は産業名ではない。",
+        "指定数を満たすために同じ産業の同義語を重複させない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write at least 3 industries that are strongly related with Multimedia development.",
+      "translation": "マルチメディア開発と強く関連する産業を3つ挙げる。",
+      "englishAnswer": "Film production, broadcasting, and video game development."
+    },
+    {
+      "questionId": "multimedia-2022-q2",
+      "status": "verified",
+      "problem": "PCディスプレイのpresentation spaceが何次元かを答える。",
+      "basics": [
+        "通常の画面上の位置は横と縦の座標で表す。"
+      ],
+      "steps": [
+        "表示面の独立した座標数を数える。"
+      ],
+      "answer": "2次元。",
+      "checklist": [
+        "画面の提示平面について2次元と回答した",
+        "独立した横位置と縦位置を対応付けた",
+        "英語で回答した"
+      ],
+      "pitfalls": [
+        "画素のRGB3成分は提示空間の次元数ではない。",
+        "画面の対角インチや解像度は次元数と別。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "How many dimensions the presentation space of a PC display has?",
+      "translation": "PCディスプレイのpresentation spaceが何次元かを答える。",
+      "englishAnswer": "Two dimensions: horizontal and vertical.",
+      "autoCheck": {
+        "id": "multimedia-2022-q2-answer",
+        "prompt": "PCディスプレイのpresentation spaceが何次元かを答える。",
+        "kind": "number",
+        "explanation": "画面の平面上の2座標。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 2,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "multimedia-2022-q3",
+      "status": "conditional",
+      "problem": "continuous data streamsのperiodicity characterizationの分類名を列挙する。",
+      "basics": [
+        "時間方向で到着や発生間隔の規則性を分類する。"
+      ],
+      "steps": [
+        "固定周期、周期の変動を許すもの、非周期の3群を区別する。"
+      ],
+      "answer": "Strongly periodic（強周期）、weakly/regularly periodic（弱周期・準周期）、aperiodic/non-periodic（非周期）。",
+      "checklist": [
+        "strongly periodicを列挙した",
+        "weakly/regularly periodicを列挙した",
+        "aperiodic/non-periodicを列挙した",
+        "到着時刻・生成時刻の周期性として説明した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "パケットのサイズの分類と時間間隔の分類を入れ替えない。",
+        "講義でweaklyとregularlyのどちらを使うかを確認する。"
+      ],
+      "assumptions": [
+        "分類名は講義の表記を優先する。ここでは連続メディアの発生周期の3分類を採用する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the possible types of periodicity characterization of continuous data streams.",
+      "translation": "continuous data streamsのperiodicity characterizationの分類名を列挙する。",
+      "englishAnswer": "Strongly periodic, weakly (or regularly) periodic, and aperiodic (non-periodic)."
+    },
+    {
+      "questionId": "multimedia-2022-q4",
+      "status": "conditional",
+      "problem": "continuous data streamsのpacket size variation characterizationの分類名を列挙する。",
+      "basics": [
+        "パケットサイズの時間変動を区別する。"
+      ],
+      "steps": [
+        "一定の長さ、周期的な長さの変動、不規則な長さの変動を列挙する。"
+      ],
+      "answer": "Strongly regular（一定サイズ）、periodically regular（サイズが周期的に変化）、irregular（不規則なサイズ）。",
+      "checklist": [
+        "一定サイズの分類を挙げた",
+        "周期的にサイズが変化する分類を挙げた",
+        "不規則にサイズが変化する分類を挙げた",
+        "時間周期ではなくパケットサイズの分類と示した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "strongly periodicなどの時間周期の用語をサイズの分類へ流用しない。",
+        "固定サイズと周期的に繰り返す可変サイズを区別する。"
+      ],
+      "assumptions": [
+        "講義の分類名に依存するため、サイズの変化の意味も添えて示した。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the names of possible types of packet size variation characterization of continuous data streams.",
+      "translation": "continuous data streamsのpacket size variation characterizationの分類名を列挙する。",
+      "englishAnswer": "Strongly regular (constant size), periodically regular (periodically varying size), and irregular (irregularly varying size)."
+    },
+    {
+      "questionId": "multimedia-2022-q5",
+      "status": "verified",
+      "problem": "Shannon's sampling theoremを定義する。",
+      "basics": [
+        "帯域制限と理想的な復元が前提。"
+      ],
+      "steps": [
+        "最高信号周波数fmaxと標本化周波数fsを定義する。",
+        "ナイキスト境界の2倍を超える条件を記す。"
+      ],
+      "answer": "最高周波数がfmaxに帯域制限された連続信号は、fs>2fmaxで一様標本化すれば、理想的な補間で完全復元できる。等号は位相による退化に注意する。",
+      "checklist": [
+        "帯域制限された連続信号という前提を書いた",
+        "最高信号周波数fmaxと標本化周波数fsを定義した",
+        "fs>2fmaxという十分条件を書いた",
+        "理想的な補間で復元できることを書いた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "最高周波数と標本化周波数を逆にしない。",
+        "等号境界では位相により標本値が全て0になる場合がある。",
+        "量子化誤差がなくなる定理として説明しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the definition of Shannon's sampling theorem.",
+      "translation": "Shannon's sampling theoremを定義する。",
+      "englishAnswer": "A band-limited continuous signal with maximum frequency fmax can be reconstructed exactly from uniform samples if fs > 2 fmax, assuming ideal reconstruction. The equality case requires care at the band edge."
+    },
+    {
+      "questionId": "multimedia-2022-q6",
+      "status": "verified",
+      "problem": "Fs=250Hzのsampling intervalを秒単位で求める。",
+      "basics": [
+        "Ts=1/fs。"
+      ],
+      "steps": [
+        "Ts=1/250秒。"
+      ],
+      "answer": "0.004秒。",
+      "checklist": [
+        "Fs=250Hzを使った",
+        "Ts=1/Fsを書いた",
+        "0.004秒を単位付きで答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "答えはHzではなく秒。",
+        "msで計算しても指定された秒単位へ変換する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "What is the sampling interval (in seconds) when the sampling frequency is Fs = 250Hz?",
+      "translation": "Fs=250Hzのsampling intervalを秒単位で求める。",
+      "englishAnswer": "The sampling interval is 1/250 = 0.004 seconds.",
+      "autoCheck": {
+        "id": "multimedia-2022-q6-answer",
+        "prompt": "標本間隔を秒で答える。",
+        "kind": "number",
+        "explanation": "周波数の逆数。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 0.004,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "multimedia-2022-q7-1",
+      "status": "verified",
+      "problem": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the number of quantization levels L.\n日本語：3bit・入力範囲0〜5VのA/D変換。量子化レベル数Lを求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^3=8。",
+        "両端込み代表値ならΔ=(5−0)/(8−1)=0.714286V。",
+        "最近接整数k=round((3.2−0)/Δ)=4、xq=0+4Δ=2.85714V。"
+      ],
+      "answer": "L=8。",
+      "checklist": [
+        "3bitからL=2^3=8を求めた",
+        "レベル数を整数で答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "レベル数Lと隣接代表値の間隔数L−1を混同しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the number of quantization levels L.",
+      "translation": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the number of quantization levels L.\n日本語：3bit・入力範囲0〜5VのA/D変換。量子化レベル数Lを求める。",
+      "englishAnswer": "L = 8.",
+      "autoCheck": {
+        "id": "multimedia-2022-q7-1-answer",
+        "prompt": "量子化レベル数Lを答える。",
+        "kind": "number",
+        "explanation": "2のbit数乗。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 8,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "multimedia-2022-q7-2",
+      "status": "conditional",
+      "problem": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the step size Δ (resolution).\n日本語：3bit・入力範囲0〜5VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^3=8。",
+        "両端込み代表値ならΔ=(5−0)/(8−1)=0.714286V。",
+        "最近接整数k=round((3.2−0)/Δ)=4、xq=0+4Δ=2.85714V。",
+        "区間分割方式ならΔ=(5−0)/8=0.625Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "Δ=0.714286V。",
+      "checklist": [
+        "入力下限0Vと上限5Vから幅5Vを使った",
+        "両端込みLレベルの規約を明記した",
+        "Δ=(Vmax−Vmin)/(L−1)を使いV単位で答えた",
+        "区間分割L方式との違いを確認した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "原本は端点と区間分割の規約を指定していない。",
+        "Δに電圧の下限を加えない。幅だけを使う。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the step size Δ (resolution).",
+      "translation": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the step size Δ (resolution).\n日本語：3bit・入力範囲0〜5VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "englishAnswer": "Δ = 0.714286 V under the endpoint-inclusive convention."
+    },
+    {
+      "questionId": "multimedia-2022-q7-3",
+      "status": "conditional",
+      "problem": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the quantization level xq when the analog input is 3.2V.\n日本語：3bit・入力範囲0〜5VのA/D変換。アナログ入力3.2Vの量子化値xqを求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^3=8。",
+        "両端込み代表値ならΔ=(5−0)/(8−1)=0.714286V。",
+        "最近接整数k=round((3.2−0)/Δ)=4、xq=0+4Δ=2.85714V。",
+        "区間分割方式ならΔ=(5−0)/8=0.625Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "xq=2.85714V。",
+      "checklist": [
+        "当該小問の入力電圧を使った",
+        "(x−Vmin)/Δでレベル番号を求めた",
+        "最近接への丸めを明示した",
+        "xq=Vmin+kΔで電圧へ戻した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "量子化値xqはレベル番号kではなく電圧。",
+        "入力をΔで割った値は最近接整数へ丸め、その整数へΔを掛けて電圧へ戻す。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the quantization level xq when the analog input is 3.2V.",
+      "translation": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the quantization level xq when the analog input is 3.2V.\n日本語：3bit・入力範囲0〜5VのA/D変換。アナログ入力3.2Vの量子化値xqを求める。",
+      "englishAnswer": "xq = 2.85714 V using nearest-level rounding."
+    },
+    {
+      "questionId": "multimedia-2022-q7-4",
+      "status": "conditional",
+      "problem": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the binary code when the analog input is 3.2V.\n日本語：3bit・入力範囲0〜5VのA/D変換。アナログ入力3.2Vに対応する2進符号を求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^3=8。",
+        "両端込み代表値ならΔ=(5−0)/(8−1)=0.714286V。",
+        "最近接整数k=round((3.2−0)/Δ)=4、xq=0+4Δ=2.85714V。",
+        "区間分割方式ならΔ=(5−0)/8=0.625Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "入力3.2Vではk=4、符号100。",
+      "checklist": [
+        "符号用小問の入力電圧を使った",
+        "下限0Vを引いてレベル番号kを求めた",
+        "コード割当規約を明記した",
+        "kを3桁の2進数で0埋めして答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "最上位の0も省略せずbit数を保持する。",
+        "レベル番号の2進符号を電圧そのものの2進表現と混同しない。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the binary code when the analog input is 3.2V.",
+      "translation": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the binary code when the analog input is 3.2V.\n日本語：3bit・入力範囲0〜5VのA/D変換。アナログ入力3.2Vに対応する2進符号を求める。",
+      "englishAnswer": "For input 3.2 V, the level index is 4; the 3-bit code is 100."
+    },
+    {
+      "questionId": "multimedia-2022-q7-5",
+      "status": "conditional",
+      "problem": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the quantization error eq when the analog input is 3.2V.\n日本語：3bit・入力範囲0〜5VのA/D変換。同じ入力3.2Vの量子化誤差eqを求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^3=8。",
+        "両端込み代表値ならΔ=(5−0)/(8−1)=0.714286V。",
+        "最近接整数k=round((3.2−0)/Δ)=4、xq=0+4Δ=2.85714V。",
+        "区間分割方式ならΔ=(5−0)/8=0.625Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "eq=xq−x=-0.342857V。x−xqと定義する場合は符号が逆。",
+      "checklist": [
+        "量子化値と元の入力3.2Vを区別した",
+        "eq=xq−xという符号規約を明記した",
+        "誤差をV単位で答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "誤差の絶対値と符号付き誤差を混同しない。",
+        "eq=x−xqという定義を採用する場合は符号が逆になる。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the quantization error eq when the analog input is 3.2V.",
+      "translation": "Assuming that a 3-bit A/D conversion channel accepts analog input ranging from 0 to 5 Volts, determine the quantization error eq when the analog input is 3.2V.\n日本語：3bit・入力範囲0〜5VのA/D変換。同じ入力3.2Vの量子化誤差eqを求める。",
+      "englishAnswer": "With eq = xq − x, eq = -0.342857 V."
+    },
+    {
+      "questionId": "multimedia-2022-q8-1",
+      "status": "verified",
+      "problem": "横軸Time(sec)が0〜0.1秒の波形図から最大周波数成分を答える。連続波形と標本点を読み分ける。 図の連続正弦波は0.1秒に9周期、標本点は0.01秒間隔。",
+      "basics": [
+        "連続波形の周期と離散標本の間隔を別々に読む。"
+      ],
+      "steps": [
+        "波形の周期からfmax=90Hz。",
+        "標本間隔Ts=0.01秒、fs=100Hz。",
+        "100Hz < 2×90Hz。"
+      ],
+      "answer": "90Hz。",
+      "checklist": [
+        "連続正弦波と標本点を読み分けた",
+        "0.1秒に9周期から周期0.1/9秒を求めた",
+        "fmax=90Hzを単位付きで答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "標本点を結ぶ低周波の見かけの波を、原信号の周波数にしない。",
+        "秒とmsの横軸単位を確認する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Answer the following concerning the signal in the figure: maximum frequency component.",
+      "translation": "横軸Time(sec)が0〜0.1秒の波形図から最大周波数成分を答える。連続波形と標本点を読み分ける。 図の連続正弦波は0.1秒に9周期、標本点は0.01秒間隔。",
+      "englishAnswer": "The maximum frequency is 90 Hz.",
+      "diagram": {
+        "src": "figures/multimedia-sampling-2022.svg",
+        "alt": "2022年の連続波形と標本点を原図の条件から再作図"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "multimedia-2022-q8-2",
+      "status": "verified",
+      "problem": "波形図の標本点の間隔からsampling frequencyを求める。 図の連続正弦波は0.1秒に9周期、標本点は0.01秒間隔。",
+      "basics": [
+        "連続波形の周期と離散標本の間隔を別々に読む。"
+      ],
+      "steps": [
+        "波形の周期からfmax=90Hz。",
+        "標本間隔Ts=0.01秒、fs=100Hz。",
+        "100Hz < 2×90Hz。"
+      ],
+      "answer": "100Hz。",
+      "checklist": [
+        "連続正弦波と標本点を読み分けた",
+        "標本点間隔0.01秒を読んだ",
+        "fs=1/0.01=100Hzと答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "標本点を結ぶ低周波の見かけの波を、原信号の周波数にしない。",
+        "秒とmsの横軸単位を確認する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Answer the following concerning the signal in the figure: sampling frequency.",
+      "translation": "波形図の標本点の間隔からsampling frequencyを求める。 図の連続正弦波は0.1秒に9周期、標本点は0.01秒間隔。",
+      "englishAnswer": "The sampling frequency is 100 Hz.",
+      "diagram": {
+        "src": "figures/multimedia-sampling-2022.svg",
+        "alt": "2022年の連続波形と標本点を原図の条件から再作図"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "multimedia-2022-q8-3",
+      "status": "verified",
+      "problem": "同じ図の信号と標本化に対してsampling theoremが成立するか答える。 図の連続正弦波は0.1秒に9周期、標本点は0.01秒間隔。",
+      "basics": [
+        "連続波形の周期と離散標本の間隔を別々に読む。"
+      ],
+      "steps": [
+        "波形の周期からfmax=90Hz。",
+        "標本間隔Ts=0.01秒、fs=100Hz。",
+        "100Hz < 2×90Hz。"
+      ],
+      "answer": "満たさない。100Hz<180Hzでエイリアシングする。",
+      "checklist": [
+        "連続正弦波と標本点を読み分けた",
+        "fsと2fmaxを別々に求めて比較した",
+        "100<180なので不成立と説明した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "標本点を結ぶ低周波の見かけの波を、原信号の周波数にしない。",
+        "秒とmsの横軸単位を確認する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Answer the following concerning the signal in the figure: whether the sampling theorem is respected.",
+      "translation": "同じ図の信号と標本化に対してsampling theoremが成立するか答える。 図の連続正弦波は0.1秒に9周期、標本点は0.01秒間隔。",
+      "englishAnswer": "No. 100 Hz < 2×90 Hz, so aliasing occurs.",
+      "diagram": {
+        "src": "figures/multimedia-sampling-2022.svg",
+        "alt": "2022年の連続波形と標本点を原図の条件から再作図"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "multimedia-2022-q9-a",
+      "status": "verified",
+      "problem": "デジタル信号Xを[0,1]の範囲に正規化する式を書く。",
+      "basics": [
+        "信号全体の平均・標準偏差または最小・最大を使う。"
+      ],
+      "steps": [
+        "xmin,xmaxをデータの最小・最大とする。",
+        "(X−xmin)/(xmax−xmin)で[0,1]へ移す。"
+      ],
+      "answer": "$Z=(X-X_{min})/(X_{max}-X_{min})$。",
+      "checklist": [
+        "Xmin,Xmaxを信号全体の最小・最大と定義した",
+        "Xmax>Xminを確認した",
+        "最小値と最大値を代入して指定範囲の端点を確認した",
+        "Z=(X−Xmin)/(Xmax−Xmin)を書いた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "最小値を引く処理を省略しない。",
+        "[0,1]への変換に−1や2倍の処理を追加しない。",
+        "定数信号では範囲幅0なので式を適用できない。"
+      ],
+      "assumptions": [
+        "分母が0の定数信号ではこの式を適用できない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the equation to normalize a digital signal X between the range [0~1].",
+      "translation": "デジタル信号Xを[0,1]の範囲に正規化する式を書く。",
+      "englishAnswer": "Z = (X − Xmin)/(Xmax − Xmin). Assume Xmax > Xmin."
+    },
+    {
+      "questionId": "multimedia-2022-q9-b",
+      "status": "verified",
+      "problem": "デジタル信号Xを[-1,1]の範囲に正規化する式を書く。",
+      "basics": [
+        "信号全体の平均・標準偏差または最小・最大を使う。"
+      ],
+      "steps": [
+        "xmin,xmaxをデータの最小・最大とする。",
+        "(X−xmin)/(xmax−xmin)で[0,1]へ移す。",
+        "2倍して1を引く。"
+      ],
+      "answer": "$Z=2(X-X_{min})/(X_{max}-X_{min})-1$。",
+      "checklist": [
+        "Xmin,Xmaxを信号全体の最小・最大と定義した",
+        "Xmax>Xminを確認した",
+        "最小値と最大値を代入して指定範囲の端点を確認した",
+        "Z=2(X−Xmin)/(Xmax−Xmin)−1を書いた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "最小値を引く処理を省略しない。",
+        "[-1,1]への変換では2倍と−1の両方が必要。",
+        "定数信号では範囲幅0なので式を適用できない。"
+      ],
+      "assumptions": [
+        "分母が0の定数信号ではこの式を適用できない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the equation to normalize a digital signal X between the range [-1~1].",
+      "translation": "デジタル信号Xを[-1,1]の範囲に正規化する式を書く。",
+      "englishAnswer": "Z = 2(X − Xmin)/(Xmax − Xmin) − 1. Assume Xmax > Xmin."
+    },
+    {
+      "questionId": "multimedia-2022-q10",
+      "status": "verified",
+      "problem": "可視原本に示されたA sin(ωx+φ)のA,φ,ωのEnglish/Japanese nameを記す。",
+      "basics": [
+        "正弦波を振幅、角周波数、位相で表す。"
+      ],
+      "steps": [
+        "A sin(ωx+φ)を示す。",
+        "Aは振幅、φは位相、ωは角周波数。",
+        "xが時間ならωの単位はrad/s。"
+      ],
+      "answer": "$A\\sin(\\omega x+\\phi)$。A：振幅(amplitude)、φ：位相(phase)、ω：角周波数(angular frequency)。",
+      "checklist": [
+        "基本正弦波A sin(ωx+φ)を示した",
+        "Aを振幅amplitudeと説明した",
+        "φを位相phaseと説明した",
+        "ωを角周波数angular frequencyと説明した"
+      ],
+      "pitfalls": [
+        "ω(rad/s)と通常の周波数f(Hz)はω=2πfの関係。",
+        "振幅Aと波形の全幅2Aを混同しない。",
+        "位相φと変数xを入れ替えない。"
+      ],
+      "assumptions": [
+        "2022年度は全体では英語回答指定だが、この設問の成分名はEnglish/Japanese nameと個別指定されている。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the English/Japanese name of each component of A sin(ωx+φ).",
+      "translation": "可視原本に示されたA sin(ωx+φ)のA,φ,ωのEnglish/Japanese nameを記す。",
+      "englishAnswer": "A sin(ωx+φ): A is amplitude, φ is phase, and ω is angular frequency."
+    },
+    {
+      "questionId": "multimedia-2023-q1",
+      "status": "verified",
+      "problem": "電気を必要としないデジタル通信の手段を2つ挙げる。",
+      "basics": [
+        "デジタルは情報を離散記号として表す性質で、必ずしも電子機器を意味しない。"
+      ],
+      "steps": [
+        "文字や記号を離散符号として送る手段を選ぶ。",
+        "電力を必要としない具体例を2つ挙げる。"
+      ],
+      "answer": "手旗信号と、手動の打音で送るモールス信号。",
+      "checklist": [
+        "電力を必要としない通信手段を2種類示した",
+        "離散記号で情報を伝える仕組みを示した",
+        "英語で回答した"
+      ],
+      "pitfalls": [
+        "digitalを電子機器だけと考えない。",
+        "電池式のライトや電子モールス送信機は電力不要という条件を満たさない。",
+        "同じ手旗方式を呼び名だけ変えて2例にしない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write two digital communication means that does not need electricity.",
+      "translation": "電気を必要としないデジタル通信の手段を2つ挙げる。",
+      "englishAnswer": "Semaphore signals and Morse code transmitted by manually produced tapping sounds."
+    },
+    {
+      "questionId": "multimedia-2023-q2",
+      "status": "conditional",
+      "problem": "Isochronous, Synchronous, Asynchronousの各media transmission modeを定義する。3名称は番号のない説明群として1設問。",
+      "basics": [
+        "ここでは端末間遅延の時間制約による分類を採用する。"
+      ],
+      "steps": [
+        "Isochronousは遅延の上限と下限を定める。",
+        "Synchronousは遅延の上限を定め、早期到着を許す。",
+        "Asynchronousはその時間制約を要求しない。"
+      ],
+      "answer": "Isochronous：遅延が指定した上下限内。Synchronous：遅延に最大値を定める。Asynchronous：特定の遅延上限を保証しない。",
+      "checklist": [
+        "Isochronousの遅延の上限・下限を示した",
+        "Synchronousの遅延上限と早期到着の許容を示した",
+        "Asynchronousでは同じ時間保証を課さないと示した",
+        "採用した遅延制約の分類を講義の定義と照合した",
+        "英語で回答した"
+      ],
+      "pitfalls": [
+        "単に「同期」「非同期」と訳すだけでは時間制約の説明にならない。",
+        "クロック同期の意味と、講義での遅延制約の分類を混同しない。",
+        "Asynchronousを「必ず遅い」と定義しない。"
+      ],
+      "assumptions": [
+        "名称を遅延制約で区別する講義上のモデルを採用した。クロック同期方式の一般的分類とは区別し、講義資料の定義を確認する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the definition of each of the following media transmission modes: Isochronous, Synchronous, Asynchronous.",
+      "translation": "Isochronous, Synchronous, Asynchronousの各media transmission modeを定義する。3名称は番号のない説明群として1設問。",
+      "englishAnswer": "Isochronous transmission bounds end-to-end delay between a minimum and a maximum. Synchronous transmission bounds the maximum delay and permits earlier arrivals. Asynchronous transmission imposes no such timing guarantee."
+    },
+    {
+      "questionId": "multimedia-2023-q3",
+      "status": "conditional",
+      "problem": "stereophony presentation spaceが何次元か答える。",
+      "basics": [
+        "提示空間の次元は講義で定めた音源位置の表現に依存する。",
+        "左右2チャンネルという数と空間次元数は別。"
+      ],
+      "steps": [
+        "音源位置を空間内のx,y,zで表す解釈なら3座標を使う。",
+        "左右定位だけの軸なら1次元で、別の定義になる。"
+      ],
+      "answer": "音源の提示空間を3次元の空間位置として定義する場合、3次元。原本単独では提示空間の定義が不足しているため、講義資料で確認する。",
+      "checklist": [
+        "提示空間を音源の3次元位置として扱う仮定を書いた",
+        "仮定に基づく3次元と、左右2チャンネルを区別した",
+        "講義での提示空間の定義を確認する点を示した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "ステレオ2チャンネルという数を、そのまま空間の次元数にしない。",
+        "問題文単独では空間の定義が不足するので無条件の正解として断定しない。"
+      ],
+      "assumptions": [
+        "音源の提示空間を3次元の位置空間として扱う。ステレオ録音のチャンネル数を尋ねているとは解釈しない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "How many dimensions has the stereophony presentation space?",
+      "translation": "stereophony presentation spaceが何次元か答える。",
+      "englishAnswer": "If the presentation space means a spatial sound field with three independent position coordinates, it has three dimensions. This is distinct from the two audio channels; the course definition should be confirmed."
+    },
+    {
+      "questionId": "multimedia-2023-q4",
+      "status": "conditional",
+      "problem": "continuous data streamsのperiodicity characterizationの分類名を列挙する。",
+      "basics": [
+        "時間方向で到着や発生間隔の規則性を分類する。"
+      ],
+      "steps": [
+        "固定周期、周期の変動を許すもの、非周期の3群を区別する。"
+      ],
+      "answer": "Strongly periodic（強周期）、weakly/regularly periodic（弱周期・準周期）、aperiodic/non-periodic（非周期）。",
+      "checklist": [
+        "strongly periodicを列挙した",
+        "weakly/regularly periodicを列挙した",
+        "aperiodic/non-periodicを列挙した",
+        "到着時刻・生成時刻の周期性として説明した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "パケットのサイズの分類と時間間隔の分類を入れ替えない。",
+        "講義でweaklyとregularlyのどちらを使うかを確認する。"
+      ],
+      "assumptions": [
+        "分類名は講義の表記を優先する。ここでは連続メディアの発生周期の3分類を採用する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the possible types of periodicity characterization of continuous data streams.",
+      "translation": "continuous data streamsのperiodicity characterizationの分類名を列挙する。",
+      "englishAnswer": "Strongly periodic, weakly (or regularly) periodic, and aperiodic (non-periodic)."
+    },
+    {
+      "questionId": "multimedia-2023-q5",
+      "status": "verified",
+      "problem": "Shannon's sampling theoremを定義する。",
+      "basics": [
+        "帯域制限と理想的な復元が前提。"
+      ],
+      "steps": [
+        "最高信号周波数fmaxと標本化周波数fsを定義する。",
+        "ナイキスト境界の2倍を超える条件を記す。"
+      ],
+      "answer": "最高周波数がfmaxに帯域制限された連続信号は、fs>2fmaxで一様標本化すれば、理想的な補間で完全復元できる。等号は位相による退化に注意する。",
+      "checklist": [
+        "帯域制限された連続信号という前提を書いた",
+        "最高信号周波数fmaxと標本化周波数fsを定義した",
+        "fs>2fmaxという十分条件を書いた",
+        "理想的な補間で復元できることを書いた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "最高周波数と標本化周波数を逆にしない。",
+        "等号境界では位相により標本値が全て0になる場合がある。",
+        "量子化誤差がなくなる定理として説明しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the definition of Shannon's sampling theorem.",
+      "translation": "Shannon's sampling theoremを定義する。",
+      "englishAnswer": "A band-limited continuous signal with maximum frequency fmax can be reconstructed exactly from uniform samples if fs > 2 fmax, assuming ideal reconstruction. The equality case requires care at the band edge."
+    },
+    {
+      "questionId": "multimedia-2023-q6",
+      "status": "verified",
+      "problem": "Fs=1250Hzのsampling intervalを秒単位で求める。",
+      "basics": [
+        "Ts=1/fs。"
+      ],
+      "steps": [
+        "Ts=1/1250秒。"
+      ],
+      "answer": "0.0008秒。",
+      "checklist": [
+        "Fs=1250Hzを使った",
+        "Ts=1/Fsを書いた",
+        "0.0008秒を単位付きで答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "答えはHzではなく秒。",
+        "msで計算しても指定された秒単位へ変換する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "What is the sampling interval (in seconds) when the sampling frequency is Fs = 1250Hz?",
+      "translation": "Fs=1250Hzのsampling intervalを秒単位で求める。",
+      "englishAnswer": "The sampling interval is 1/1250 = 0.0008 seconds.",
+      "autoCheck": {
+        "id": "multimedia-2023-q6-answer",
+        "prompt": "標本間隔を秒で答える。",
+        "kind": "number",
+        "explanation": "周波数の逆数。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 0.0008,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "multimedia-2023-q7-1",
+      "status": "verified",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the number of quantization levels L.\n日本語：4bit・入力範囲0〜3VのA/D変換。量子化レベル数Lを求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(3−0)/(16−1)=0.2V。",
+        "最近接整数k=round((2.35−0)/Δ)=12、xq=0+12Δ=2.4V。"
+      ],
+      "answer": "L=16。",
+      "checklist": [
+        "4bitからL=2^4=16を求めた",
+        "レベル数を整数で答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "レベル数Lと隣接代表値の間隔数L−1を混同しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the number of quantization levels L.",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the number of quantization levels L.\n日本語：4bit・入力範囲0〜3VのA/D変換。量子化レベル数Lを求める。",
+      "englishAnswer": "L = 16.",
+      "autoCheck": {
+        "id": "multimedia-2023-q7-1-answer",
+        "prompt": "量子化レベル数Lを答える。",
+        "kind": "number",
+        "explanation": "2のbit数乗。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 16,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "multimedia-2023-q7-2",
+      "status": "conditional",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the step size Δ (resolution).\n日本語：4bit・入力範囲0〜3VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(3−0)/(16−1)=0.2V。",
+        "最近接整数k=round((2.35−0)/Δ)=12、xq=0+12Δ=2.4V。",
+        "区間分割方式ならΔ=(3−0)/16=0.1875Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "Δ=0.2V。",
+      "checklist": [
+        "入力下限0Vと上限3Vから幅3Vを使った",
+        "両端込みLレベルの規約を明記した",
+        "Δ=(Vmax−Vmin)/(L−1)を使いV単位で答えた",
+        "区間分割L方式との違いを確認した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "原本は端点と区間分割の規約を指定していない。",
+        "Δに電圧の下限を加えない。幅だけを使う。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the step size Δ (resolution).",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the step size Δ (resolution).\n日本語：4bit・入力範囲0〜3VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "englishAnswer": "Δ = 0.2 V under the endpoint-inclusive convention."
+    },
+    {
+      "questionId": "multimedia-2023-q7-3",
+      "status": "conditional",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the quantization level xq when the analog input is 2.35V.\n日本語：4bit・入力範囲0〜3VのA/D変換。アナログ入力2.35Vの量子化値xqを求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(3−0)/(16−1)=0.2V。",
+        "最近接整数k=round((2.35−0)/Δ)=12、xq=0+12Δ=2.4V。",
+        "区間分割方式ならΔ=(3−0)/16=0.1875Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "xq=2.4V。",
+      "checklist": [
+        "当該小問の入力電圧を使った",
+        "(x−Vmin)/Δでレベル番号を求めた",
+        "最近接への丸めを明示した",
+        "xq=Vmin+kΔで電圧へ戻した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "量子化値xqはレベル番号kではなく電圧。",
+        "入力をΔで割った値は最近接整数へ丸め、その整数へΔを掛けて電圧へ戻す。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the quantization level xq when the analog input is 2.35V.",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the quantization level xq when the analog input is 2.35V.\n日本語：4bit・入力範囲0〜3VのA/D変換。アナログ入力2.35Vの量子化値xqを求める。",
+      "englishAnswer": "xq = 2.4 V using nearest-level rounding."
+    },
+    {
+      "questionId": "multimedia-2023-q7-4",
+      "status": "conditional",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the binary code when the analog input is 2V.\n日本語：4bit・入力範囲0〜3VのA/D変換。アナログ入力2Vに対応する2進符号を求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(3−0)/(16−1)=0.2V。",
+        "最近接整数k=round((2.35−0)/Δ)=12、xq=0+12Δ=2.4V。",
+        "区間分割方式ならΔ=(3−0)/16=0.1875Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "入力2Vではk=10、符号1010。",
+      "checklist": [
+        "符号用小問の入力電圧を使った",
+        "下限0Vを引いてレベル番号kを求めた",
+        "コード割当規約を明記した",
+        "kを4桁の2進数で0埋めして答えた",
+        "xq用の2.35Vではなく符号用の2Vを使った",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "最上位の0も省略せずbit数を保持する。",
+        "レベル番号の2進符号を電圧そのものの2進表現と混同しない。",
+        "2023年の③と④は異なる入力なので同じコードを使わない。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the binary code when the analog input is 2V.",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 0 to 3 Volts, determine the binary code when the analog input is 2V.\n日本語：4bit・入力範囲0〜3VのA/D変換。アナログ入力2Vに対応する2進符号を求める。",
+      "englishAnswer": "For input 2 V, the level index is 10; the 4-bit code is 1010."
+    },
+    {
+      "questionId": "multimedia-2023-q8-a",
+      "status": "verified",
+      "problem": "デジタル信号Xの平均を0、分散を1にする式を書く。",
+      "basics": [
+        "信号全体の平均・標準偏差または最小・最大を使う。"
+      ],
+      "steps": [
+        "μを平均、σを標準偏差とする。",
+        "平均との差を標準偏差で割る。"
+      ],
+      "answer": "$Z=(X-\\mu)/\\sigma$（σ>0）。",
+      "checklist": [
+        "平均μと標準偏差σを定義した",
+        "Z=(X−μ)/σを書いた",
+        "平均0、分散1となる目的を示した",
+        "σ>0を確認した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "σ²で割ると分散1にならない。",
+        "標準化は値を[0,1]または[-1,1]へ収める保証がない。",
+        "定数信号ではσ=0なので式を適用できない。"
+      ],
+      "assumptions": [
+        "分母が0の定数信号ではこの式を適用できない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the equation to normalize a digital signal X such that its mean becomes 0 and its variance 1.",
+      "translation": "デジタル信号Xの平均を0、分散を1にする式を書く。",
+      "englishAnswer": "Z = (X − μ)/σ, where μ is the mean and σ>0 is the standard deviation."
+    },
+    {
+      "questionId": "multimedia-2023-q8-b",
+      "status": "verified",
+      "problem": "デジタル信号Xを[-1,1]へ正規化する式を書く。",
+      "basics": [
+        "信号全体の平均・標準偏差または最小・最大を使う。"
+      ],
+      "steps": [
+        "xmin,xmaxをデータの最小・最大とする。",
+        "(X−xmin)/(xmax−xmin)で[0,1]へ移す。",
+        "2倍して1を引く。"
+      ],
+      "answer": "$Z=2(X-X_{min})/(X_{max}-X_{min})-1$。",
+      "checklist": [
+        "Xmin,Xmaxを信号全体の最小・最大と定義した",
+        "Xmax>Xminを確認した",
+        "最小値と最大値を代入して指定範囲の端点を確認した",
+        "Z=2(X−Xmin)/(Xmax−Xmin)−1を書いた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "最小値を引く処理を省略しない。",
+        "[-1,1]への変換では2倍と−1の両方が必要。",
+        "定数信号では範囲幅0なので式を適用できない。"
+      ],
+      "assumptions": [
+        "分母が0の定数信号ではこの式を適用できない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the equation to normalize a digital signal X between the range [-1~1].",
+      "translation": "デジタル信号Xを[-1,1]へ正規化する式を書く。",
+      "englishAnswer": "Z = 2(X − Xmin)/(Xmax − Xmin) − 1. Assume Xmax > Xmin."
+    },
+    {
+      "questionId": "multimedia-2023-q9-1",
+      "status": "verified",
+      "problem": "横軸measurement time(msec)が0〜16msの波形と標本の図から最大周波数成分を求める。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "basics": [
+        "連続波形の周期と離散標本の間隔を別々に読む。"
+      ],
+      "steps": [
+        "波形の周期からfmax=250Hz。",
+        "標本間隔Ts=0.0005秒、fs=2000Hz。",
+        "2000Hz > 2×250Hz。"
+      ],
+      "answer": "250Hz。",
+      "checklist": [
+        "連続正弦波と標本点を読み分けた",
+        "16msに4周期から1周期4msを求めた",
+        "fmax=250Hzを単位付きで答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "標本点を結ぶ低周波の見かけの波を、原信号の周波数にしない。",
+        "秒とmsの横軸単位を確認する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Answer the following concerning the signal in the figure: maximum frequency component.",
+      "translation": "横軸measurement time(msec)が0〜16msの波形と標本の図から最大周波数成分を求める。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "englishAnswer": "The maximum frequency is 250 Hz.",
+      "diagram": {
+        "src": "figures/multimedia-sampling-2023.svg",
+        "alt": "2023年の連続波形と標本点を原図の条件から再作図"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "multimedia-2023-q9-2",
+      "status": "verified",
+      "problem": "同じ波形図の標本点の間隔を求める。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "basics": [
+        "連続波形の周期と離散標本の間隔を別々に読む。"
+      ],
+      "steps": [
+        "波形の周期からfmax=250Hz。",
+        "標本間隔Ts=0.0005秒、fs=2000Hz。",
+        "2000Hz > 2×250Hz。"
+      ],
+      "answer": "0.0005秒（0.5ms）。",
+      "checklist": [
+        "連続正弦波と標本点を読み分けた",
+        "標本点間隔0.5msを読んだ",
+        "0.0005秒へ換算した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "標本点を結ぶ低周波の見かけの波を、原信号の周波数にしない。",
+        "秒とmsの横軸単位を確認する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Answer the following concerning the signal in the figure: sampling interval.",
+      "translation": "同じ波形図の標本点の間隔を求める。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "englishAnswer": "The sampling interval is 0.0005 seconds.",
+      "diagram": {
+        "src": "figures/multimedia-sampling-2023.svg",
+        "alt": "2023年の連続波形と標本点を原図の条件から再作図"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "multimedia-2023-q9-3",
+      "status": "verified",
+      "problem": "同じ図からsampling frequencyを求める。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "basics": [
+        "連続波形の周期と離散標本の間隔を別々に読む。"
+      ],
+      "steps": [
+        "波形の周期からfmax=250Hz。",
+        "標本間隔Ts=0.0005秒、fs=2000Hz。",
+        "2000Hz > 2×250Hz。"
+      ],
+      "answer": "2000Hz（2kHz）。",
+      "checklist": [
+        "連続正弦波と標本点を読み分けた",
+        "標本間隔0.0005秒を使った",
+        "fs=1/Ts=2000Hzと答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "標本点を結ぶ低周波の見かけの波を、原信号の周波数にしない。",
+        "秒とmsの横軸単位を確認する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Answer the following concerning the signal in the figure: sampling frequency.",
+      "translation": "同じ図からsampling frequencyを求める。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "englishAnswer": "The sampling frequency is 2000 Hz.",
+      "diagram": {
+        "src": "figures/multimedia-sampling-2023.svg",
+        "alt": "2023年の連続波形と標本点を原図の条件から再作図"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "multimedia-2023-q9-4",
+      "status": "verified",
+      "problem": "図の標本化について定理が成立するか、理由付きで答える。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "basics": [
+        "連続波形の周期と離散標本の間隔を別々に読む。"
+      ],
+      "steps": [
+        "波形の周期からfmax=250Hz。",
+        "標本間隔Ts=0.0005秒、fs=2000Hz。",
+        "2000Hz > 2×250Hz。"
+      ],
+      "answer": "満たす。2000Hz>2×250Hz。",
+      "checklist": [
+        "連続正弦波と標本点を読み分けた",
+        "fsと2fmaxを別々に求めて比較した",
+        "2000>500なので成立と説明した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "標本点を結ぶ低周波の見かけの波を、原信号の周波数にしない。",
+        "秒とmsの横軸単位を確認する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Answer the following concerning the signal in the figure: whether the sampling theorem is respected, and why.",
+      "translation": "図の標本化について定理が成立するか、理由付きで答える。 図の正弦波は16msに4周期、標本点は0.5ms間隔。",
+      "englishAnswer": "Yes. 2000 Hz > 2×250 Hz.",
+      "diagram": {
+        "src": "figures/multimedia-sampling-2023.svg",
+        "alt": "2023年の連続波形と標本点を原図の条件から再作図"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "multimedia-2023-q10",
+      "status": "conditional",
+      "problem": "次の4式の統計量名を答える。①f′(x)=0となるx、②E[(X−μ)²]、③σ/μ、④(μ−mode)/σ。",
+      "basics": [
+        "密度とモーメントの定義を見分ける。"
+      ],
+      "steps": [
+        "①は密度が最大となる停留点を想定すれば最頻値。",
+        "②は二次中心モーメントで分散。",
+        "③は変動係数。",
+        "④はPearson第一歪度係数。"
+      ],
+      "answer": "①最頻値(mode、ただし最大条件が必要)、②分散(variance)、③変動係数(coefficient of variation)、④Pearson第一歪度係数(Pearson’s first skewness coefficient)。",
+      "checklist": [
+        "二次中心モーメントを分散と答えた",
+        "σ/μを変動係数と答えた",
+        "(μ−mode)/σをPearson第一歪度係数と答えた",
+        "密度の停留点を最大条件付きで最頻値と答えた",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "密度の微分0だけでは最大値を保証しない。",
+        "Pearson第一歪度係数を三次中心モーメントの歪度と同一の式にしない。",
+        "変動係数ではμ≠0、歪度係数ではσ>0を確認する。"
+      ],
+      "assumptions": [
+        "①の微分0だけでは極大・最大を保証しないので、最大となる停留点を意図した条件付き解答。",
+        "μ≠0、σ>0を仮定する。第四式は三次中心モーメントで定義する一般的な歪度とは別。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the name of the statistical measure associated with each formula.",
+      "translation": "次の4式の統計量名を答える。①f′(x)=0となるx、②E[(X−μ)²]、③σ/μ、④(μ−mode)/σ。",
+      "englishAnswer": "Mode (provided the stationary point is a density maximum), variance, coefficient of variation, and Pearson’s first skewness coefficient."
+    },
+    {
+      "questionId": "multimedia-2023-q11-a",
+      "status": "verified",
+      "problem": "入力1,2,3,7,8,0,4,9に窓幅3・シフト1の移動平均を適用し、図の出力A〜Fを求める。",
+      "basics": [
+        "幅3の窓を1標本ずつ右へ移す。"
+      ],
+      "steps": [
+        "A：窓[1, 2, 3]→平均2。",
+        "B：窓[2, 3, 7]→平均4。",
+        "C：窓[3, 7, 8]→平均6。",
+        "D：窓[7, 8, 0]→平均5。",
+        "E：窓[8, 0, 4]→平均4。",
+        "F：窓[0,4,9]→平均(0+4+9)/3=13/3。"
+      ],
+      "answer": "A=2, B=4, C=6, D=5, E=4, F=13/3（約4.3333）。",
+      "checklist": [
+        "入力1,2,3,7,8,0,4,9を保持した",
+        "窓幅3、シフト1の6窓を順番に作った",
+        "各窓の和を3で割った",
+        "出力をA〜Fの順に示した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "端点の0埋めなどを追加して窓数を変えない。",
+        "F=13/3は整数へ丸めず、必要なら近似値を併記する。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Calculate A, B, C, D, E, and F for input 1,2,3,7,8,0,4,9 using a moving average filter with window 3, shift 1.",
+      "translation": "入力1,2,3,7,8,0,4,9に窓幅3・シフト1の移動平均を適用し、図の出力A〜Fを求める。",
+      "englishAnswer": "A=2, B=4, C=6, D=5, E=4, F=13/3 (approximately 4.3333)."
+    },
+    {
+      "questionId": "multimedia-2023-q11-b",
+      "status": "verified",
+      "problem": "同じ入力1,2,3,7,8,0,4,9に窓幅3・シフト1のメディアンフィルタを適用し、A〜Fを求める。",
+      "basics": [
+        "幅3の窓を1標本ずつ右へ移す。"
+      ],
+      "steps": [
+        "A：窓[1, 2, 3]→中央値2。",
+        "B：窓[2, 3, 7]→中央値3。",
+        "C：窓[3, 7, 8]→中央値7。",
+        "D：窓[7, 8, 0]→中央値7。",
+        "E：窓[8, 0, 4]→中央値4。",
+        "F：窓[0, 4, 9]→中央値4。"
+      ],
+      "answer": "A=2, B=3, C=7, D=7, E=4, F=4。",
+      "checklist": [
+        "入力1,2,3,7,8,0,4,9を保持した",
+        "窓幅3、シフト1の6窓を順番に作った",
+        "各窓を並べて中央値を求めた",
+        "出力をA〜Fの順に示した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "端点の0埋めなどを追加して窓数を変えない。",
+        "3値の平均を出してしまわず、中央の1値を選ぶ。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Calculate A, B, C, D, E, and F for input 1,2,3,7,8,0,4,9 using a median filter with window 3, shift 1.",
+      "translation": "同じ入力1,2,3,7,8,0,4,9に窓幅3・シフト1のメディアンフィルタを適用し、A〜Fを求める。",
+      "englishAnswer": "A=2, B=3, C=7, D=7, E=4, F=4."
+    },
+    {
+      "questionId": "multimedia-2023-q12",
+      "status": "verified",
+      "problem": "first order low pass filterの式を書き、各記号を説明する。",
+      "basics": [
+        "現在入力と前回出力を重み付きで混ぜる。"
+      ],
+      "steps": [
+        "y[n]=r y[n−1]+(1−r)x[n]。",
+        "0≤r<1なら過去の影響は徐々に減衰。",
+        "rが大きいほど平滑だが応答が遅い。"
+      ],
+      "answer": "$y[n]=r y[n-1]+(1-r)x[n]$。y[n]は現在出力、y[n−1]は前回出力、x[n]は現在入力、rは記憶の重み（通常0≤r<1）。",
+      "checklist": [
+        "y[n]=r y[n−1]+(1−r)x[n]を書いた",
+        "現在出力と前回出力と現在入力を区別した",
+        "rの範囲と重みの意味を説明した",
+        "前回出力を保存して次回更新へ使うと示した",
+        "当該年度の指定に合わせて英語で答案を書いた"
+      ],
+      "pitfalls": [
+        "現在入力の係数と前回出力の係数を定義なしで逆にしない。",
+        "r=1では新しい入力が反映されない。",
+        "一次フィルタを幅3の移動平均と同じ式にしない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the formula expressing a first-order low-pass filter and describe each component.",
+      "translation": "first order low pass filterの式を書き、各記号を説明する。",
+      "englishAnswer": "y[n] = r y[n−1] + (1−r)x[n]. y[n] is the new output, y[n−1] the previous output, x[n] the current input, and r the smoothing memory coefficient, usually 0≤r<1."
+    },
+    {
+      "questionId": "multimedia-2025-q1",
+      "status": "verified",
+      "problem": "マルチメディア開発と強く関連する産業を2つ挙げる。",
+      "basics": [
+        "複数メディアを制作・統合・配信する産業を挙げる。"
+      ],
+      "steps": [
+        "映像と音声の統合を考える。",
+        "産業名を指定数だけ列挙する。"
+      ],
+      "answer": "映画産業、放送産業。",
+      "checklist": [
+        "異なる産業を2つ挙げた",
+        "映画・放送・ゲーム等の産業名として答えた",
+        "映像・音声等を制作・統合・提示する産業を選んだ"
+      ],
+      "pitfalls": [
+        "通信の手段や装置名は産業名ではない。",
+        "指定数を満たすために同じ産業の同義語を重複させない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write two industry names that are strongly related to Multimedia development.",
+      "translation": "マルチメディア開発と強く関連する産業を2つ挙げる。",
+      "englishAnswer": "Film production, broadcasting."
+    },
+    {
+      "questionId": "multimedia-2025-q2",
+      "status": "conditional",
+      "problem": "Isochronous, Synchronous, Asynchronousの各media transmission modeを定義する。番号のない3要求をまとめる。",
+      "basics": [
+        "ここでは端末間遅延の時間制約による分類を採用する。"
+      ],
+      "steps": [
+        "Isochronousは遅延の上限と下限を定める。",
+        "Synchronousは遅延の上限を定め、早期到着を許す。",
+        "Asynchronousはその時間制約を要求しない。"
+      ],
+      "answer": "Isochronous：遅延が指定した上下限内。Synchronous：遅延に最大値を定める。Asynchronous：特定の遅延上限を保証しない。",
+      "checklist": [
+        "Isochronousの遅延の上限・下限を示した",
+        "Synchronousの遅延上限と早期到着の許容を示した",
+        "Asynchronousでは同じ時間保証を課さないと示した",
+        "採用した遅延制約の分類を講義の定義と照合した"
+      ],
+      "pitfalls": [
+        "単に「同期」「非同期」と訳すだけでは時間制約の説明にならない。",
+        "クロック同期の意味と、講義での遅延制約の分類を混同しない。",
+        "Asynchronousを「必ず遅い」と定義しない。"
+      ],
+      "assumptions": [
+        "名称を遅延制約で区別する講義上のモデルを採用した。クロック同期方式の一般的分類とは区別し、講義資料の定義を確認する。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the definition of each of the following media transmission modes: Isochronous, Synchronous, Asynchronous.",
+      "translation": "Isochronous, Synchronous, Asynchronousの各media transmission modeを定義する。番号のない3要求をまとめる。",
+      "englishAnswer": "Isochronous transmission bounds end-to-end delay between a minimum and a maximum. Synchronous transmission bounds the maximum delay and permits earlier arrivals. Asynchronous transmission imposes no such timing guarantee."
+    },
+    {
+      "questionId": "multimedia-2025-q3",
+      "status": "conditional",
+      "problem": "stereophony presentation spaceが何次元か答える。",
+      "basics": [
+        "提示空間の次元は講義で定めた音源位置の表現に依存する。",
+        "左右2チャンネルという数と空間次元数は別。"
+      ],
+      "steps": [
+        "音源位置を空間内のx,y,zで表す解釈なら3座標を使う。",
+        "左右定位だけの軸なら1次元で、別の定義になる。"
+      ],
+      "answer": "音源の提示空間を3次元の空間位置として定義する場合、3次元。原本単独では提示空間の定義が不足しているため、講義資料で確認する。",
+      "checklist": [
+        "提示空間を音源の3次元位置として扱う仮定を書いた",
+        "仮定に基づく3次元と、左右2チャンネルを区別した",
+        "講義での提示空間の定義を確認する点を示した"
+      ],
+      "pitfalls": [
+        "ステレオ2チャンネルという数を、そのまま空間の次元数にしない。",
+        "問題文単独では空間の定義が不足するので無条件の正解として断定しない。"
+      ],
+      "assumptions": [
+        "音源の提示空間を3次元の位置空間として扱う。ステレオ録音のチャンネル数を尋ねているとは解釈しない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "How many dimensions does the stereophony presentation space have?",
+      "translation": "stereophony presentation spaceが何次元か答える。",
+      "englishAnswer": "If the presentation space means a spatial sound field with three independent position coordinates, it has three dimensions. This is distinct from the two audio channels; the course definition should be confirmed."
+    },
+    {
+      "questionId": "multimedia-2025-q4",
+      "status": "conditional",
+      "problem": "continuous data streamsのpacket size characterizationの分類名を列挙する。",
+      "basics": [
+        "パケットサイズの時間変動を区別する。"
+      ],
+      "steps": [
+        "一定の長さ、周期的な長さの変動、不規則な長さの変動を列挙する。"
+      ],
+      "answer": "Strongly regular（一定サイズ）、periodically regular（サイズが周期的に変化）、irregular（不規則なサイズ）。",
+      "checklist": [
+        "一定サイズの分類を挙げた",
+        "周期的にサイズが変化する分類を挙げた",
+        "不規則にサイズが変化する分類を挙げた",
+        "時間周期ではなくパケットサイズの分類と示した"
+      ],
+      "pitfalls": [
+        "strongly periodicなどの時間周期の用語をサイズの分類へ流用しない。",
+        "固定サイズと周期的に繰り返す可変サイズを区別する。"
+      ],
+      "assumptions": [
+        "講義の分類名に依存するため、サイズの変化の意味も添えて示した。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the names of possible types of packet size characterization of continuous data streams.",
+      "translation": "continuous data streamsのpacket size characterizationの分類名を列挙する。",
+      "englishAnswer": "Strongly regular (constant size), periodically regular (periodically varying size), and irregular (irregularly varying size)."
+    },
+    {
+      "questionId": "multimedia-2025-q5",
+      "status": "verified",
+      "problem": "Shannon's sampling theoremを定義する。",
+      "basics": [
+        "帯域制限と理想的な復元が前提。"
+      ],
+      "steps": [
+        "最高信号周波数fmaxと標本化周波数fsを定義する。",
+        "ナイキスト境界の2倍を超える条件を記す。"
+      ],
+      "answer": "最高周波数がfmaxに帯域制限された連続信号は、fs>2fmaxで一様標本化すれば、理想的な補間で完全復元できる。等号は位相による退化に注意する。",
+      "checklist": [
+        "帯域制限された連続信号という前提を書いた",
+        "最高信号周波数fmaxと標本化周波数fsを定義した",
+        "fs>2fmaxという十分条件を書いた",
+        "理想的な補間で復元できることを書いた"
+      ],
+      "pitfalls": [
+        "最高周波数と標本化周波数を逆にしない。",
+        "等号境界では位相により標本値が全て0になる場合がある。",
+        "量子化誤差がなくなる定理として説明しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the definition of Shannon's sampling theorem.",
+      "translation": "Shannon's sampling theoremを定義する。",
+      "englishAnswer": "A band-limited continuous signal with maximum frequency fmax can be reconstructed exactly from uniform samples if fs > 2 fmax, assuming ideal reconstruction. The equality case requires care at the band edge."
+    },
+    {
+      "questionId": "multimedia-2025-q6",
+      "status": "verified",
+      "problem": "sampling period T=125microsecondsからsampling rateを求める。",
+      "basics": [
+        "周波数は周期の逆数。"
+      ],
+      "steps": [
+        "125µs=0.000125秒。",
+        "fs=1/0.000125。"
+      ],
+      "answer": "8000Hz（8kHz）。",
+      "checklist": [
+        "125µsを0.000125秒に換算した",
+        "fs=1/Tを適用した",
+        "8000Hzまたは8kHzを単位付きで答えた"
+      ],
+      "pitfalls": [
+        "µsをmsとして扱うと1000倍違う。",
+        "周期125µsをそのまま周波数125Hzとしない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "What is the sampling rate when the sampling period T=125 microseconds?",
+      "translation": "sampling period T=125microsecondsからsampling rateを求める。",
+      "englishAnswer": "The sampling rate is 1/(125×10^-6 s) = 8000 Hz.",
+      "autoCheck": {
+        "id": "multimedia-2025-q6-answer",
+        "prompt": "標本化周波数をHzで答える。",
+        "kind": "number",
+        "explanation": "µsを秒へ換算して逆数を取る。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 8000,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "multimedia-2025-q7-1",
+      "status": "verified",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the number of quantization levels L.\n日本語：4bit・入力範囲1〜4VのA/D変換。量子化レベル数Lを求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(4−1)/(16−1)=0.2V。",
+        "最近接整数k=round((2.45−1)/Δ)=7、xq=1+7Δ=2.4V。"
+      ],
+      "answer": "L=16。",
+      "checklist": [
+        "4bitからL=2^4=16を求めた",
+        "レベル数を整数で答えた"
+      ],
+      "pitfalls": [
+        "レベル数Lと隣接代表値の間隔数L−1を混同しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the number of quantization levels L.",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the number of quantization levels L.\n日本語：4bit・入力範囲1〜4VのA/D変換。量子化レベル数Lを求める。",
+      "englishAnswer": "L = 16.",
+      "autoCheck": {
+        "id": "multimedia-2025-q7-1-answer",
+        "prompt": "量子化レベル数Lを答える。",
+        "kind": "number",
+        "explanation": "2のbit数乗。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 16,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "multimedia-2025-q7-2",
+      "status": "conditional",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the step size Δ (resolution).\n日本語：4bit・入力範囲1〜4VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(4−1)/(16−1)=0.2V。",
+        "最近接整数k=round((2.45−1)/Δ)=7、xq=1+7Δ=2.4V。",
+        "区間分割方式ならΔ=(4−1)/16=0.1875Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "Δ=0.2V。",
+      "checklist": [
+        "入力下限1Vと上限4Vから幅3Vを使った",
+        "両端込みLレベルの規約を明記した",
+        "Δ=(Vmax−Vmin)/(L−1)を使いV単位で答えた",
+        "区間分割L方式との違いを確認した"
+      ],
+      "pitfalls": [
+        "原本は端点と区間分割の規約を指定していない。",
+        "Δに電圧の下限を加えない。幅だけを使う。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the step size Δ (resolution).",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the step size Δ (resolution).\n日本語：4bit・入力範囲1〜4VのA/D変換。ステップ幅Δ（分解能）を求める。",
+      "englishAnswer": "Δ = 0.2 V under the endpoint-inclusive convention."
+    },
+    {
+      "questionId": "multimedia-2025-q7-3",
+      "status": "conditional",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the quantization level xq when the analog input is 2.45V.\n日本語：4bit・入力範囲1〜4VのA/D変換。アナログ入力2.45Vの量子化値xqを求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(4−1)/(16−1)=0.2V。",
+        "最近接整数k=round((2.45−1)/Δ)=7、xq=1+7Δ=2.4V。",
+        "区間分割方式ならΔ=(4−1)/16=0.1875Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "xq=2.4V。",
+      "checklist": [
+        "当該小問の入力電圧を使った",
+        "(x−Vmin)/Δでレベル番号を求めた",
+        "最近接への丸めを明示した",
+        "xq=Vmin+kΔで電圧へ戻した"
+      ],
+      "pitfalls": [
+        "量子化値xqはレベル番号kではなく電圧。",
+        "下限が1Vならオフセット1Vを戻す。",
+        "入力範囲1〜4Vを0〜3Vと読み替えない。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the quantization level xq when the analog input is 2.45V.",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the quantization level xq when the analog input is 2.45V.\n日本語：4bit・入力範囲1〜4VのA/D変換。アナログ入力2.45Vの量子化値xqを求める。",
+      "englishAnswer": "xq = 2.4 V using nearest-level rounding."
+    },
+    {
+      "questionId": "multimedia-2025-q7-4",
+      "status": "conditional",
+      "problem": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the binary code when the analog input is 2.45V.\n日本語：4bit・入力範囲1〜4VのA/D変換。アナログ入力2.45Vに対応する2進符号を求める。",
+      "basics": [
+        "L=2^n。代表値を両端込みに配置する方式と、L等幅区間へ分ける方式は異なる。"
+      ],
+      "steps": [
+        "L=2^4=16。",
+        "両端込み代表値ならΔ=(4−1)/(16−1)=0.2V。",
+        "最近接整数k=round((2.45−1)/Δ)=7、xq=1+7Δ=2.4V。",
+        "区間分割方式ならΔ=(4−1)/16=0.1875Vとなる。どちらを使うかは講義規約で確認する。"
+      ],
+      "answer": "入力2.45Vではk=7、符号0111。",
+      "checklist": [
+        "符号用小問の入力電圧を使った",
+        "下限1Vを引いてレベル番号kを求めた",
+        "コード割当規約を明記した",
+        "kを4桁の2進数で0埋めして答えた"
+      ],
+      "pitfalls": [
+        "最上位の0も省略せずbit数を保持する。",
+        "レベル番号の2進符号を電圧そのものの2進表現と混同しない。",
+        "入力範囲1〜4Vを0〜3Vと読み替えない。"
+      ],
+      "assumptions": [
+        "両端を含むL個の等間隔代表値、最近接丸め、0から増加する自然2進コードを採用する。原本は端点・丸め・誤差の符号を指定していない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the binary code when the analog input is 2.45V.",
+      "translation": "Assuming that a 4-bit A/D conversion channel accepts analog input ranging from 1 to 4 Volts, determine the binary code when the analog input is 2.45V.\n日本語：4bit・入力範囲1〜4VのA/D変換。アナログ入力2.45Vに対応する2進符号を求める。",
+      "englishAnswer": "For input 2.45 V, the level index is 7; the 4-bit code is 0111."
+    },
+    {
+      "questionId": "multimedia-2025-q8-a",
+      "status": "verified",
+      "problem": "デジタル信号の平均を0、分散を1にする式を書く。",
+      "basics": [
+        "信号全体の平均・標準偏差または最小・最大を使う。"
+      ],
+      "steps": [
+        "μを平均、σを標準偏差とする。",
+        "平均との差を標準偏差で割る。"
+      ],
+      "answer": "$Z=(X-\\mu)/\\sigma$（σ>0）。",
+      "checklist": [
+        "平均μと標準偏差σを定義した",
+        "Z=(X−μ)/σを書いた",
+        "平均0、分散1となる目的を示した",
+        "σ>0を確認した"
+      ],
+      "pitfalls": [
+        "σ²で割ると分散1にならない。",
+        "標準化は値を[0,1]または[-1,1]へ収める保証がない。",
+        "定数信号ではσ=0なので式を適用できない。"
+      ],
+      "assumptions": [
+        "分母が0の定数信号ではこの式を適用できない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the equation to normalize a digital signal X such that its mean becomes 0 and its variance 1.",
+      "translation": "デジタル信号の平均を0、分散を1にする式を書く。",
+      "englishAnswer": "Z = (X − μ)/σ, where μ is the mean and σ>0 is the standard deviation."
+    },
+    {
+      "questionId": "multimedia-2025-q8-b",
+      "status": "verified",
+      "problem": "デジタル信号を[0,1]の区間へ正規化する式を書く。",
+      "basics": [
+        "信号全体の平均・標準偏差または最小・最大を使う。"
+      ],
+      "steps": [
+        "xmin,xmaxをデータの最小・最大とする。",
+        "(X−xmin)/(xmax−xmin)で[0,1]へ移す。"
+      ],
+      "answer": "$Z=(X-X_{min})/(X_{max}-X_{min})$。",
+      "checklist": [
+        "Xmin,Xmaxを信号全体の最小・最大と定義した",
+        "Xmax>Xminを確認した",
+        "最小値と最大値を代入して指定範囲の端点を確認した",
+        "Z=(X−Xmin)/(Xmax−Xmin)を書いた"
+      ],
+      "pitfalls": [
+        "最小値を引く処理を省略しない。",
+        "[0,1]への変換に−1や2倍の処理を追加しない。",
+        "定数信号では範囲幅0なので式を適用できない。"
+      ],
+      "assumptions": [
+        "分母が0の定数信号ではこの式を適用できない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the equation to normalize a digital signal X between the range [0~1].",
+      "translation": "デジタル信号を[0,1]の区間へ正規化する式を書く。",
+      "englishAnswer": "Z = (X − Xmin)/(Xmax − Xmin). Assume Xmax > Xmin."
+    },
+    {
+      "questionId": "multimedia-2025-q9",
+      "status": "verified",
+      "problem": "Fourier Transformのbasic building blockを表す式を書き、その各成分のEnglish or Japanese nameを示す。",
+      "basics": [
+        "正弦波を振幅、角周波数、位相で表す。"
+      ],
+      "steps": [
+        "A sin(ωx+φ)を示す。",
+        "Aは振幅、φは位相、ωは角周波数。",
+        "xが時間ならωの単位はrad/s。"
+      ],
+      "answer": "$A\\sin(\\omega x+\\phi)$。A：振幅(amplitude)、φ：位相(phase)、ω：角周波数(angular frequency)。",
+      "checklist": [
+        "基本正弦波A sin(ωx+φ)を示した",
+        "Aを振幅amplitudeと説明した",
+        "φを位相phaseと説明した",
+        "ωを角周波数angular frequencyと説明した"
+      ],
+      "pitfalls": [
+        "ω(rad/s)と通常の周波数f(Hz)はω=2πfの関係。",
+        "振幅Aと波形の全幅2Aを混同しない。",
+        "位相φと変数xを入れ替えない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "originalEnglish": "Write the formula representing the basic building block of the Fourier Transform and the English or Japanese name of each component.",
+      "translation": "Fourier Transformのbasic building blockを表す式を書き、その各成分のEnglish or Japanese nameを示す。",
+      "englishAnswer": "A sin(ωx+φ): A is amplitude, φ is phase, and ω is angular frequency."
+    },
+    {
+      "questionId": "multimedia-2025-q10",
+      "status": "verified",
+      "problem": "次の4式の統計量名を答える。①∫(x−μ)²f(x)dx、②F(xmd)=0.5、③σ/μ、④(μ−mode)/σ。",
+      "basics": [
+        "密度とモーメントの定義を見分ける。"
+      ],
+      "steps": [
+        "①は分散。",
+        "②は中央値。",
+        "③は変動係数。",
+        "④はPearson第一歪度係数。"
+      ],
+      "answer": "①分散、②中央値、③変動係数、④Pearson第一歪度係数。",
+      "checklist": [
+        "二次中心モーメントを分散と答えた",
+        "σ/μを変動係数と答えた",
+        "(μ−mode)/σをPearson第一歪度係数と答えた",
+        "累積確率0.5の点を中央値と答えた"
+      ],
+      "pitfalls": [
+        "累積確率0.5の位置は中央値で、密度最大の最頻値ではない。",
+        "Pearson第一歪度係数を三次中心モーメントの歪度と同一の式にしない。",
+        "変動係数ではμ≠0、歪度係数ではσ>0を確認する。"
+      ],
+      "assumptions": [
+        "μ≠0、σ>0を仮定する。第四式は三次中心モーメントで定義する一般的な歪度とは別。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the name of the statistical measure associated with each formula.",
+      "translation": "次の4式の統計量名を答える。①∫(x−μ)²f(x)dx、②F(xmd)=0.5、③σ/μ、④(μ−mode)/σ。",
+      "englishAnswer": "Variance, median, coefficient of variation, and Pearson’s first skewness coefficient."
+    },
+    {
+      "questionId": "multimedia-2025-q11",
+      "status": "verified",
+      "problem": "一次元信号のshort-term energyを表す式を書き、各成分を説明する。",
+      "basics": [
+        "窓内の二乗和で局所的な信号の強さを測る。"
+      ],
+      "steps": [
+        "長さNの矩形窓を選ぶ。",
+        "E[n]=Σ(m=0..N−1)x[n−m]²。",
+        "nは窓終端の時刻、mは遅れ、xは信号標本。"
+      ],
+      "answer": "$E[n]=\\sum_{m=0}^{N-1}x[n-m]^2$。xは離散信号、nは時刻、Nは窓長、mは窓内の遅れ。窓重みwを用いるなら$E[n]=\\sum_mw[m]x[n-m]^2$。",
+      "checklist": [
+        "窓内の信号の二乗和の式を書いた",
+        "信号x、時刻n、窓長N、遅れmを説明した",
+        "採用した矩形窓または窓重みwを明示した",
+        "エネルギーと平均二乗値を区別した"
+      ],
+      "pitfalls": [
+        "符号付き信号をそのまま足すとエネルギーではない。",
+        "窓長で割ると平均二乗値であり、二乗和とは異なる。",
+        "窓や和の範囲を示さないと短時間の意味が曖昧になる。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the formula expressing the short-term energy of a 1-dimensional signal and describe each component.",
+      "translation": "一次元信号のshort-term energyを表す式を書き、各成分を説明する。",
+      "englishAnswer": "E[n] = Σ(m=0 to N−1) x[n−m]^2. x is the discrete signal, n the time index, N the window length, and m the lag. This uses a rectangular window."
+    },
+    {
+      "questionId": "multimedia-2025-q12",
+      "status": "verified",
+      "problem": "first-order low-pass filterの式を書き、各成分を説明する。",
+      "basics": [
+        "現在入力と前回出力を重み付きで混ぜる。"
+      ],
+      "steps": [
+        "y[n]=r y[n−1]+(1−r)x[n]。",
+        "0≤r<1なら過去の影響は徐々に減衰。",
+        "rが大きいほど平滑だが応答が遅い。"
+      ],
+      "answer": "$y[n]=r y[n-1]+(1-r)x[n]$。y[n]は現在出力、y[n−1]は前回出力、x[n]は現在入力、rは記憶の重み（通常0≤r<1）。",
+      "checklist": [
+        "y[n]=r y[n−1]+(1−r)x[n]を書いた",
+        "現在出力と前回出力と現在入力を区別した",
+        "rの範囲と重みの意味を説明した",
+        "前回出力を保存して次回更新へ使うと示した"
+      ],
+      "pitfalls": [
+        "現在入力の係数と前回出力の係数を定義なしで逆にしない。",
+        "r=1では新しい入力が反映されない。",
+        "一次フィルタを幅3の移動平均と同じ式にしない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "originalEnglish": "Write the formula expressing a first-order low-pass filter and describe each component.",
+      "translation": "first-order low-pass filterの式を書き、各成分を説明する。",
+      "englishAnswer": "y[n] = r y[n−1] + (1−r)x[n]. y[n] is the new output, y[n−1] the previous output, x[n] the current input, and r the smoothing memory coefficient, usually 0≤r<1."
+    }
+  ]
+}

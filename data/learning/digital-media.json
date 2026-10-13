@@ -1,0 +1,1472 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "digital-media",
+  "lessons": [
+    {
+      "topicId": "digital-media-linear-map",
+      "title": "原点回転の線型性",
+      "objectives": [
+        "線型性の2条件を式で確認する",
+        "原点回転と並進を区別する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "線型性の定義",
+          "body": "$T(u+v)=T(u)+T(v)$ と $T(cu)=cT(u)$ が成り立つ写像を線型という。行列を左から掛ける写像 $T(x)=Ax$ は両条件を満たす。"
+        },
+        {
+          "title": "回転と原点",
+          "body": "角度を固定した2次元の原点回転は $R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$ で表せる。一方、$T(x)=Ax+b$ は $b\\ne0$ なら $T(0)\\ne0$ で線型ではない。回転中心をずらすと通常は並進項が生じる。"
+        }
+      ],
+      "example": {
+        "prompt": "90度反時計回りの原点回転で (2,1) を移す。",
+        "steps": [
+          "$R_{\\pi/2}=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}$。",
+          "$R_{\\pi/2}(2,1)^T=(-1,2)^T$。"
+        ],
+        "answer": "$(-1,2)^T$"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-linear-map-c1",
+          "prompt": "原点を固定する回転を、角度固定で考えると？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "線型写像"
+            },
+            {
+              "id": "1",
+              "label": "必ず非線型"
+            },
+            {
+              "id": "2",
+              "label": "入力ごとに角度を変える写像"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "固定行列を掛けるので線型性の2条件を満たす。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-linear-map-c2",
+          "prompt": "線型写像が満たす条件をすべて選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "T(u+v)=T(u)+T(v)"
+            },
+            {
+              "id": "1",
+              "label": "T(cu)=cT(u)"
+            },
+            {
+              "id": "2",
+              "label": "必ず距離を2倍にする"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "加法性と斉次性が定義。距離保存は線型性に必須ではない。",
+          "pitfall": "回転の性質と線型写像全般の性質を混同しない。"
+        },
+        {
+          "id": "digital-media-linear-map-c3",
+          "prompt": "原点周りの90度反時計回り回転で (2,1) の x 座標は？",
+          "kind": "number",
+          "numericAnswer": -1,
+          "tolerance": 1e-09,
+          "explanation": "(x,y)→(-y,x)。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-linear-map-retest",
+        "prompt": "T(x)=2x+(1,0) は線型か？",
+        "kind": "choice",
+        "options": [
+          {
+            "id": "0",
+            "label": "線型"
+          },
+          {
+            "id": "1",
+            "label": "線型でない"
+          }
+        ],
+        "correctOptions": [
+          "1"
+        ],
+        "explanation": "T(0)=(1,0)≠0 なので線型でない。",
+        "pitfall": "条件を読み、理由も言えるようにする。"
+      }
+    },
+    {
+      "topicId": "digital-media-coordinate-transform",
+      "title": "座標変換の行列表現",
+      "objectives": [
+        "基底の像を行列の列に置く",
+        "同次座標で並進を表す"
+      ],
+      "prerequisiteTopicIds": [
+        "digital-media-linear-map"
+      ],
+      "sections": [
+        {
+          "title": "列と基底の対応",
+          "body": "$e_1=(1,0)^T,e_2=(0,1)^T$ とすると、$A=[Ae_1\\ Ae_2]$。与えられた順番ではなく、$e_1$ の像を第1列、$e_2$ の像を第2列に置く。"
+        },
+        {
+          "title": "並進を含む場合",
+          "body": "$T(x)=Bx+t$ は同次座標で $\\begin{pmatrix}B&t\\\\0&1\\end{pmatrix}(x,y,1)^T$ と書く。$t=T(0)$、$Be_i=T(e_i)-t$。原点の像を先に引くと連立方程式を省ける。"
+        }
+      ],
+      "example": {
+        "prompt": "T(0)=(1,2), T(e1)=(3,2), T(e2)=(1,5) の同次行列。",
+        "steps": [
+          "並進は t=(1,2)。",
+          "第1列の線型部分は (2,0)、第2列は (0,3)。"
+        ],
+        "answer": "$\\begin{pmatrix}2&0&1\\\\0&3&2\\\\0&0&1\\end{pmatrix}$"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-coordinate-transform-c1",
+          "prompt": "A(1,0) はどこに現れる？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "第1列"
+            },
+            {
+              "id": "1",
+              "label": "第2行"
+            },
+            {
+              "id": "2",
+              "label": "第2列"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "基底ベクトル e1 を掛けると第1列を取り出す。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-coordinate-transform-c2",
+          "prompt": "アフィン変換の同次行列について正しいもの。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "並進は最終列"
+            },
+            {
+              "id": "1",
+              "label": "入力点の末尾に1を補う"
+            },
+            {
+              "id": "2",
+              "label": "原点の像は常に0"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "同次座標の1によって並進が加算される。",
+          "pitfall": "2成分と3成分のまま掛けない。"
+        },
+        {
+          "id": "digital-media-coordinate-transform-c3",
+          "prompt": "T(0)=(2,1), T(e1)=(5,4) の線型部分の第1列の x 成分は？",
+          "kind": "number",
+          "numericAnswer": 3,
+          "tolerance": 1e-09,
+          "explanation": "5−2=3。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-coordinate-transform-retest",
+        "prompt": "A の列が (2,1),(1,3)。A(1,2) の y 成分は？",
+        "kind": "number",
+        "numericAnswer": 7,
+        "tolerance": 1e-09,
+        "explanation": "1+2×3=7。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "digital-media-bezier",
+      "title": "ベジェ曲線",
+      "objectives": [
+        "Bernstein係数で曲線上の点を計算する",
+        "形を変えずに次数を上げる"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "制御点を混ぜる",
+          "body": "三次は $C(t)=(1-t)^3P_0+3t(1-t)^2P_1+3t^2(1-t)P_2+t^3P_3$。$0\\le t\\le1$ で係数は非負、合計1。中間の制御点を一般には通過しない。"
+        },
+        {
+          "title": "次数上げ",
+          "body": "二次の $P_0,P_1,P_2$ を三次にするには $Q_0=P_0,Q_1=\\frac13P_0+\\frac23P_1,Q_2=\\frac23P_1+\\frac13P_2,Q_3=P_2$。係数を展開して同じ多項式になることを確認する。"
+        }
+      ],
+      "example": {
+        "prompt": "三次の P0=(0,0),P1=(0,2),P2=(2,2),P3=(2,0) で t=1/2。",
+        "steps": [
+          "係数は 1/8,3/8,3/8,1/8。",
+          "x=0+0+6/8+2/8=1、y=6/8+6/8=1.5。"
+        ],
+        "answer": "(1,1.5)"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-bezier-c1",
+          "prompt": "C(0) が一致する点は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "P0"
+            },
+            {
+              "id": "1",
+              "label": "P1"
+            },
+            {
+              "id": "2",
+              "label": "全制御点の平均"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "t=0 では第1係数だけが1。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-bezier-c2",
+          "prompt": "t∈[0,1] で三次Bernstein係数が満たす条件。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "係数の和は1"
+            },
+            {
+              "id": "1",
+              "label": "すべて非負"
+            },
+            {
+              "id": "2",
+              "label": "すべて同じ値"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "二項定理より和は ((1−t)+t)^3=1。",
+          "pitfall": "t=1/2でも端と中間の係数は異なる。"
+        },
+        {
+          "id": "digital-media-bezier-c3",
+          "prompt": "t=1/2 の三次曲線で P1 の係数は？",
+          "kind": "number",
+          "numericAnswer": 0.375,
+          "tolerance": 1e-09,
+          "explanation": "3×1/2×(1/2)^2=3/8。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-bezier-retest",
+        "prompt": "二次P0=(3,0),P1=(0,0),P2=(0,3)を次数上げしたQ1のxは？",
+        "kind": "number",
+        "numericAnswer": 1,
+        "tolerance": 1e-09,
+        "explanation": "Q1=P0/3+2P1/3。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "digital-media-inverse-transform",
+      "title": "確率密度の逆関数法",
+      "objectives": [
+        "定義域から正規化定数を求める",
+        "累積分布を逆に解く"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "逆関数法の順序",
+          "body": "まず定義域で密度 $p$ を積分して1にする。次に $F(\\theta)=\\int_a^\\theta p(u)du$ を求め、$F(\\theta)=\\xi$ を解く。$\\xi\\in[0,1)$ は一様乱数。密度そのものを逆にするのではない。"
+        },
+        {
+          "title": "三角関数の置換",
+          "body": "$[0,\\pi/2]$ で $p\\propto\\cos\\theta\\sin^m\\theta$ なら $u=\\sin\\theta$ を用い、$p=(m+1)\\cos\\theta\\sin^m\\theta$、$F=\\sin^{m+1}\\theta$。よって $\\theta=\\arcsin(\\xi^{1/(m+1)})$。この範囲以外を勝手に同じ式で扱わない。"
+        }
+      ],
+      "example": {
+        "prompt": "[0,1] で p(x)∝x のサンプルを作る。",
+        "steps": [
+          "∫0^1 x dx=1/2 より p(x)=2x。",
+          "F(x)=x²。F(x)=ξ を x≥0 で解く。"
+        ],
+        "answer": "$x=\\sqrt\\xi$"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-inverse-transform-c1",
+          "prompt": "逆関数法で逆にするものは？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "累積分布関数"
+            },
+            {
+              "id": "1",
+              "label": "確率密度の値"
+            },
+            {
+              "id": "2",
+              "label": "期待値"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "F^{-1}(ξ) を使う。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-inverse-transform-c2",
+          "prompt": "連続確率密度として必要な条件。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "非負"
+            },
+            {
+              "id": "1",
+              "label": "定義域での積分が1"
+            },
+            {
+              "id": "2",
+              "label": "最大値が必ず1以下"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "密度は1を超えてもよい。確率は区間積分で得る。",
+          "pitfall": "密度と確率を同一視しない。"
+        },
+        {
+          "id": "digital-media-inverse-transform-c3",
+          "prompt": "[0,1]で p(x)=cx² を正規化する c は？",
+          "kind": "number",
+          "numericAnswer": 3,
+          "tolerance": 1e-09,
+          "explanation": "∫0^1 cx² dx=c/3=1。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-inverse-transform-retest",
+        "prompt": "F(x)=x², ξ=0.36 の x は？",
+        "kind": "number",
+        "numericAnswer": 0.6,
+        "tolerance": 1e-09,
+        "explanation": "非負の平方根を取る。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "digital-media-barycentric",
+      "title": "三角形の重心座標",
+      "objectives": [
+        "重みの和と座標の連立方程式を作る",
+        "負の重みを解釈する"
+      ],
+      "prerequisiteTopicIds": [
+        "digital-media-coordinate-transform"
+      ],
+      "sections": [
+        {
+          "title": "三角形を座標の基準にする",
+          "body": "$V=\\alpha V_\\alpha+\\beta V_\\beta+\\gamma V_\\gamma$ と $\\alpha+\\beta+\\gamma=1$ を同時に解く。2次元ではx,y,和の3式を使う。三頂点が一直線だと一意に決まらない。"
+        },
+        {
+          "title": "内外の判定",
+          "body": "非退化三角形の内部ではすべての重みが非負。三角形外でも重心座標は定義でき、負の重みが現れる。原本にない $0\\le\\alpha,\\beta,\\gamma\\le1$ を追加しない。"
+        }
+      ],
+      "example": {
+        "prompt": "頂点 (0,0),(2,0),(0,2) に対する点 (1,1) の重み。",
+        "steps": [
+          "x=2β=1 → β=1/2。",
+          "y=2γ=1 → γ=1/2。",
+          "α=1−β−γ=0。"
+        ],
+        "answer": "$(\\alpha,\\beta,\\gamma)=(0,1/2,1/2)$"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-barycentric-c1",
+          "prompt": "重心座標の重みの和は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "1"
+            },
+            {
+              "id": "1",
+              "label": "0"
+            },
+            {
+              "id": "2",
+              "label": "頂点の個数"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "アフィン結合の条件。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-barycentric-c2",
+          "prompt": "正しい説明をすべて選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "三角形外では負の重みを持ち得る"
+            },
+            {
+              "id": "1",
+              "label": "座標2式と重みの和を使う"
+            },
+            {
+              "id": "2",
+              "label": "常に3つとも0以上"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "内点の条件を外点へ追加しない。",
+          "pitfall": "問題の非負制約の有無を読む。"
+        },
+        {
+          "id": "digital-media-barycentric-c3",
+          "prompt": "α=0.2, β=0.5 のとき γ は？",
+          "kind": "number",
+          "numericAnswer": 0.3,
+          "tolerance": 1e-09,
+          "explanation": "1−0.2−0.5=0.3。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-barycentric-retest",
+        "prompt": "頂点(0,0),(1,0),(0,1)に対する点(2,0)の第1頂点の重みは？",
+        "kind": "number",
+        "numericAnswer": -1,
+        "tolerance": 1e-09,
+        "explanation": "β=2,γ=0なのでα=−1。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "digital-media-euler",
+      "title": "Euler法の比較",
+      "objectives": [
+        "3種類の評価時点を比較する",
+        "振動系で安定性とエネルギーの傾向を区別する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "陽解法と陰解法",
+          "body": "$y\\prime=f(t,y)$ で Forward は $y_{n+1}=y_n+hf(t_n,y_n)$、Backward は $y_{n+1}=y_n+hf(t_{n+1},y_{n+1})$。後者は未知の $y_{n+1}$ を含む方程式を解く。どちらも大域誤差は通常1次。"
+        },
+        {
+          "title": "分離Hamilton系のSymplectic Euler",
+          "body": "$\\dot q=p,\\dot p=-\\omega^2q$ なら一例は $p_{n+1}=p_n-h\\omega^2q_n$、$q_{n+1}=q_n+hp_{n+1}$。位相空間のシンプレクティック構造を保つが、真のエネルギーを各ステップで厳密保存するとは限らない。振動系で長期のエネルギー誤差を抑えやすいが、$h\\omega<2$ などの刻み幅制約があり、一般の微分方程式すべてに同じ保証はない。"
+        }
+      ],
+      "example": {
+        "prompt": "q=1,p=0,h=0.1,ω=1 で上記Symplectic Eulerを1ステップ。",
+        "steps": [
+          "先に pnew=0−0.1×1=−0.1。",
+          "次に qnew=1+0.1×(−0.1)=0.99。"
+        ],
+        "answer": "q=0.99, p=−0.1"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-euler-c1",
+          "prompt": "Backward Eulerが評価する状態は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "次の時刻の未知状態"
+            },
+            {
+              "id": "1",
+              "label": "常に初期状態"
+            },
+            {
+              "id": "2",
+              "label": "現在状態だけ"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "更新式の右辺に y_{n+1} が入る。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-euler-c2",
+          "prompt": "正しい説明を選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "Forwardは標準形では陽的"
+            },
+            {
+              "id": "1",
+              "label": "Backwardは一般に方程式を解く必要がある"
+            },
+            {
+              "id": "2",
+              "label": "Symplecticは真のエネルギーを必ず厳密保存する"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "構造保存と真のエネルギーの厳密保存は別。",
+          "pitfall": "安定性を無条件に一般化しない。"
+        },
+        {
+          "id": "digital-media-euler-c3",
+          "prompt": "y′=−y, y=1,h=0.1。Forwardの次のyは？",
+          "kind": "number",
+          "numericAnswer": 0.9,
+          "tolerance": 1e-09,
+          "explanation": "1−0.1×1=0.9。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-euler-retest",
+        "prompt": "y′=−y, y=1,h=1。Backwardの次のyは？",
+        "kind": "number",
+        "numericAnswer": 0.5,
+        "tolerance": 1e-09,
+        "explanation": "ynew=1−ynew より ynew=1/2。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "digital-media-solid-angle",
+      "title": "立体角",
+      "objectives": [
+        "球面の面積と立体角を対応付ける",
+        "srと平面角を区別する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "球面による定義",
+          "body": "頂点を中心とする半径 $r$ の球面で、方向の集合が切り取る面積 $A$ に対して $\\Omega=A/r^2$。単位はステラジアン（sr）。半径を変えても同じ方向の集合なら立体角は変わらない。"
+        },
+        {
+          "title": "球全体と微小面",
+          "body": "球全体は $4\\pi$ sr、半球は $2\\pi$ sr。距離 $r$ の微小面積 $dA$ は、法線と視線の角を $\\theta$ として $d\\omega=|\\cos\\theta|dA/r^2$。球面上では法線方向と視線が一致する。"
+        }
+      ],
+      "example": {
+        "prompt": "半径2の球面で面積4を切り取る方向集合の立体角。",
+        "steps": [
+          "Ω=A/r² に代入する。",
+          "Ω=4/4=1。"
+        ],
+        "answer": "1 sr"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-solid-angle-c1",
+          "prompt": "立体角の単位は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "sr"
+            },
+            {
+              "id": "1",
+              "label": "rad/s"
+            },
+            {
+              "id": "2",
+              "label": "m²"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "ステラジアンを使う。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-solid-angle-c2",
+          "prompt": "正しいものを選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "球全体は4π sr"
+            },
+            {
+              "id": "1",
+              "label": "半球は2π sr"
+            },
+            {
+              "id": "2",
+              "label": "同じ方向集合でも半径2倍なら立体角は4倍"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "面積も半径の2乗で増え、A/r²は一定。",
+          "pitfall": "面積と立体角を分ける。"
+        },
+        {
+          "id": "digital-media-solid-angle-c3",
+          "prompt": "半径3、切り取る球面積9の立体角は？",
+          "kind": "number",
+          "numericAnswer": 1,
+          "tolerance": 1e-09,
+          "explanation": "9/3²=1 sr。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-solid-angle-retest",
+        "prompt": "半径2で立体角2 srに対応する球面積は？",
+        "kind": "number",
+        "numericAnswer": 8,
+        "tolerance": 1e-09,
+        "explanation": "A=r²Ω=4×2。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "digital-media-radiometry-brdf",
+      "title": "放射量とBRDF",
+      "objectives": [
+        "放射束・照度・輝度を単位で比較する",
+        "BRDFを入出射方向の関係で説明する"
+      ],
+      "prerequisiteTopicIds": [
+        "digital-media-solid-angle"
+      ],
+      "sections": [
+        {
+          "title": "何で割った量か",
+          "body": "放射束 $\\Phi$ は単位時間の放射エネルギー（W）。放射照度 $E=d\\Phi/dA$ は面に入射する単位面積当たりの束（W/m²）。放射輝度 $L=d^2\\Phi/(\\cos\\theta\\,dA\\,d\\omega)$ は投影面積・立体角当たり（W/(m² sr)）。"
+        },
+        {
+          "title": "入射から反射へ",
+          "body": "微小入射の $dE_i=L_i\\cos\\theta_i d\\omega_i$ に対し、BRDFは $f_r(\\omega_i,\\omega_o)=dL_o/dE_i$（sr⁻¹）。全入射を足すと $L_o(\\omega_o)=\\int f_r L_i\\cos\\theta_i d\\omega_i$。位置・波長への依存は省略した記法である。"
+        }
+      ],
+      "example": {
+        "prompt": "一様な照度5 W/m²が面積2 m²へ入射するときの束。",
+        "steps": [
+          "Φ=∫E dA。",
+          "一様なので Φ=5×2。"
+        ],
+        "answer": "10 W"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-radiometry-brdf-c1",
+          "prompt": "放射照度Eの単位は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "W/m²"
+            },
+            {
+              "id": "1",
+              "label": "W"
+            },
+            {
+              "id": "2",
+              "label": "sr"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "束を面積で割った量。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-radiometry-brdf-c2",
+          "prompt": "BRDFについて正しいもの。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "入射方向と出射方向に依存し得る"
+            },
+            {
+              "id": "1",
+              "label": "単位はsr⁻¹"
+            },
+            {
+              "id": "2",
+              "label": "どんな材料でも値は1以下"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "BRDFの点値が1を超えることとエネルギー保存は矛盾しない。",
+          "pitfall": "反射率（積分値）とBRDFを混同しない。"
+        },
+        {
+          "id": "digital-media-radiometry-brdf-c3",
+          "prompt": "照度3 W/m²が面積4 m²に一様なら放射束は？",
+          "kind": "number",
+          "numericAnswer": 12,
+          "tolerance": 1e-09,
+          "explanation": "3×4=12 W。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-radiometry-brdf-retest",
+        "prompt": "束10 Wが面積2 m²へ一様に入射すると照度は？",
+        "kind": "number",
+        "numericAnswer": 5,
+        "tolerance": 1e-09,
+        "explanation": "10/2=5 W/m²。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "digital-media-fluid-methods",
+      "title": "流体の格子法と粒子法",
+      "objectives": [
+        "Euler記述とLagrange記述を比較する",
+        "物質微分を2項に分ける"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "観測する場所の違い",
+          "body": "格子法は空間の固定位置で場 $f(x,t)$ を持つEuler記述が基本。粒子法は流体とともに動く粒子の位置 $x(t)$ と量を追うLagrange記述が基本。格子でも移動格子などの変種はあるため、ここでは標準的な固定格子を比較する。"
+        },
+        {
+          "title": "物質微分",
+          "body": "粒子に沿う変化は $Df/Dt=\\partial f/\\partial t+u\\cdot\\nabla f$。固定点の時間変化に、流れによる移流を加える。格子法は移流項を離散化し、粒子法では粒子の移動に移流が含まれる。自由表面の追跡は粒子法が自然だが、近傍探索や粒子分布の偏りが課題となる。"
+        }
+      ],
+      "example": {
+        "prompt": "1次元で f(x,t)=x+2t、速度u=3。",
+        "steps": [
+          "$\\partial f/\\partial t=2,\\partial f/\\partial x=1$。",
+          "$Df/Dt=2+3\\times1=5$。"
+        ],
+        "answer": "物質微分は5、固定点の時間微分は2。"
+      },
+      "quizzes": [
+        {
+          "id": "digital-media-fluid-methods-c1",
+          "prompt": "固定位置の場の変化を基本にする記述は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "Euler記述"
+            },
+            {
+              "id": "1",
+              "label": "Lagrange記述"
+            },
+            {
+              "id": "2",
+              "label": "符号化"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "固定格子の基本的な観測方法。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-fluid-methods-c2",
+          "prompt": "物質微分Df/Dtに含まれるもの。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "局所時間変化"
+            },
+            {
+              "id": "1",
+              "label": "移流項"
+            },
+            {
+              "id": "2",
+              "label": "BRDF"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "∂f/∂t+u·∇f。",
+          "pitfall": "粒子に沿う微分を局所微分だけにしない。"
+        },
+        {
+          "id": "digital-media-fluid-methods-c3",
+          "prompt": "局所時間変化2、u·∇f=3なら物質微分は？",
+          "kind": "number",
+          "numericAnswer": 5,
+          "tolerance": 1e-09,
+          "explanation": "2+3=5。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "digital-media-fluid-methods-retest",
+        "prompt": "f=x、1次元速度u=4、場は時間一定。Df/Dtは？",
+        "kind": "number",
+        "numericAnswer": 4,
+        "tolerance": 1e-09,
+        "explanation": "局所項0、移流項4。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    }
+  ],
+  "solutions": [
+    {
+      "questionId": "digital-media-2022-q1",
+      "status": "verified",
+      "problem": "原点周りの回転が線型写像であるかを理由とともに論じる。2次元平面内で考えてよい。",
+      "basics": [
+        "線型性は $T(u+v)=T(u)+T(v)$ と $T(cu)=cT(u)$。原点回転は固定行列で表せる。"
+      ],
+      "steps": [
+        "$R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$ と置く。",
+        "$R_\\theta(u+v)=R_\\theta u+R_\\theta v$、$R_\\theta(cu)=cR_\\theta u$ を行列積の分配則から示す。"
+      ],
+      "answer": "角度を固定した原点周りの回転は線型写像である。上の回転行列を掛ける写像であり、加法性と斉次性の両方を満たす。",
+      "checklist": [
+        "固定角・原点回転と明記",
+        "加法性と斉次性を両方示す"
+      ],
+      "pitfalls": [
+        "並進込みの写像へ理由を無条件に流用する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2022-q2",
+      "status": "verified",
+      "problem": "A∈R^{2×2}で(0,1)ᵀ→(3,4)ᵀ、(1,0)ᵀ→(1,-1)ᵀ。行列の各成分と計算過程・考え方を答える。",
+      "basics": [
+        "$A=[Ae_1\\ Ae_2]$。アフィンなら原点の像が並進。"
+      ],
+      "steps": [
+        "Ae1=(1, -1)、Ae2=(3, 4)。",
+        "Ae1を第1列、Ae2を第2列に置く。"
+      ],
+      "answer": "$A=\\begin{pmatrix}1&3\\\\-1&4\\end{pmatrix}$。",
+      "checklist": [
+        "列の順を確認",
+        "計算過程を書く",
+        "指定点への代入で検算"
+      ],
+      "pitfalls": [
+        "設問で先に与えられた e2 の像を第1列に置く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2022-q3",
+      "status": "verified",
+      "problem": "P0=(0,0)ᵀ、P1=(1,1)ᵀ、P2=(2,1)ᵀ、P3=(3,0)ᵀの三次曲線でC(0.3)を求める。t=0はP0、t=1はP3。計算過程と考え方を記す。",
+      "basics": [
+        "$C(t)=\\sum_{i=0}^3\\binom3i(1-t)^{3-i}t^iP_i$。"
+      ],
+      "steps": [
+        "t=0.3、1−t=0.7。係数は0.343,0.441,0.189,0.027。",
+        "x=0×0.343+1×0.441+2×0.189+3×0.027=0.900。",
+        "y=0×0.343+1×0.441+1×0.189+0×0.027=0.630。"
+      ],
+      "answer": "C(0.3)=(0.9,0.63)ᵀ。",
+      "checklist": [
+        "二項係数3を入れる",
+        "x,yを分けて計算",
+        "係数の合計1"
+      ],
+      "pitfalls": [
+        "tの順やP0,P3の向きを逆にする"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2022-q4",
+      "status": "conditional",
+      "problem": "p(θ)∝cosθ sin³θとしてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。θの定義域は原本にない。",
+      "basics": [
+        "定義域→正規化→累積分布→逆写像の順。"
+      ],
+      "steps": [
+        "$\\int_0^{\\pi/2}\\cos u\\sin^{3}u\\,du=1/4$ より $p=4\\cos\\theta\\sin^{3}\\theta$。",
+        "$F(\\theta)=\\sin^{4}\\theta$。",
+        "$F(\\theta)=\\xi$ を $[0,\\pi/2]$ で解く。"
+      ],
+      "answer": "$\\theta=\\arcsin(\\xi^{1/4})$。",
+      "checklist": [
+        "定義域を明記",
+        "積分が1",
+        "CDFの端点0と1",
+        "指数を年度別に確認"
+      ],
+      "pitfalls": [
+        "確率密度pそのものを逆にする",
+        "cosの指数とsinの指数を取り違える"
+      ],
+      "assumptions": [
+        "原本のθの定義域は未指定。この答案はθ∈[0,π/2]を仮定する。他の範囲では正規化・逆写像の再計算が必要。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2022-q5",
+      "status": "verified",
+      "problem": "Vα=(3,1)ᵀ、Vβ=(2,4)ᵀ、Vγ=(1,3)ᵀに対するV=(3,-1)ᵀの重みα,β,γを求める。α+β+γ=1。計算過程と考え方を記す。",
+      "basics": [
+        "重心座標は頂点のアフィン結合。"
+      ],
+      "steps": [
+        "3α+2β+γ=3、α+4β+3γ=−1、α+β+γ=1。",
+        "γ=1−α−βを代入し、2α+β=2、−2α+β=−4。",
+        "差より4α=6 → α=3/2、β=−1、γ=1/2。"
+      ],
+      "answer": "(α,β,γ)=(3/2,−1,1/2)。",
+      "checklist": [
+        "重みの和1",
+        "指定点のx,yを再現",
+        "負の重みを許容"
+      ],
+      "pitfalls": [
+        "三角形内の点だと決め付けて負の解を捨てる"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2022-q6",
+      "status": "verified",
+      "problem": "Forward・Backward Euler法に対するSymplectic Euler法の利点と欠点を論じる。",
+      "basics": [
+        "時間刻みを $h$ とする。シンプレクティックEulerの構造保存はHamilton系に対する性質であり、一般のODE全般のエネルギー保存ではない。"
+      ],
+      "steps": [
+        "Forward: $y_{n+1}=y_n+hf(t_n,y_n)$。陽的で安価だが安定な刻みに制約がある。調和振動では振幅が増大しやすい。",
+        "Backward: $y_{n+1}=y_n+hf(t_{n+1},y_{n+1})$。陰的で線形減衰系に安定だが、方程式を解く計算が必要。振動には数値減衰を入れる。",
+        "Symplecticの一例: $p_{n+1}=p_n-h\\nabla V(q_n)$、$q_{n+1}=q_n+h\\nabla_pT(p_{n+1})$。分離系では陽的に順次更新でき、シンプレクティック構造を保つ。"
+      ],
+      "answer": "Forwardは1回の右辺評価で実装が簡単だが、振動系ではエネルギーが増大しやすい。Backwardは線形減衰に安定だが、陰的方程式の解法を要し、振動系ではエネルギーが減衰しやすい。Symplectic Eulerは分離Hamilton系で陽的に計算でき、長時間のエネルギー誤差を抑えやすい点が利点である。ただし通常1次精度で、真のエネルギーを各段階で厳密保存するわけではなく、刻み幅にも制約がある。",
+      "checklist": [
+        "評価時点を区別",
+        "Symplecticの適用対象",
+        "利点と欠点を両方"
+      ],
+      "pitfalls": [
+        "構造保存を真のエネルギーの厳密保存と書く",
+        "すべてのODEに無条件安定と書く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2023-q1",
+      "status": "verified",
+      "problem": "BRDFを説明する。",
+      "basics": [
+        "$\\Phi,E,L$ は順に時間、面積、投影面積と方向で密度化する量。"
+      ],
+      "steps": [
+        "$f_r(\\omega_i,\\omega_o)=dL_o(\\omega_o)/dE_i(\\omega_i)=dL_o/(L_i\\cos\\theta_i d\\omega_i)$ を定義する。"
+      ],
+      "answer": "BRDF（双方向反射分布関数）は、表面の点で入射方向からの微小照度が出射方向の反射輝度にどう変換されるかを示す比 $f_r=dL_o/dE_i=dL_o/(L_i\\cos\\theta_i d\\omega_i)$。入射方向・出射方向の組に依存し、単位はsr⁻¹。全方向の入射を積分して反射輝度を求める。",
+      "checklist": [
+        "入出射方向を明記",
+        "単位を確認",
+        "2024・25では3放射量の違いと関係も書く"
+      ],
+      "pitfalls": [
+        "照度と輝度の方向依存を混同",
+        "BRDFを単なる0～1の反射率とする"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2023-q2",
+      "status": "verified",
+      "problem": "原点周りの回転が線型写像である理由を論じる。",
+      "basics": [
+        "線型性は $T(u+v)=T(u)+T(v)$ と $T(cu)=cT(u)$。原点回転は固定行列で表せる。"
+      ],
+      "steps": [
+        "$R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$ と置く。",
+        "$R_\\theta(u+v)=R_\\theta u+R_\\theta v$、$R_\\theta(cu)=cR_\\theta u$ を行列積の分配則から示す。"
+      ],
+      "answer": "角度を固定した原点周りの回転は線型写像である。上の回転行列を掛ける写像であり、加法性と斉次性の両方を満たす。",
+      "checklist": [
+        "固定角・原点回転と明記",
+        "加法性と斉次性を両方示す"
+      ],
+      "pitfalls": [
+        "並進込みの写像へ理由を無条件に流用する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2023-q3",
+      "status": "verified",
+      "problem": "A∈R^{2×2}で(0,1)ᵀ→(4,5)ᵀ、(1,0)ᵀ→(3,-2)ᵀ。行列の各成分と計算過程・考え方を答える。",
+      "basics": [
+        "$A=[Ae_1\\ Ae_2]$。アフィンなら原点の像が並進。"
+      ],
+      "steps": [
+        "Ae1=(3, -2)、Ae2=(4, 5)。",
+        "Ae1を第1列、Ae2を第2列に置く。"
+      ],
+      "answer": "$A=\\begin{pmatrix}3&4\\\\-2&5\\end{pmatrix}$。",
+      "checklist": [
+        "列の順を確認",
+        "計算過程を書く",
+        "指定点への代入で検算"
+      ],
+      "pitfalls": [
+        "設問で先に与えられた e2 の像を第1列に置く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2023-q4",
+      "status": "verified",
+      "problem": "P0=(1,0)ᵀ、P1=(0,0)ᵀ、P2=(0,1)ᵀの二次曲線と同じ曲線を表す三次曲線の四制御点を求める。計算過程と考え方を記す。",
+      "basics": [
+        "二次の係数を三次Bernstein基底へ展開する。"
+      ],
+      "steps": [
+        "$Q_0=P_0,Q_3=P_2$。",
+        "$Q_1=\\frac13P_0+\\frac23P_1=(1/3,0)^T$。",
+        "$Q_2=\\frac23P_1+\\frac13P_2=(0,1/3)^T$。"
+      ],
+      "answer": "Q0=(1,0)ᵀ、Q1=(1/3,0)ᵀ、Q2=(0,1/3)ᵀ、Q3=(0,1)ᵀ。",
+      "checklist": [
+        "端点を保持",
+        "係数展開または次数上げ公式の根拠を書く"
+      ],
+      "pitfalls": [
+        "制御点を等間隔に並べるだけでは同じ曲線にならない"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2023-q5",
+      "status": "conditional",
+      "problem": "p(θ)∝cosθ sinθとしてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。θの定義域は原本にない。",
+      "basics": [
+        "定義域→正規化→累積分布→逆写像の順。"
+      ],
+      "steps": [
+        "$\\int_0^{\\pi/2}\\cos u\\sin^{1}u\\,du=1/2$ より $p=2\\cos\\theta\\sin^{1}\\theta$。",
+        "$F(\\theta)=\\sin^{2}\\theta$。",
+        "$F(\\theta)=\\xi$ を $[0,\\pi/2]$ で解く。"
+      ],
+      "answer": "$\\theta=\\arcsin(\\xi^{1/2})$。",
+      "checklist": [
+        "定義域を明記",
+        "積分が1",
+        "CDFの端点0と1",
+        "指数を年度別に確認"
+      ],
+      "pitfalls": [
+        "確率密度pそのものを逆にする",
+        "cosの指数とsinの指数を取り違える"
+      ],
+      "assumptions": [
+        "原本のθの定義域は未指定。この答案はθ∈[0,π/2]を仮定する。他の範囲では正規化・逆写像の再計算が必要。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2023-q6",
+      "status": "verified",
+      "problem": "Vα=(2,1)ᵀ、Vβ=(1,2)ᵀ、Vγ=(1,1)ᵀに対するV=(3,-1)ᵀの重みα,β,γを求める。α+β+γ=1。計算過程と考え方を記す。",
+      "basics": [
+        "重心座標は頂点のアフィン結合。"
+      ],
+      "steps": [
+        "2α+β+γ=3、α+2β+γ=−1、α+β+γ=1。",
+        "第1式から和の式を引くとα=2。第2式から引くとβ=−2。",
+        "γ=1−2−(−2)=1。"
+      ],
+      "answer": "(α,β,γ)=(2,−2,1)。",
+      "checklist": [
+        "重みの和1",
+        "指定点のx,yを再現",
+        "負の重みを許容"
+      ],
+      "pitfalls": [
+        "三角形内の点だと決め付けて負の解を捨てる"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2024-q1",
+      "status": "verified",
+      "problem": "立体角の定義を説明する。",
+      "basics": [
+        "平面角が円弧長/rであるのに対し、立体角は球面積/r²。"
+      ],
+      "steps": [
+        "頂点を中心とする半径 $r$ の球を置き、対象方向の集合が切り取る球面積 $A$ を測る。",
+        "$\\Omega=A/r^2$。球面積 $4\\pi r^2$ より全方向は $4\\pi$ sr。"
+      ],
+      "answer": "立体角は、ある点から見た方向の広がりを、その点を中心とする球の球面積を半径の2乗で割って表した量 $\\Omega=A/r^2$。単位はsr。全球は4π sr、半球は2π sr。",
+      "checklist": [
+        "球の中心を観測点とする",
+        "r²で割る",
+        "sr"
+      ],
+      "pitfalls": [
+        "円弧長/rで定義する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2024-q2",
+      "status": "verified",
+      "problem": "放射束・放射照度・放射輝度の違いと関係性を説明し、BRDFも説明する。",
+      "basics": [
+        "$\\Phi,E,L$ は順に時間、面積、投影面積と方向で密度化する量。"
+      ],
+      "steps": [
+        "$\\Phi=dQ/dt$（W）、$E=d\\Phi/dA$（W/m²）、$L=d^2\\Phi/(\\cos\\theta dA d\\omega)$（W/(m² sr)）を定義する。",
+        "$E=\\int_{\\mathrm{hemisphere}}L_i\\cos\\theta_i d\\omega_i$、$\\Phi=\\int_A E dA$ で関係を示す。",
+        "$f_r(\\omega_i,\\omega_o)=dL_o(\\omega_o)/dE_i(\\omega_i)=dL_o/(L_i\\cos\\theta_i d\\omega_i)$ を定義する。"
+      ],
+      "answer": "放射束は単位時間に運ばれる放射エネルギー、放射照度は面に入射する束の面積密度、放射輝度は束の投影面積・立体角に対する密度である。照度は入射輝度の余弦重み付き半球積分、束は照度の面積積分で得る。BRDFは微小な入射照度に対する反射出射輝度の比で、入出射方向（および位置・波長）によって反射の分布を表す。単位はsr⁻¹。",
+      "checklist": [
+        "入出射方向を明記",
+        "単位を確認",
+        "2024・25では3放射量の違いと関係も書く"
+      ],
+      "pitfalls": [
+        "照度と輝度の方向依存を混同",
+        "BRDFを単なる0～1の反射率とする"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2024-q3",
+      "status": "verified",
+      "problem": "原点周りの回転が線型写像であるかを理由とともに論じる。",
+      "basics": [
+        "線型性は $T(u+v)=T(u)+T(v)$ と $T(cu)=cT(u)$。原点回転は固定行列で表せる。"
+      ],
+      "steps": [
+        "$R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$ と置く。",
+        "$R_\\theta(u+v)=R_\\theta u+R_\\theta v$、$R_\\theta(cu)=cR_\\theta u$ を行列積の分配則から示す。"
+      ],
+      "answer": "角度を固定した原点周りの回転は線型写像である。上の回転行列を掛ける写像であり、加法性と斉次性の両方を満たす。",
+      "checklist": [
+        "固定角・原点回転と明記",
+        "加法性と斉次性を両方示す"
+      ],
+      "pitfalls": [
+        "並進込みの写像へ理由を無条件に流用する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2024-q4",
+      "status": "conditional",
+      "problem": "A∈R^{3×3}の2次元アフィン変換。(0,1)ᵀ→(2,3)ᵀ、(1,0)ᵀ→(4,0)ᵀ、(0,0)ᵀ→(1,-1)ᵀ。できるだけ簡単な考え方で各成分、計算過程、考え方を答える。",
+      "basics": [
+        "$A=[Ae_1\\ Ae_2]$。アフィンなら原点の像が並進。"
+      ],
+      "steps": [
+        "t=T(0)=(1,−1) を最終列に置く。",
+        "Be1=(4,0)−(1,−1)=(3,1)。",
+        "Be2=(2,3)−(1,−1)=(1,4)。",
+        "入力を (x,y,1)ᵀ として同次行列を組む。"
+      ],
+      "answer": "$A=\\begin{pmatrix}3&1&1\\\\1&4&-1\\\\0&0&1\\end{pmatrix}$。指定3点を代入すると全て一致する。",
+      "checklist": [
+        "列の順を確認",
+        "計算過程を書く",
+        "指定点への代入で検算"
+      ],
+      "pitfalls": [
+        "設問で先に与えられた e2 の像を第1列に置く"
+      ],
+      "assumptions": [
+        "点 (x,y) は同次座標 (x,y,1)ᵀ を補って3×3行列で変換する。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2024-q5",
+      "status": "verified",
+      "problem": "Forward・Backward・Symplectic Euler法を簡潔に説明し、それぞれの利点・欠点を論じる。",
+      "basics": [
+        "時間刻みを $h$ とする。シンプレクティックEulerの構造保存はHamilton系に対する性質であり、一般のODE全般のエネルギー保存ではない。"
+      ],
+      "steps": [
+        "Forward: $y_{n+1}=y_n+hf(t_n,y_n)$。陽的で安価だが安定な刻みに制約がある。調和振動では振幅が増大しやすい。",
+        "Backward: $y_{n+1}=y_n+hf(t_{n+1},y_{n+1})$。陰的で線形減衰系に安定だが、方程式を解く計算が必要。振動には数値減衰を入れる。",
+        "Symplecticの一例: $p_{n+1}=p_n-h\\nabla V(q_n)$、$q_{n+1}=q_n+h\\nabla_pT(p_{n+1})$。分離系では陽的に順次更新でき、シンプレクティック構造を保つ。"
+      ],
+      "answer": "Forwardは1回の右辺評価で実装が簡単だが、振動系ではエネルギーが増大しやすい。Backwardは線形減衰に安定だが、陰的方程式の解法を要し、振動系ではエネルギーが減衰しやすい。Symplectic Eulerは分離Hamilton系で陽的に計算でき、長時間のエネルギー誤差を抑えやすい点が利点である。ただし通常1次精度で、真のエネルギーを各段階で厳密保存するわけではなく、刻み幅にも制約がある。",
+      "checklist": [
+        "評価時点を区別",
+        "Symplecticの適用対象",
+        "利点と欠点を両方"
+      ],
+      "pitfalls": [
+        "構造保存を真のエネルギーの厳密保存と書く",
+        "すべてのODEに無条件安定と書く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2024-q6",
+      "status": "conditional",
+      "problem": "p(θ)∝cosθ sinθとしてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。θの定義域は原本にない。",
+      "basics": [
+        "定義域→正規化→累積分布→逆写像の順。"
+      ],
+      "steps": [
+        "$\\int_0^{\\pi/2}\\cos u\\sin^{1}u\\,du=1/2$ より $p=2\\cos\\theta\\sin^{1}\\theta$。",
+        "$F(\\theta)=\\sin^{2}\\theta$。",
+        "$F(\\theta)=\\xi$ を $[0,\\pi/2]$ で解く。"
+      ],
+      "answer": "$\\theta=\\arcsin(\\xi^{1/2})$。",
+      "checklist": [
+        "定義域を明記",
+        "積分が1",
+        "CDFの端点0と1",
+        "指数を年度別に確認"
+      ],
+      "pitfalls": [
+        "確率密度pそのものを逆にする",
+        "cosの指数とsinの指数を取り違える"
+      ],
+      "assumptions": [
+        "原本のθの定義域は未指定。この答案はθ∈[0,π/2]を仮定する。他の範囲では正規化・逆写像の再計算が必要。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2025-q1",
+      "status": "verified",
+      "problem": "原点周りの回転が線型写像であるかを理由とともに論じる。2次元平面内で考えてよい。",
+      "basics": [
+        "線型性は $T(u+v)=T(u)+T(v)$ と $T(cu)=cT(u)$。原点回転は固定行列で表せる。"
+      ],
+      "steps": [
+        "$R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$ と置く。",
+        "$R_\\theta(u+v)=R_\\theta u+R_\\theta v$、$R_\\theta(cu)=cR_\\theta u$ を行列積の分配則から示す。"
+      ],
+      "answer": "角度を固定した原点周りの回転は線型写像である。上の回転行列を掛ける写像であり、加法性と斉次性の両方を満たす。",
+      "checklist": [
+        "固定角・原点回転と明記",
+        "加法性と斉次性を両方示す"
+      ],
+      "pitfalls": [
+        "並進込みの写像へ理由を無条件に流用する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2025-q2",
+      "status": "verified",
+      "problem": "A∈R^{2×2}で(0,1)ᵀ→(3,4)ᵀ、(1,0)ᵀ→(1,-1)ᵀ。行列の各成分と計算過程・考え方を答える。",
+      "basics": [
+        "$A=[Ae_1\\ Ae_2]$。アフィンなら原点の像が並進。"
+      ],
+      "steps": [
+        "Ae1=(1, -1)、Ae2=(3, 4)。",
+        "Ae1を第1列、Ae2を第2列に置く。"
+      ],
+      "answer": "$A=\\begin{pmatrix}1&3\\\\-1&4\\end{pmatrix}$。",
+      "checklist": [
+        "列の順を確認",
+        "計算過程を書く",
+        "指定点への代入で検算"
+      ],
+      "pitfalls": [
+        "設問で先に与えられた e2 の像を第1列に置く"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2025-q3",
+      "status": "verified",
+      "problem": "立体角の定義を説明する。",
+      "basics": [
+        "平面角が円弧長/rであるのに対し、立体角は球面積/r²。"
+      ],
+      "steps": [
+        "頂点を中心とする半径 $r$ の球を置き、対象方向の集合が切り取る球面積 $A$ を測る。",
+        "$\\Omega=A/r^2$。球面積 $4\\pi r^2$ より全方向は $4\\pi$ sr。"
+      ],
+      "answer": "立体角は、ある点から見た方向の広がりを、その点を中心とする球の球面積を半径の2乗で割って表した量 $\\Omega=A/r^2$。単位はsr。全球は4π sr、半球は2π sr。",
+      "checklist": [
+        "球の中心を観測点とする",
+        "r²で割る",
+        "sr"
+      ],
+      "pitfalls": [
+        "円弧長/rで定義する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2025-q4",
+      "status": "verified",
+      "problem": "放射束・放射照度・放射輝度の違いと関係性を説明し、BRDFも説明する。",
+      "basics": [
+        "$\\Phi,E,L$ は順に時間、面積、投影面積と方向で密度化する量。"
+      ],
+      "steps": [
+        "$\\Phi=dQ/dt$（W）、$E=d\\Phi/dA$（W/m²）、$L=d^2\\Phi/(\\cos\\theta dA d\\omega)$（W/(m² sr)）を定義する。",
+        "$E=\\int_{\\mathrm{hemisphere}}L_i\\cos\\theta_i d\\omega_i$、$\\Phi=\\int_A E dA$ で関係を示す。",
+        "$f_r(\\omega_i,\\omega_o)=dL_o(\\omega_o)/dE_i(\\omega_i)=dL_o/(L_i\\cos\\theta_i d\\omega_i)$ を定義する。"
+      ],
+      "answer": "放射束は単位時間に運ばれる放射エネルギー、放射照度は面に入射する束の面積密度、放射輝度は束の投影面積・立体角に対する密度である。照度は入射輝度の余弦重み付き半球積分、束は照度の面積積分で得る。BRDFは微小な入射照度に対する反射出射輝度の比で、入出射方向（および位置・波長）によって反射の分布を表す。単位はsr⁻¹。",
+      "checklist": [
+        "入出射方向を明記",
+        "単位を確認",
+        "2024・25では3放射量の違いと関係も書く"
+      ],
+      "pitfalls": [
+        "照度と輝度の方向依存を混同",
+        "BRDFを単なる0～1の反射率とする"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2025-q5",
+      "status": "verified",
+      "problem": "p(θ)∝cos²θ sinθ、θ∈[0,π/2]としてξ∈[0,1)からθへの変換式を導く。計算過程と考え方を記す。",
+      "basics": [
+        "定義域→正規化→累積分布→逆写像の順。"
+      ],
+      "steps": [
+        "$\\int_0^{\\pi/2}\\cos^2u\\sin u\\,du=1/3$ なので $p=3\\cos^2\\theta\\sin\\theta$。",
+        "$F(\\theta)=1-\\cos^3\\theta$。",
+        "$\\xi=F(\\theta)$ より $\\cos\\theta=(1-\\xi)^{1/3}$。"
+      ],
+      "answer": "$\\theta=\\arccos((1-\\xi)^{1/3})$。",
+      "checklist": [
+        "定義域を明記",
+        "積分が1",
+        "CDFの端点0と1",
+        "指数を年度別に確認"
+      ],
+      "pitfalls": [
+        "確率密度pそのものを逆にする",
+        "cosの指数とsinの指数を取り違える"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "digital-media-2025-q6",
+      "status": "verified",
+      "problem": "格子法と粒子法の違いを、物理量の時間微分の議論を含めて説明する。",
+      "basics": [
+        "場の局所微分と流体粒子に沿う物質微分を区別する。"
+      ],
+      "steps": [
+        "固定格子では $f(x,t)$ を固定位置で表し、$\\partial f/\\partial t$ が局所時間変化。",
+        "粒子は $dx/dt=u$ に従い、その軌道上では $Df/Dt=\\partial f/\\partial t+u\\cdot\\nabla f$。",
+        "格子法では移流項の離散化、粒子法では移動する粒子と近傍の相互作用を扱う。"
+      ],
+      "answer": "標準的な格子法は固定空間の場を計算するEuler記述で、粒子法は流体とともに移動する粒子を追うLagrange記述である。固定点での時間変化 $\\partial f/\\partial t$ と粒子に沿う変化 $Df/Dt$ は移流項 $u\\cdot\\nabla f$ だけ異なる。格子法は移流を明示的に離散化し、粒子法では粒子の移動に移流が含まれる。格子法は整った近傍計算が容易だが自由表面の追跡等に工夫が必要で、粒子法は自由表面・大変形を扱いやすい一方、近傍探索や不均一な粒子配置が課題となる。",
+      "checklist": [
+        "Euler/Lagrangeを対応付ける",
+        "物質微分の2項",
+        "時間微分の議論を含める"
+      ],
+      "pitfalls": [
+        "単に格子と粒子の形状の違いで終える"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    }
+  ]
+}

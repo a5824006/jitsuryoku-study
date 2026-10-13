@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430" role="img" aria-labelledby="title"><title id="title">2025：属性と操作を持つクラスと具体的な実体</title>
+<rect width="100%" height="100%" fill="#f9f7f2"/><g font-family="sans-serif" font-size="18" fill="#172b41">
+<text x="30" y="32" font-size="23" font-weight="bold">2025：属性と操作を持つクラスと具体的な実体</text>
+<rect x="50" y="110" width="430" height="154" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="265.0" y="141" text-anchor="middle" font-weight="bold">学生</text>
+<path d="M50,155 H480" stroke="#526a7b"/>
+<text x="62" y="182">− 学生番号</text>
+<text x="62" y="212">− 氏名</text>
+<path d="M50,222 H480" stroke="#526a7b"/>
+<text x="62" y="248">+ 履修登録(科目ID)</text>
+<rect x="660" y="110" width="390" height="112" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="855.0" y="141" text-anchor="middle" font-weight="bold" text-decoration="underline">s1:学生</text>
+<path d="M660,155 H1050" stroke="#526a7b"/>
+<text x="672" y="182">学生番号 = s001</text>
+<text x="672" y="212">氏名 = 青山太郎</text>
+<text x="70" y="350" font-size="16">クラス：属性名と操作を定義する。</text>
+<text x="660" y="350" font-size="16">オブジェクト：具体的な値を持つ。</text>
+</g></svg>

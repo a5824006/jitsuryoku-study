@@ -1,0 +1,1183 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "networks",
+  "lessons": [
+    {
+      "topicId": "networks-layers",
+      "title": "OSIとプロトコルの階層",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "OSI参照モデルは通信機能を7層に分けて比較する枠組み。下から物理、データリンク、ネットワーク、トランスポート、セッション、プレゼンテーション、アプリケーション。インターネットのIP/TCP/HTTPはこのモデルそのものを実装する必須プロトコルではない。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "各層の役割に加え、モデルと個別のプロトコル仕様を同一視しないことを説明する。"
+        }
+      ],
+      "example": {
+        "prompt": "IPとTCPの機能を区別する。",
+        "steps": [
+          "IPはアドレスと経路によりパケットを届ける。",
+          "TCPは端末間で順序、再送、輻輳制御を扱う。"
+        ],
+        "answer": "IPはネットワーク層、TCPはトランスポート層。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-layers-c1",
+          "prompt": "OSIは何層か。",
+          "kind": "number",
+          "explanation": "通信機能を7層に整理する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 7,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "networks-layers-c2",
+          "prompt": "IPに対応する層名は。",
+          "kind": "text",
+          "explanation": "ルーティングを扱う。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "ネットワーク層",
+            "network layer"
+          ]
+        },
+        {
+          "id": "networks-layers-c3",
+          "prompt": "TCPに対応する層名は。",
+          "kind": "text",
+          "explanation": "エンドツーエンドの通信を扱う。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "トランスポート層",
+            "transport layer"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "networks-layers-retest",
+        "prompt": "HTTPに対応する層名は。",
+        "kind": "text",
+        "explanation": "Web要求の意味を定める。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "アプリケーション層",
+          "application layer"
+        ]
+      }
+    },
+    {
+      "topicId": "networks-link-access",
+      "title": "Wi-Fi、有線LAN、IP",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "networks-layers"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "Wi-Fiも有線Ethernetも、インターネット接続ではIPパケットを運ぶ。Wi-Fiでは共有無線媒体へのアクセスをCSMA/CAなどで調整し、通常のユニキャストはACK未受信時に上限まで再送する。スイッチによる全二重Ethernetでは共有媒体の衝突回避を必要としない。旧来の半二重EthernetのCSMA/CDと区別する。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "媒体が変わっても上位のIP通信とリンク層の処理を分けて考え、選択肢の一部分だけで判断しない。"
+        }
+      ],
+      "example": {
+        "prompt": "Wi-FiのACKが返らないとどうなるか。",
+        "steps": [
+          "無線フレームの正常受信を確認できない。",
+          "再試行回数の範囲で再送を試みる。"
+        ],
+        "answer": "失敗したら常に再送しない、という記述は誤り。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-link-access-c1",
+          "prompt": "Wi-Fiと有線LANに共通するインターネット層のプロトコルは。",
+          "kind": "text",
+          "explanation": "物理媒体の違いとIP使用の有無は別。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "IP",
+            "Internet Protocol"
+          ]
+        },
+        {
+          "id": "networks-link-access-c2",
+          "prompt": "Wi-Fiの衝突回避の略称は。",
+          "kind": "text",
+          "explanation": "共有チャネルの使用を調整する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "CSMA/CA",
+            "CSMA CA"
+          ]
+        },
+        {
+          "id": "networks-link-access-c3",
+          "prompt": "Wi-Fiと有線LANについて正しい記述をすべて選ぶ。",
+          "kind": "multiple-choice",
+          "explanation": "媒体の違いとIPの使用は別。Wi-Fiは確認と再送を使う。全二重Ethernetには共有媒体の衝突がない。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "options": [
+            {
+              "id": "ip",
+              "label": "Wi-Fiでも有線LANでもインターネット接続にはIPを使う。"
+            },
+            {
+              "id": "retry",
+              "label": "通常のWi-FiユニキャストではACK未受信時に再送を試みる。"
+            },
+            {
+              "id": "none",
+              "label": "全二重Ethernetは共有媒体の衝突をCSMA/CDで回避する。"
+            }
+          ],
+          "correctOptions": [
+            "ip",
+            "retry"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "networks-link-access-retest",
+        "prompt": "全二重スイッチ型EthernetはCSMA/CDが必須か。「不要」か「必要」で答える。",
+        "kind": "text",
+        "explanation": "全二重リンクには衝突がない。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "不要"
+        ]
+      }
+    },
+    {
+      "topicId": "networks-subnet",
+      "title": "IPv4サブネット",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "IPv4は32bit。/pのホスト部は32−p bitで、通常のサブネットのアドレス数は$2^{32-p}$。最小がネットワーク、最大がブロードキャストなのでホスト範囲はそれぞれを除く。/31と/32などは別扱い。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "ホスト部のビット数、ネットワークアドレス、ブロードキャストアドレス、付与範囲の端点を順に求める。"
+        }
+      ],
+      "example": {
+        "prompt": "192.0.2.64/26のホスト範囲は。",
+        "steps": [
+          "ホスト部6bitで64アドレス。",
+          "範囲64〜127の両端を除く。"
+        ],
+        "answer": "192.0.2.65〜192.0.2.126"
+      },
+      "quizzes": [
+        {
+          "id": "networks-subnet-c1",
+          "prompt": "/26のホスト部は何bitか。",
+          "kind": "number",
+          "explanation": "32−26=6。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 6,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "networks-subnet-c2",
+          "prompt": "/26の通常の利用可能ホスト数は。",
+          "kind": "number",
+          "explanation": "64−2=62。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 62,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "networks-subnet-c3",
+          "prompt": "192.0.2.0/24のブロードキャストの末尾は。",
+          "kind": "number",
+          "explanation": "最後のアドレス。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 255,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "networks-subnet-retest",
+        "prompt": "192.0.2.64/27の最大ホストの末尾は。",
+        "kind": "number",
+        "explanation": "範囲64〜95から95を除く。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 94,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "topicId": "networks-ip-checksum",
+      "title": "IPv4の誤り検査",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "networks-layers"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "IPv4のHeader ChecksumはIPヘッダだけを検査する。ルータが参照する宛先などの誤りを防ぎ、TTL変更後は更新する。ペイロードの完全性はTCP等やリンク層の検査と役割分担する。IPv6にはこのヘッダチェックサムがない。 [RFC 791](https://datatracker.ietf.org/doc/html/rfc791)"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "IPv4ヘッダの検査範囲と中継時の変更を説明し、データ本体の検査やIPv6と区別する。"
+        }
+      ],
+      "example": {
+        "prompt": "ルータでTTLを1減らしたときは。",
+        "steps": [
+          "ヘッダの内容が変更された。",
+          "新しいヘッダに対応するチェックサムへ更新する。"
+        ],
+        "answer": "ヘッダチェックサムの更新が必要。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-ip-checksum-c1",
+          "prompt": "IPv4でチェックサムが対象とする部分は。",
+          "kind": "text",
+          "explanation": "ペイロードは対象外。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "ヘッダ",
+            "IPヘッダ",
+            "header"
+          ]
+        },
+        {
+          "id": "networks-ip-checksum-c2",
+          "prompt": "ルータが減らす寿命フィールド名は。",
+          "kind": "text",
+          "explanation": "Time To Live。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "TTL"
+          ]
+        },
+        {
+          "id": "networks-ip-checksum-c3",
+          "prompt": "IPv6にもIPv4と同じヘッダチェックサムがあるか。「ない」「ある」で答える。",
+          "kind": "text",
+          "explanation": "IPv6はリンク層や上位層に検査を委ねる。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "ない"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "networks-ip-checksum-retest",
+        "prompt": "TCPのチェックサムはデータ部分も対象か。「対象」「対象外」で答える。",
+        "kind": "text",
+        "explanation": "上位層でエンドツーエンドに検査する。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "対象"
+        ]
+      }
+    },
+    {
+      "topicId": "networks-tcp",
+      "title": "TCP輻輳制御",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "networks-layers"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "輻輳はネットワークが処理できる量を超えた状態。古典的TCPは再送タイムアウトと3重複ACKを損失の兆候として扱う。タイムアウト時はcwndを1 MSSまで減らしてスロースタートへ戻る。受信側が通知するrwndとは別。 [RFC 5681](https://datatracker.ietf.org/doc/html/rfc5681)"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "検出事象、検出後の動作、cwndと受信側のrwndを分けて説明する。1という値の単位も確認する。"
+        }
+      ],
+      "example": {
+        "prompt": "3重複ACKとタイムアウトを比較する。",
+        "steps": [
+          "重複ACKは後続データが届いている兆候。",
+          "タイムアウトはACKが来ないため、より強く送信量を減らす。"
+        ],
+        "answer": "1 MSSへ戻すのは再送タイムアウト時。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-tcp-c1",
+          "prompt": "送信者の輻輳ウィンドウの略称は。",
+          "kind": "text",
+          "explanation": "受信ウィンドウrwndと別。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "cwnd"
+          ]
+        },
+        {
+          "id": "networks-tcp-c2",
+          "prompt": "高速再送を始める古典的重複ACK数は。",
+          "kind": "number",
+          "explanation": "3重複ACKで損失を疑う。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 3,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "networks-tcp-c3",
+          "prompt": "タイムアウトで戻すcwndは何MSSか。",
+          "kind": "number",
+          "explanation": "1 MSSからスロースタート。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 1,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "networks-tcp-retest",
+        "prompt": "受信者のバッファ余裕を表すウィンドウの略称は。",
+        "kind": "text",
+        "explanation": "cwndではない。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "rwnd"
+        ]
+      }
+    },
+    {
+      "topicId": "networks-http",
+      "title": "HTTPのステートレス性",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "networks-layers"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "HTTPは個々の要求の意味をそれ自身から解釈できるステートレスなプロトコル。サーバが必ず状態を保存しないという意味ではない。Cookieやセッション識別子を要求に添え、アプリケーションでログインなどの状態を管理できる。接続の継続と状態保持は別。 [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110)"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "ステートレスの意味を要求・応答に結び付け、接続再利用やアプリケーションのセッションと混同しない。"
+        }
+      ],
+      "example": {
+        "prompt": "ログイン状態を後の要求へ伝えるには。",
+        "steps": [
+          "応答で識別子を発行する。",
+          "次の要求のCookieなどで識別子を送る。"
+        ],
+        "answer": "HTTPの上でアプリケーションが状態を扱う。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-http-c1",
+          "prompt": "要求の意味が以前の要求に必須依存しない性質を何というか。",
+          "kind": "text",
+          "explanation": "個々の要求を独立に解釈する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "ステートレス",
+            "stateless"
+          ]
+        },
+        {
+          "id": "networks-http-c2",
+          "prompt": "状態の識別子をブラウザーが要求に添える代表的仕組みは。",
+          "kind": "text",
+          "explanation": "HTTPのステートレス性と両立する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "Cookie",
+            "クッキー"
+          ]
+        },
+        {
+          "id": "networks-http-c3",
+          "prompt": "接続を使い回すことだけでHTTPはステートフルになるか。「ならない」「なる」で答える。",
+          "kind": "text",
+          "explanation": "TCP接続とアプリケーション状態は別。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "ならない"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "networks-http-retest",
+        "prompt": "セッション識別子を保存するサーバがあるとHTTPの定義は矛盾するか。「矛盾しない」「矛盾する」で答える。",
+        "kind": "text",
+        "explanation": "状態管理はアプリケーションの役割。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "矛盾しない"
+        ]
+      }
+    },
+    {
+      "topicId": "networks-dos",
+      "title": "DoS",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "DoSは資源を枯渇させる、または不具合を引き起こして正規利用者のサービス利用を妨げる攻撃。通信帯域、接続枠、CPUなどが対象になる。多数の機器から分散して行う場合がDDoS。データ窃取とは目的が異なる。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "攻撃が可用性に与える影響を説明する。手段を1つの具体例だけに限定しない。"
+        }
+      ],
+      "example": {
+        "prompt": "過大な要求で接続枠を使い切る場合は。",
+        "steps": [
+          "対象資源は同時接続数。",
+          "正規利用者が接続できなくなる。"
+        ],
+        "answer": "サービスの可用性を損なうDoS。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-dos-c1",
+          "prompt": "DoSが主に損なう性質は。",
+          "kind": "text",
+          "explanation": "必要時にサービスが使えなくなる。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "可用性",
+            "availability"
+          ]
+        },
+        {
+          "id": "networks-dos-c2",
+          "prompt": "多数の機器から分散するDoSの略称は。",
+          "kind": "text",
+          "explanation": "Distributed Denial of Service。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "DDoS"
+          ]
+        },
+        {
+          "id": "networks-dos-c3",
+          "prompt": "大量通信で枯渇し得るネットワーク資源は。",
+          "kind": "text",
+          "explanation": "CPUや接続数も対象になる。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "帯域",
+            "通信帯域"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "networks-dos-retest",
+        "prompt": "Denial of Serviceの日本語は。",
+        "kind": "text",
+        "explanation": "正規利用を妨げる目的。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "サービス拒否",
+          "サービス妨害"
+        ]
+      }
+    },
+    {
+      "topicId": "networks-nat",
+      "title": "NAT",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [
+        "networks-layers"
+      ],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "NATは異なるアドレス空間の間でIPアドレスを対応付けて変換する。NAPTはアドレスとポート番号を変換して、複数端末が1つの外部IPv4アドレスを共有できる。戻りのパケットは対応表を使い元の端末へ届ける。NAT自体は暗号化ではない。 [RFC 3022](https://datatracker.ietf.org/doc/html/rfc3022)"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "変換前後のアドレスと通信方向を整理し、ポート変換を含むNAPTとの区別を確認する。"
+        }
+      ],
+      "example": {
+        "prompt": "内部2端末が外部1アドレスを共有する。",
+        "steps": [
+          "送信元アドレスと送信元ポートを対応表へ記録する。",
+          "外部ポートに対応する内部端末へ返信を戻す。"
+        ],
+        "answer": "NAPTによる多対一変換。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-nat-c1",
+          "prompt": "Network Address Translationの略称は。",
+          "kind": "text",
+          "explanation": "ネットワークアドレス変換。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "NAT"
+          ]
+        },
+        {
+          "id": "networks-nat-c2",
+          "prompt": "ポート番号も変換する方式の略称は。",
+          "kind": "text",
+          "explanation": "Network Address Port Translation。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "NAPT"
+          ]
+        },
+        {
+          "id": "networks-nat-c3",
+          "prompt": "NATだけで通信内容が暗号化されるか。「されない」「される」で答える。",
+          "kind": "text",
+          "explanation": "暗号化は別の機能。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "されない"
+          ]
+        }
+      ],
+      "retest": {
+        "id": "networks-nat-retest",
+        "prompt": "返信を元の内部端末へ戻すため保持する情報は。",
+        "kind": "text",
+        "explanation": "アドレスやポートの対応を使う。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "対応表",
+          "変換表",
+          "マッピングテーブル"
+        ]
+      }
+    },
+    {
+      "topicId": "networks-crc",
+      "title": "CRCと2進多項式",
+      "objectives": [
+        "定義と適用条件を自分の言葉で説明する。",
+        "例題の手順を再現し、条件の違いを見分ける。"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "基礎と解き方",
+          "body": "CRCはbit列をGF(2)の多項式として扱う。加減算は繰り上がりのないXOR。生成多項式の次数rならデータ末尾へr個の0を付け、割った余りr bitを付加する。受信側では符号語を同じ生成多項式で割り余り0を確認する。"
+        },
+        {
+          "title": "試験で確認すること",
+          "body": "生成多項式の次数とビット表現、付加する0の個数、XOR除算の余りを確認する。実際のEthernetのCRC32と練習用CRC3を混同しない。"
+        }
+      ],
+      "example": {
+        "prompt": "データ1001、生成1011の3bit CRC。",
+        "steps": [
+          "1001000を1011でXOR除算する。",
+          "1001000→0010000→0000110。"
+        ],
+        "answer": "CRCは110。符号語1001110の余りは000。"
+      },
+      "quizzes": [
+        {
+          "id": "networks-crc-c1",
+          "prompt": "$X^3+X+1$の係数bit列は。",
+          "kind": "bits",
+          "explanation": "X²の係数は0。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "1011"
+          ]
+        },
+        {
+          "id": "networks-crc-c2",
+          "prompt": "この生成多項式のCRC長は何bitか。",
+          "kind": "number",
+          "explanation": "次数3。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 3,
+          "tolerance": 1e-09
+        },
+        {
+          "id": "networks-crc-c3",
+          "prompt": "GF(2)で1+1はいくつか。",
+          "kind": "number",
+          "explanation": "1 XOR 1=0。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0,
+          "tolerance": 1e-09
+        }
+      ],
+      "retest": {
+        "id": "networks-crc-retest",
+        "prompt": "データ1010、生成1011、末尾に000を付けたときCRCは。",
+        "kind": "bits",
+        "explanation": "1010000→0001000→0000011。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "011"
+        ]
+      }
+    }
+  ],
+  "solutions": [
+    {
+      "questionId": "networks-2024-q1",
+      "status": "verified",
+      "problem": "OSI7階層モデルの適切な説明を1つ選ぶ。\n(a) OSIで規定されたプロトコルがそのまま世の中で使用される。\n(b) OSIは参照モデルであり、実際は別の標準化機関のプロトコルが使われる。\n(c) IBMと富士通のメインフレーム接続専用で必須。\n(d) IBMメインフレームとPCの接続専用でインターネットに不可欠。",
+      "basics": [
+        "参照モデルと、具体的なプロトコル標準は異なる。"
+      ],
+      "steps": [
+        "(a)はモデルと実装を同一視している。",
+        "(c)(d)の特定会社への限定は誤り。",
+        "残る(b)を選ぶ。"
+      ],
+      "answer": "(b)。OSIは通信機能を整理する参照モデルで、IPやTCP等はIETFなどの標準による。",
+      "checklist": [
+        "参照モデルと実プロトコルの違いを判定した",
+        "(b)を1つ選択した",
+        "特定企業向け専用モデルという説明を除いた"
+      ],
+      "pitfalls": [
+        "OSIの7階層とインターネットの実装階層を完全に同一視しない。",
+        "IETFだけが全通信標準を定める、と一般化しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "autoCheck": {
+        "id": "networks-2024-q1-answer",
+        "prompt": "OSI7階層モデルの適切な説明を1つ選ぶ。\n(a) OSIで規定されたプロトコルがそのまま世の中で使用される。\n(b) OSIは参照モデルであり、実際は別の標準化機関のプロトコルが使われる。\n(c) IBMと富士通のメインフレーム接続専用で必須。\n(d) IBMメインフレームとPCの接続専用でインターネットに不可欠。",
+        "kind": "choice",
+        "explanation": "(b)が参照モデルと実プロトコルを区別している。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "options": [
+          {
+            "id": "a",
+            "label": "a"
+          },
+          {
+            "id": "b",
+            "label": "b"
+          },
+          {
+            "id": "c",
+            "label": "c"
+          },
+          {
+            "id": "d",
+            "label": "d"
+          }
+        ],
+        "correctOptions": [
+          "b"
+        ]
+      }
+    },
+    {
+      "questionId": "networks-2024-q2",
+      "status": "conditional",
+      "problem": "誤った記述を1つ選ぶ。\n(a) Wi-Fiと有線LANのどちらもインターネット接続ではIPを使う。\n(b) Wi-Fiは共有チャネル利用をアクセス制御するが、全二重スイッチ型有線LANはその衝突回避を必要としない。\n(c) Wi-Fiでフレーム送出が失敗しても再送しない。",
+      "basics": [
+        "IPはリンク媒体に依存しない。",
+        "Wi-Fiは通常のユニキャストでACKと再送を行う。"
+      ],
+      "steps": [
+        "(a)をネットワーク層の役割で判定する。",
+        "(b)は現在の全二重スイッチ型を前提に正しい。",
+        "(c)は再送を否定するので誤り。"
+      ],
+      "answer": "(c)。",
+      "checklist": [
+        "2024年は誤り1つとして(c)を選んだ",
+        "IPの使用と物理媒体を区別した",
+        "Wi-FiのACKと再送を確認した",
+        "有線LANは全二重スイッチ型という前提を明示した"
+      ],
+      "pitfalls": [
+        "2024年と2025年で(a)の文章と選択数が異なる。",
+        "旧来の半二重EthernetのCSMA/CDを全二重スイッチ型へ持ち込まない。"
+      ],
+      "assumptions": [
+        "有線LANのスイッチは全二重動作、Wi-Fiは通常のユニキャストを前提とする。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。"
+    },
+    {
+      "questionId": "networks-2024-q3",
+      "status": "verified",
+      "problem": "IPv4サブネット133.2.205.128/25の通常のホストへ付与可能なアドレス範囲を求める。",
+      "basics": [
+        "ホスト部は32−prefix bit。ネットワークとブロードキャストを除く。"
+      ],
+      "steps": [
+        "アドレス数は2^7=128。",
+        "全範囲は133.2.205.128〜133.2.205.255。",
+        "両端を除く。"
+      ],
+      "answer": "133.2.205.129〜133.2.205.254",
+      "checklist": [
+        "/25のホストbit数からアドレス数を求めた",
+        "最初の133.2.205.128をネットワークとして除いた",
+        "最後の133.2.205.255をブロードキャストとして除いた",
+        "133.2.205.129〜133.2.205.254と答えた"
+      ],
+      "pitfalls": [
+        "/26を/25と同じ範囲にしない。",
+        "ネットワーク・ブロードキャストをホストへ割り当てない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "autoCheck": {
+        "id": "networks-2024-q3-answer",
+        "prompt": "利用可能範囲の最後のアドレスの第4オクテットを答える。",
+        "kind": "number",
+        "explanation": "サブネットの最大アドレスから1を引く。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 254,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "networks-2024-q4",
+      "status": "verified",
+      "problem": "IPルータではヘッダの誤り検査を行いペイロードの検査は行わない理由を記す。",
+      "basics": [
+        "IPv4のヘッダチェックサムはIPヘッダだけを対象にする。"
+      ],
+      "steps": [
+        "宛先やTTLなどルータが使う情報の正しさを検査する。",
+        "ペイロードはTCPなどの上位層やリンク層の検査と役割分担する。",
+        "全ペイロードをルータごとに検査する必要を避ける。"
+      ],
+      "answer": "IPv4のチェックサムは転送に必要なIPヘッダを保護するためであり、データ部分のエンドツーエンドの誤り検出はTCP等に委ねる。TTLを変更したルータはヘッダチェックサムを更新する。",
+      "checklist": [
+        "IPv4ヘッダチェックサムの範囲を示した",
+        "ルーティング情報の保護の目的を示した",
+        "TCP等とのエンドツーエンド検査の役割分担を示した",
+        "TTL変更でチェックサム更新が必要と示した"
+      ],
+      "pitfalls": [
+        "IPv6にも同じIPヘッダチェックサムがあるとは書かない。",
+        "ペイロードがどの層でも全く検査されないという意味ではない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "networks-2024-q5",
+      "status": "conditional",
+      "problem": "TCP送信者が輻輳を検出する2種類の方法を記す。",
+      "basics": [
+        "古典的TCPの損失検知はタイムアウトと3重複ACK。",
+        "cwndは輻輳ウィンドウでrwndとは別。"
+      ],
+      "steps": [
+        "ACK待ちがRTOを超えたらタイムアウト。",
+        "同じACK番号が3回重複すれば損失の兆候。",
+        "タイムアウトはcwndを1 MSSへ減らしてスロースタート。"
+      ],
+      "answer": "再送タイムアウトと3重複ACKの受信。",
+      "checklist": [
+        "タイムアウトと3重複ACKの2方式を示した",
+        "cwndと受信側rwndを区別した",
+        "cwnd=1は1 MSSという単位を示した"
+      ],
+      "pitfalls": [
+        "3重複ACKを1 MSSへのリセット条件としない。",
+        "「ウィンドウ1」を1byteや受信ウィンドウの変更と解釈しない。"
+      ],
+      "assumptions": [
+        "設問の「送信ウィンドウサイズ1」を古典的TCPのcwnd=1 MSSと解釈する。ECN等を列挙する設問ではない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "networks-2024-q6",
+      "status": "verified",
+      "problem": "HTTPがステートレスと言われる理由を説明する。",
+      "basics": [
+        "要求の意味は個々のメッセージから独立に解釈できる。"
+      ],
+      "steps": [
+        "前回の要求をサーバが必ず記憶する仕組みをHTTP自身は要求しない。",
+        "Cookieやセッションはアプリケーション側の状態管理。"
+      ],
+      "answer": "HTTPの各要求は、以前の要求に関する接続上の記憶を必須とせず、メッセージ自身から独立に解釈できるためステートレスと呼ばれる。ログインなどはCookieやセッション識別子を添えてアプリケーションが管理する。",
+      "checklist": [
+        "個々の要求を独立に解釈する性質を書いた",
+        "以前の要求の記憶を必須としないと示した",
+        "Cookieやセッションと両立すると説明した"
+      ],
+      "pitfalls": [
+        "ステートレスは「サーバが状態を一切持てない」ではない。",
+        "TCP接続の継続とHTTP要求の状態管理を混同しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。"
+    },
+    {
+      "questionId": "networks-2024-q7",
+      "status": "verified",
+      "problem": "DoS（Denial of Service）攻撃を説明する。",
+      "basics": [
+        "可用性が攻撃対象。"
+      ],
+      "steps": [
+        "過剰な要求や通信で資源を枯渇させる。",
+        "正規利用者がサービスを利用できなくなる。"
+      ],
+      "answer": "DoSは、過剰な通信・要求などで帯域や処理資源を使い尽くす、または不具合を引き起こし、正規利用者によるサービスの利用を妨げる攻撃。多数の機器から行う分散型はDDoS。",
+      "checklist": [
+        "可用性を損なう攻撃目的を書いた",
+        "帯域・CPU・接続枠などの資源枯渇の例を示した",
+        "分散実行はDDoSと区別した"
+      ],
+      "pitfalls": [
+        "窃取や改ざんだけをDoSの定義にしない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。"
+    },
+    {
+      "questionId": "networks-2024-q8",
+      "status": "verified",
+      "problem": "データ10101111に、生成多項式$G(X)=X^3+X+1$による3bit CRCを付ける。初期値0、bit反転・反射なしの多項式除算とする。",
+      "basics": [
+        "次数3なので末尾に000を付ける。",
+        "生成多項式は1011で、XOR除算を使う。"
+      ],
+      "steps": [
+        "10101111000を用意する。",
+        "10101111000 XOR 適切に左シフトした1011 = 00011111000",
+        "00011111000 XOR 適切に左シフトした1011 = 00001001000",
+        "00001001000 XOR 適切に左シフトした1011 = 00000010000",
+        "00000010000 XOR 適切に左シフトした1011 = 00000000110",
+        "余りの下位3bitは110。符号語10101111110を再除算すると000になる。"
+      ],
+      "answer": "CRCは110、送信符号語は10101111110。",
+      "checklist": [
+        "データ10101111の末尾へ000を付けた",
+        "G(X)=X³+X+1を1011で表した",
+        "繰り上がりなしのXOR除算を行った",
+        "CRC110を3bitで答えた",
+        "CRC付加後の符号語の余り0を確認した"
+      ],
+      "pitfalls": [
+        "生成多項式にないX²の係数は0。",
+        "初期値・反転のある実Ethernetの32bit CRCと混同しない。",
+        "CRC011の先頭0を落とさない。",
+        "通常の引き算や繰り上がりを使わない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "autoCheck": {
+        "id": "networks-2024-q8-answer",
+        "prompt": "付加するCRCを3bitで答える。",
+        "kind": "bits",
+        "explanation": "データに000を付加して1011でXOR除算する。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "110"
+        ]
+      }
+    },
+    {
+      "questionId": "networks-2025-q1",
+      "status": "verified",
+      "problem": "OSI7階層モデルの適切な説明を1つ選ぶ。\n(a) OSIで規定されたプロトコルがそのまま世の中で使用される。\n(b) OSIは参照モデルであり、実際はIETFのプロトコルが使われる。\n(c) IBMと富士通のメインフレーム接続専用で必須。\n(d) IBMメインフレームとPCの接続専用でインターネットに不可欠。",
+      "basics": [
+        "参照モデルと、具体的なプロトコル標準は異なる。"
+      ],
+      "steps": [
+        "(a)はモデルと実装を同一視している。",
+        "(c)(d)の特定会社への限定は誤り。",
+        "残る(b)を選ぶ。"
+      ],
+      "answer": "(b)。OSIは通信機能を整理する参照モデルで、IPやTCP等はIETFなどの標準による。",
+      "checklist": [
+        "参照モデルと実プロトコルの違いを判定した",
+        "(b)を1つ選択した",
+        "特定企業向け専用モデルという説明を除いた"
+      ],
+      "pitfalls": [
+        "OSIの7階層とインターネットの実装階層を完全に同一視しない。",
+        "IETFだけが全通信標準を定める、と一般化しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。",
+      "autoCheck": {
+        "id": "networks-2025-q1-answer",
+        "prompt": "OSI7階層モデルの適切な説明を1つ選ぶ。\n(a) OSIで規定されたプロトコルがそのまま世の中で使用される。\n(b) OSIは参照モデルであり、実際はIETFのプロトコルが使われる。\n(c) IBMと富士通のメインフレーム接続専用で必須。\n(d) IBMメインフレームとPCの接続専用でインターネットに不可欠。",
+        "kind": "choice",
+        "explanation": "(b)が参照モデルと実プロトコルを区別している。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "options": [
+          {
+            "id": "a",
+            "label": "a"
+          },
+          {
+            "id": "b",
+            "label": "b"
+          },
+          {
+            "id": "c",
+            "label": "c"
+          },
+          {
+            "id": "d",
+            "label": "d"
+          }
+        ],
+        "correctOptions": [
+          "b"
+        ]
+      }
+    },
+    {
+      "questionId": "networks-2025-q2",
+      "status": "conditional",
+      "problem": "誤った記述をすべて選ぶ。\n(a) Wi-FiではIPを使うが有線LANでは使わない。\n(b) Wi-Fiは共有チャネル利用をアクセス制御するが、全二重スイッチ型有線LANはその衝突回避を必要としない。\n(c) Wi-Fiでフレーム送出が失敗しても再送しない。",
+      "basics": [
+        "IPはリンク媒体に依存しない。",
+        "Wi-Fiは通常のユニキャストでACKと再送を行う。"
+      ],
+      "steps": [
+        "(a)をネットワーク層の役割で判定する。",
+        "(b)は現在の全二重スイッチ型を前提に正しい。",
+        "(c)は再送を否定するので誤り。"
+      ],
+      "answer": "(a),(c)。",
+      "checklist": [
+        "2025年は誤りをすべて選び(a),(c)とした",
+        "IPの使用と物理媒体を区別した",
+        "Wi-FiのACKと再送を確認した",
+        "有線LANは全二重スイッチ型という前提を明示した"
+      ],
+      "pitfalls": [
+        "2024年と2025年で(a)の文章と選択数が異なる。",
+        "旧来の半二重EthernetのCSMA/CDを全二重スイッチ型へ持ち込まない。"
+      ],
+      "assumptions": [
+        "有線LANのスイッチは全二重動作、Wi-Fiは通常のユニキャストを前提とする。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。"
+    },
+    {
+      "questionId": "networks-2025-q3",
+      "status": "verified",
+      "problem": "IPv4サブネット133.2.205.128/26の通常のホストへ付与可能なアドレス範囲を求める。",
+      "basics": [
+        "ホスト部は32−prefix bit。ネットワークとブロードキャストを除く。"
+      ],
+      "steps": [
+        "アドレス数は2^6=64。",
+        "全範囲は133.2.205.128〜133.2.205.191。",
+        "両端を除く。"
+      ],
+      "answer": "133.2.205.129〜133.2.205.190",
+      "checklist": [
+        "/26のホストbit数からアドレス数を求めた",
+        "最初の133.2.205.128をネットワークとして除いた",
+        "最後の133.2.205.191をブロードキャストとして除いた",
+        "133.2.205.129〜133.2.205.190と答えた"
+      ],
+      "pitfalls": [
+        "/26を/25と同じ範囲にしない。",
+        "ネットワーク・ブロードキャストをホストへ割り当てない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "autoCheck": {
+        "id": "networks-2025-q3-answer",
+        "prompt": "利用可能範囲の最後のアドレスの第4オクテットを答える。",
+        "kind": "number",
+        "explanation": "サブネットの最大アドレスから1を引く。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "numericAnswer": 190,
+        "tolerance": 1e-09
+      }
+    },
+    {
+      "questionId": "networks-2025-q4",
+      "status": "verified",
+      "problem": "IPルータでヘッダを検査しペイロードを検査しない理由を記す。",
+      "basics": [
+        "IPv4のヘッダチェックサムはIPヘッダだけを対象にする。"
+      ],
+      "steps": [
+        "宛先やTTLなどルータが使う情報の正しさを検査する。",
+        "ペイロードはTCPなどの上位層やリンク層の検査と役割分担する。",
+        "全ペイロードをルータごとに検査する必要を避ける。"
+      ],
+      "answer": "IPv4のチェックサムは転送に必要なIPヘッダを保護するためであり、データ部分のエンドツーエンドの誤り検出はTCP等に委ねる。TTLを変更したルータはヘッダチェックサムを更新する。",
+      "checklist": [
+        "IPv4ヘッダチェックサムの範囲を示した",
+        "ルーティング情報の保護の目的を示した",
+        "TCP等とのエンドツーエンド検査の役割分担を示した",
+        "TTL変更でチェックサム更新が必要と示した"
+      ],
+      "pitfalls": [
+        "IPv6にも同じIPヘッダチェックサムがあるとは書かない。",
+        "ペイロードがどの層でも全く検査されないという意味ではない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "networks-2025-q5",
+      "status": "conditional",
+      "problem": "TCPの2種類の輻輳検出のうち、送信ウィンドウサイズを1にリセットする場合を説明する。",
+      "basics": [
+        "古典的TCPの損失検知はタイムアウトと3重複ACK。",
+        "cwndは輻輳ウィンドウでrwndとは別。"
+      ],
+      "steps": [
+        "ACK待ちがRTOを超えたらタイムアウト。",
+        "同じACK番号が3回重複すれば損失の兆候。",
+        "タイムアウトはcwndを1 MSSへ減らしてスロースタート。"
+      ],
+      "answer": "再送タイマが満了してタイムアウトした場合に、輻輳ウィンドウcwndを1 MSSまで減らし、スロースタートを再開する。",
+      "checklist": [
+        "再送タイムアウト時と答えた",
+        "cwndと受信側rwndを区別した",
+        "cwnd=1は1 MSSという単位を示した"
+      ],
+      "pitfalls": [
+        "3重複ACKを1 MSSへのリセット条件としない。",
+        "「ウィンドウ1」を1byteや受信ウィンドウの変更と解釈しない。"
+      ],
+      "assumptions": [
+        "設問の「送信ウィンドウサイズ1」を古典的TCPのcwnd=1 MSSと解釈する。ECN等を列挙する設問ではない。"
+      ],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "networks-2025-q6",
+      "status": "verified",
+      "problem": "HTTPがステートレスと言われる理由を説明する。",
+      "basics": [
+        "要求の意味は個々のメッセージから独立に解釈できる。"
+      ],
+      "steps": [
+        "前回の要求をサーバが必ず記憶する仕組みをHTTP自身は要求しない。",
+        "Cookieやセッションはアプリケーション側の状態管理。"
+      ],
+      "answer": "HTTPの各要求は、以前の要求に関する接続上の記憶を必須とせず、メッセージ自身から独立に解釈できるためステートレスと呼ばれる。ログインなどはCookieやセッション識別子を添えてアプリケーションが管理する。",
+      "checklist": [
+        "個々の要求を独立に解釈する性質を書いた",
+        "以前の要求の記憶を必須としないと示した",
+        "Cookieやセッションと両立すると説明した"
+      ],
+      "pitfalls": [
+        "ステートレスは「サーバが状態を一切持てない」ではない。",
+        "TCP接続の継続とHTTP要求の状態管理を混同しない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。"
+    },
+    {
+      "questionId": "networks-2025-q7",
+      "status": "verified",
+      "problem": "NAT（Network Address Translation）を説明する。",
+      "basics": [
+        "NATは異なるアドレス空間を接続する。"
+      ],
+      "steps": [
+        "内部と外部のIPアドレスの対応を保持する。",
+        "NAPTはポート番号も変換し外部アドレスを共有する。",
+        "返信に逆変換を行う。"
+      ],
+      "answer": "NATはパケットのIPアドレスを別のアドレス空間の値へ対応付けて変換する技術。NAPTではポート番号も変換して複数端末が1つの外部IPv4アドレスを共有し、返信を対応表に基づき元の端末へ届ける。",
+      "checklist": [
+        "IPアドレスの対応付けによる変換を説明した",
+        "NAPTの場合にポートも使うと区別した",
+        "戻り通信を対応表から逆変換すると示した"
+      ],
+      "pitfalls": [
+        "NATは暗号化そのものではない。",
+        "全てのNATが多対一のポート変換を行うとは限らない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。"
+    },
+    {
+      "questionId": "networks-2025-q8",
+      "status": "verified",
+      "problem": "データ11111111に、生成多項式$G(X)=X^3+X+1$による3bit CRCを付ける。初期値0、bit反転・反射なしの多項式除算とする。",
+      "basics": [
+        "次数3なので末尾に000を付ける。",
+        "生成多項式は1011で、XOR除算を使う。"
+      ],
+      "steps": [
+        "11111111000を用意する。",
+        "11111111000 XOR 適切に左シフトした1011 = 01001111000",
+        "01001111000 XOR 適切に左シフトした1011 = 00010111000",
+        "00010111000 XOR 適切に左シフトした1011 = 00000001000",
+        "00000001000 XOR 適切に左シフトした1011 = 00000000011",
+        "余りの下位3bitは011。符号語11111111011を再除算すると000になる。"
+      ],
+      "answer": "CRCは011、送信符号語は11111111011。",
+      "checklist": [
+        "データ11111111の末尾へ000を付けた",
+        "G(X)=X³+X+1を1011で表した",
+        "繰り上がりなしのXOR除算を行った",
+        "CRC011を3bitで答えた",
+        "CRC付加後の符号語の余り0を確認した"
+      ],
+      "pitfalls": [
+        "生成多項式にないX²の係数は0。",
+        "初期値・反転のある実Ethernetの32bit CRCと混同しない。",
+        "CRC011の先頭0を落とさない。",
+        "通常の引き算や繰り上がりを使わない。"
+      ],
+      "assumptions": [],
+      "verification": "可視原本の条件と照合し、定義から導出した。独立計算で数値を再確認した。",
+      "autoCheck": {
+        "id": "networks-2025-q8-answer",
+        "prompt": "付加するCRCを3bitで答える。",
+        "kind": "bits",
+        "explanation": "データに000を付加して1011でXOR除算する。",
+        "pitfall": "定義と適用条件を一緒に確認する。",
+        "acceptedAnswers": [
+          "011"
+        ]
+      }
+    }
+  ]
+}

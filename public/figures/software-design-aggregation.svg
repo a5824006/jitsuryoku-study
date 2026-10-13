@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400" role="img" aria-labelledby="title"><title id="title">共有集約と合成集約のモデル例</title>
+<rect width="100%" height="100%" fill="#f9f7f2"/><g font-family="sans-serif" font-size="18" fill="#172b41">
+<text x="30" y="32" font-size="23" font-weight="bold">共有集約と合成集約のモデル例</text>
+<path d="M260,150 L650,150" stroke="#526a7b" fill="none" stroke-width="2"/>
+<path d="M260,150 l14,-9 l14,9 l-14,9 Z" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="455.0" y="120.0" text-anchor="middle">共有集約</text>
+<path d="M260,320 L650,320" stroke="#526a7b" fill="none" stroke-width="2"/>
+<path d="M260,320 l14,-9 l14,9 l-14,9 Z" fill="#172b41" stroke="#526a7b" stroke-width="2"/>
+<text x="455.0" y="290.0" text-anchor="middle">合成集約</text>
+<rect x="40" y="90" width="220" height="82" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="150.0" y="121" text-anchor="middle" font-weight="bold">森</text>
+<path d="M40,135 H260" stroke="#526a7b"/>
+<text x="52" y="162">森ID</text>
+<rect x="650" y="90" width="250" height="82" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="775.0" y="121" text-anchor="middle" font-weight="bold">木</text>
+<path d="M650,135 H900" stroke="#526a7b"/>
+<text x="662" y="162">木ID</text>
+<rect x="40" y="260" width="220" height="82" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="150.0" y="291" text-anchor="middle" font-weight="bold">注文</text>
+<path d="M40,305 H260" stroke="#526a7b"/>
+<text x="52" y="332">注文番号</text>
+<rect x="650" y="260" width="250" height="82" rx="3" fill="white" stroke="#526a7b" stroke-width="2"/>
+<text x="775.0" y="291" text-anchor="middle" font-weight="bold">注文明細</text>
+<path d="M650,305 H900" stroke="#526a7b"/>
+<text x="662" y="332">数量</text>
+<text x="272" y="140" text-anchor="start">0..1</text>
+<text x="638" y="140" text-anchor="end">0..*</text>
+<text x="272" y="310" text-anchor="start">1</text>
+<text x="638" y="310" text-anchor="end">1..*</text>
+<text x="30" y="215" font-size="16">白菱形・黒菱形は全体側。部分の扱いは答案に記すモデルの仮定。</text>
+</g></svg>

@@ -1,0 +1,1042 @@
+{
+  "schemaVersion": 1,
+  "subjectId": "information-mathematics",
+  "lessons": [
+    {
+      "topicId": "information-mathematics-information-measures",
+      "title": "自己情報量と平均情報量",
+      "objectives": [
+        "事象の確率から自己情報量を求める",
+        "平均と最大情報量を区別する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "珍しさを対数で表す",
+          "body": "確率pの事象の自己情報量は $I=-\\log_2p$（bit）。独立な事象の同時確率は積なので、情報量は足し算になる。確率1なら0 bit。"
+        },
+        {
+          "title": "平均情報量",
+          "body": "$H=-\\sum_i p_i\\log_2p_i$ はエントロピー。0 log 0 は極限で0とする。m種類なら $H\\le\\log_2m$ で、等確率のとき最大となる。単一事象の情報量とその平均を混同しない。"
+        }
+      ],
+      "example": {
+        "prompt": "公平な4面サイコロの自己情報量と平均。",
+        "steps": [
+          "各事象の確率1/4。",
+          "−log2(1/4)=2 bit。",
+          "すべて同じなので平均も2 bit。"
+        ],
+        "answer": "自己情報量2 bit、平均2 bit"
+      },
+      "quizzes": [
+        {
+          "id": "information-mathematics-information-measures-c1",
+          "prompt": "確率pの自己情報量は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "−log₂p"
+            },
+            {
+              "id": "1",
+              "label": "p log₂p"
+            },
+            {
+              "id": "2",
+              "label": "pそのもの"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "珍しいほど情報量が大きい。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "information-mathematics-information-measures-c2",
+          "prompt": "エントロピーについて正しいもの。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "等確率で最大"
+            },
+            {
+              "id": "1",
+              "label": "自己情報量の確率重み付き平均"
+            },
+            {
+              "id": "2",
+              "label": "どんな二値情報源でも常に1 bit"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "二値の最大は1 bit、偏りがあれば小さくなる。",
+          "pitfall": "確率0と1の情報源を考えて検算する。"
+        },
+        {
+          "id": "information-mathematics-information-measures-c3",
+          "prompt": "確率1/8の事象の自己情報量は？",
+          "kind": "number",
+          "numericAnswer": 3,
+          "tolerance": 1e-09,
+          "explanation": "−log₂(1/8)=3。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "information-mathematics-information-measures-retest",
+        "prompt": "4種類を等確率にした平均情報量は？",
+        "kind": "number",
+        "numericAnswer": 2,
+        "tolerance": 1e-09,
+        "explanation": "log₂4=2。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "information-mathematics-huffman",
+      "title": "ハフマン符号",
+      "objectives": [
+        "最小確率2つを反復結合する",
+        "ランの平均長を情報源記号単位へ直す"
+      ],
+      "prerequisiteTopicIds": [
+        "information-mathematics-information-measures"
+      ],
+      "sections": [
+        {
+          "title": "接頭語符号の木",
+          "body": "確率の小さい2ノードを結合して確率を足し、ノードが1つになるまで繰り返す。各分岐の左右に0と1を割当て、根から葉までの列を符号語にする。左右交換や同率ノードの選択により等価な解がある。平均符号長は $\\sum p_i\\ell_i$。"
+        },
+        {
+          "title": "ランをまとめるとき",
+          "body": "ランレングスの辞書の各項目は複数の情報源記号を含む。辞書1項目当たりの平均符号長を、その項目に含まれる情報源記号数の平均で割り、bit/情報源記号に直す。ラン打切りの約束と確率和1を明示する。"
+        }
+      ],
+      "example": {
+        "prompt": "a,b,c の確率0.5,0.3,0.2のハフマン符号。",
+        "steps": [
+          "0.2と0.3を結合して0.5。",
+          "2つの0.5を結合する。",
+          "a=0,b=10,c=11 と割り当てる。"
+        ],
+        "answer": "平均長=0.5×1+0.3×2+0.2×2=1.5 bit/記号"
+      },
+      "quizzes": [
+        {
+          "id": "information-mathematics-huffman-c1",
+          "prompt": "ハフマン木で最初に結合するノードは？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "確率が最小の2つ"
+            },
+            {
+              "id": "1",
+              "label": "最大の2つ"
+            },
+            {
+              "id": "2",
+              "label": "長さが最大の2記号"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "最小の確率2つを順に結合する。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "information-mathematics-huffman-c2",
+          "prompt": "正しいものを選ぶ。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "左右0/1の交換でも同じ平均長"
+            },
+            {
+              "id": "1",
+              "label": "葉までの枝の個数が符号長"
+            },
+            {
+              "id": "2",
+              "label": "平均長は単純な符号長の平均"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "平均は確率で重み付けする。",
+          "pitfall": "ラン辞書の記号単位を確認する。"
+        },
+        {
+          "id": "information-mathematics-huffman-c3",
+          "prompt": "確率0.5,0.3,0.2、符号長1,2,2の平均長は？",
+          "kind": "number",
+          "numericAnswer": 1.5,
+          "tolerance": 1e-09,
+          "explanation": "0.5+0.6+0.4=1.5。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "information-mathematics-huffman-retest",
+        "prompt": "辞書項目当たり3 bit、項目が平均2情報源記号を含む。bit/情報源記号は？",
+        "kind": "number",
+        "numericAnswer": 1.5,
+        "tolerance": 1e-09,
+        "explanation": "3/2。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "information-mathematics-markov",
+      "title": "マルコフ情報源の定常確率",
+      "objectives": [
+        "定常分布を連立方程式で表す",
+        "行列の向きと確率和を確認する"
+      ],
+      "prerequisiteTopicIds": [
+        "information-mathematics-information-measures"
+      ],
+      "sections": [
+        {
+          "title": "定常とは分布が変わらない",
+          "body": "行ベクトルuを使い、$P_{ij}$ を状態iからjへの遷移確率とすると、次の分布はuP。定常分布は $uP=u$ と $\\sum_i u_i=1$、$u_i\\ge0$ を満たす。"
+        },
+        {
+          "title": "行・列の約束",
+          "body": "同じPで分布を列ベクトルにするなら $P^Tu=u$。行列の定義も転置して採用する教科書があるため、まずPの成分がどの方向の遷移かを固定する。一般に定常分布が一意とは限らず、連鎖の条件による。"
+        }
+      ],
+      "example": {
+        "prompt": "P=((0.8,0.2),(0.3,0.7)) の定常分布。",
+        "steps": [
+          "u=(a,b)。a=0.8a+0.3b、a+b=1。",
+          "0.2a=0.3b → a:b=3:2。"
+        ],
+        "answer": "u=(0.6,0.4)"
+      },
+      "quizzes": [
+        {
+          "id": "information-mathematics-markov-c1",
+          "prompt": "行ベクトルuの定常条件は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "uP=u"
+            },
+            {
+              "id": "1",
+              "label": "uP=0"
+            },
+            {
+              "id": "2",
+              "label": "u=Pだけ"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "1回の遷移で分布が変わらない。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "information-mathematics-markov-c2",
+          "prompt": "分布uに必要な条件。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "成分の和1"
+            },
+            {
+              "id": "1",
+              "label": "成分は非負"
+            },
+            {
+              "id": "2",
+              "label": "全成分は必ず同じ"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "等確率が定常とは限らない。",
+          "pitfall": "列ベクトルの式をそのまま行ベクトルへ使わない。"
+        },
+        {
+          "id": "information-mathematics-markov-c3",
+          "prompt": "定常比a:b=3:2、a+b=1。aは？",
+          "kind": "number",
+          "numericAnswer": 0.6,
+          "tolerance": 1e-09,
+          "explanation": "3/(3+2)。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "information-mathematics-markov-retest",
+        "prompt": "P=((0.5,0.5),(0.5,0.5)) の定常分布の第1成分は？",
+        "kind": "number",
+        "numericAnswer": 0.5,
+        "tolerance": 1e-09,
+        "explanation": "次分布は必ず(0.5,0.5)。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "information-mathematics-linear-code",
+      "title": "2元線形符号の記法と次元",
+      "objectives": [
+        "n,kと行列サイズを対応付ける",
+        "GF(2)上で符号化する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "情報と冗長部",
+          "body": "2元(n,k)線形符号は、kビットの情報をnビットの符号語へ変換する。冗長ビット数はn−k。行ベクトルmの約束では生成行列Gはk×nで、c=mG。Gの行はGF(2)上で独立である。"
+        },
+        {
+          "title": "GF(2)の演算",
+          "body": "ビットの加算はXOR、$1+1=0$。乗算はANDと同じ真理値。検査行列Hは通常(n−k)×nで、$Hc^T=0$ を満たす。実数上の足し算と混ぜない。"
+        }
+      ],
+      "example": {
+        "prompt": "情報 (1,1)、G=((1,0,1),(0,1,1)) を符号化。",
+        "steps": [
+          "2行をXORする。",
+          "(1,0,1)⊕(0,1,1)=(1,1,0)。"
+        ],
+        "answer": "110"
+      },
+      "quizzes": [
+        {
+          "id": "information-mathematics-linear-code-c1",
+          "prompt": "(n,k)の情報ビット長は？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "k"
+            },
+            {
+              "id": "1",
+              "label": "n"
+            },
+            {
+              "id": "2",
+              "label": "n−k"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "符号語全体がn、情報がk。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "information-mathematics-linear-code-c2",
+          "prompt": "行ベクトルmに対する生成行列Gの性質。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "k×n"
+            },
+            {
+              "id": "1",
+              "label": "行はGF(2)上で独立"
+            },
+            {
+              "id": "2",
+              "label": "n×kが常に正しい"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "m(1×k)G(k×n)=c(1×n)。",
+          "pitfall": "列ベクトルの流儀と区別する。"
+        },
+        {
+          "id": "information-mathematics-linear-code-c3",
+          "prompt": "(7,4)符号の冗長ビット数は？",
+          "kind": "number",
+          "numericAnswer": 3,
+          "tolerance": 1e-09,
+          "explanation": "7−4=3。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "information-mathematics-linear-code-retest",
+        "prompt": "GF(2)で1+1+1は？",
+        "kind": "number",
+        "numericAnswer": 1,
+        "tolerance": 1e-09,
+        "explanation": "(1⊕1)⊕1=1。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "topicId": "information-mathematics-hamming",
+      "title": "ハミング符号とシンドローム",
+      "objectives": [
+        "Hの列と誤り位置を対応付ける",
+        "HGᵀ=0を検算する"
+      ],
+      "prerequisiteTopicIds": [
+        "information-mathematics-linear-code"
+      ],
+      "sections": [
+        {
+          "title": "7つの列を選ぶ",
+          "body": "(7,4)ハミング符号の3×7検査行列Hは、3ビットの非零列を重複なく全7種類持つ。これにより単一誤りの7通りが別々のシンドロームになる。$H=[P^T\\mid I_3]$ なら組織的生成行列は $G=[I_4\\mid P]$。"
+        },
+        {
+          "title": "シンドローム",
+          "body": "受信語rに対して $s=Hr^T$ をGF(2)で計算する。正しい符号語cは $Hc^T=0$。1ビット誤りならsはその位置のHの列なので、対応ビットを反転する。複数誤りではこの訂正法の保証はない。"
+        }
+      ],
+      "example": {
+        "prompt": "Hの第2列が(1,0,1)ᵀ、単一誤りでs=(1,0,1)ᵀなら？",
+        "steps": [
+          "シンドロームと同じ列を探す。",
+          "第2列なので第2ビットを反転する。"
+        ],
+        "answer": "誤り位置は第2ビット"
+      },
+      "quizzes": [
+        {
+          "id": "information-mathematics-hamming-c1",
+          "prompt": "単一誤りのシンドロームは何に等しい？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "誤り位置のHの列"
+            },
+            {
+              "id": "1",
+              "label": "Gの第1行"
+            },
+            {
+              "id": "2",
+              "label": "情報ビット列そのもの"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "H(c+e)ᵀ=Heᵀで単位誤りの列が出る。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "information-mathematics-hamming-c2",
+          "prompt": "3×7のハミング検査行列の列について。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "すべて非零"
+            },
+            {
+              "id": "1",
+              "label": "すべて異なる"
+            },
+            {
+              "id": "2",
+              "label": "すべて同じビット数の1を持つ"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "3ビットの非零列7種類を全部使う。",
+          "pitfall": "重複列だと誤り位置を区別できない。"
+        },
+        {
+          "id": "information-mathematics-hamming-c3",
+          "prompt": "Hが3×7ならシンドロームのビット数は？",
+          "kind": "number",
+          "numericAnswer": 3,
+          "tolerance": 1e-09,
+          "explanation": "H rᵀ の結果は3×1。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "information-mathematics-hamming-retest",
+        "prompt": "GF(2)で101と111をXORした結果は？",
+        "kind": "bits",
+        "acceptedAnswers": [
+          "010"
+        ],
+        "explanation": "位置ごとに1⊕1=0、0⊕1=1、1⊕1=0。",
+        "pitfall": "先頭0を落とさない。"
+      }
+    },
+    {
+      "topicId": "information-mathematics-graph",
+      "title": "最短経路と郵便配達員問題",
+      "objectives": [
+        "非負重みの最短経路を求める",
+        "全辺を巡る郵便配達員問題を区別する"
+      ],
+      "prerequisiteTopicIds": [],
+      "sections": [
+        {
+          "title": "ダイクストラ法",
+          "body": "始点の暫定距離を0、他を∞とし、未確定のうち最小距離の頂点を確定する。隣接辺を使って距離を緩和し、反復する。非負重みが必要。同率の確定順は選択規則によって複数あり得る。"
+        },
+        {
+          "title": "郵便配達員問題",
+          "body": "連結な無向非負重みグラフで、全辺を少なくとも1回通り始点へ戻る最短閉路を求める。全頂点が偶数次数ならEuler閉路で済む。奇数次数頂点間の最短距離を求め、最小重み完全マッチングを選び、その経路を重複して偶数次数化する。有向版には別の均衡化手順が必要。"
+        }
+      ],
+      "example": {
+        "prompt": "辺a-b=2,a-c=5,b-c=1。aからcの最短距離。",
+        "steps": [
+          "a確定後 b=2,c=5。",
+          "bを確定しcを2+1=3へ更新。"
+        ],
+        "answer": "距離3、経路a→b→c"
+      },
+      "quizzes": [
+        {
+          "id": "information-mathematics-graph-c1",
+          "prompt": "ダイクストラ法が前提とする重みは？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "非負"
+            },
+            {
+              "id": "1",
+              "label": "必ず全辺1"
+            },
+            {
+              "id": "2",
+              "label": "負でも無条件に可"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "負の辺は確定済み距離を後から小さくし得る。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "information-mathematics-graph-c2",
+          "prompt": "無向郵便配達員問題について正しいもの。",
+          "kind": "multiple-choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "全辺を巡る"
+            },
+            {
+              "id": "1",
+              "label": "奇数次数頂点を最小コストで対にする"
+            },
+            {
+              "id": "2",
+              "label": "全頂点を1回だけ巡る問題と同じ"
+            }
+          ],
+          "correctOptions": [
+            "0",
+            "1"
+          ],
+          "explanation": "対象は辺であり、重複通過を許す閉路。",
+          "pitfall": "巡回セールスマン問題と混同しない。"
+        },
+        {
+          "id": "information-mathematics-graph-c3",
+          "prompt": "a-b=4,b-c=2,a-c=9。aからcの最短距離は？",
+          "kind": "number",
+          "numericAnswer": 6,
+          "tolerance": 1e-09,
+          "explanation": "a→b→cが4+2=6。",
+          "pitfall": "符号・単位・条件を確認する。"
+        }
+      ],
+      "retest": {
+        "id": "information-mathematics-graph-retest",
+        "prompt": "全頂点が偶数次数、全辺重み合計12の連結無向グラフ。最短郵便配達閉路の長さは？",
+        "kind": "number",
+        "numericAnswer": 12,
+        "tolerance": 1e-09,
+        "explanation": "Euler閉路で各辺を1回通れる。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    }
+  ],
+  "solutions": [
+    {
+      "questionId": "information-mathematics-2022-q1",
+      "status": "conditional",
+      "problem": "無記憶情報源の記号a,b,cの確率は0.7,0.2,0.1。長さ3までのaのランに対する2元ランレングスハフマン符号と、1情報源記号あたりの平均符号長を示す。必要なら小数点以下第4位を四捨五入。",
+      "basics": [
+        "無記憶なので連続記号の確率は積。平均長は情報源記号単位へ換算する。"
+      ],
+      "steps": [
+        "辞書を b,ab,aab,c,ac,aac,aaa とする。3個のaで打ち切るのでaaaの後は次の辞書項目を開始する。",
+        "確率は順に0.2,0.14,0.098,0.1,0.07,0.049,0.343。和は1。",
+        "最小2つの結合: 0.049+0.07=0.119、0.098+0.1=0.198、0.119+0.14=0.259、0.198+0.2=0.398、0.259+0.343=0.602、最後に1。",
+        "一例: b=01,ab=101,aab=000,c=001,ac=1001,aac=1000,aaa=11。",
+        "辞書項目当たりの符号長平均は0.2×2+0.14×3+0.098×3+0.1×3+0.07×4+0.049×4+0.343×2=2.576 bit。",
+        "辞書項目の平均情報源記号数は0.2×1+0.14×2+0.098×3+0.1×1+0.07×2+0.049×3+0.343×3=2.19。"
+      ],
+      "answer": "上記の接頭語符号の一例に対し、1情報源記号当たり2.576/2.19=1.176255… ≈1.176 bit。",
+      "checklist": [
+        "辞書と打切り条件",
+        "確率和1",
+        "接頭語性",
+        "平均情報源記号数で割る"
+      ],
+      "pitfalls": [
+        "2.576をbit/情報源記号と誤記",
+        "aaaにb/cまで続けた確率を混ぜる"
+      ],
+      "assumptions": [
+        "「長さ3まで」は、aを最大3個連続でまとめ、bまたはcで終了する前置a列の辞書（b,ab,aab,c,ac,aac,aaa）と解釈する。左右ビット交換の別のハフマン木も妥当。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2022-q2-1",
+      "status": "verified",
+      "problem": "(7,4)ハミング符号の検査行列H=((1,0,1,□,1,0,0),(□,□,0,□,0,1,0),(□,□,1,0,0,0,1))の6空欄を埋め、行列全体を記す。",
+      "basics": [
+        "ハミング検査行列は非零・相異なる全7列を持つ。"
+      ],
+      "steps": [
+        "3ビット非零列7種類を重複なく配置する。",
+        "2022の固定列は第3列101、第5列100、第6列010、第7列001。残る列は110,011,111。",
+        "第2列は先頭0なので011、第4列は末尾0なので110、残る第1列は111。"
+      ],
+      "answer": "Hの一例（2022は固定空欄を補った行列）は $\\begin{pmatrix}1&0&1&1&1&0&0\\\\1&1&0&1&0&1&0\\\\1&1&1&0&0&0&1\\end{pmatrix}$",
+      "checklist": [
+        "3×7",
+        "非零・相異なる列",
+        "原本の固定成分を保持"
+      ],
+      "pitfalls": [
+        "零列を作る",
+        "同じ列を重複させる"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2022-q2-2",
+      "status": "conditional",
+      "problem": "前問で完成させた検査行列に対する生成行列を示す。 この解答ではH=$\\begin{pmatrix}1&0&1&1&1&0&0\\\\1&1&0&1&0&1&0\\\\1&1&1&0&0&0&1\\end{pmatrix}$を用いる。",
+      "basics": [
+        "GF(2)で−P=Pなので HGᵀ=Pᵀ+Pᵀ=0。"
+      ],
+      "steps": [
+        "Hの先頭4列をPᵀと読み、その転置Pを取る。",
+        "G=[I4|P] を作る。",
+        "HGᵀ=0、Gの先頭4列I4より階数4を確認する。"
+      ],
+      "answer": "G=$\\begin{pmatrix}1&0&0&0&1&1&1\\\\0&1&0&0&0&1&1\\\\0&0&1&0&1&0&1\\\\0&0&0&1&1&1&0\\end{pmatrix}$",
+      "checklist": [
+        "Hに対応したP",
+        "4×7",
+        "HGᵀ=0",
+        "情報の割当を明記"
+      ],
+      "pitfalls": [
+        "実数の符号を使い−1を書く",
+        "Hだけで生成行列の基底が唯一と決め付ける"
+      ],
+      "assumptions": [
+        "情報4ビットを先頭とする組織符号 G=[I4|P]、H=[Pᵀ|I3] の約束を採用する。2024は問題文に再掲した検査行列を前問の例として選ぶ。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2022-q2-3",
+      "status": "conditional",
+      "problem": "H=$\\begin{pmatrix}1&0&1&1&1&0&0\\\\1&1&0&1&0&1&0\\\\1&1&1&0&0&0&1\\end{pmatrix}$に対してG=[I4|P]を使い、情報ビット1010の符号語を求める。",
+      "basics": [
+        "c=mG（GF(2)）。"
+      ],
+      "steps": [
+        "m=1010なのでGの第1行と第3行をXORする。",
+        "1000111 ⊕ 0010101 = 1010010。",
+        "Hcᵀ=0で有効な符号語か検算する。"
+      ],
+      "answer": "1010010。",
+      "checklist": [
+        "先頭4ビットは1010",
+        "GF(2)の加算",
+        "Hcᵀ=0"
+      ],
+      "pitfalls": [
+        "先頭0などの桁を落とす",
+        "別の生成行列の情報割当を混ぜる"
+      ],
+      "assumptions": [
+        "先頭4ビットが情報の組織的G=[I4|P]を採用する。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2022-q3",
+      "status": "verified",
+      "problem": "図の10頂点a～j、非負重み付きグラフでaからjへの最短経路・距離と、各頂点の距離確定順を求める。画像の辺と重みはa-b:4、a-d:2、b-c:2、c-d:1、b-e:7、b-f:4、c-f:3、c-i:6、d-g:3、e-f:6、f-g:4、e-j:5、f-h:6、g-i:6、h-j:2、h-i:1、j-i:4。",
+      "basics": [
+        "各回で未確定の最小暫定距離を確定し、隣接辺を緩和する。"
+      ],
+      "steps": [
+        "a=0からb=4,d=2。d=2を確定しc=3,g=5。",
+        "c=3を確定しf=6,i=9。b=4を確定しe=11（fは6のまま）。",
+        "g=5,f=6を確定してもi=9は変わらず、hは暫定12。",
+        "i=9を確定しh=10,j=13。h=10を確定しj=12へ短縮する。",
+        "e=11を確定後、j=12を確定。前駆頂点を逆に辿る。"
+      ],
+      "answer": "最短経路 a→d→c→i→h→j、距離12。確定順と距離: a:0,d:2,c:3,b:4,g:5,f:6,i:9,h:10,e:11,j:12。",
+      "checklist": [
+        "全17辺を保持",
+        "各頂点の確定順と距離",
+        "終点から前駆を辿る"
+      ],
+      "pitfalls": [
+        "線の交点を頂点に追加",
+        "暫定距離を確定距離として早く出す"
+      ],
+      "assumptions": [],
+      "verification": "17辺の隣接リストでDijkstra法を実行し、独立した全頂点対Floyd-Warshallでもa→j=12を確認した。",
+      "diagram": {
+        "src": "figures/information-mathematics-2022-graph.svg",
+        "alt": "a～jの10頂点・17辺の無向重みグラフ。辺と重みは問題文のリストに併記。"
+      },
+      "diagramRole": "question"
+    },
+    {
+      "questionId": "information-mathematics-2023-q1-1",
+      "status": "conditional",
+      "problem": "状態確率ベクトルū、遷移確率行列P̄から各状態の定常確率を求める連立方程式の空欄アを埋める。",
+      "basics": [
+        "定常分布は1段階の遷移後も変わらない。"
+      ],
+      "steps": [
+        "$uP=u$ を置く。",
+        "独立な状態方程式と $\\sum_i u_i=1$ を連立する。",
+        "各成分は $u_j=\\sum_i u_iP_{ij}$、$u_i\\ge0$。"
+      ],
+      "answer": "ア: $\\bar u\\bar P=\\bar u,\\quad\\sum_i u_i=1$（行ベクトルの約束）。列ベクトルなら同じPに対し $P^T u=u$。",
+      "checklist": [
+        "確率和1",
+        "行/列の約束",
+        "状態添字の向き"
+      ],
+      "pitfalls": [
+        "正規化条件を落とす"
+      ],
+      "assumptions": [
+        "状態確率を行ベクトル、Pijをi→jの遷移確率として解答する。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2023-q1-2",
+      "status": "verified",
+      "problem": "2元(n,k)線形符号の情報ビット長・冗長ビット長、および生成行列の独立行ベクトルの個数と次元について、イ～オの空欄を埋める。",
+      "basics": [
+        "情報kビットを全nビットへ線形に符号化する。"
+      ],
+      "steps": [
+        "情報長はk、冗長長はn−k。",
+        "生成行列Gはk本の独立行ベクトルから構成する。",
+        "各行の長さは符号語長n。"
+      ],
+      "answer": "イ:k、ウ:n−k、エ:k、オ:n。",
+      "checklist": [
+        "nとkの役割",
+        "行数k・列数n",
+        "GF(2)上の独立性"
+      ],
+      "pitfalls": [
+        "Gをn×kと答える"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2023-q1-3",
+      "status": "conditional",
+      "problem": "(7,4)ハミング符号のH=((1,1,1,0,1,0,0),(0,1,1,1,0,1,0),(1,0,1,1,0,0,1))を使い、受信語1010110のシンドロームと誤りビット位置、情報ビット列1101の符号語の空欄カ～クを埋める。",
+      "basics": [
+        "s=Hrᵀ、1ビット誤りならsは誤り位置のHの列。"
+      ],
+      "steps": [
+        "r=1010110、1が立つ第1,3,5,6列をXORする。",
+        "(101)⊕(111)⊕(100)⊕(010)=(100)。",
+        "Hの第5列が100なので、左から第5ビットを反転する。訂正語は1010010。",
+        "情報1101のパリティは(1⊕1,1⊕1,1⊕1)=(0,0,0)なので符号語1101000。"
+      ],
+      "answer": "カ:100、キ:第5ビット、ク:1101000。",
+      "checklist": [
+        "元の2023のHを使う",
+        "ビット位置は左から1始まり",
+        "3ビットシンドローム",
+        "訂正の単一誤り仮定"
+      ],
+      "pitfalls": [
+        "2022と同じHを使う",
+        "シンドロームを2進整数としてそのまま位置にする"
+      ],
+      "assumptions": [
+        "シンドロームによる誤り位置判定は受信語の誤りが1ビットであることを仮定。符号化は先頭4ビットを情報とする組織符号。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2023-q2-1",
+      "status": "conditional",
+      "problem": "郵便配達員問題のグラフを用いた定義を述べる。",
+      "basics": [
+        "最短経路は始点終点間、郵便配達員問題は全辺を巡る閉路。"
+      ],
+      "steps": [
+        "道路網をグラフ、道路長を辺の非負重みで表す。",
+        "全辺を少なくとも1度通り、始点へ戻る歩道を考える。",
+        "辺の重みを通過回数込みで合計し、これを最小化する。"
+      ],
+      "answer": "連結な無向非負重みグラフについて、全ての辺を少なくとも1回通過して出発頂点へ戻る最短の閉じた歩道を求める問題。頂点・辺の重複訪問は許す。",
+      "checklist": [
+        "全辺を対象",
+        "出発点へ戻る",
+        "重みと重複通過"
+      ],
+      "pitfalls": [
+        "各頂点を1回だけ訪問と書く"
+      ],
+      "assumptions": [
+        "無向・連結・非負重みの標準版を説明する。有向版は次数条件が異なる。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2023-q2-2",
+      "status": "conditional",
+      "problem": "郵便配達員問題に対するグラフを用いた解法を説明する。",
+      "basics": [
+        "Euler閉路の存在条件は連結で全頂点の次数が偶数。"
+      ],
+      "steps": [
+        "奇数次数頂点を列挙する。0個ならEuler閉路を求める。",
+        "奇数頂点の各対について元グラフの最短距離と経路を求める。",
+        "奇数頂点全てを対にする最小重み完全マッチングを求める（単純な貪欲な最近傍選択では保証されない）。",
+        "選んだ対の最短経路上の辺を重複し、全頂点の次数を偶数にする。",
+        "拡張した多重グラフのEuler閉路を求め、元の辺の重複通過として読む。"
+      ],
+      "answer": "全辺の重み和に、奇数次数頂点を対にする最小完全マッチングの距離和を加えた長さが最適値。重複した経路によって偶数次数化し、Euler閉路を構成する。",
+      "checklist": [
+        "奇数次数",
+        "最短距離",
+        "最小完全マッチング",
+        "Euler閉路"
+      ],
+      "pitfalls": [
+        "奇数頂点を近い順に貪欲結合すれば必ず最適と書く"
+      ],
+      "assumptions": [
+        "連結・無向・非負重みのグラフを対象とする。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2024-q1-1",
+      "status": "verified",
+      "problem": "ジョーカーなし52枚のカードで黒/赤を出力するAの各自己情報量・平均情報量と、絵札なら1、それ以外は0とするBの平均情報量、その関数名を埋める。log₂3=1.58、log₂5=2.32、log₂13=3.70を使用。",
+      "basics": [
+        "52枚中、黒26・赤26、絵札12・非絵札40。自己情報量は−log2p。"
+      ],
+      "steps": [
+        "Aはp=1/2ずつ。自己情報量はどちらも1 bit、平均も1 bit。",
+        "Bはp1=12/52=3/13、p0=40/52=10/13。",
+        "与えられた近似値より I1=3.70−1.58=2.12、I0=3.70−(1+2.32)=0.38。",
+        "HB=(3×2.12+10×0.38)/13=10.16/13≈0.78154 bit。"
+      ],
+      "answer": "a=1、b=1、c=1（bit）。d=10.16/13≈0.78154 bit（約0.782 bit）。e=エントロピー（平均情報量）。",
+      "checklist": [
+        "絵札は12枚",
+        "対数は底2",
+        "指定された近似値で計算",
+        "単位bit"
+      ],
+      "pitfalls": [
+        "エースを絵札へ入れる",
+        "真の対数による値約0.77935と指定近似値の結果を混ぜる"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2024-q1-2",
+      "status": "verified",
+      "problem": "同じ形・重さの金・銀・銅のメダル計30枚から1枚を取り出して色を通知する情報源。平均情報量を最大にする各色の枚数を空欄f～hに示す。",
+      "basics": [
+        "3種類の情報源のエントロピーは一様分布で最大。"
+      ],
+      "steps": [
+        "色を引く確率は各色の枚数/30。",
+        "等確率1/3にするには各色10枚。",
+        "最大H=log2 3≈1.58 bit。"
+      ],
+      "answer": "f=10、g=10、h=10（枚）。",
+      "checklist": [
+        "30枚を使い切る",
+        "等確率",
+        "枚数で答える"
+      ],
+      "pitfalls": [
+        "最も珍しい1色だけの自己情報量を最大化する"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。",
+      "autoCheck": {
+        "id": "information-mathematics-2024-q1-2-check",
+        "prompt": "金の枚数は？",
+        "kind": "number",
+        "numericAnswer": 10,
+        "tolerance": 1e-09,
+        "explanation": "最大エントロピーは等確率。銀・銅も10枚。",
+        "pitfall": "符号・単位・条件を確認する。"
+      }
+    },
+    {
+      "questionId": "information-mathematics-2024-q2",
+      "status": "verified",
+      "problem": "5情報源記号a,b,c,d,eの確率を任意に決め、2元ハフマン符号木の生成方法と符号語の割当方法を具体例で説明する。",
+      "basics": [
+        "5記号の確率和を1にして最小2つを反復結合する。"
+      ],
+      "steps": [
+        "a,b,c,d,eの確率を0.4,0.2,0.2,0.1,0.1とする。",
+        "dとeを結合し0.2。このノードとcを結合し0.4。",
+        "bとaを結合し0.6。最後に0.4と0.6を結合し根1。",
+        "根の0側を(c,(d,e))、1側を(b,a)とし各枝へ0/1を割り当てる。"
+      ],
+      "answer": "一例: c=00,d=010,e=011,b=10,a=11。根→0→0がc、根→0→1の下がd/e、根→1の下がb/a。平均符号長は0.4×2+0.2×2+0.2×2+0.1×3+0.1×3=2.2 bit/記号。",
+      "checklist": [
+        "確率和1",
+        "結合順",
+        "分岐0/1",
+        "接頭語性"
+      ],
+      "pitfalls": [
+        "同率の結合順や左右交換の別解を誤答とする"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。",
+      "diagram": {
+        "src": "figures/information-mathematics-2024-huffman.svg",
+        "alt": "c00,d010,e011,b10,a11 を割り当てる5記号ハフマン木の一例。"
+      },
+      "diagramRole": "answer"
+    },
+    {
+      "questionId": "information-mathematics-2024-q3-1",
+      "status": "verified",
+      "problem": "2元(7,4)ハミング符号の検査行列の構成方法を説明し、1つの行列を例示する。",
+      "basics": [
+        "ハミング検査行列は非零・相異なる全7列を持つ。"
+      ],
+      "steps": [
+        "3ビット非零列 001,010,011,100,101,110,111 を重複なく配置する。",
+        "情報ビットを先頭4列とする例を選び、後ろ3列にI3を置く。",
+        "この7つの列はすべて異なるため単一誤り位置を識別できる。"
+      ],
+      "answer": "Hの一例（2022は固定空欄を補った行列）は $\\begin{pmatrix}1&0&1&1&1&0&0\\\\1&1&0&1&0&1&0\\\\1&1&1&0&0&0&1\\end{pmatrix}$",
+      "checklist": [
+        "3×7",
+        "非零・相異なる列",
+        "原本の固定成分を保持"
+      ],
+      "pitfalls": [
+        "零列を作る",
+        "同じ列を重複させる"
+      ],
+      "assumptions": [],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2024-q3-2",
+      "status": "conditional",
+      "problem": "前問で例示した検査行列に対する生成行列を示す。 この解答ではH=$\\begin{pmatrix}1&0&1&1&1&0&0\\\\1&1&0&1&0&1&0\\\\1&1&1&0&0&0&1\\end{pmatrix}$を用いる。",
+      "basics": [
+        "GF(2)で−P=Pなので HGᵀ=Pᵀ+Pᵀ=0。"
+      ],
+      "steps": [
+        "Hの先頭4列をPᵀと読み、その転置Pを取る。",
+        "G=[I4|P] を作る。",
+        "HGᵀ=0、Gの先頭4列I4より階数4を確認する。"
+      ],
+      "answer": "G=$\\begin{pmatrix}1&0&0&0&1&1&1\\\\0&1&0&0&0&1&1\\\\0&0&1&0&1&0&1\\\\0&0&0&1&1&1&0\\end{pmatrix}$",
+      "checklist": [
+        "Hに対応したP",
+        "4×7",
+        "HGᵀ=0",
+        "情報の割当を明記"
+      ],
+      "pitfalls": [
+        "実数の符号を使い−1を書く",
+        "Hだけで生成行列の基底が唯一と決め付ける"
+      ],
+      "assumptions": [
+        "情報4ビットを先頭とする組織符号 G=[I4|P]、H=[Pᵀ|I3] の約束を採用する。2024は問題文に再掲した検査行列を前問の例として選ぶ。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    },
+    {
+      "questionId": "information-mathematics-2024-q3-3",
+      "status": "conditional",
+      "problem": "シンドロームとは何かを説明し、具体例を通して利用方法を示す。",
+      "basics": [
+        "シンドロームは受信語が検査方程式をどの程度満たすかを表すGF(2)のベクトル。"
+      ],
+      "steps": [
+        "例としてH=$\\begin{pmatrix}1&0&1&1&1&0&0\\\\1&1&0&1&0&1&0\\\\1&1&1&0&0&0&1\\end{pmatrix}$、組織的G=[I4|P]で情報1010→符号語c=1010010を使う。",
+        "第2ビットが反転してr=1110010を受信したとする。",
+        "s=Hrᵀ=(0,1,1)ᵀで、Hの第2列と一致する。",
+        "第2ビットを反転するとc=1010010へ戻る。"
+      ],
+      "answer": "シンドロームはs=Hrᵀ。正しい符号語では0で、単一誤りでは該当するHの列となり位置を特定できる。上の例ではs=011から第2ビットを訂正する。",
+      "checklist": [
+        "定義",
+        "Hと受信語の具体例",
+        "sと列の対応",
+        "訂正後の検算"
+      ],
+      "pitfalls": [
+        "s=0をどんな多重誤りもない証拠とする"
+      ],
+      "assumptions": [
+        "例は再掲したHと組織的G=[I4|P]、誤りは第2ビット1個だけとする。"
+      ],
+      "verification": "原本ページ画像と条件を照合し、定義から導出した。"
+    }
+  ]
+}
