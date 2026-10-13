@@ -20,7 +20,8 @@
 条件付き解説では、量子化規約や座標系、定義域など、補った条件を明記する。
 最終結果の自動確認は21設問。論述、図示、複数の妥当な解がある問題は確認項目による自己評価にする。
 公式の解答や採点基準として提示するものではない。
-GitHubリポジトリの作成と公開実行は後続作業とする。
+保存先は [a5824006/jitsuryoku-study](https://github.com/a5824006/jitsuryoku-study)。
+GitHub Pagesの公開実行は後続作業とする。
 
 ## 2つの学習の入口
 
@@ -72,9 +73,10 @@ npm run preview
 ## GitHub Pagesの公開準備
 
 `.github/workflows/pages.yml` にテスト・型チェック・ビルド・配信の手順を用意した。
-将来リポジトリを作成し、GitHubのSettings → PagesでSourceをGitHub Actionsに設定する。
-`main` へのpushまたは手動実行で配信する。
-この段階ではリポジトリ作成・公開は実行していない。
+公開段階でGitHubのSettings → PagesのSourceをGitHub Actionsに設定する。
+`main` へのpushとpull requestではテストとビルドを検証する。
+手動実行（workflow_dispatch）の場合だけPagesへ配信する。
+リポジトリは作成済みで、Pagesへの配信はまだ実行していない。
 
 `GITHUB_REPOSITORY` からリポジトリ配下の基準パスを設定し、画面はハッシュURLで遷移する。
 独自の公開パスでは `SITE_BASE` で上書きできる。
