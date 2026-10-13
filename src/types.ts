@@ -1,0 +1,7 @@
+export type Status = 'unstarted' | 'review' | 'understood';
+export interface Topic { id: string; name: string; description: string; studyAdvice: string; years: number[]; appearanceYears: number; availableYears: number; questionCount: number; prerequisite: boolean }
+export interface Question { id: string; subjectId: string; year: number; number: string; page: number; title: string; summary: string; topics: string[]; family: string; formats: string[]; points: number | null; minimumCharacters: number | null; keywords: string[]; changeNote: string; sourceFile: string; answerLanguage: string }
+export interface Subject { subjectId: string; name: string; availableYears: number[]; questionCount: number; topicCount: number; pageCount: number; prerequisites: string[]; answerTraits: string[]; preparation: string; overlaps: { subjectId: string; knowledge: string }[]; topics: Topic[] }
+export interface Detail { subjectId: string; name: string; insights: { claim: string; interpretation: string; evidence: string[] }[]; cautions: {year: number; number: string; page: number; description: string; handling: string}[]; siteRecommendations: string[]; references: {title: string; url: string}[]; papers: {year: number; rules: string[]; answerLanguage: string}[] }
+export interface Catalog { schemaVersion: number; analyzedAt: string; subjects: Subject[]; questions: Question[] }
+export interface Progress { version: 1; selected: string[]; statuses: Record<string, Status>; favorites: string[]; drafts: Record<string, string> }

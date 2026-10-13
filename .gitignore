@@ -2,6 +2,7 @@ work/
 tmp/
 node_modules/
 dist/
+public/data/
 __pycache__/
 *.pyc
 *.zip
