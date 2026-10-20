@@ -1,29 +1,32 @@
 # 教材データ
 
-各科目のJSONは、出題分析とは別に作成した基礎教材と解答例である。
-schemaVersionは1。既存の科目ID、テーマID、設問IDと対応する。
+教材は出題分析と分離して管理する。科目別JSONのschemaVersionは2。
+各科目のlessonsは既存69テーマ、solutionsは過去問199設問と対応する。
+foundations.jsonの8補助教材は出題テーマや頻度へ加算しない。
 
 ## 基礎教材
 
-lessonsには学習目標、前提テーマへの参照、要点、例題、確認テスト3問と再テスト1問を記録する。
-テストIDはテーマIDに`-c1`、`-c2`、`-c3`、`-retest`を付ける。
-診断には`-c1`を使う。これらの276問は過去問199設問とは別の教材である。
+各テーマにobjectives、prerequisiteTopicIds、prerequisiteFoundationIds、sections、examples（2件）、quizzes（5件）、retests（2件）、diagnostic（1件）、intensiveを記録する。
+重点教材は26テーマ。examplesは問題、途中式、答案例、任意の独自SVGを持つ。
 
-テスト形式は単一選択、複数選択、許容語句、単一数値、ビット列。
-数値の許容誤差はテストごとに指定する。
-ビット列は桁数と先頭の0を保つ。
-自由な証明や図示を文字列一致で自動判定しない。
+既存の-c1、-c2、-c3、-retestのIDは保持する。追加IDは-c4、-c5、-retest-2、-diagnostic。
+診断は教材内の確認問題と別の問題・IDを使用する。
+補助教材はfoundation-で始まる独立IDと、2例題、3確認問題、1再テストを持つ。
+全学習問題は584件（診断を含む）。過去問の最終結果を自動確認する21件とは別に集計する。
 
-## 解説
+## 確認方法
 
-solutionsは原本の設問IDごとに問題の再記述、基礎、解法、答案例、確認項目、誤りやすい点、採用仮定、検証の根拠を持つ。
-statusはverified、conditional、pending、draft。
-条件付きの解説にはassumptionsを必須とし、自動確認はverifiedのautoCheckに限定する。
+自動確認はchoice、multiple-choice、text、number、bits。許容表記と数値誤差は問題ごとに定義する。
+self-checkは説明、証明、図示等の自己評価で、answer、checklist、explanation、pitfallを持つ。
+自己評価の結果は自動確認の正答数に含めない。英語の答案例はenglishAnswerで記録する。
 
-数式はMarkdownの`$...$`または`$$...$$`で記述し、KaTeXで表示する。
-図は教材用に独自作図したSVGを使用する。
-diagramRoleがquestionの場合は問題と一緒に表示し、answerの場合は演習終了後に表示する。
+ビルド時にlearningIndexを生成し、科目、テーマ、役割、形式を記録する。役割をIDから推測しない。
+学習記録v3のdraftsは答案、notesは復習メモ、quizAttemptsは自動確認、selfAssessmentsは自己評価である。
+旧版の共通入力欄はdraftsとして保持し、ユーザーが必要な内容をnotesへコピーできる。
 
-英語の問題にはoriginalEnglishとtranslationを記録し、回答指定に合わせてenglishAnswerを用意する。
-非表示の解答らしき文字列は根拠にしない。
-確認項目は教材の答案例に基づく自己評価であり、公式の採点基準ではない。
+## 原本の解説
+
+solutionsの問題条件、数式、年度、言語、検証状態は保持する。条件付き解説はassumptionsを必須とする。
+自動確認はverifiedのautoCheckに限定する。非表示の解答文字列を根拠にしない。
+問題図は解答前に、答案図は解説を開いた後に表示する。数式はKaTeX、図は独自SVGを使用する。
+確認項目は教材の答案例に基づく自己評価で、公式の採点基準ではない。

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "subjectId": "information-mathematics",
   "lessons": [
     {
@@ -18,17 +18,12 @@
         {
           "title": "平均情報量",
           "body": "$H=-\\sum_i p_i\\log_2p_i$ はエントロピー。0 log 0 は極限で0とする。m種類なら $H\\le\\log_2m$ で、等確率のとき最大となる。単一事象の情報量とその平均を混同しない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "自己情報量は−log₂pで、確率が小さい事象ほど大きい。平均情報量は各自己情報量を確率で重み付けした和。等確率のM事象ならlog₂Mとなる。確率0の項は0log0=0の極限で扱い、log0をそのまま数値計算しない。対数の底が2なら単位はbitである。"
         }
       ],
-      "example": {
-        "prompt": "公平な4面サイコロの自己情報量と平均。",
-        "steps": [
-          "各事象の確率1/4。",
-          "−log2(1/4)=2 bit。",
-          "すべて同じなので平均も2 bit。"
-        ],
-        "answer": "自己情報量2 bit、平均2 bit"
-      },
       "quizzes": [
         {
           "id": "information-mathematics-information-measures-c1",
@@ -84,19 +79,89 @@
           "prompt": "確率1/8の事象の自己情報量は？",
           "kind": "number",
           "numericAnswer": 3,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "−log₂(1/8)=3。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-information-measures-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「平均情報量は自己情報量の単純な算術平均でよい。」",
+          "answer": "確率で重み付けする。等確率の場合だけ単純平均と一致する。",
+          "checklist": [
+            "確率で重み付けする。",
+            "等確率の場合だけ単純平均と一致する。"
+          ],
+          "explanation": "自己情報量は−log₂pで、確率が小さい事象ほど大きい。平均情報量は各自己情報量を確率で重み付けした和。等確率のM事象ならlog₂Mとなる。確率0の項は0log0=0の極限で扱い、log0をそのまま数値計算しない。対数の底が2なら単位はbitである。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "information-mathematics-information-measures-c5",
+          "kind": "self-check",
+          "prompt": "確率1/8の事象の自己情報量と、8事象が等確率の場合の平均情報量を比較する。",
+          "answer": "自己情報量は3bit。8事象が全て1/8なら平均も3bit。",
+          "checklist": [
+            "自己情報量は3bit。",
+            "8事象が全て1/8なら平均も3bit。"
+          ],
+          "explanation": "自己情報量は−log₂pで、確率が小さい事象ほど大きい。平均情報量は各自己情報量を確率で重み付けした和。等確率のM事象ならlog₂Mとなる。確率0の項は0log0=0の極限で扱い、log0をそのまま数値計算しない。対数の底が2なら単位はbitである。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "information-mathematics-information-measures-retest",
-        "prompt": "4種類を等確率にした平均情報量は？",
+      "prerequisiteFoundationIds": [
+        "foundation-probability"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "公平な4面サイコロの自己情報量と平均。",
+          "steps": [
+            "各事象の確率1/4。",
+            "−log2(1/4)=2 bit。",
+            "すべて同じなので平均も2 bit。"
+          ],
+          "answer": "自己情報量2 bit、平均2 bit"
+        },
+        {
+          "prompt": "確率(1/2,1/4,1/4)の平均情報量を求める。",
+          "steps": [
+            "自己情報量は1,2,2bit。",
+            "平均は(1/2)×1+(1/4)×2+(1/4)×2。"
+          ],
+          "answer": "1.5bit。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "information-mathematics-information-measures-retest",
+          "prompt": "4種類を等確率にした平均情報量は？",
+          "kind": "number",
+          "numericAnswer": 2,
+          "tolerance": 1e-9,
+          "explanation": "log₂4=2。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-information-measures-retest-2",
+          "kind": "self-check",
+          "prompt": "ある事象の確率が1から1/2に下がると自己情報量はどう変わるか、値と理由を示す。",
+          "answer": "0bitから1bitへ増える。−log₂pで確率の低下が情報量の増加になる。",
+          "checklist": [
+            "0bitから1bitへ増える。",
+            "−log₂pで確率の低下が情報量の増加になる。"
+          ],
+          "explanation": "自己情報量は−log₂pで、確率が小さい事象ほど大きい。平均情報量は各自己情報量を確率で重み付けした和。等確率のM事象ならlog₂Mとなる。確率0の項は0log0=0の極限で扱い、log0をそのまま数値計算しない。対数の底が2なら単位はbitである。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "information-mathematics-information-measures-diagnostic",
+        "prompt": "確率1の事象の自己情報量をbitで答える。",
         "kind": "number",
-        "numericAnswer": 2,
-        "tolerance": 1e-09,
-        "explanation": "log₂4=2。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 0,
+        "tolerance": 1e-10,
+        "explanation": "自己情報量は−log₂pで、確率が小さい事象ほど大きい。平均情報量は各自己情報量を確率で重み付けした和。等確率のM事象ならlog₂Mとなる。確率0の項は0log0=0の極限で扱い、log0をそのまま数値計算しない。対数の底が2なら単位はbitである。",
+        "pitfall": "確率で重み付けする。等確率の場合だけ単純平均と一致する。"
       }
     },
     {
@@ -117,17 +182,12 @@
         {
           "title": "ランをまとめるとき",
           "body": "ランレングスの辞書の各項目は複数の情報源記号を含む。辞書1項目当たりの平均符号長を、その項目に含まれる情報源記号数の平均で割り、bit/情報源記号に直す。ラン打切りの約束と確率和1を明示する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "確率の小さい2項を結合し、合成確率を候補へ戻す操作を繰り返す。木の枝へ0と1を割り当てると符号語が得られる。左右を交換した木でも符号長は同じなので、一意のビット列だけを正解としない。平均符号長はΣp_i l_iで計算し、どの符号語も他の接頭語になっていないか確認する。"
         }
       ],
-      "example": {
-        "prompt": "a,b,c の確率0.5,0.3,0.2のハフマン符号。",
-        "steps": [
-          "0.2と0.3を結合して0.5。",
-          "2つの0.5を結合する。",
-          "a=0,b=10,c=11 と割り当てる。"
-        ],
-        "answer": "平均長=0.5×1+0.3×2+0.2×2=1.5 bit/記号"
-      },
       "quizzes": [
         {
           "id": "information-mathematics-huffman-c1",
@@ -183,19 +243,94 @@
           "prompt": "確率0.5,0.3,0.2、符号長1,2,2の平均長は？",
           "kind": "number",
           "numericAnswer": 1.5,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "0.5+0.6+0.4=1.5。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-huffman-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「ハフマン符号は枝の0と1を交換すると誤りになる。」",
+          "answer": "接頭語性と符号長が保たれる交換は妥当。木と平均長で確認する。",
+          "checklist": [
+            "接頭語性と符号長が保たれる交換は妥当。",
+            "木と平均長で確認する。"
+          ],
+          "explanation": "確率の小さい2項を結合し、合成確率を候補へ戻す操作を繰り返す。木の枝へ0と1を割り当てると符号語が得られる。左右を交換した木でも符号長は同じなので、一意のビット列だけを正解としない。平均符号長はΣp_i l_iで計算し、どの符号語も他の接頭語になっていないか確認する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "information-mathematics-huffman-c5",
+          "kind": "self-check",
+          "prompt": "符号{0,01,11}が接頭語符号か判定し、復号上の問題を説明する。",
+          "answer": "0が01の接頭語なので接頭語符号ではない。ビット列の区切りを逐次確定できない。",
+          "checklist": [
+            "0が01の接頭語なので接頭語符号ではない。",
+            "ビット列の区切りを逐次確定できない。"
+          ],
+          "explanation": "確率の小さい2項を結合し、合成確率を候補へ戻す操作を繰り返す。木の枝へ0と1を割り当てると符号語が得られる。左右を交換した木でも符号長は同じなので、一意のビット列だけを正解としない。平均符号長はΣp_i l_iで計算し、どの符号語も他の接頭語になっていないか確認する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "information-mathematics-huffman-retest",
-        "prompt": "辞書項目当たり3 bit、項目が平均2情報源記号を含む。bit/情報源記号は？",
+      "prerequisiteFoundationIds": [
+        "foundation-trees",
+        "foundation-probability"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "a,b,c の確率0.5,0.3,0.2のハフマン符号。",
+          "steps": [
+            "0.2と0.3を結合して0.5。",
+            "2つの0.5を結合する。",
+            "a=0,b=10,c=11 と割り当てる。"
+          ],
+          "answer": "平均長=0.5×1+0.3×2+0.2×2=1.5 bit/記号"
+        },
+        {
+          "prompt": "確率a=.4,b=.3,c=.2,d=.1の符号木と平均長を作る。",
+          "steps": [
+            "cとdを結合して.3。これとbの.3を結合して.6。",
+            "a=.4と.6を根で結ぶ。符号例はa=0,b=10,c=110,d=111。"
+          ],
+          "answer": "平均長=.4×1+.3×2+.2×3+.1×3=1.9bit。",
+          "diagram": {
+            "src": "figures/learning-huffman.svg",
+            "alt": "確率と符号の枝を対応させたハフマン木"
+          }
+        }
+      ],
+      "retests": [
+        {
+          "id": "information-mathematics-huffman-retest",
+          "prompt": "辞書項目当たり3 bit、項目が平均2情報源記号を含む。bit/情報源記号は？",
+          "kind": "number",
+          "numericAnswer": 1.5,
+          "tolerance": 1e-9,
+          "explanation": "3/2。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-huffman-retest-2",
+          "kind": "self-check",
+          "prompt": "確率が等しい4記号のハフマン符号長と平均長を示す。",
+          "answer": "各記号の符号長2、平均長2bit。符号例は00,01,10,11。",
+          "checklist": [
+            "各記号の符号長2、平均長2bit。",
+            "符号例は00,01,10,11。"
+          ],
+          "explanation": "確率の小さい2項を結合し、合成確率を候補へ戻す操作を繰り返す。木の枝へ0と1を割り当てると符号語が得られる。左右を交換した木でも符号長は同じなので、一意のビット列だけを正解としない。平均符号長はΣp_i l_iで計算し、どの符号語も他の接頭語になっていないか確認する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "information-mathematics-huffman-diagnostic",
+        "prompt": "ハフマン木の構築で毎回結合する項の数はいくつか。",
         "kind": "number",
-        "numericAnswer": 1.5,
-        "tolerance": 1e-09,
-        "explanation": "3/2。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 2,
+        "tolerance": 1e-10,
+        "explanation": "確率の小さい2項を結合し、合成確率を候補へ戻す操作を繰り返す。木の枝へ0と1を割り当てると符号語が得られる。左右を交換した木でも符号長は同じなので、一意のビット列だけを正解としない。平均符号長はΣp_i l_iで計算し、どの符号語も他の接頭語になっていないか確認する。",
+        "pitfall": "接頭語性と符号長が保たれる交換は妥当。木と平均長で確認する。"
       }
     },
     {
@@ -216,16 +351,12 @@
         {
           "title": "行・列の約束",
           "body": "同じPで分布を列ベクトルにするなら $P^Tu=u$。行列の定義も転置して採用する教科書があるため、まずPの成分がどの方向の遷移かを固定する。一般に定常分布が一意とは限らず、連鎖の条件による。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "行が現在状態、列が次状態の行確率行列Pでは行ベクトルπに対してπP=πを解く。さらに成分和1と非負条件が必要。方程式の一部は従属するので和1の条件で置き換える。定常分布が存在しても、任意の初期状態から毎段それへ収束するとは限らず、周期性などを区別する。"
         }
       ],
-      "example": {
-        "prompt": "P=((0.8,0.2),(0.3,0.7)) の定常分布。",
-        "steps": [
-          "u=(a,b)。a=0.8a+0.3b、a+b=1。",
-          "0.2a=0.3b → a:b=3:2。"
-        ],
-        "answer": "u=(0.6,0.4)"
-      },
       "quizzes": [
         {
           "id": "information-mathematics-markov-c1",
@@ -281,19 +412,89 @@
           "prompt": "定常比a:b=3:2、a+b=1。aは？",
           "kind": "number",
           "numericAnswer": 0.6,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "3/(3+2)。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-markov-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「定常分布は遷移行列の対角成分を並べれば求まる。」",
+          "answer": "πP=πと成分和1を解く。対角成分は状態に留まる確率で定常分布とは異なる。",
+          "checklist": [
+            "πP=πと成分和1を解く。",
+            "対角成分は状態に留まる確率で定常分布とは異なる。"
+          ],
+          "explanation": "行が現在状態、列が次状態の行確率行列Pでは行ベクトルπに対してπP=πを解く。さらに成分和1と非負条件が必要。方程式の一部は従属するので和1の条件で置き換える。定常分布が存在しても、任意の初期状態から毎段それへ収束するとは限らず、周期性などを区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "information-mathematics-markov-c5",
+          "kind": "self-check",
+          "prompt": "P=((0,1),(1,0))の定常分布と、初期状態(1,0)からの分布の変化を示す。",
+          "answer": "定常分布は(1/2,1/2)。初期(1,0)は(0,1)と交互になり、その定常分布へ収束しない。",
+          "checklist": [
+            "定常分布は(1/2,1/2)。",
+            "初期(1,0)は(0,1)と交互になり、その定常分布へ収束しない。"
+          ],
+          "explanation": "行が現在状態、列が次状態の行確率行列Pでは行ベクトルπに対してπP=πを解く。さらに成分和1と非負条件が必要。方程式の一部は従属するので和1の条件で置き換える。定常分布が存在しても、任意の初期状態から毎段それへ収束するとは限らず、周期性などを区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "information-mathematics-markov-retest",
-        "prompt": "P=((0.5,0.5),(0.5,0.5)) の定常分布の第1成分は？",
+      "prerequisiteFoundationIds": [
+        "foundation-probability",
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "P=((0.8,0.2),(0.3,0.7)) の定常分布。",
+          "steps": [
+            "u=(a,b)。a=0.8a+0.3b、a+b=1。",
+            "0.2a=0.3b → a:b=3:2。"
+          ],
+          "answer": "u=(0.6,0.4)"
+        },
+        {
+          "prompt": "P=((.6,.4),(.2,.8))の定常分布を行ベクトルで求める。",
+          "steps": [
+            "π₁=.6π₁+.2π₂から.4π₁=.2π₂。",
+            "π₂=2π₁と成分和1を連立する。"
+          ],
+          "answer": "π=(1/3,2/3)。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "information-mathematics-markov-retest",
+          "prompt": "P=((0.5,0.5),(0.5,0.5)) の定常分布の第1成分は？",
+          "kind": "number",
+          "numericAnswer": 0.5,
+          "tolerance": 1e-9,
+          "explanation": "次分布は必ず(0.5,0.5)。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-markov-retest-2",
+          "kind": "self-check",
+          "prompt": "行確率行列で次状態の分布を求める掛け算の向きと、成分和を確認する理由を説明する。",
+          "answer": "行分布vに対してvP。成分和1で全確率が保たれるか確認する。",
+          "checklist": [
+            "行分布vに対してvP。",
+            "成分和1で全確率が保たれるか確認する。"
+          ],
+          "explanation": "行が現在状態、列が次状態の行確率行列Pでは行ベクトルπに対してπP=πを解く。さらに成分和1と非負条件が必要。方程式の一部は従属するので和1の条件で置き換える。定常分布が存在しても、任意の初期状態から毎段それへ収束するとは限らず、周期性などを区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "information-mathematics-markov-diagnostic",
+        "prompt": "確率分布の全成分の和はいくつか。",
         "kind": "number",
-        "numericAnswer": 0.5,
-        "tolerance": 1e-09,
-        "explanation": "次分布は必ず(0.5,0.5)。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 1,
+        "tolerance": 1e-10,
+        "explanation": "行が現在状態、列が次状態の行確率行列Pでは行ベクトルπに対してπP=πを解く。さらに成分和1と非負条件が必要。方程式の一部は従属するので和1の条件で置き換える。定常分布が存在しても、任意の初期状態から毎段それへ収束するとは限らず、周期性などを区別する。",
+        "pitfall": "πP=πと成分和1を解く。対角成分は状態に留まる確率で定常分布とは異なる。"
       }
     },
     {
@@ -312,16 +513,12 @@
         {
           "title": "GF(2)の演算",
           "body": "ビットの加算はXOR、$1+1=0$。乗算はANDと同じ真理値。検査行列Hは通常(n−k)×nで、$Hc^T=0$ を満たす。実数上の足し算と混ぜない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "GF(2)の加算はXORで、1+1=0となる。情報語の次元kと符号語の長さnを区別し、行ベクトルuに対してc=uGならGはk×n。線型符号は全ての情報語の像から成り、Gの階数がkなら符号語は2^k個ある。符号語の重みは1の個数で、整数としての大小とは異なる。"
         }
       ],
-      "example": {
-        "prompt": "情報 (1,1)、G=((1,0,1),(0,1,1)) を符号化。",
-        "steps": [
-          "2行をXORする。",
-          "(1,0,1)⊕(0,1,1)=(1,1,0)。"
-        ],
-        "answer": "110"
-      },
       "quizzes": [
         {
           "id": "information-mathematics-linear-code-c1",
@@ -377,19 +574,89 @@
           "prompt": "(7,4)符号の冗長ビット数は？",
           "kind": "number",
           "numericAnswer": 3,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "7−4=3。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-linear-code-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「GF(2)で1+1は2で、桁上がりする。」",
+          "answer": "GF(2)では1+1=0で桁上がりしない。符号計算ではXORを使う。",
+          "checklist": [
+            "GF(2)では1+1=0で桁上がりしない。",
+            "符号計算ではXORを使う。"
+          ],
+          "explanation": "GF(2)の加算はXORで、1+1=0となる。情報語の次元kと符号語の長さnを区別し、行ベクトルuに対してc=uGならGはk×n。線型符号は全ての情報語の像から成り、Gの階数がkなら符号語は2^k個ある。符号語の重みは1の個数で、整数としての大小とは異なる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "information-mathematics-linear-code-c5",
+          "kind": "self-check",
+          "prompt": "k=3,n=5の全情報語の数と、Gの行列サイズを示す。",
+          "answer": "情報語は2³=8個。行ベクトルによる符号化のGは3×5。",
+          "checklist": [
+            "情報語は2³=8個。",
+            "行ベクトルによる符号化のGは3×5。"
+          ],
+          "explanation": "GF(2)の加算はXORで、1+1=0となる。情報語の次元kと符号語の長さnを区別し、行ベクトルuに対してc=uGならGはk×n。線型符号は全ての情報語の像から成り、Gの階数がkなら符号語は2^k個ある。符号語の重みは1の個数で、整数としての大小とは異なる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "information-mathematics-linear-code-retest",
-        "prompt": "GF(2)で1+1+1は？",
+      "prerequisiteFoundationIds": [
+        "foundation-binary",
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "情報 (1,1)、G=((1,0,1),(0,1,1)) を符号化。",
+          "steps": [
+            "2行をXORする。",
+            "(1,0,1)⊕(0,1,1)=(1,1,0)。"
+          ],
+          "answer": "110"
+        },
+        {
+          "prompt": "u=(1,0,1)、Gの行が(1,0,0,1),(0,1,0,1),(0,0,1,1)のとき符号化する。",
+          "steps": [
+            "uの1に対応する第1行と第3行をXORする。",
+            "(1,0,0,1) XOR (0,0,1,1)=(1,0,1,0)。"
+          ],
+          "answer": "符号語1010。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "information-mathematics-linear-code-retest",
+          "prompt": "GF(2)で1+1+1は？",
+          "kind": "number",
+          "numericAnswer": 1,
+          "tolerance": 1e-9,
+          "explanation": "(1⊕1)⊕1=1。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-linear-code-retest-2",
+          "kind": "self-check",
+          "prompt": "符号語11010のハミング重みと、11010と10011の距離を求める。",
+          "answer": "重み3。XORは01001で1が2個なので距離2。",
+          "checklist": [
+            "重み3。",
+            "XORは01001で1が2個なので距離2。"
+          ],
+          "explanation": "GF(2)の加算はXORで、1+1=0となる。情報語の次元kと符号語の長さnを区別し、行ベクトルuに対してc=uGならGはk×n。線型符号は全ての情報語の像から成り、Gの階数がkなら符号語は2^k個ある。符号語の重みは1の個数で、整数としての大小とは異なる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "information-mathematics-linear-code-diagnostic",
+        "prompt": "GF(2)で1 XOR 1の値を答える。",
         "kind": "number",
-        "numericAnswer": 1,
-        "tolerance": 1e-09,
-        "explanation": "(1⊕1)⊕1=1。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 0,
+        "tolerance": 1e-10,
+        "explanation": "GF(2)の加算はXORで、1+1=0となる。情報語の次元kと符号語の長さnを区別し、行ベクトルuに対してc=uGならGはk×n。線型符号は全ての情報語の像から成り、Gの階数がkなら符号語は2^k個ある。符号語の重みは1の個数で、整数としての大小とは異なる。",
+        "pitfall": "GF(2)では1+1=0で桁上がりしない。符号計算ではXORを使う。"
       }
     },
     {
@@ -410,16 +677,12 @@
         {
           "title": "シンドローム",
           "body": "受信語rに対して $s=Hr^T$ をGF(2)で計算する。正しい符号語cは $Hc^T=0$。1ビット誤りならsはその位置のHの列なので、対応ビットを反転する。複数誤りではこの訂正法の保証はない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "受信語rに対しs=HrᵀをGF(2)で計算する。単一誤りr=c+e_jならHcᵀ=0なのでs=He_jとなり、Hの第j列に一致する。列の並びは問題ごとに確認し、シンドロームの2進整数をそのまま誤り位置と決めない。単一誤りを仮定した訂正であり、2誤りを同じ方法で確実に訂正することはできない。"
         }
       ],
-      "example": {
-        "prompt": "Hの第2列が(1,0,1)ᵀ、単一誤りでs=(1,0,1)ᵀなら？",
-        "steps": [
-          "シンドロームと同じ列を探す。",
-          "第2列なので第2ビットを反転する。"
-        ],
-        "answer": "誤り位置は第2ビット"
-      },
       "quizzes": [
         {
           "id": "information-mathematics-hamming-c1",
@@ -475,20 +738,90 @@
           "prompt": "Hが3×7ならシンドロームのビット数は？",
           "kind": "number",
           "numericAnswer": 3,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "H rᵀ の結果は3×1。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-hamming-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「s=101ならHの列順に関係なく必ず第5bitが誤りである。」",
+          "answer": "誤り位置はsと一致するHの列番号。列順が異なれば位置も変わる。",
+          "checklist": [
+            "誤り位置はsと一致するHの列番号。",
+            "列順が異なれば位置も変わる。"
+          ],
+          "explanation": "受信語rに対しs=HrᵀをGF(2)で計算する。単一誤りr=c+e_jならHcᵀ=0なのでs=He_jとなり、Hの第j列に一致する。列の並びは問題ごとに確認し、シンドロームの2進整数をそのまま誤り位置と決めない。単一誤りを仮定した訂正であり、2誤りを同じ方法で確実に訂正することはできない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "information-mathematics-hamming-c5",
+          "kind": "self-check",
+          "prompt": "上と同じHでr=0100000を訂正し、受信語と訂正語の距離を示す。",
+          "answer": "s=010で第2列と一致。訂正語0000000、受信語との距離は1。",
+          "checklist": [
+            "s=010で第2列と一致。",
+            "訂正語0000000、受信語との距離は1。"
+          ],
+          "explanation": "受信語rに対しs=HrᵀをGF(2)で計算する。単一誤りr=c+e_jならHcᵀ=0なのでs=He_jとなり、Hの第j列に一致する。列の並びは問題ごとに確認し、シンドロームの2進整数をそのまま誤り位置と決めない。単一誤りを仮定した訂正であり、2誤りを同じ方法で確実に訂正することはできない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "information-mathematics-hamming-retest",
-        "prompt": "GF(2)で101と111をXORした結果は？",
-        "kind": "bits",
-        "acceptedAnswers": [
-          "010"
-        ],
-        "explanation": "位置ごとに1⊕1=0、0⊕1=1、1⊕1=0。",
-        "pitfall": "先頭0を落とさない。"
+      "prerequisiteFoundationIds": [
+        "foundation-binary",
+        "foundation-matrix"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "Hの第2列が(1,0,1)ᵀ、単一誤りでs=(1,0,1)ᵀなら？",
+          "steps": [
+            "シンドロームと同じ列を探す。",
+            "第2列なので第2ビットを反転する。"
+          ],
+          "answer": "誤り位置は第2ビット"
+        },
+        {
+          "prompt": "Hの列が001,010,011,100,101,110,111。受信語r=0000100を訂正する。",
+          "steps": [
+            "rの1は第5位置だけなのでs=101。",
+            "101はHの第5列に一致するため第5bitを反転する。"
+          ],
+          "answer": "訂正後0000000。Hの列との照合で位置を求める。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "information-mathematics-hamming-retest",
+          "prompt": "GF(2)で101と111をXORした結果は？",
+          "kind": "bits",
+          "acceptedAnswers": [
+            "010"
+          ],
+          "explanation": "位置ごとに1⊕1=0、0⊕1=1、1⊕1=0。",
+          "pitfall": "先頭0を落とさない。"
+        },
+        {
+          "id": "information-mathematics-hamming-retest-2",
+          "kind": "self-check",
+          "prompt": "s=0だけで通信に誤りが全くなかったと断定できない理由を説明する。",
+          "answer": "別の符号語へ変わる誤りはs=0となり得る。検査で検出されないことと誤りがないことは異なる。",
+          "checklist": [
+            "別の符号語へ変わる誤りはs=0となり得る。",
+            "検査で検出されないことと誤りがないことは異なる。"
+          ],
+          "explanation": "受信語rに対しs=HrᵀをGF(2)で計算する。単一誤りr=c+e_jならHcᵀ=0なのでs=He_jとなり、Hの第j列に一致する。列の並びは問題ごとに確認し、シンドロームの2進整数をそのまま誤り位置と決めない。単一誤りを仮定した訂正であり、2誤りを同じ方法で確実に訂正することはできない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "information-mathematics-hamming-diagnostic",
+        "prompt": "(7,4)ハミング符号の情報bit数はいくつか。",
+        "kind": "number",
+        "numericAnswer": 4,
+        "tolerance": 1e-10,
+        "explanation": "受信語rに対しs=HrᵀをGF(2)で計算する。単一誤りr=c+e_jならHcᵀ=0なのでs=He_jとなり、Hの第j列に一致する。列の並びは問題ごとに確認し、シンドロームの2進整数をそのまま誤り位置と決めない。単一誤りを仮定した訂正であり、2誤りを同じ方法で確実に訂正することはできない。",
+        "pitfall": "誤り位置はsと一致するHの列番号。列順が異なれば位置も変わる。"
       }
     },
     {
@@ -507,16 +840,12 @@
         {
           "title": "郵便配達員問題",
           "body": "連結な無向非負重みグラフで、全辺を少なくとも1回通り始点へ戻る最短閉路を求める。全頂点が偶数次数ならEuler閉路で済む。奇数次数頂点間の最短距離を求め、最小重み完全マッチングを選び、その経路を重複して偶数次数化する。有向版には別の均衡化手順が必要。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "最短経路は始点から終点へ移動する長さを最小にする。郵便配達員問題は全辺を覆って始点へ戻る長さを最小にするので、目的が異なる。連結な無向グラフでは奇数次数頂点を組にして経路を重複させる。奇数頂点が4つなら3通りの組合せの総距離を比較する。一番近い組を順に取るだけでは全体最適を保証できない。"
         }
       ],
-      "example": {
-        "prompt": "辺a-b=2,a-c=5,b-c=1。aからcの最短距離。",
-        "steps": [
-          "a確定後 b=2,c=5。",
-          "bを確定しcを2+1=3へ更新。"
-        ],
-        "answer": "距離3、経路a→b→c"
-      },
       "quizzes": [
         {
           "id": "information-mathematics-graph-c1",
@@ -572,19 +901,91 @@
           "prompt": "a-b=4,b-c=2,a-c=9。aからcの最短距離は？",
           "kind": "number",
           "numericAnswer": 6,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "a→b→cが4+2=6。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-graph-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「郵便配達員問題では全頂点を1回ずつ訪れればよい。」",
+          "answer": "覆う対象は全辺で、同じ頂点や辺を複数回通ってよい。",
+          "checklist": [
+            "覆う対象は全辺で、同じ頂点や辺を複数回通ってよい。"
+          ],
+          "explanation": "最短経路は始点から終点へ移動する長さを最小にする。郵便配達員問題は全辺を覆って始点へ戻る長さを最小にするので、目的が異なる。連結な無向グラフでは奇数次数頂点を組にして経路を重複させる。奇数頂点が4つなら3通りの組合せの総距離を比較する。一番近い組を順に取るだけでは全体最適を保証できない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "information-mathematics-graph-c5",
+          "kind": "self-check",
+          "prompt": "奇数頂点A,B,C,Dの距離がAB=2,CD=9,AC=5,BD=5,AD=6,BC=6なら組合せを比較する。",
+          "answer": "AB+CD=11、AC+BD=10、AD+BC=12。最小はACとBDの10。",
+          "checklist": [
+            "AB+CD=11、AC+BD=10、AD+BC=12。",
+            "最小はACとBDの10。"
+          ],
+          "explanation": "最短経路は始点から終点へ移動する長さを最小にする。郵便配達員問題は全辺を覆って始点へ戻る長さを最小にするので、目的が異なる。連結な無向グラフでは奇数次数頂点を組にして経路を重複させる。奇数頂点が4つなら3通りの組合せの総距離を比較する。一番近い組を順に取るだけでは全体最適を保証できない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "information-mathematics-graph-retest",
-        "prompt": "全頂点が偶数次数、全辺重み合計12の連結無向グラフ。最短郵便配達閉路の長さは？",
-        "kind": "number",
-        "numericAnswer": 12,
-        "tolerance": 1e-09,
-        "explanation": "Euler閉路で各辺を1回通れる。",
-        "pitfall": "符号・単位・条件を確認する。"
+      "prerequisiteFoundationIds": [
+        "foundation-trees"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "辺a-b=2,a-c=5,b-c=1。aからcの最短距離。",
+          "steps": [
+            "a確定後 b=2,c=5。",
+            "bを確定しcを2+1=3へ更新。"
+          ],
+          "answer": "距離3、経路a→b→c"
+        },
+        {
+          "prompt": "辺AB=1,BC=2,CD=1のみの無向グラフで最短郵便配達閉路を求める。",
+          "steps": [
+            "全辺の合計は4。奇数次数は端点A,D。",
+            "AからDの最短経路4を重複する。"
+          ],
+          "answer": "長さ8、経路A→B→C→D→C→B→A。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "information-mathematics-graph-retest",
+          "prompt": "全頂点が偶数次数、全辺重み合計12の連結無向グラフ。最短郵便配達閉路の長さは？",
+          "kind": "number",
+          "numericAnswer": 12,
+          "tolerance": 1e-9,
+          "explanation": "Euler閉路で各辺を1回通れる。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "information-mathematics-graph-retest-2",
+          "kind": "self-check",
+          "prompt": "ダイクストラ法で既に確定した頂点の距離が後から改善しない根拠と、負辺で崩れる理由を説明する。",
+          "answer": "非負辺なら未確定頂点経由の追加距離で小さくならない。負辺があると後の経路で距離が減り得る。",
+          "checklist": [
+            "非負辺なら未確定頂点経由の追加距離で小さくならない。",
+            "負辺があると後の経路で距離が減り得る。"
+          ],
+          "explanation": "最短経路は始点から終点へ移動する長さを最小にする。郵便配達員問題は全辺を覆って始点へ戻る長さを最小にするので、目的が異なる。連結な無向グラフでは奇数次数頂点を組にして経路を重複させる。奇数頂点が4つなら3通りの組合せの総距離を比較する。一番近い組を順に取るだけでは全体最適を保証できない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "information-mathematics-graph-diagnostic",
+        "prompt": "無向グラフの頂点の次数は何の本数か。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "接続する辺",
+          "辺",
+          "辺の数",
+          "接続する辺の数"
+        ],
+        "explanation": "最短経路は始点から終点へ移動する長さを最小にする。郵便配達員問題は全辺を覆って始点へ戻る長さを最小にするので、目的が異なる。連結な無向グラフでは奇数次数頂点を組にして経路を重複させる。奇数頂点が4つなら3通りの組合せの総距離を比較する。一番近い組を順に取るだけでは全体最適を保証できない。",
+        "pitfall": "覆う対象は全辺で、同じ頂点や辺を複数回通ってよい。"
       }
     }
   ],
@@ -921,7 +1322,7 @@
         "prompt": "金の枚数は？",
         "kind": "number",
         "numericAnswer": 10,
-        "tolerance": 1e-09,
+        "tolerance": 1e-9,
         "explanation": "最大エントロピーは等確率。銀・銅も10枚。",
         "pitfall": "符号・単位・条件を確認する。"
       }

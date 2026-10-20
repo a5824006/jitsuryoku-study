@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "subjectId": "multimedia",
   "lessons": [
     {
@@ -18,16 +18,12 @@
         {
           "title": "試験で確認すること",
           "body": "問題文のpresentation spaceの定義を講義資料で確認し、画面の物理次元、音源配置、知覚される空間を混同しない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "メディアは情報の表現、伝送、提示の役割を分けて整理する。文字、音、画像、映像が同じ内容を異なる形で伝えるとき、何を補い合うかを説明する。提示空間の次元とデータ列の時間変化は別で、音声が時系列だから表示空間が2次元になるとは限らない。用途の回答では媒体名を列挙するだけでなく、利用場面と役割を結び付ける。"
         }
       ],
-      "example": {
-        "prompt": "映画制作がマルチメディア産業である理由。",
-        "steps": [
-          "映像と音声を組み合わせる。",
-          "編集、符号化、伝送、提示技術を用いる。"
-        ],
-        "answer": "Film production and broadcasting are multimedia-related industries."
-      },
       "quizzes": [
         {
           "id": "multimedia-foundations-c1",
@@ -36,7 +32,7 @@
           "explanation": "横位置と縦位置。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 2,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-foundations-c2",
@@ -57,20 +53,89 @@
           "explanation": "チャンネル数と空間次元は別。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 2,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-foundations-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「媒体を2つ使えば、その利用目的を説明しなくても十分である。」",
+          "answer": "各媒体が何を伝え、どう補い合うかを利用場面に結び付ける。",
+          "checklist": [
+            "各媒体が何を伝え、どう補い合うかを利用場面に結び付ける。"
+          ],
+          "explanation": "メディアは情報の表現、伝送、提示の役割を分けて整理する。文字、音、画像、映像が同じ内容を異なる形で伝えるとき、何を補い合うかを説明する。提示空間の次元とデータ列の時間変化は別で、音声が時系列だから表示空間が2次元になるとは限らない。用途の回答では媒体名を列挙するだけでなく、利用場面と役割を結び付ける。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-foundations-c5",
+          "kind": "self-check",
+          "prompt": "音声案内付き地図について、画像と音声の役割を日本語と英語で説明する。",
+          "answer": "地図は位置関係を示し、音声は移動中の案内を伝える。The map shows spatial relationships, while speech gives guidance during movement.",
+          "checklist": [
+            "地図は位置関係を示し、音声は移動中の案内を伝える。",
+            "The map shows spatial relationships, while speech gives guidance during movement.。"
+          ],
+          "explanation": "メディアは情報の表現、伝送、提示の役割を分けて整理する。文字、音、画像、映像が同じ内容を異なる形で伝えるとき、何を補い合うかを説明する。提示空間の次元とデータ列の時間変化は別で、音声が時系列だから表示空間が2次元になるとは限らない。用途の回答では媒体名を列挙するだけでなく、利用場面と役割を結び付ける。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The map shows spatial relationships, while speech gives guidance during movement."
         }
       ],
-      "retest": {
-        "id": "multimedia-foundations-retest",
-        "prompt": "ゲーム産業を英語で書く。",
+      "prerequisiteFoundationIds": [],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "映画制作がマルチメディア産業である理由。",
+          "steps": [
+            "映像と音声を組み合わせる。",
+            "編集、符号化、伝送、提示技術を用いる。"
+          ],
+          "answer": "Film production and broadcasting are multimedia-related industries."
+        },
+        {
+          "prompt": "遠隔授業で動画、音声、字幕を併用する理由を示す。",
+          "steps": [
+            "動画は操作や動きを、音声は説明を伝える。",
+            "字幕は聞き取れない場合の補助や内容の検索に使える。"
+          ],
+          "answer": "異なる媒体が内容理解を補い合う。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-foundations-retest",
+          "prompt": "ゲーム産業を英語で書く。",
+          "kind": "text",
+          "explanation": "画像・音・動的操作を統合する。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "game industry",
+            "video game industry",
+            "gaming industry"
+          ]
+        },
+        {
+          "id": "multimedia-foundations-retest-2",
+          "kind": "self-check",
+          "prompt": "文字だけの手順書に映像を加える利点を、時間変化の提示という点から説明する。",
+          "answer": "連続した動作やタイミングを示せる。文字で伝える順序や注意事項を映像の動きで補う。",
+          "checklist": [
+            "連続した動作やタイミングを示せる。",
+            "文字で伝える順序や注意事項を映像の動きで補う。"
+          ],
+          "explanation": "メディアは情報の表現、伝送、提示の役割を分けて整理する。文字、音、画像、映像が同じ内容を異なる形で伝えるとき、何を補い合うかを説明する。提示空間の次元とデータ列の時間変化は別で、音声が時系列だから表示空間が2次元になるとは限らない。用途の回答では媒体名を列挙するだけでなく、利用場面と役割を結び付ける。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "Video conveys motion and timing, complementing written instructions."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-foundations-diagnostic",
+        "prompt": "静止画と動画のうち、時間変化を直接提示するものは。",
         "kind": "text",
-        "explanation": "画像・音・動的操作を統合する。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
         "acceptedAnswers": [
-          "game industry",
-          "video game industry",
-          "gaming industry"
-        ]
+          "動画"
+        ],
+        "explanation": "メディアは情報の表現、伝送、提示の役割を分けて整理する。文字、音、画像、映像が同じ内容を異なる形で伝えるとき、何を補い合うかを説明する。提示空間の次元とデータ列の時間変化は別で、音声が時系列だから表示空間が2次元になるとは限らない。用途の回答では媒体名を列挙するだけでなく、利用場面と役割を結び付ける。",
+        "pitfall": "各媒体が何を伝え、どう補い合うかを利用場面に結び付ける。"
       }
     },
     {
@@ -89,16 +154,12 @@
         {
           "title": "試験で確認すること",
           "body": "周期性、パケットサイズ、遅延制約は異なる観点。英語名称と、何を保証する分類かを対応させる。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "周期的に発生するデータの速度が一定か、到着時刻が一定かを区別する。生成側が等間隔でもネットワークの遅延変動で到着間隔は乱れる。再生バッファは揺らぎを吸収するが、待ち時間を増やす。平均伝送速度が足りていても、再生期限を越えたデータはリアルタイム利用で役立たないことがある。"
         }
       ],
-      "example": {
-        "prompt": "毎20msに同じ長さの音声パケットを生成する。",
-        "steps": [
-          "生成時刻は固定間隔。",
-          "パケット長も一定。"
-        ],
-        "answer": "Strongly periodic in time and strongly regular in packet size."
-      },
       "quizzes": [
         {
           "id": "multimedia-streams-c1",
@@ -132,19 +193,90 @@
           "acceptedAnswers": [
             "isochronous"
           ]
+        },
+        {
+          "id": "multimedia-streams-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「平均速度が十分なら、再生バッファは不要である。」",
+          "answer": "到着時刻の揺らぎがある。平均速度と再生期限を満たすことは別である。",
+          "checklist": [
+            "到着時刻の揺らぎがある。",
+            "平均速度と再生期限を満たすことは別である。"
+          ],
+          "explanation": "周期的に発生するデータの速度が一定か、到着時刻が一定かを区別する。生成側が等間隔でもネットワークの遅延変動で到着間隔は乱れる。再生バッファは揺らぎを吸収するが、待ち時間を増やす。平均伝送速度が足りていても、再生期限を越えたデータはリアルタイム利用で役立たないことがある。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-streams-c5",
+          "kind": "self-check",
+          "prompt": "1000bitのパケットを10msごとに生成するときの生成速度と必要な伝送速度の目安を求める。",
+          "answer": "1000/0.01=100000bit/s。平均生成分だけで100kbit/s必要で、ヘッダ等の分は別に考える。",
+          "checklist": [
+            "1000/0.01=100000bit/s。",
+            "平均生成分だけで100kbit/s必要で、ヘッダ等の分は別に考える。"
+          ],
+          "explanation": "周期的に発生するデータの速度が一定か、到着時刻が一定かを区別する。生成側が等間隔でもネットワークの遅延変動で到着間隔は乱れる。再生バッファは揺らぎを吸収するが、待ち時間を増やす。平均伝送速度が足りていても、再生期限を越えたデータはリアルタイム利用で役立たないことがある。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The generation rate is 100 kbit/s, excluding headers."
         }
       ],
-      "retest": {
-        "id": "multimedia-streams-retest",
-        "prompt": "同じパケット長が続く分類の英語名は。",
-        "kind": "text",
-        "explanation": "パケット長の規則性。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "acceptedAnswers": [
-          "strongly regular",
-          "constant packet size",
-          "fixed packet size"
-        ]
+      "prerequisiteFoundationIds": [
+        "foundation-units"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "毎20msに同じ長さの音声パケットを生成する。",
+          "steps": [
+            "生成時刻は固定間隔。",
+            "パケット長も一定。"
+          ],
+          "answer": "Strongly periodic in time and strongly regular in packet size."
+        },
+        {
+          "prompt": "音声が20msごとに1パケット生成され、到着遅延が5,15,5msと変わる。到着間隔を求める。",
+          "steps": [
+            "生成時刻0,20,40msへ遅延を足すと到着は5,35,45ms。",
+            "隣接する時刻の差を求める。"
+          ],
+          "answer": "到着間隔は30msと10ms。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-streams-retest",
+          "prompt": "同じパケット長が続く分類の英語名は。",
+          "kind": "text",
+          "explanation": "パケット長の規則性。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "strongly regular",
+            "constant packet size",
+            "fixed packet size"
+          ]
+        },
+        {
+          "id": "multimedia-streams-retest-2",
+          "kind": "self-check",
+          "prompt": "再生バッファを大きくする利点と、対話用途での欠点を日本語と英語で説明する。",
+          "answer": "到着の揺らぎを吸収するが遅延が増える。A larger buffer absorbs jitter but increases playback latency.",
+          "checklist": [
+            "到着の揺らぎを吸収するが遅延が増える。",
+            "A larger buffer absorbs jitter but increases playback latency.。"
+          ],
+          "explanation": "周期的に発生するデータの速度が一定か、到着時刻が一定かを区別する。生成側が等間隔でもネットワークの遅延変動で到着間隔は乱れる。再生バッファは揺らぎを吸収するが、待ち時間を増やす。平均伝送速度が足りていても、再生期限を越えたデータはリアルタイム利用で役立たないことがある。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "A larger buffer absorbs jitter but increases playback latency."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-streams-diagnostic",
+        "prompt": "1秒に50パケット生成する場合の周期をmsで答える。",
+        "kind": "number",
+        "numericAnswer": 20,
+        "tolerance": 1e-10,
+        "explanation": "周期的に発生するデータの速度が一定か、到着時刻が一定かを区別する。生成側が等間隔でもネットワークの遅延変動で到着間隔は乱れる。再生バッファは揺らぎを吸収するが、待ち時間を増やす。平均伝送速度が足りていても、再生期限を越えたデータはリアルタイム利用で役立たないことがある。",
+        "pitfall": "到着時刻の揺らぎがある。平均速度と再生期限を満たすことは別である。"
       }
     },
     {
@@ -163,17 +295,12 @@
         {
           "title": "試験で確認すること",
           "body": "T=1/Fs、単位換算、最大信号周波数とFsの関係を説明する。周期の長さと点の間隔を別々に読む。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "まず標本間隔T_sを秒へ直し、f_s=1/T_sを計算する。帯域制限された信号を復元するには最高周波数と標本化周波数を比較する。エイリアシングでは異なる周波数が同じ標本列を生む。正弦波の境界f_s=2f_maxでは位相により標本が全て0になる場合もあり、実用の設計では余裕と事前の低域通過処理を考える。"
         }
       ],
-      "example": {
-        "prompt": "1kHzの信号を8kHzで標本化する。",
-        "steps": [
-          "最高周波数の2倍は2kHz。",
-          "8kHz>2kHz。",
-          "標本間隔は1/8000秒。"
-        ],
-        "answer": "定理を満たし、標本間隔125µs。"
-      },
       "quizzes": [
         {
           "id": "multimedia-sampling-c1",
@@ -182,7 +309,7 @@
           "explanation": "1/250。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 0.004,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-sampling-c2",
@@ -191,7 +318,7 @@
           "explanation": "125µs=0.000125s。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 8000,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-sampling-c3",
@@ -202,16 +329,89 @@
           "acceptedAnswers": [
             "満たさない"
           ]
+        },
+        {
+          "id": "multimedia-sampling-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「標本化した後に低域通過フィルタを掛ければ、発生したエイリアシングを必ず取り除ける。」",
+          "answer": "折り返して重なった成分は一般に分離できない。標本化前に帯域を制限する。",
+          "checklist": [
+            "折り返して重なった成分は一般に分離できない。",
+            "標本化前に帯域を制限する。"
+          ],
+          "explanation": "まず標本間隔T_sを秒へ直し、f_s=1/T_sを計算する。帯域制限された信号を復元するには最高周波数と標本化周波数を比較する。エイリアシングでは異なる周波数が同じ標本列を生む。正弦波の境界f_s=2f_maxでは位相により標本が全て0になる場合もあり、実用の設計では余裕と事前の低域通過処理を考える。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-sampling-c5",
+          "kind": "self-check",
+          "prompt": "300Hzの余弦波を400Hzで標本化した場合の折返し周波数を求める。",
+          "answer": "300−400=−100Hzなので100Hz。元の周波数はその標本列だけから一意には復元できない。",
+          "checklist": [
+            "300−400=−100Hzなので100Hz。",
+            "元の周波数はその標本列だけから一意には復元できない。"
+          ],
+          "explanation": "まず標本間隔T_sを秒へ直し、f_s=1/T_sを計算する。帯域制限された信号を復元するには最高周波数と標本化周波数を比較する。エイリアシングでは異なる周波数が同じ標本列を生む。正弦波の境界f_s=2f_maxでは位相により標本が全て0になる場合もあり、実用の設計では余裕と事前の低域通過処理を考える。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The 300 Hz cosine aliases to 100 Hz at a sampling rate of 400 Hz."
         }
       ],
-      "retest": {
-        "id": "multimedia-sampling-retest",
-        "prompt": "標本間隔0.5msの周波数をHzで答える。",
+      "prerequisiteFoundationIds": [
+        "foundation-units",
+        "foundation-trigonometry"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "1kHzの信号を8kHzで標本化する。",
+          "steps": [
+            "最高周波数の2倍は2kHz。",
+            "8kHz>2kHz。",
+            "標本間隔は1/8000秒。"
+          ],
+          "answer": "定理を満たし、標本間隔125µs。"
+        },
+        {
+          "prompt": "900Hzの余弦波を1000Hzで標本化したとき、0〜500Hz内で見える周波数を求める。",
+          "steps": [
+            "離散列では900Hzと900−1000=−100Hzが対応する。",
+            "余弦波は周波数の符号を反転しても同じ。"
+          ],
+          "answer": "100Hzに折り返す。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-sampling-retest",
+          "prompt": "標本間隔0.5msの周波数をHzで答える。",
+          "kind": "number",
+          "explanation": "0.5ms=0.0005秒。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2000,
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-sampling-retest-2",
+          "kind": "self-check",
+          "prompt": "sin(2πft)をf_s=2fで位相0から標本化したときの標本列と、その問題点を示す。",
+          "answer": "sin(πn)=0で全標本が0。境界で復元を無条件に保証できず、位相と帯域の条件に注意する。",
+          "checklist": [
+            "sin(πn)=0で全標本が0。",
+            "境界で復元を無条件に保証できず、位相と帯域の条件に注意する。"
+          ],
+          "explanation": "まず標本間隔T_sを秒へ直し、f_s=1/T_sを計算する。帯域制限された信号を復元するには最高周波数と標本化周波数を比較する。エイリアシングでは異なる周波数が同じ標本列を生む。正弦波の境界f_s=2f_maxでは位相により標本が全て0になる場合もあり、実用の設計では余裕と事前の低域通過処理を考える。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "At phase zero, sampling sin(2πft) at 2f produces only zeros."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-sampling-diagnostic",
+        "prompt": "標本間隔2msの標本化周波数をHzで答える。",
         "kind": "number",
-        "explanation": "0.5ms=0.0005秒。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "numericAnswer": 2000,
-        "tolerance": 1e-09
+        "numericAnswer": 500,
+        "tolerance": 1e-10,
+        "explanation": "まず標本間隔T_sを秒へ直し、f_s=1/T_sを計算する。帯域制限された信号を復元するには最高周波数と標本化周波数を比較する。エイリアシングでは異なる周波数が同じ標本列を生む。正弦波の境界f_s=2f_maxでは位相により標本が全て0になる場合もあり、実用の設計では余裕と事前の低域通過処理を考える。",
+        "pitfall": "折り返して重なった成分は一般に分離できない。標本化前に帯域を制限する。"
       }
     },
     {
@@ -232,17 +432,12 @@
         {
           "title": "試験で確認すること",
           "body": "数直線でレベルと閾値を分け、入力下限からのオフセット、丸め方、端点を含む方式かを明示する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "量子化では入力範囲、段数、代表値、境界での丸め方を定義してから計算する。b bitでは2^b個の符号を表せる。幅を2^bで分ける等幅区間方式と、両端を含む2^b代表値の方式では刻みが異なる。飽和値と境界を確認し、量子化誤差を出力−入力とするか入力−出力とするかも明記する。"
         }
       ],
-      "example": {
-        "prompt": "3bit、0〜7V、最近接代表値、入力3.2V。",
-        "steps": [
-          "L=8、Δ=7/7=1V。",
-          "k=round(3.2)=3。",
-          "xq=3V、符号011、誤差xq−x=−0.2V。"
-        ],
-        "answer": "011、3V。"
-      },
       "quizzes": [
         {
           "id": "multimedia-quantization-c1",
@@ -251,7 +446,7 @@
           "explanation": "2^4。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 16,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-quantization-c2",
@@ -260,7 +455,7 @@
           "explanation": "3/(16−1)。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 0.2,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-quantization-c3",
@@ -271,16 +466,89 @@
           "acceptedAnswers": [
             "0111"
           ]
+        },
+        {
+          "id": "multimedia-quantization-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「2bit、0〜3Vの量子化の刻みは、どの規約でも必ず1Vである。」",
+          "answer": "両端を含む4代表値なら1Vだが、範囲を4等分する方式なら幅0.75V。規約を確認する。",
+          "checklist": [
+            "両端を含む4代表値なら1Vだが、範囲を4等分する方式なら幅0.75V。",
+            "規約を確認する。"
+          ],
+          "explanation": "量子化では入力範囲、段数、代表値、境界での丸め方を定義してから計算する。b bitでは2^b個の符号を表せる。幅を2^bで分ける等幅区間方式と、両端を含む2^b代表値の方式では刻みが異なる。飽和値と境界を確認し、量子化誤差を出力−入力とするか入力−出力とするかも明記する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-quantization-c5",
+          "kind": "self-check",
+          "prompt": "0〜8Vを8等幅区間、中央代表値、下端を含む規約で入力5.2Vを量子化する。",
+          "answer": "区間[5,6)で番号5、符号101、代表値5.5V。出力−入力は0.3V。",
+          "checklist": [
+            "区間[5,6)で番号5、符号101、代表値5.5V。",
+            "出力−入力は0.3V。"
+          ],
+          "explanation": "量子化では入力範囲、段数、代表値、境界での丸め方を定義してから計算する。b bitでは2^b個の符号を表せる。幅を2^bで分ける等幅区間方式と、両端を含む2^b代表値の方式では刻みが異なる。飽和値と境界を確認し、量子化誤差を出力−入力とするか入力−出力とするかも明記する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The code is 101 and the representative value is 5.5 V. The output-minus-input error is 0.3 V."
         }
       ],
-      "retest": {
-        "id": "multimedia-quantization-retest",
-        "prompt": "1〜4Vを両端込み16レベルにするとΔは何Vか。",
+      "prerequisiteFoundationIds": [
+        "foundation-binary",
+        "foundation-units"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "3bit、0〜7V、最近接代表値、入力3.2V。",
+          "steps": [
+            "L=8、Δ=7/7=1V。",
+            "k=round(3.2)=3。",
+            "xq=3V、符号011、誤差xq−x=−0.2V。"
+          ],
+          "answer": "011、3V。"
+        },
+        {
+          "prompt": "0〜4Vを4等幅区間に分け、中央を代表値とする2bit量子化で入力2.7Vを変換する。",
+          "steps": [
+            "区間は[0,1),[1,2),[2,3),[3,4]。代表値は.5,1.5,2.5,3.5V。",
+            "2.7Vは第3区間で番号2、2bitの10。"
+          ],
+          "answer": "出力2.5V、出力−入力の誤差−0.2V。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-quantization-retest",
+          "prompt": "1〜4Vを両端込み16レベルにするとΔは何Vか。",
+          "kind": "number",
+          "explanation": "幅3Vを15間隔へ分ける。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0.2,
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-quantization-retest-2",
+          "kind": "self-check",
+          "prompt": "同じ区間幅で中央代表値を使う場合と下端代表値を使う場合の誤差の傾向を比較する。",
+          "answer": "中央代表値は区間内で正負の誤差を持ち最大絶対誤差は幅の半分。下端代表値は通常出力−入力が非正で、幅に近い誤差を持つ。",
+          "checklist": [
+            "中央代表値は区間内で正負の誤差を持ち最大絶対誤差は幅の半分。",
+            "下端代表値は通常出力−入力が非正で、幅に近い誤差を持つ。"
+          ],
+          "explanation": "量子化では入力範囲、段数、代表値、境界での丸め方を定義してから計算する。b bitでは2^b個の符号を表せる。幅を2^bで分ける等幅区間方式と、両端を含む2^b代表値の方式では刻みが異なる。飽和値と境界を確認し、量子化誤差を出力−入力とするか入力−出力とするかも明記する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "Midpoint reconstruction has errors of both signs, with a maximum magnitude of half a bin width."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-quantization-diagnostic",
+        "prompt": "3bitで表せる符号の個数はいくつか。",
         "kind": "number",
-        "explanation": "幅3Vを15間隔へ分ける。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "numericAnswer": 0.2,
-        "tolerance": 1e-09
+        "numericAnswer": 8,
+        "tolerance": 1e-10,
+        "explanation": "量子化では入力範囲、段数、代表値、境界での丸め方を定義してから計算する。b bitでは2^b個の符号を表せる。幅を2^bで分ける等幅区間方式と、両端を含む2^b代表値の方式では刻みが異なる。飽和値と境界を確認し、量子化誤差を出力−入力とするか入力−出力とするかも明記する。",
+        "pitfall": "両端を含む4代表値なら1Vだが、範囲を4等分する方式なら幅0.75V。規約を確認する。"
       }
     },
     {
@@ -299,16 +567,12 @@
         {
           "title": "試験で確認すること",
           "body": "分母が範囲か標準偏差かを目的から選ぶ。定数信号等の分母0の条件も教材では説明する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "min-max正規化は(x−min)/(max−min)、標準化は(x−μ)/σである。前者は基準範囲に対する位置、後者は平均からのずれを標準偏差で表す。max=minやσ=0なら通常の式では割れない。基準データで決めたmin,max,μ,σを新しいデータにも使う場合、値域が必ず0〜1になるとは限らない。"
         }
       ],
-      "example": {
-        "prompt": "最小2、最大10、x=6を正規化。",
-        "steps": [
-          "[0,1]では(6−2)/(10−2)=0.5。",
-          "[-1,1]では2×0.5−1=0。"
-        ],
-        "answer": "[0,1]で0.5、[-1,1]で0。"
-      },
       "quizzes": [
         {
           "id": "multimedia-normalization-c1",
@@ -317,7 +581,7 @@
           "explanation": "範囲の中点。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 0.5,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-normalization-c2",
@@ -326,7 +590,7 @@
           "explanation": "2×0.5−1。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 0,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-normalization-c3",
@@ -335,18 +599,88 @@
           "explanation": "(9−5)/2。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 2,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-normalization-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「標準化すると全ての値が0〜1の範囲に入る。」",
+          "answer": "標準化は平均と標準偏差で表す操作で、負値や1を越える値もある。",
+          "checklist": [
+            "標準化は平均と標準偏差で表す操作で、負値や1を越える値もある。"
+          ],
+          "explanation": "min-max正規化は(x−min)/(max−min)、標準化は(x−μ)/σである。前者は基準範囲に対する位置、後者は平均からのずれを標準偏差で表す。max=minやσ=0なら通常の式では割れない。基準データで決めたmin,max,μ,σを新しいデータにも使う場合、値域が必ず0〜1になるとは限らない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-normalization-c5",
+          "kind": "self-check",
+          "prompt": "μ=50、σ=10でx=30を標準化し、符号の意味を示す。",
+          "answer": "z=(30−50)/10=−2。平均より標準偏差2つ分小さい。",
+          "checklist": [
+            "z=(30−50)/10=−2。",
+            "平均より標準偏差2つ分小さい。"
+          ],
+          "explanation": "min-max正規化は(x−min)/(max−min)、標準化は(x−μ)/σである。前者は基準範囲に対する位置、後者は平均からのずれを標準偏差で表す。max=minやσ=0なら通常の式では割れない。基準データで決めたmin,max,μ,σを新しいデータにも使う場合、値域が必ず0〜1になるとは限らない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The standardized value is −2, meaning two standard deviations below the mean."
         }
       ],
-      "retest": {
-        "id": "multimedia-normalization-retest",
-        "prompt": "標準化で割るのは分散か標準偏差か。",
-        "kind": "text",
-        "explanation": "分散で割ると分散1にならない。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "acceptedAnswers": [
-          "標準偏差"
-        ]
+      "prerequisiteFoundationIds": [
+        "foundation-probability"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "最小2、最大10、x=6を正規化。",
+          "steps": [
+            "[0,1]では(6−2)/(10−2)=0.5。",
+            "[-1,1]では2×0.5−1=0。"
+          ],
+          "answer": "[0,1]で0.5、[-1,1]で0。"
+        },
+        {
+          "prompt": "基準のmin=10,max=30で、新しい値x=35を正規化する。",
+          "steps": [
+            "(35−10)/(30−10)を計算する。",
+            "基準範囲より外なので結果が1を越える。"
+          ],
+          "answer": "1.25。基準外データなら0〜1の外もあり得る。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-normalization-retest",
+          "prompt": "標準化で割るのは分散か標準偏差か。",
+          "kind": "text",
+          "explanation": "分散で割ると分散1にならない。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "標準偏差"
+          ]
+        },
+        {
+          "id": "multimedia-normalization-retest-2",
+          "kind": "self-check",
+          "prompt": "全ての測定値が5の場合、正規化や標準化の通常式をそのまま使えない理由を説明する。",
+          "answer": "max−min=0、σ=0で分母が0。一定値の扱いを別途定義する必要がある。",
+          "checklist": [
+            "max−min=0、σ=0で分母が0。",
+            "一定値の扱いを別途定義する必要がある。"
+          ],
+          "explanation": "min-max正規化は(x−min)/(max−min)、標準化は(x−μ)/σである。前者は基準範囲に対する位置、後者は平均からのずれを標準偏差で表す。max=minやσ=0なら通常の式では割れない。基準データで決めたmin,max,μ,σを新しいデータにも使う場合、値域が必ず0〜1になるとは限らない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "A constant data set has a zero range and zero standard deviation, so a separate convention is required."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-normalization-diagnostic",
+        "prompt": "min=0,max=10,x=5のmin-max正規化値を答える。",
+        "kind": "number",
+        "numericAnswer": 0.5,
+        "tolerance": 1e-10,
+        "explanation": "min-max正規化は(x−min)/(max−min)、標準化は(x−μ)/σである。前者は基準範囲に対する位置、後者は平均からのずれを標準偏差で表す。max=minやσ=0なら通常の式では割れない。基準データで決めたmin,max,μ,σを新しいデータにも使う場合、値域が必ず0〜1になるとは限らない。",
+        "pitfall": "標準化は平均と標準偏差で表す操作で、負値や1を越える値もある。"
       }
     },
     {
@@ -365,16 +699,12 @@
         {
           "title": "試験で確認すること",
           "body": "A sin(ωx+φ)等の式で記号を特定し、角周波数とHzの周波数の違いを説明する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "正弦波A sin(2πft+φ)では振幅A、周波数f、位相φを区別する。角周波数ω=2πfの単位はrad/s、fの単位はHz。位相を角度で与えるならradへ換算する。フーリエ表現は複数の周波数成分の和として信号を表すもので、時間波形の振幅とスペクトルの成分を対応させる。"
         }
       ],
-      "example": {
-        "prompt": "A=2、f=10Hz、φ=0の正弦波。",
-        "steps": [
-          "ω=2π×10=20π。",
-          "x(t)=2sin(20πt)。"
-        ],
-        "answer": "振幅2、周期0.1s。"
-      },
       "quizzes": [
         {
           "id": "multimedia-sinusoid-c1",
@@ -406,16 +736,87 @@
           "acceptedAnswers": [
             "angular frequency"
           ]
+        },
+        {
+          "id": "multimedia-sinusoid-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「sin(ωt)のωはそのままHz単位の周波数である。」",
+          "answer": "ωは角周波数rad/s。Hzの周波数はω/(2π)。",
+          "checklist": [
+            "ωは角周波数rad/s。",
+            "Hzの周波数はω/(2π)。"
+          ],
+          "explanation": "正弦波A sin(2πft+φ)では振幅A、周波数f、位相φを区別する。角周波数ω=2πfの単位はrad/s、fの単位はHz。位相を角度で与えるならradへ換算する。フーリエ表現は複数の周波数成分の和として信号を表すもので、時間波形の振幅とスペクトルの成分を対応させる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-sinusoid-c5",
+          "kind": "self-check",
+          "prompt": "sin(2πt)+0.5sin(6πt)の2成分の周波数と振幅を示す。",
+          "answer": "1Hzで振幅1、3Hzで振幅0.5。",
+          "checklist": [
+            "1Hzで振幅1、3Hzで振幅0.5。"
+          ],
+          "explanation": "正弦波A sin(2πft+φ)では振幅A、周波数f、位相φを区別する。角周波数ω=2πfの単位はrad/s、fの単位はHz。位相を角度で与えるならradへ換算する。フーリエ表現は複数の周波数成分の和として信号を表すもので、時間波形の振幅とスペクトルの成分を対応させる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The two components have frequencies 1 Hz and 3 Hz, with amplitudes 1 and 0.5."
         }
       ],
-      "retest": {
-        "id": "multimedia-sinusoid-retest",
-        "prompt": "f=5Hzの周期を秒で答える。",
+      "prerequisiteFoundationIds": [
+        "foundation-trigonometry",
+        "foundation-units"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "A=2、f=10Hz、φ=0の正弦波。",
+          "steps": [
+            "ω=2π×10=20π。",
+            "x(t)=2sin(20πt)。"
+          ],
+          "answer": "振幅2、周期0.1s。"
+        },
+        {
+          "prompt": "x(t)=3sin(4πt+π/2)の振幅、周波数、周期、t=0の値を求める。",
+          "steps": [
+            "2πf=4πなのでf=2Hz、周期は1/2秒。",
+            "振幅3で、sin(π/2)=1。"
+          ],
+          "answer": "A=3、f=2Hz、T=.5秒、x(0)=3。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-sinusoid-retest",
+          "prompt": "f=5Hzの周期を秒で答える。",
+          "kind": "number",
+          "explanation": "T=1/f。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 0.2,
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-sinusoid-retest-2",
+          "kind": "self-check",
+          "prompt": "位相0とπ/2の同じ周波数の正弦波がt=0で取る値を比較する。",
+          "answer": "位相0は0、位相π/2は振幅A。周波数が同じでも初期値は位相で異なる。",
+          "checklist": [
+            "位相0は0、位相π/2は振幅A。",
+            "周波数が同じでも初期値は位相で異なる。"
+          ],
+          "explanation": "正弦波A sin(2πft+φ)では振幅A、周波数f、位相φを区別する。角周波数ω=2πfの単位はrad/s、fの単位はHz。位相を角度で与えるならradへ換算する。フーリエ表現は複数の周波数成分の和として信号を表すもので、時間波形の振幅とスペクトルの成分を対応させる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "At time zero, phase zero gives zero and phase π/2 gives the amplitude."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-sinusoid-diagnostic",
+        "prompt": "周波数4Hzの周期を秒で答える。",
         "kind": "number",
-        "explanation": "T=1/f。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "numericAnswer": 0.2,
-        "tolerance": 1e-09
+        "numericAnswer": 0.25,
+        "tolerance": 1e-10,
+        "explanation": "正弦波A sin(2πft+φ)では振幅A、周波数f、位相φを区別する。角周波数ω=2πfの単位はrad/s、fの単位はHz。位相を角度で与えるならradへ換算する。フーリエ表現は複数の周波数成分の和として信号を表すもので、時間波形の振幅とスペクトルの成分を対応させる。",
+        "pitfall": "ωは角周波数rad/s。Hzの周波数はω/(2π)。"
       }
     },
     {
@@ -434,16 +835,12 @@
         {
           "title": "試験で確認すること",
           "body": "名称の暗記に加え、式の分子・分母と測る性質を説明する。歪度の複数定義を区別する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "平均、分散、標準偏差、最頻値を区別する。母分散では偏差平方和をNで割り、不偏分散ならN−1で割る。標準偏差は分散の平方根で元の測定値と同じ単位を持つ。歪度の式は定義によって異なるため、モーメントによるものとPearsonの係数を混同せず、原本の式に従う。"
         }
       ],
-      "example": {
-        "prompt": "μ=10、σ=2、mode=9。",
-        "steps": [
-          "変動係数=2/10。",
-          "Pearson第一歪度=(10−9)/2。"
-        ],
-        "answer": "変動係数0.2、Pearson第一歪度0.5。"
-      },
       "quizzes": [
         {
           "id": "multimedia-statistics-c1",
@@ -477,18 +874,89 @@
             "変動係数",
             "coefficient of variation"
           ]
+        },
+        {
+          "id": "multimedia-statistics-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「分散と標準偏差は名前が違うだけで同じ値になる。」",
+          "answer": "標準偏差は分散の平方根。単位も分散は元の単位の二乗となる。",
+          "checklist": [
+            "標準偏差は分散の平方根。",
+            "単位も分散は元の単位の二乗となる。"
+          ],
+          "explanation": "平均、分散、標準偏差、最頻値を区別する。母分散では偏差平方和をNで割り、不偏分散ならN−1で割る。標準偏差は分散の平方根で元の測定値と同じ単位を持つ。歪度の式は定義によって異なるため、モーメントによるものとPearsonの係数を混同せず、原本の式に従う。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-statistics-c5",
+          "kind": "self-check",
+          "prompt": "値2,4の母分散と不偏分散を比較する。",
+          "answer": "平均3、偏差平方和2。母分散1、不偏分散2。",
+          "checklist": [
+            "平均3、偏差平方和2。",
+            "母分散1、不偏分散2。"
+          ],
+          "explanation": "平均、分散、標準偏差、最頻値を区別する。母分散では偏差平方和をNで割り、不偏分散ならN−1で割る。標準偏差は分散の平方根で元の測定値と同じ単位を持つ。歪度の式は定義によって異なるため、モーメントによるものとPearsonの係数を混同せず、原本の式に従う。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The population variance is 1 and the unbiased sample variance is 2."
         }
       ],
-      "retest": {
-        "id": "multimedia-statistics-retest",
-        "prompt": "密度が最大になる位置の名称は。",
-        "kind": "text",
-        "explanation": "停留点がすべて最大とは限らない。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "acceptedAnswers": [
-          "最頻値",
-          "mode"
-        ]
+      "prerequisiteFoundationIds": [
+        "foundation-probability"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "μ=10、σ=2、mode=9。",
+          "steps": [
+            "変動係数=2/10。",
+            "Pearson第一歪度=(10−9)/2。"
+          ],
+          "answer": "変動係数0.2、Pearson第一歪度0.5。"
+        },
+        {
+          "prompt": "値1,1,4の平均、最頻値、母分散、標準偏差を求める。",
+          "steps": [
+            "平均2、最頻値1。偏差は−1,−1,2。",
+            "母分散は(1+1+4)/3=2。"
+          ],
+          "answer": "平均2、最頻値1、母分散2、標準偏差√2。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-statistics-retest",
+          "prompt": "密度が最大になる位置の名称は。",
+          "kind": "text",
+          "explanation": "停留点がすべて最大とは限らない。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "acceptedAnswers": [
+            "最頻値",
+            "mode"
+          ]
+        },
+        {
+          "id": "multimedia-statistics-retest-2",
+          "kind": "self-check",
+          "prompt": "最頻値が複数あるデータで、最頻値を1つだけ選ぶ式の使用に注意が必要な理由を説明する。",
+          "answer": "頻度が最大の値が複数なら最頻値は一意でない。使用する値や適用条件を明記する。",
+          "checklist": [
+            "頻度が最大の値が複数なら最頻値は一意でない。",
+            "使用する値や適用条件を明記する。"
+          ],
+          "explanation": "平均、分散、標準偏差、最頻値を区別する。母分散では偏差平方和をNで割り、不偏分散ならN−1で割る。標準偏差は分散の平方根で元の測定値と同じ単位を持つ。歪度の式は定義によって異なるため、モーメントによるものとPearsonの係数を混同せず、原本の式に従う。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "When several values share the highest frequency, the mode is not unique."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-statistics-diagnostic",
+        "prompt": "データ1,3,5の算術平均を答える。",
+        "kind": "number",
+        "numericAnswer": 3,
+        "tolerance": 1e-10,
+        "explanation": "平均、分散、標準偏差、最頻値を区別する。母分散では偏差平方和をNで割り、不偏分散ならN−1で割る。標準偏差は分散の平方根で元の測定値と同じ単位を持つ。歪度の式は定義によって異なるため、モーメントによるものとPearsonの係数を混同せず、原本の式に従う。",
+        "pitfall": "標準偏差は分散の平方根。単位も分散は元の単位の二乗となる。"
       }
     },
     {
@@ -509,16 +977,12 @@
         {
           "title": "試験で確認すること",
           "body": "窓幅3・シフト1の窓を順に追い、平均と中央値を比較する。再帰式では現在入力・前回出力・新出力を区別する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "移動平均では窓に含める値の範囲と、出力を対応させる時刻を固定する。メディアンは値を並べ直して中央を取るため、平均とは異なる。一次ローパスy[n]=r y[n−1]+(1−r)x[n]は初期出力が必要。入力が一定なら旧出力との差がr倍ずつ減り、rが大きいほど追従が遅くなる。"
         }
       ],
-      "example": {
-        "prompt": "入力1,2,3,7に窓幅3、シフト1。",
-        "steps": [
-          "最初の窓1,2,3の平均と中央値は2。",
-          "次の窓2,3,7の平均は4、中央値は3。"
-        ],
-        "answer": "平均2,4、メディアン2,3。"
-      },
       "quizzes": [
         {
           "id": "multimedia-filtering-c1",
@@ -527,7 +991,7 @@
           "explanation": "12/3。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 4,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-filtering-c2",
@@ -536,7 +1000,7 @@
           "explanation": "並べた中央。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 2,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-filtering-c3",
@@ -545,17 +1009,89 @@
           "explanation": ".5×2+.5×6。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 4,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-filtering-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「再帰フィルタの右辺y[n−1]には前の入力x[n−1]を代入してよい。」",
+          "answer": "前の出力を使う。入力と出力の履歴を区別する。",
+          "checklist": [
+            "前の出力を使う。",
+            "入力と出力の履歴を区別する。"
+          ],
+          "explanation": "移動平均では窓に含める値の範囲と、出力を対応させる時刻を固定する。メディアンは値を並べ直して中央を取るため、平均とは異なる。一次ローパスy[n]=r y[n−1]+(1−r)x[n]は初期出力が必要。入力が一定なら旧出力との差がr倍ずつ減り、rが大きいほど追従が遅くなる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-filtering-c5",
+          "kind": "self-check",
+          "prompt": "値1,2,100に対する平均と中央値を求め、外れ値の影響を比較する。",
+          "answer": "平均103/3≈34.33、中央値2。中央値は極端な100の大きさの影響を受けにくい。",
+          "checklist": [
+            "平均103/3≈34.33、中央値2。",
+            "中央値は極端な100の大きさの影響を受けにくい。"
+          ],
+          "explanation": "移動平均では窓に含める値の範囲と、出力を対応させる時刻を固定する。メディアンは値を並べ直して中央を取るため、平均とは異なる。一次ローパスy[n]=r y[n−1]+(1−r)x[n]は初期出力が必要。入力が一定なら旧出力との差がr倍ずつ減り、rが大きいほど追従が遅くなる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "The mean is 103/3 and the median is 2; the median is less affected by the extreme value."
         }
       ],
-      "retest": {
-        "id": "multimedia-filtering-retest",
-        "prompt": "窓3の2,3,7の移動平均は。",
-        "kind": "number",
-        "explanation": "12/3。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "numericAnswer": 4,
-        "tolerance": 1e-09
+      "prerequisiteFoundationIds": [
+        "foundation-iteration"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "入力1,2,3,7に窓幅3、シフト1。",
+          "steps": [
+            "最初の窓1,2,3の平均と中央値は2。",
+            "次の窓2,3,7の平均は4、中央値は3。"
+          ],
+          "answer": "平均2,4、メディアン2,3。"
+        },
+        {
+          "prompt": "r=.75、y[−1]=0、入力が毎回4の一次ローパスを2段計算する。",
+          "steps": [
+            "y[0]=.75×0+.25×4=1。",
+            "y[1]=.75×1+.25×4=1.75。"
+          ],
+          "answer": "出力1,1.75。初期値を飛ばさず逐次更新する。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-filtering-retest",
+          "prompt": "窓3の2,3,7の移動平均は。",
+          "kind": "number",
+          "explanation": "12/3。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 4,
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-filtering-retest-2",
+          "kind": "self-check",
+          "prompt": "r=0の一次ローパスの出力と、rを1に近づけた場合の追従の違いを説明する。",
+          "answer": "r=0ならy[n]=x[n]。rが1に近いほど旧出力を多く残し、追従が遅くなる。",
+          "checklist": [
+            "r=0ならy[n]=x[n]。",
+            "rが1に近いほど旧出力を多く残し、追従が遅くなる。"
+          ],
+          "explanation": "移動平均では窓に含める値の範囲と、出力を対応させる時刻を固定する。メディアンは値を並べ直して中央を取るため、平均とは異なる。一次ローパスy[n]=r y[n−1]+(1−r)x[n]は初期出力が必要。入力が一定なら旧出力との差がr倍ずつ減り、rが大きいほど追従が遅くなる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "At r=0 the output equals the input. A larger r retains more of the previous output."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-filtering-diagnostic",
+        "prompt": "窓内の値を整列して中央の値を取るフィルタ名を答える。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "メディアンフィルタ"
+        ],
+        "explanation": "移動平均では窓に含める値の範囲と、出力を対応させる時刻を固定する。メディアンは値を並べ直して中央を取るため、平均とは異なる。一次ローパスy[n]=r y[n−1]+(1−r)x[n]は初期出力が必要。入力が一定なら旧出力との差がr倍ずつ減り、rが大きいほど追従が遅くなる。",
+        "pitfall": "前の出力を使う。入力と出力の履歴を区別する。"
       }
     },
     {
@@ -576,16 +1112,12 @@
         {
           "title": "試験で確認すること",
           "body": "窓、時間インデックス、信号値の二乗と総和を対応させ、教材で採用する窓の定義を明示する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "短時間エネルギーは指定窓内の信号の二乗を加算する。負の値も二乗後は正になるため、単に信号を加えると相殺してしまう。窓関数を信号へ掛けてから二乗する定義と、二乗後に重みを掛ける定義は係数が異なる。正規化の有無と窓の長さを確認し、平均二乗値やRMSと区別する。"
         }
       ],
-      "example": {
-        "prompt": "窓内信号1,−2,3の短時間エネルギー。",
-        "steps": [
-          "各値を二乗して1,4,9。",
-          "足して14。"
-        ],
-        "answer": "エネルギー14、平均二乗値14/3。"
-      },
       "quizzes": [
         {
           "id": "multimedia-energy-c1",
@@ -594,7 +1126,7 @@
           "explanation": "1+4+9。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 14,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-energy-c2",
@@ -603,7 +1135,7 @@
           "explanation": "符号に依存しない強さを表す。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 2,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
         },
         {
           "id": "multimedia-energy-c3",
@@ -612,17 +1144,89 @@
           "explanation": "窓長で割る。",
           "pitfall": "定義と適用条件を一緒に確認する。",
           "numericAnswer": 4,
-          "tolerance": 1e-09
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-energy-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「信号2,−2のエネルギーは和が0なので0である。」",
+          "answer": "二乗和を使うため4+4=8。符号の相殺は起こらない。",
+          "checklist": [
+            "二乗和を使うため4+4=8。",
+            "符号の相殺は起こらない。"
+          ],
+          "explanation": "短時間エネルギーは指定窓内の信号の二乗を加算する。負の値も二乗後は正になるため、単に信号を加えると相殺してしまう。窓関数を信号へ掛けてから二乗する定義と、二乗後に重みを掛ける定義は係数が異なる。正規化の有無と窓の長さを確認し、平均二乗値やRMSと区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "multimedia-energy-c5",
+          "kind": "self-check",
+          "prompt": "信号を全て3倍した場合、同じ窓のエネルギーが何倍になるか式で示す。",
+          "answer": "Σ(3x)²=9Σx²なので9倍。",
+          "checklist": [
+            "Σ(3x)²=9Σx²なので9倍。"
+          ],
+          "explanation": "短時間エネルギーは指定窓内の信号の二乗を加算する。負の値も二乗後は正になるため、単に信号を加えると相殺してしまう。窓関数を信号へ掛けてから二乗する定義と、二乗後に重みを掛ける定義は係数が異なる。正規化の有無と窓の長さを確認し、平均二乗値やRMSと区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "Multiplying every sample by three multiplies the energy by nine."
         }
       ],
-      "retest": {
-        "id": "multimedia-energy-retest",
-        "prompt": "−1,1の二乗和は。",
+      "prerequisiteFoundationIds": [
+        "foundation-probability",
+        "foundation-iteration"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "窓内信号1,−2,3の短時間エネルギー。",
+          "steps": [
+            "各値を二乗して1,4,9。",
+            "足して14。"
+          ],
+          "answer": "エネルギー14、平均二乗値14/3。"
+        },
+        {
+          "prompt": "窓内の値2,−2に対し、エネルギー、平均二乗値、RMSを求める。",
+          "steps": [
+            "エネルギーは4+4=8。",
+            "平均二乗値は8/2=4、RMSは√4。"
+          ],
+          "answer": "エネルギー8、平均二乗値4、RMS2。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "multimedia-energy-retest",
+          "prompt": "−1,1の二乗和は。",
+          "kind": "number",
+          "explanation": "1+1。",
+          "pitfall": "定義と適用条件を一緒に確認する。",
+          "numericAnswer": 2,
+          "tolerance": 1e-9
+        },
+        {
+          "id": "multimedia-energy-retest-2",
+          "kind": "self-check",
+          "prompt": "信号1,2に窓重み1,0.5を掛けてから二乗する定義のエネルギーを求める。",
+          "answer": "重み付き信号は1,1。二乗和は2。二乗後の重み付けなら3となるので定義を区別する。",
+          "checklist": [
+            "重み付き信号は1,1。",
+            "二乗和は2。",
+            "二乗後の重み付けなら3となるので定義を区別する。"
+          ],
+          "explanation": "短時間エネルギーは指定窓内の信号の二乗を加算する。負の値も二乗後は正になるため、単に信号を加えると相殺してしまう。窓関数を信号へ掛けてから二乗する定義と、二乗後に重みを掛ける定義は係数が異なる。正規化の有無と窓の長さを確認し、平均二乗値やRMSと区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。",
+          "englishAnswer": "Applying the window before squaring gives energy 2; weighting the squared samples instead gives 3."
+        }
+      ],
+      "diagnostic": {
+        "id": "multimedia-energy-diagnostic",
+        "prompt": "信号−3のみの窓のエネルギーを答える。",
         "kind": "number",
-        "explanation": "1+1。",
-        "pitfall": "定義と適用条件を一緒に確認する。",
-        "numericAnswer": 2,
-        "tolerance": 1e-09
+        "numericAnswer": 9,
+        "tolerance": 1e-10,
+        "explanation": "短時間エネルギーは指定窓内の信号の二乗を加算する。負の値も二乗後は正になるため、単に信号を加えると相殺してしまう。窓関数を信号へ掛けてから二乗する定義と、二乗後に重みを掛ける定義は係数が異なる。正規化の有無と窓の長さを確認し、平均二乗値やRMSと区別する。",
+        "pitfall": "二乗和を使うため4+4=8。符号の相殺は起こらない。"
       }
     }
   ],
@@ -687,7 +1291,7 @@
         "explanation": "画面の平面上の2座標。",
         "pitfall": "定義と適用条件を一緒に確認する。",
         "numericAnswer": 2,
-        "tolerance": 1e-09
+        "tolerance": 1e-9
       }
     },
     {
@@ -813,7 +1417,7 @@
         "explanation": "周波数の逆数。",
         "pitfall": "定義と適用条件を一緒に確認する。",
         "numericAnswer": 0.004,
-        "tolerance": 1e-09
+        "tolerance": 1e-9
       }
     },
     {
@@ -849,7 +1453,7 @@
         "explanation": "2のbit数乗。",
         "pitfall": "定義と適用条件を一緒に確認する。",
         "numericAnswer": 8,
-        "tolerance": 1e-09
+        "tolerance": 1e-9
       }
     },
     {
@@ -1367,7 +1971,7 @@
         "explanation": "周波数の逆数。",
         "pitfall": "定義と適用条件を一緒に確認する。",
         "numericAnswer": 0.0008,
-        "tolerance": 1e-09
+        "tolerance": 1e-9
       }
     },
     {
@@ -1403,7 +2007,7 @@
         "explanation": "2のbit数乗。",
         "pitfall": "定義と適用条件を一緒に確認する。",
         "numericAnswer": 16,
-        "tolerance": 1e-09
+        "tolerance": 1e-9
       }
     },
     {
@@ -2020,7 +2624,7 @@
         "explanation": "µsを秒へ換算して逆数を取る。",
         "pitfall": "定義と適用条件を一緒に確認する。",
         "numericAnswer": 8000,
-        "tolerance": 1e-09
+        "tolerance": 1e-9
       }
     },
     {
@@ -2055,7 +2659,7 @@
         "explanation": "2のbit数乗。",
         "pitfall": "定義と適用条件を一緒に確認する。",
         "numericAnswer": 16,
-        "tolerance": 1e-09
+        "tolerance": 1e-9
       }
     },
     {

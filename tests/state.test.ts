@@ -14,14 +14,14 @@ test('backup round-trip preserves selections, notes and statuses', () => {
 });
 test('invalid backups are rejected without mutating current records', () => {
   const p=emptyProgress(); const before=JSON.stringify(p);
-  for(const bad of [{...p,version:3},{...p,selected:['a','a']},{...p,statuses:{q:'correct'}},{...p,favorites:['unknown']},{...p,drafts:{q:12}}]) assert.throws(()=>validateProgress(bad,new Set(['a']),new Set(['q'])));
+  for(const bad of [{...p,version:99},{...p,selected:['a','a']},{...p,statuses:{q:'correct'}},{...p,favorites:['unknown']},{...p,drafts:{q:12}}]) assert.throws(()=>validateProgress(bad,new Set(['a']),new Set(['q'])));
   assert.equal(JSON.stringify(p),before);
 });
 test('Japanese character count uses code points and ignores whitespace',()=>{assert.equal(characterCount('固有値\n A \t😀'),5);});
 test('v1 import migrates without modifying original data',()=>{
   const legacy={version:1,selected:['a'],statuses:{q:'review'},favorites:['q'],drafts:{q:'旧記録'}};
   const before=JSON.stringify(legacy);const migrated=validateProgress(legacy,new Set(['a']),new Set(['q']));
-  assert.equal(migrated.version,2);assert.equal(migrated.drafts.q,'旧記録');assert.deepEqual(migrated.quizAttempts,{});assert.equal(JSON.stringify(legacy),before);
+  assert.equal(migrated.version,3);assert.equal(migrated.drafts.q,'旧記録');assert.deepEqual(migrated.quizAttempts,{});assert.equal(JSON.stringify(legacy),before);
 });
 test('v2 validates quiz IDs, checklist indices and finite durations',()=>{
   const p={...emptyProgress(),quizAttempts:{c:{answer:'7',correct:true,attemptedAt:'2026-10-14T00:00:00Z'}},checks:{q:[0,2]},durations:{q:12.5}};

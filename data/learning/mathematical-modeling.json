@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "subjectId": "mathematical-modeling",
   "lessons": [
     {
@@ -18,16 +18,12 @@
         {
           "title": "長さと方向",
           "body": "$x$ が固有ベクトルなら非零定数 $c$ に対して $cx$ も固有ベクトル。固有値が負なら方向が反転する。「固有ベクトルが一意」とせず、対応する固有空間と非零倍を考える。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "固有ベクトルは、行列を掛けても同じ直線上に残る非零ベクトルである。λ>0なら方向を保ち、λ<0なら向きを反転し、λ=0なら零ベクトルへ写る。零ベクトルはAx=λxを全λで満たすため、固有ベクトルの定義から除く。定義を使った検算と、全固有値を求める操作は区別する。"
         }
       ],
-      "example": {
-        "prompt": "A=diag(2,3) で x=(1,0) の固有値を確かめる。",
-        "steps": [
-          "Ax=(2,0)=2x。",
-          "x≠0なのでλ=2の固有ベクトル。"
-        ],
-        "answer": "λ=2"
-      },
       "quizzes": [
         {
           "id": "mathematical-modeling-eigen-definition-c1",
@@ -83,19 +79,90 @@
           "prompt": "A=diag(5,2),x=(0,1)。対応する固有値は？",
           "kind": "number",
           "numericAnswer": 2,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "Ax=(0,2)=2x。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigen-definition-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「λ=0の場合は固有ベクトルも必ず零ベクトルになる。」",
+          "answer": "非零xでAx=0となる場合、xは固有値0の固有ベクトルである。",
+          "checklist": [
+            "非零xでAx=0となる場合、xは固有値0の固有ベクトルである。"
+          ],
+          "explanation": "固有ベクトルは、行列を掛けても同じ直線上に残る非零ベクトルである。λ>0なら方向を保ち、λ<0なら向きを反転し、λ=0なら零ベクトルへ写る。零ベクトルはAx=λxを全λで満たすため、固有ベクトルの定義から除く。定義を使った検算と、全固有値を求める操作は区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigen-definition-c5",
+          "kind": "self-check",
+          "prompt": "A=diag(2,5)に対してx=(1,1)が固有ベクトルか判定する。",
+          "answer": "Ax=(2,5)。同じλで(λ,λ)にならないので固有ベクトルではない。",
+          "checklist": [
+            "Ax=(2,5)。",
+            "同じλで(λ,λ)にならないので固有ベクトルではない。"
+          ],
+          "explanation": "固有ベクトルは、行列を掛けても同じ直線上に残る非零ベクトルである。λ>0なら方向を保ち、λ<0なら向きを反転し、λ=0なら零ベクトルへ写る。零ベクトルはAx=λxを全λで満たすため、固有ベクトルの定義から除く。定義を使った検算と、全固有値を求める操作は区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "mathematical-modeling-eigen-definition-retest",
-        "prompt": "A=diag(−3,4),x=(2,0)。対応する固有値は？",
-        "kind": "number",
-        "numericAnswer": -3,
-        "tolerance": 1e-09,
-        "explanation": "Ax=(−6,0)=−3x。",
-        "pitfall": "符号・単位・条件を確認する。"
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "A=diag(2,3) で x=(1,0) の固有値を確かめる。",
+          "steps": [
+            "Ax=(2,0)=2x。",
+            "x≠0なのでλ=2の固有ベクトル。"
+          ],
+          "answer": "λ=2"
+        },
+        {
+          "prompt": "A=diag(−2,3)、x=(4,0)について固有対を確認する。",
+          "steps": [
+            "Ax=(−8,0)。",
+            "−2x=(−8,0)と一致する。"
+          ],
+          "answer": "λ=−2。方向の直線は保つが向きは反転する。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "mathematical-modeling-eigen-definition-retest",
+          "prompt": "A=diag(−3,4),x=(2,0)。対応する固有値は？",
+          "kind": "number",
+          "numericAnswer": -3,
+          "tolerance": 1e-9,
+          "explanation": "Ax=(−6,0)=−3x。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigen-definition-retest-2",
+          "kind": "self-check",
+          "prompt": "Ax=λxを満たす非零xを2倍した場合、固有値はどう変わるか説明する。",
+          "answer": "A(2x)=2Ax=λ(2x)。固有値λは変わらず、非零の定数倍も固有ベクトル。",
+          "checklist": [
+            "A(2x)=2Ax=λ(2x)。",
+            "固有値λは変わらず、非零の定数倍も固有ベクトル。"
+          ],
+          "explanation": "固有ベクトルは、行列を掛けても同じ直線上に残る非零ベクトルである。λ>0なら方向を保ち、λ<0なら向きを反転し、λ=0なら零ベクトルへ写る。零ベクトルはAx=λxを全λで満たすため、固有ベクトルの定義から除く。定義を使った検算と、全固有値を求める操作は区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "mathematical-modeling-eigen-definition-diagnostic",
+        "prompt": "固有ベクトルとして除外するベクトルの名称を答える。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "零ベクトル",
+          "ゼロベクトル",
+          "0ベクトル"
+        ],
+        "explanation": "固有ベクトルは、行列を掛けても同じ直線上に残る非零ベクトルである。λ>0なら方向を保ち、λ<0なら向きを反転し、λ=0なら零ベクトルへ写る。零ベクトルはAx=λxを全λで満たすため、固有ベクトルの定義から除く。定義を使った検算と、全固有値を求める操作は区別する。",
+        "pitfall": "非零xでAx=0となる場合、xは固有値0の固有ベクトルである。"
       }
     },
     {
@@ -116,16 +183,12 @@
         {
           "title": "三角・ブロック構造",
           "body": "三角行列の行列式は対角成分の積。3×3行列で左下2成分が0なら、右下成分と左上2×2の行列式の積にできる。多項式の次数はn、$\\det(\\lambda I-A)$ は最高次係数1になる。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "固有値を探すには(A−λI)x=0が非零解を持つ条件を使う。正方行列では行列式0がその条件となる。2次行列でdet(A−λI)=(a−λ)(d−λ)−bcを展開し、根の和がtrace、積がdet(A)となることを検算に利用する。det(λI−A)を使っても根は変わらないが、次数が奇数なら多項式全体の符号は変わる。"
         }
       ],
-      "example": {
-        "prompt": "A=((2,1),(0,3)) の特性方程式。",
-        "steps": [
-          "$\\lambda I-A=\\begin{pmatrix}\\lambda-2&-1\\\\0&\\lambda-3\\end{pmatrix}$。",
-          "$\\det(\\lambda I-A)=(\\lambda-2)(\\lambda-3)$。"
-        ],
-        "answer": "$(\\lambda-2)(\\lambda-3)=0$"
-      },
       "quizzes": [
         {
           "id": "mathematical-modeling-characteristic-equation-c1",
@@ -181,19 +244,88 @@
           "prompt": "A=diag(2,5)。det(λI−A)の定数項は？",
           "kind": "number",
           "numericAnswer": 10,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "(λ−2)(λ−5)=λ²−7λ+10。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-characteristic-equation-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「行列式が0の行列だけが固有値を持つ。」",
+          "answer": "det(A−λI)=0となるλを探す。det(A)=0は固有値0を持つ条件に過ぎない。",
+          "checklist": [
+            "det(A−λI)=0となるλを探す。",
+            "det(A)=0は固有値0を持つ条件に過ぎない。"
+          ],
+          "explanation": "固有値を探すには(A−λI)x=0が非零解を持つ条件を使う。正方行列では行列式0がその条件となる。2次行列でdet(A−λI)=(a−λ)(d−λ)−bcを展開し、根の和がtrace、積がdet(A)となることを検算に利用する。det(λI−A)を使っても根は変わらないが、次数が奇数なら多項式全体の符号は変わる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-characteristic-equation-c5",
+          "kind": "self-check",
+          "prompt": "A=((2,1),(1,2))の特性方程式を作り、固有値を求める。",
+          "answer": "(2−λ)²−1=0。固有値は1,3で、和4と積3を検算できる。",
+          "checklist": [
+            "(2−λ)²−1=0。",
+            "固有値は1,3で、和4と積3を検算できる。"
+          ],
+          "explanation": "固有値を探すには(A−λI)x=0が非零解を持つ条件を使う。正方行列では行列式0がその条件となる。2次行列でdet(A−λI)=(a−λ)(d−λ)−bcを展開し、根の和がtrace、積がdet(A)となることを検算に利用する。det(λI−A)を使っても根は変わらないが、次数が奇数なら多項式全体の符号は変わる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "mathematical-modeling-characteristic-equation-retest",
-        "prompt": "A=diag(1,3)。det(λI−A)のλの係数は？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "A=((2,1),(0,3)) の特性方程式。",
+          "steps": [
+            "$\\lambda I-A=\\begin{pmatrix}\\lambda-2&-1\\\\0&\\lambda-3\\end{pmatrix}$。",
+            "$\\det(\\lambda I-A)=(\\lambda-2)(\\lambda-3)$。"
+          ],
+          "answer": "$(\\lambda-2)(\\lambda-3)=0$"
+        },
+        {
+          "prompt": "A=((1,2),(0,4))の特性多項式と根を求める。",
+          "steps": [
+            "det(A−λI)=(1−λ)(4−λ)=λ²−5λ+4。",
+            "因数分解して根を求める。和5と積4も元の行列で確認する。"
+          ],
+          "answer": "固有値1,4。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "mathematical-modeling-characteristic-equation-retest",
+          "prompt": "A=diag(1,3)。det(λI−A)のλの係数は？",
+          "kind": "number",
+          "numericAnswer": -4,
+          "tolerance": 1e-9,
+          "explanation": "λ²−4λ+3。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-characteristic-equation-retest-2",
+          "kind": "self-check",
+          "prompt": "上三角行列の固有値が対角成分から求まる理由を行列式で説明する。",
+          "answer": "A−λIも上三角で、行列式は対角成分(a_ii−λ)の積になる。根は各対角成分。",
+          "checklist": [
+            "A−λIも上三角で、行列式は対角成分(a_ii−λ)の積になる。",
+            "根は各対角成分。"
+          ],
+          "explanation": "固有値を探すには(A−λI)x=0が非零解を持つ条件を使う。正方行列では行列式0がその条件となる。2次行列でdet(A−λI)=(a−λ)(d−λ)−bcを展開し、根の和がtrace、積がdet(A)となることを検算に利用する。det(λI−A)を使っても根は変わらないが、次数が奇数なら多項式全体の符号は変わる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "mathematical-modeling-characteristic-equation-diagnostic",
+        "prompt": "2×2行列((1,0),(0,3))の行列式を答える。",
         "kind": "number",
-        "numericAnswer": -4,
-        "tolerance": 1e-09,
-        "explanation": "λ²−4λ+3。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 3,
+        "tolerance": 1e-10,
+        "explanation": "固有値を探すには(A−λI)x=0が非零解を持つ条件を使う。正方行列では行列式0がその条件となる。2次行列でdet(A−λI)=(a−λ)(d−λ)−bcを展開し、根の和がtrace、積がdet(A)となることを検算に利用する。det(λI−A)を使っても根は変わらないが、次数が奇数なら多項式全体の符号は変わる。",
+        "pitfall": "det(A−λI)=0となるλを探す。det(A)=0は固有値0を持つ条件に過ぎない。"
       }
     },
     {
@@ -214,16 +346,12 @@
         {
           "title": "順序の指定",
           "body": "絶対値順は大きさの順であり、符号付きの大小順ではない。$-5,3,1$ はこの順。絶対値が等しいときは与えられた追加条件がなければどちらの順も許せる。和は跡、積は行列式と照合できる。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "特性多項式の根を求めた後、出題の指定順へ並べる。代数的重複度は根の出現回数であり、固有空間の次元とは別である。実数の大小順と絶対値順を混同しない。同じ絶対値の根がある場合、原本に同順位の扱いがなければ採用順を明記する。固有ベクトルとセットで並べ替える。"
         }
       ],
-      "example": {
-        "prompt": "(λ+4)(λ−2)(λ−1)=0 の根を絶対値順にする。",
-        "steps": [
-          "根は −4,2,1。",
-          "絶対値は4,2,1。"
-        ],
-        "answer": "−4,2,1"
-      },
       "quizzes": [
         {
           "id": "mathematical-modeling-eigenvalues-c1",
@@ -279,19 +407,87 @@
           "prompt": "(λ−2)²(λ+1)=0 における固有値2の代数的重複度は？",
           "kind": "number",
           "numericAnswer": 2,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "因子の指数2。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvalues-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「固有値を絶対値順に並べれば、対応する固有ベクトルは元の順のままでよい。」",
+          "answer": "固有値と対応ベクトルを同じ順に並べ替える。",
+          "checklist": [
+            "固有値と対応ベクトルを同じ順に並べ替える。"
+          ],
+          "explanation": "特性多項式の根を求めた後、出題の指定順へ並べる。代数的重複度は根の出現回数であり、固有空間の次元とは別である。実数の大小順と絶対値順を混同しない。同じ絶対値の根がある場合、原本に同順位の扱いがなければ採用順を明記する。固有ベクトルとセットで並べ替える。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvalues-c5",
+          "kind": "self-check",
+          "prompt": "(λ−2)²(λ+1)=0の根と代数的重複度を示す。",
+          "answer": "2が重複度2、−1が重複度1。異なる固有値の数は2。",
+          "checklist": [
+            "2が重複度2、−1が重複度1。",
+            "異なる固有値の数は2。"
+          ],
+          "explanation": "特性多項式の根を求めた後、出題の指定順へ並べる。代数的重複度は根の出現回数であり、固有空間の次元とは別である。実数の大小順と絶対値順を混同しない。同じ絶対値の根がある場合、原本に同順位の扱いがなければ採用順を明記する。固有ベクトルとセットで並べ替える。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "mathematical-modeling-eigenvalues-retest",
-        "prompt": "固有値 −7,3,2 のうち絶対値最大は？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "(λ+4)(λ−2)(λ−1)=0 の根を絶対値順にする。",
+          "steps": [
+            "根は −4,2,1。",
+            "絶対値は4,2,1。"
+          ],
+          "answer": "−4,2,1"
+        },
+        {
+          "prompt": "根が−5,2,−2,0のとき絶対値の降順に並べる。",
+          "steps": [
+            "絶対値は5,2,2,0。",
+            "±2は同順位なので、ここでは−2,2の順とする。"
+          ],
+          "answer": "−5,−2,2,0。同順位の採用順を明記。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "mathematical-modeling-eigenvalues-retest",
+          "prompt": "固有値 −7,3,2 のうち絶対値最大は？",
+          "kind": "number",
+          "numericAnswer": -7,
+          "tolerance": 1e-9,
+          "explanation": "絶対値は7,3,2。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvalues-retest-2",
+          "kind": "self-check",
+          "prompt": "A=((2,1),(0,2))でλ=2が重根でも独立な固有ベクトルが2本あるとは限らないことを示す。",
+          "answer": "(A−2I)x=0からx₂=0。固有空間は(1,0)が張る1次元で、重複度2とは異なる。",
+          "checklist": [
+            "(A−2I)x=0からx₂=0。",
+            "固有空間は(1,0)が張る1次元で、重複度2とは異なる。"
+          ],
+          "explanation": "特性多項式の根を求めた後、出題の指定順へ並べる。代数的重複度は根の出現回数であり、固有空間の次元とは別である。実数の大小順と絶対値順を混同しない。同じ絶対値の根がある場合、原本に同順位の扱いがなければ採用順を明記する。固有ベクトルとセットで並べ替える。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "mathematical-modeling-eigenvalues-diagnostic",
+        "prompt": "固有値−7と3のうち絶対値が大きいものを答える。",
         "kind": "number",
         "numericAnswer": -7,
-        "tolerance": 1e-09,
-        "explanation": "絶対値は7,3,2。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "tolerance": 1e-10,
+        "explanation": "特性多項式の根を求めた後、出題の指定順へ並べる。代数的重複度は根の出現回数であり、固有空間の次元とは別である。実数の大小順と絶対値順を混同しない。同じ絶対値の根がある場合、原本に同順位の扱いがなければ採用順を明記する。固有ベクトルとセットで並べ替える。",
+        "pitfall": "固有値と対応ベクトルを同じ順に並べ替える。"
       }
     },
     {
@@ -313,16 +509,12 @@
         {
           "title": "対応を保って検算",
           "body": "$Ax=\\lambda x$ を元のAへ代入して確認する。固有値を並べ替えたときは対応するベクトルも同じ順にする。正規化が要求されなければ整数成分のベクトルが計算しやすい。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "固有値ごとにA−λIを作り、行基本変形で方程式を解く。自由変数を1などに置いて非零解を選び、元のAで検算する。例えばA=((2,1),(0,3)),λ=3では、1行目が−x₁+x₂=0、2行目が0=0となる。独立な条件は1本なので自由変数が1つある。正規化は長さ1を指定された場合に行う。"
         }
       ],
-      "example": {
-        "prompt": "A=((2,1),(0,3)),λ=3 の固有ベクトル。",
-        "steps": [
-          "(A−3I)x=0 は −x1+x2=0。",
-          "x1=x2。非零値を選ぶ。"
-        ],
-        "answer": "x=c(1,1)ᵀ, c≠0"
-      },
       "quizzes": [
         {
           "id": "mathematical-modeling-eigenvectors-c1",
@@ -378,19 +570,88 @@
           "prompt": "A=((2,1),(0,3)),λ=3、x1=2ならx2は？",
           "kind": "number",
           "numericAnswer": 2,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "−x1+x2=0。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvectors-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「固有ベクトルの各成分は一意に決まり、定数倍は別の固有値になる。」",
+          "answer": "同じ固有値に対応する非零の定数倍も固有ベクトル。必要な正規化条件に従う。",
+          "checklist": [
+            "同じ固有値に対応する非零の定数倍も固有ベクトル。",
+            "必要な正規化条件に従う。"
+          ],
+          "explanation": "固有値ごとにA−λIを作り、行基本変形で方程式を解く。自由変数を1などに置いて非零解を選び、元のAで検算する。例えばA=((2,1),(0,3)),λ=3では、1行目が−x₁+x₂=0、2行目が0=0となる。独立な条件は1本なので自由変数が1つある。正規化は長さ1を指定された場合に行う。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvectors-c5",
+          "kind": "self-check",
+          "prompt": "A=((3,1),(0,4))でλ=4の固有ベクトルを求め、Ax=λxで検算する。",
+          "answer": "−x₁+x₂=0なのでx=(1,1)。Ax=(4,4)=4x。",
+          "checklist": [
+            "−x₁+x₂=0なのでx=(1,1)。",
+            "Ax=(4,4)=4x。"
+          ],
+          "explanation": "固有値ごとにA−λIを作り、行基本変形で方程式を解く。自由変数を1などに置いて非零解を選び、元のAで検算する。例えばA=((2,1),(0,3)),λ=3では、1行目が−x₁+x₂=0、2行目が0=0となる。独立な条件は1本なので自由変数が1つある。正規化は長さ1を指定された場合に行う。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "mathematical-modeling-eigenvectors-retest",
-        "prompt": "A=diag(4,1),λ=4、x1=1ならx2は？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "A=((2,1),(0,3)),λ=3 の固有ベクトル。",
+          "steps": [
+            "(A−3I)x=0 は −x1+x2=0。",
+            "x1=x2。非零値を選ぶ。"
+          ],
+          "answer": "x=c(1,1)ᵀ, c≠0"
+        },
+        {
+          "prompt": "A=((2,1),(0,3))でλ=2の固有ベクトルを求め、λ=3のものと比較する。",
+          "steps": [
+            "A−2I=((0,1),(0,1))なのでx₂=0、x₁は自由。",
+            "(1,0)を選び、A(1,0)=(2,0)を確認する。"
+          ],
+          "answer": "λ=2には(1,0)、λ=3には(1,1)。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "mathematical-modeling-eigenvectors-retest",
+          "prompt": "A=diag(4,1),λ=4、x1=1ならx2は？",
+          "kind": "number",
+          "numericAnswer": 0,
+          "tolerance": 1e-9,
+          "explanation": "−3x2=0。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-eigenvectors-retest-2",
+          "kind": "self-check",
+          "prompt": "A=diag(2,2,5)のλ=2の固有空間の基底と一般形を示す。",
+          "answer": "x₃=0でx₁,x₂は自由。基底は(1,0,0),(0,1,0)、一般形は(a,b,0)で(a,b)≠(0,0)。",
+          "checklist": [
+            "x₃=0でx₁,x₂は自由。",
+            "基底は(1,0,0),(0,1,0)、一般形は(a,b,0)で(a,b)≠(0,0)。"
+          ],
+          "explanation": "固有値ごとにA−λIを作り、行基本変形で方程式を解く。自由変数を1などに置いて非零解を選び、元のAで検算する。例えばA=((2,1),(0,3)),λ=3では、1行目が−x₁+x₂=0、2行目が0=0となる。独立な条件は1本なので自由変数が1つある。正規化は長さ1を指定された場合に行う。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "mathematical-modeling-eigenvectors-diagnostic",
+        "prompt": "A=diag(3,8)、x=(1,0)に対応する固有値を答える。",
         "kind": "number",
-        "numericAnswer": 0,
-        "tolerance": 1e-09,
-        "explanation": "−3x2=0。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 3,
+        "tolerance": 1e-10,
+        "explanation": "固有値ごとにA−λIを作り、行基本変形で方程式を解く。自由変数を1などに置いて非零解を選び、元のAで検算する。例えばA=((2,1),(0,3)),λ=3では、1行目が−x₁+x₂=0、2行目が0=0となる。独立な条件は1本なので自由変数が1つある。正規化は長さ1を指定された場合に行う。",
+        "pitfall": "同じ固有値に対応する非零の定数倍も固有ベクトル。必要な正規化条件に従う。"
       }
     },
     {
@@ -411,16 +672,12 @@
         {
           "title": "直交行列",
           "body": "$M^TM=I$ なら $M^{-1}=M^T$。上の証明で逆行列を転置へ置き換えればよい。$A$ 自体を直交行列や対称行列だと仮定する必要はない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "B=MAM⁻¹なら、Aの固有ベクトルxに対してMxがBの固有ベクトルとなる。B=M⁻¹AMという別の約束ではM⁻¹xを使うので、式の順序を読み取る。直交行列はMᵀM=Iであり、逆行列を転置で置き換えられる。任意の正則行列にこの置換を適用してはいけない。"
         }
       ],
-      "example": {
-        "prompt": "Ax=2x, B=MAM⁻¹, y=Mx の By。",
-        "steps": [
-          "By=MAM⁻¹Mx=MAx。",
-          "Ax=2x を代入し By=2Mx。"
-        ],
-        "answer": "By=2y"
-      },
       "quizzes": [
         {
           "id": "mathematical-modeling-similarity-c1",
@@ -483,31 +740,102 @@
           ],
           "explanation": "MᵀM=IよりM⁻¹=Mᵀ。",
           "pitfall": "表記だけでなく意味も確認する。"
+        },
+        {
+          "id": "mathematical-modeling-similarity-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「正則行列なら常にM⁻¹=Mᵀである。」",
+          "answer": "その等式は直交行列の条件。一般の正則行列には成り立たない。",
+          "checklist": [
+            "その等式は直交行列の条件。",
+            "一般の正則行列には成り立たない。"
+          ],
+          "explanation": "B=MAM⁻¹なら、Aの固有ベクトルxに対してMxがBの固有ベクトルとなる。B=M⁻¹AMという別の約束ではM⁻¹xを使うので、式の順序を読み取る。直交行列はMᵀM=Iであり、逆行列を転置で置き換えられる。任意の正則行列にこの置換を適用してはいけない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-similarity-c5",
+          "kind": "self-check",
+          "prompt": "B=MAM⁻¹、Ax=λxからB(Mx)=λ(Mx)を途中式で示す。",
+          "answer": "B(Mx)=MAM⁻¹Mx=MAx=Mλx=λMx。",
+          "checklist": [
+            "B(Mx)=MAM⁻¹Mx=MAx=Mλx=λMx。"
+          ],
+          "explanation": "B=MAM⁻¹なら、Aの固有ベクトルxに対してMxがBの固有ベクトルとなる。B=M⁻¹AMという別の約束ではM⁻¹xを使うので、式の順序を読み取る。直交行列はMᵀM=Iであり、逆行列を転置で置き換えられる。任意の正則行列にこの置換を適用してはいけない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "mathematical-modeling-similarity-retest",
-        "prompt": "M⁻¹AMのλに対応するベクトルは？",
-        "kind": "choice",
-        "options": [
-          {
-            "id": "0",
-            "label": "M⁻¹x"
-          },
-          {
-            "id": "1",
-            "label": "Mx"
-          },
-          {
-            "id": "2",
-            "label": "Ax+M"
-          }
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "Ax=2x, B=MAM⁻¹, y=Mx の By。",
+          "steps": [
+            "By=MAM⁻¹Mx=MAx。",
+            "Ax=2x を代入し By=2Mx。"
+          ],
+          "answer": "By=2y"
+        },
+        {
+          "prompt": "A=diag(1,2)、M=((0,1),(1,0))でB=MAM⁻¹を求める。",
+          "steps": [
+            "Mは成分を入れ替える行列でM⁻¹=M。",
+            "左右から掛けると対角成分が入れ替わる。"
+          ],
+          "answer": "B=diag(2,1)。固有値の集合は変わらない。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "mathematical-modeling-similarity-retest",
+          "prompt": "M⁻¹AMのλに対応するベクトルは？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "M⁻¹x"
+            },
+            {
+              "id": "1",
+              "label": "Mx"
+            },
+            {
+              "id": "2",
+              "label": "Ax+M"
+            }
+          ],
+          "correctOptions": [
+            "0"
+          ],
+          "explanation": "(M⁻¹AM)(M⁻¹x)=M⁻¹Ax。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "mathematical-modeling-similarity-retest-2",
+          "kind": "self-check",
+          "prompt": "M=diag(2,1)が直交行列でないことを示す。",
+          "answer": "MᵀM=diag(4,1)≠I。逆行列はdiag(1/2,1)で転置とは異なる。",
+          "checklist": [
+            "MᵀM=diag(4,1)≠I。",
+            "逆行列はdiag(1/2,1)で転置とは異なる。"
+          ],
+          "explanation": "B=MAM⁻¹なら、Aの固有ベクトルxに対してMxがBの固有ベクトルとなる。B=M⁻¹AMという別の約束ではM⁻¹xを使うので、式の順序を読み取る。直交行列はMᵀM=Iであり、逆行列を転置で置き換えられる。任意の正則行列にこの置換を適用してはいけない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "mathematical-modeling-similarity-diagnostic",
+        "prompt": "直交行列の逆行列は何行列と等しいか。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "転置行列",
+          "転置",
+          "transpose"
         ],
-        "correctOptions": [
-          "0"
-        ],
-        "explanation": "(M⁻¹AM)(M⁻¹x)=M⁻¹Ax。",
-        "pitfall": "条件を読み、理由も言えるようにする。"
+        "explanation": "B=MAM⁻¹なら、Aの固有ベクトルxに対してMxがBの固有ベクトルとなる。B=M⁻¹AMという別の約束ではM⁻¹xを使うので、式の順序を読み取る。直交行列はMᵀM=Iであり、逆行列を転置で置き換えられる。任意の正則行列にこの置換を適用してはいけない。",
+        "pitfall": "その等式は直交行列の条件。一般の正則行列には成り立たない。"
       }
     },
     {
@@ -526,16 +854,12 @@
         {
           "title": "消去行列の列",
           "body": "枢軸 $b_{kk}\\ne0$ に対し、第k列以外は単位行列と同じとし、$g_{kk}=1/b_{kk}$、$g_{ik}=-b_{ik}/b_{kk}$（i≠k）とする。$G_kB$ は第k行を正規化し、他行から元の第k行の倍を引くので第k列が単位ベクトルになる。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "行操作は行列へ左から掛ける。第i行から第j行のc倍を引く操作なら、単位行列の(i,j)成分を−cにした消去行列で表す。部分枢軸選択では対象列の候補の絶対値を比較する。先に行を入れ替えると消去係数も変わるため、元の行列と入替後の行列を区別する。"
         }
       ],
-      "example": {
-        "prompt": "B=((2,1),(4,3)) の第1列を消去するG。",
-        "steps": [
-          "枢軸2なので g11=1/2。",
-          "g21=−4/2=−2。第2列は単位行列のまま。"
-        ],
-        "answer": "$G=\\begin{pmatrix}1/2&0\\\\-2&1\\end{pmatrix}$、$GB=\\begin{pmatrix}1&1/2\\\\0&1\\end{pmatrix}$"
-      },
       "quizzes": [
         {
           "id": "mathematical-modeling-pivot-elimination-c1",
@@ -591,19 +915,88 @@
           "prompt": "枢軸bkk=4を1にするgkkは？",
           "kind": "number",
           "numericAnswer": 0.25,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "1/4。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-pivot-elimination-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「行基本変形を表す行列は元の行列へ右から掛ける。」",
+          "answer": "行操作は左から掛ける。右から掛けると列操作になる。",
+          "checklist": [
+            "行操作は左から掛ける。",
+            "右から掛けると列操作になる。"
+          ],
+          "explanation": "行操作は行列へ左から掛ける。第i行から第j行のc倍を引く操作なら、単位行列の(i,j)成分を−cにした消去行列で表す。部分枢軸選択では対象列の候補の絶対値を比較する。先に行を入れ替えると消去係数も変わるため、元の行列と入替後の行列を区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-pivot-elimination-c5",
+          "kind": "self-check",
+          "prompt": "A=((0,2),(3,1))の第1列で部分枢軸選択し、置換行列と入替後の行列を示す。",
+          "answer": "P=((0,1),(1,0))。PA=((3,1),(0,2))で、非零の3を枢軸にする。",
+          "checklist": [
+            "P=((0,1),(1,0))。",
+            "PA=((3,1),(0,2))で、非零の3を枢軸にする。"
+          ],
+          "explanation": "行操作は行列へ左から掛ける。第i行から第j行のc倍を引く操作なら、単位行列の(i,j)成分を−cにした消去行列で表す。部分枢軸選択では対象列の候補の絶対値を比較する。先に行を入れ替えると消去係数も変わるため、元の行列と入替後の行列を区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "mathematical-modeling-pivot-elimination-retest",
-        "prompt": "枢軸3、他行の第k列成分6。gikは？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "B=((2,1),(4,3)) の第1列を消去するG。",
+          "steps": [
+            "枢軸2なので g11=1/2。",
+            "g21=−4/2=−2。第2列は単位行列のまま。"
+          ],
+          "answer": "$G=\\begin{pmatrix}1/2&0\\\\-2&1\\end{pmatrix}$、$GB=\\begin{pmatrix}1&1/2\\\\0&1\\end{pmatrix}$"
+        },
+        {
+          "prompt": "A=((1,2),(3,4))の第2行から第1行の3倍を引く行列Gを示す。",
+          "steps": [
+            "Gは単位行列の(2,1)へ−3を置く。",
+            "GAを計算し、第2行の第1成分が0か確認する。"
+          ],
+          "answer": "G=((1,0),(−3,1))、GA=((1,2),(0,−2))。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "mathematical-modeling-pivot-elimination-retest",
+          "prompt": "枢軸3、他行の第k列成分6。gikは？",
+          "kind": "number",
+          "numericAnswer": -2,
+          "tolerance": 1e-9,
+          "explanation": "−6/3=−2。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-pivot-elimination-retest-2",
+          "kind": "self-check",
+          "prompt": "Aの第2行から第1行の1/2倍を引く行列を作り、係数の符号を説明する。",
+          "answer": "G=((1,0),(−1/2,1))。第2行に加える係数が−1/2なので、その符号を置く。",
+          "checklist": [
+            "G=((1,0),(−1/2,1))。",
+            "第2行に加える係数が−1/2なので、その符号を置く。"
+          ],
+          "explanation": "行操作は行列へ左から掛ける。第i行から第j行のc倍を引く操作なら、単位行列の(i,j)成分を−cにした消去行列で表す。部分枢軸選択では対象列の候補の絶対値を比較する。先に行を入れ替えると消去係数も変わるため、元の行列と入替後の行列を区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "mathematical-modeling-pivot-elimination-diagnostic",
+        "prompt": "第1列の候補−2と5のうち、絶対値による枢軸選択で選ぶ値は。",
         "kind": "number",
-        "numericAnswer": -2,
-        "tolerance": 1e-09,
-        "explanation": "−6/3=−2。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 5,
+        "tolerance": 1e-10,
+        "explanation": "行操作は行列へ左から掛ける。第i行から第j行のc倍を引く操作なら、単位行列の(i,j)成分を−cにした消去行列で表す。部分枢軸選択では対象列の候補の絶対値を比較する。先に行を入れ替えると消去係数も変わるため、元の行列と入替後の行列を区別する。",
+        "pitfall": "行操作は左から掛ける。右から掛けると列操作になる。"
       }
     },
     {
@@ -624,16 +1017,12 @@
         {
           "title": "操作の積の順序",
           "body": "$A^{(k)}=G_kP_kA^{(k-1)}$ とすると最終的に $I=G_nP_n\\cdots G_1P_1A$、従って $A^{-1}=G_nP_n\\cdots G_1P_1I$。操作が後のものほど左に来る。第n−1段階で止める公式は、残りの最後の対角が1という追加条件がないと一般には成立しない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "拡大行列[A|I]へ同じ行操作を施し、左側をIへ変えたとき右側がA⁻¹になる。例としてA=((1,1),(1,2))ならR₂←R₂−R₁、R₁←R₁−R₂の順で左側がIになる。右側も忘れず更新する。枢軸が作れず階数が不足する場合は逆行列がない。検算ではAA⁻¹とA⁻¹Aの両方を確認する。"
         }
       ],
-      "example": {
-        "prompt": "A=((1,2),(0,1)) の逆行列。",
-        "steps": [
-          "第1行から第2行の2倍を引く。",
-          "同じ操作をIへ施すと ((1,−2),(0,1))。"
-        ],
-        "answer": "$A^{-1}=\\begin{pmatrix}1&-2\\\\0&1\\end{pmatrix}$"
-      },
       "quizzes": [
         {
           "id": "mathematical-modeling-inverse-matrix-c1",
@@ -689,19 +1078,88 @@
           "prompt": "A=diag(2,4) の逆行列の(2,2)成分は？",
           "kind": "number",
           "numericAnswer": 0.25,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "1/4。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-inverse-matrix-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「逆行列は元の行列の各成分を逆数にすればよい。」",
+          "answer": "一般には成り立たない。拡大行列への行操作や、2×2行列の行列式を用いて求める。",
+          "checklist": [
+            "一般には成り立たない。",
+            "拡大行列への行操作や、2×2行列の行列式を用いて求める。"
+          ],
+          "explanation": "拡大行列[A|I]へ同じ行操作を施し、左側をIへ変えたとき右側がA⁻¹になる。例としてA=((1,1),(1,2))ならR₂←R₂−R₁、R₁←R₁−R₂の順で左側がIになる。右側も忘れず更新する。枢軸が作れず階数が不足する場合は逆行列がない。検算ではAA⁻¹とA⁻¹Aの両方を確認する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-inverse-matrix-c5",
+          "kind": "self-check",
+          "prompt": "A=((2,1),(0,1))の逆行列を求め、積で確認する。",
+          "answer": "A⁻¹=((1/2,−1/2),(0,1))。AA⁻¹=Iで、逆順の積もI。",
+          "checklist": [
+            "A⁻¹=((1/2,−1/2),(0,1))。",
+            "AA⁻¹=Iで、逆順の積もI。"
+          ],
+          "explanation": "拡大行列[A|I]へ同じ行操作を施し、左側をIへ変えたとき右側がA⁻¹になる。例としてA=((1,1),(1,2))ならR₂←R₂−R₁、R₁←R₁−R₂の順で左側がIになる。右側も忘れず更新する。枢軸が作れず階数が不足する場合は逆行列がない。検算ではAA⁻¹とA⁻¹Aの両方を確認する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "mathematical-modeling-inverse-matrix-retest",
-        "prompt": "A=((1,3),(0,1)) の逆行列の(1,2)成分は？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "A=((1,2),(0,1)) の逆行列。",
+          "steps": [
+            "第1行から第2行の2倍を引く。",
+            "同じ操作をIへ施すと ((1,−2),(0,1))。"
+          ],
+          "answer": "$A^{-1}=\\begin{pmatrix}1&-2\\\\0&1\\end{pmatrix}$"
+        },
+        {
+          "prompt": "A=((1,1),(1,2))の逆行列を拡大行列で求める。",
+          "steps": [
+            "[A|I]の第2行から第1行を引く。右側第2行は(−1,1)。",
+            "第1行から第2行を引く。右側第1行は(2,−1)。"
+          ],
+          "answer": "A⁻¹=((2,−1),(−1,1))。左右の積はI。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "mathematical-modeling-inverse-matrix-retest",
+          "prompt": "A=((1,3),(0,1)) の逆行列の(1,2)成分は？",
+          "kind": "number",
+          "numericAnswer": -3,
+          "tolerance": 1e-9,
+          "explanation": "第1行から第2行の3倍を引く。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "mathematical-modeling-inverse-matrix-retest-2",
+          "kind": "self-check",
+          "prompt": "A=((1,2),(2,4))に逆行列がないことを、行操作と行列式で説明する。",
+          "answer": "第2行から第1行の2倍を引くと零行。行列式も4−4=0で、左側をIにできない。",
+          "checklist": [
+            "第2行から第1行の2倍を引くと零行。",
+            "行列式も4−4=0で、左側をIにできない。"
+          ],
+          "explanation": "拡大行列[A|I]へ同じ行操作を施し、左側をIへ変えたとき右側がA⁻¹になる。例としてA=((1,1),(1,2))ならR₂←R₂−R₁、R₁←R₁−R₂の順で左側がIになる。右側も忘れず更新する。枢軸が作れず階数が不足する場合は逆行列がない。検算ではAA⁻¹とA⁻¹Aの両方を確認する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "mathematical-modeling-inverse-matrix-diagnostic",
+        "prompt": "diag(5,2)の逆行列の(1,1)成分を答える。",
         "kind": "number",
-        "numericAnswer": -3,
-        "tolerance": 1e-09,
-        "explanation": "第1行から第2行の3倍を引く。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 0.2,
+        "tolerance": 1e-10,
+        "explanation": "拡大行列[A|I]へ同じ行操作を施し、左側をIへ変えたとき右側がA⁻¹になる。例としてA=((1,1),(1,2))ならR₂←R₂−R₁、R₁←R₁−R₂の順で左側がIになる。右側も忘れず更新する。枢軸が作れず階数が不足する場合は逆行列がない。検算ではAA⁻¹とA⁻¹Aの両方を確認する。",
+        "pitfall": "一般には成り立たない。拡大行列への行操作や、2×2行列の行列式を用いて求める。"
       }
     }
   ],

@@ -17,6 +17,7 @@ test('term aliases normalize width, case and whitespace only',()=>{
 test('numbers respect tolerance and reject expressions and empty values',()=>{
   const q=quiz({kind:'number',numericAnswer:3,tolerance:.01});
   assert.equal(gradeQuiz(q,'3.009'),true);assert.equal(gradeQuiz(q,'3.011'),false);
+  assert.equal(gradeQuiz(quiz({kind:'number',numericAnswer:-3}),'−３'),true);
   for(const a of ['', 'NaN','Infinity','1+2','0x3','3V'])assert.equal(gradeQuiz(q,a),false);
 });
 test('bit answers preserve leading zeros and reject other characters',()=>{
@@ -39,7 +40,7 @@ test('Dijkstra matches all-pairs relaxation on a graph with ties',()=>{
 });
 test('recommendations prioritize weak foundations then review then untouched',()=>{
   const t={id:'a-t',name:'基礎',prerequisite:true,appearanceYears:2,availableYears:2,years:[2024,2025]};
-  const c={subjects:[{subjectId:'a',availableYears:[2024,2025],topics:[t]}],questions:[{id:'a-q',subjectId:'a',topics:[t.id],year:2025,title:'問題'}]} as unknown as Catalog;
+  const c={subjects:[{subjectId:'a',availableYears:[2024,2025],topics:[t]}],learningIndex:[{id:'independent-diagnostic',subjectId:'a',topicId:'a-t',role:'diagnostic',kind:'text',title:'基礎'}],questions:[{id:'a-q',subjectId:'a',topics:[t.id],year:2025,title:'問題'}]} as unknown as Catalog;
   const p={...emptyProgress(),selected:['a']};assert.equal(recommend(c,p)[0].href,'#/practice/a-q');p.statuses['a-q']='review';assert.match(recommend(c,p)[0].reason,/復習/);
-  p.quizAttempts['a-t-c1']={answer:'bad',correct:false,attemptedAt:'2026-10-14T00:00:00Z'};assert.equal(recommend(c,p)[0].href,'#/learn/a-t');p.quizAttempts['a-t-c1'].correct=true;assert.equal(recommend(c,p)[0].href,'#/practice/a-q');
+  p.quizAttempts['independent-diagnostic']={answer:'bad',correct:false,attemptedAt:'2026-10-14T00:00:00Z'};assert.equal(recommend(c,p)[0].href,'#/review?tab=foundations&subject=a&item=independent-diagnostic');p.quizAttempts['independent-diagnostic'].correct=true;assert.equal(recommend(c,p)[0].href,'#/practice/a-q');
 });

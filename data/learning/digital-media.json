@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "subjectId": "digital-media",
   "lessons": [
     {
@@ -18,16 +18,12 @@
         {
           "title": "回転と原点",
           "body": "角度を固定した2次元の原点回転は $R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$ で表せる。一方、$T(x)=Ax+b$ は $b\\ne0$ なら $T(0)\\ne0$ で線型ではない。回転中心をずらすと通常は並進項が生じる。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "線型写像は加法と定数倍を保ち、原点を原点へ写す。2次元回転は基底e₁,e₂の像を行列の列に置くと得られる。並進は原点を別の点へ移すため、2次元ベクトルの線型写像ではない。同次座標の3次元表現では並進も行列積として扱えるが、この表現と元の2次元空間の線型性を区別する。"
         }
       ],
-      "example": {
-        "prompt": "90度反時計回りの原点回転で (2,1) を移す。",
-        "steps": [
-          "$R_{\\pi/2}=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}$。",
-          "$R_{\\pi/2}(2,1)^T=(-1,2)^T$。"
-        ],
-        "answer": "$(-1,2)^T$"
-      },
       "quizzes": [
         {
           "id": "digital-media-linear-map-c1",
@@ -83,30 +79,102 @@
           "prompt": "原点周りの90度反時計回り回転で (2,1) の x 座標は？",
           "kind": "number",
           "numericAnswer": -1,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "(x,y)→(-y,x)。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-linear-map-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「行列で表現できる変換は、元の空間でも全て線型である。」",
+          "answer": "同次座標での行列表示は可能でも、元の空間での並進は線型ではない。",
+          "checklist": [
+            "同次座標での行列表示は可能でも、元の空間での並進は線型ではない。"
+          ],
+          "explanation": "線型写像は加法と定数倍を保ち、原点を原点へ写す。2次元回転は基底e₁,e₂の像を行列の列に置くと得られる。並進は原点を別の点へ移すため、2次元ベクトルの線型写像ではない。同次座標の3次元表現では並進も行列積として扱えるが、この表現と元の2次元空間の線型性を区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-linear-map-c5",
+          "kind": "self-check",
+          "prompt": "T(x,y)=(2x−y,x+y)の行列を基底の像から作る。",
+          "answer": "T(e₁)=(2,1)、T(e₂)=(−1,1)。行列は((2,−1),(1,1))。",
+          "checklist": [
+            "T(e₁)=(2,1)、T(e₂)=(−1,1)。",
+            "行列は((2,−1),(1,1))。"
+          ],
+          "explanation": "線型写像は加法と定数倍を保ち、原点を原点へ写す。2次元回転は基底e₁,e₂の像を行列の列に置くと得られる。並進は原点を別の点へ移すため、2次元ベクトルの線型写像ではない。同次座標の3次元表現では並進も行列積として扱えるが、この表現と元の2次元空間の線型性を区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-linear-map-retest",
-        "prompt": "T(x)=2x+(1,0) は線型か？",
-        "kind": "choice",
-        "options": [
-          {
-            "id": "0",
-            "label": "線型"
-          },
-          {
-            "id": "1",
-            "label": "線型でない"
-          }
+      "prerequisiteFoundationIds": [
+        "foundation-matrix",
+        "foundation-trigonometry"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "90度反時計回りの原点回転で (2,1) を移す。",
+          "steps": [
+            "$R_{\\pi/2}=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}$。",
+            "$R_{\\pi/2}(2,1)^T=(-1,2)^T$。"
+          ],
+          "answer": "$(-1,2)^T$"
+        },
+        {
+          "prompt": "T(x,y)=(x+2,y)が2次元の線型写像でないことを示す。",
+          "steps": [
+            "T(0,0)=(2,0)となる。",
+            "線型写像ならT(0)=0が必要なので条件に反する。"
+          ],
+          "answer": "並進を含むため線型ではない。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-linear-map-retest",
+          "prompt": "T(x)=2x+(1,0) は線型か？",
+          "kind": "choice",
+          "options": [
+            {
+              "id": "0",
+              "label": "線型"
+            },
+            {
+              "id": "1",
+              "label": "線型でない"
+            }
+          ],
+          "correctOptions": [
+            "1"
+          ],
+          "explanation": "T(0)=(1,0)≠0 なので線型でない。",
+          "pitfall": "条件を読み、理由も言えるようにする。"
+        },
+        {
+          "id": "digital-media-linear-map-retest-2",
+          "kind": "self-check",
+          "prompt": "90°回転RについてR(u+v)=Ru+Rvをu=(1,0),v=(0,2)で確認する。",
+          "answer": "R(1,2)=(−2,1)。Ru=(0,1)、Rv=(−2,0)で和は(−2,1)、両辺が一致する。",
+          "checklist": [
+            "R(1,2)=(−2,1)。",
+            "Ru=(0,1)、Rv=(−2,0)で和は(−2,1)、両辺が一致する。"
+          ],
+          "explanation": "線型写像は加法と定数倍を保ち、原点を原点へ写す。2次元回転は基底e₁,e₂の像を行列の列に置くと得られる。並進は原点を別の点へ移すため、2次元ベクトルの線型写像ではない。同次座標の3次元表現では並進も行列積として扱えるが、この表現と元の2次元空間の線型性を区別する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-linear-map-diagnostic",
+        "prompt": "線型写像が必ず写す原点の像を座標で答える。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "(0,0)",
+          "(0, 0)",
+          "(0, 0)"
         ],
-        "correctOptions": [
-          "1"
-        ],
-        "explanation": "T(0)=(1,0)≠0 なので線型でない。",
-        "pitfall": "条件を読み、理由も言えるようにする。"
+        "explanation": "線型写像は加法と定数倍を保ち、原点を原点へ写す。2次元回転は基底e₁,e₂の像を行列の列に置くと得られる。並進は原点を別の点へ移すため、2次元ベクトルの線型写像ではない。同次座標の3次元表現では並進も行列積として扱えるが、この表現と元の2次元空間の線型性を区別する。",
+        "pitfall": "同次座標での行列表示は可能でも、元の空間での並進は線型ではない。"
       }
     },
     {
@@ -127,16 +195,12 @@
         {
           "title": "並進を含む場合",
           "body": "$T(x)=Bx+t$ は同次座標で $\\begin{pmatrix}B&t\\\\0&1\\end{pmatrix}(x,y,1)^T$ と書く。$t=T(0)$、$Be_i=T(e_i)-t$。原点の像を先に引くと連立方程式を省ける。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "列ベクトルに左から行列を掛ける約束では、右側の行列から作用する。反時計回りの能動回転と、座標系を回す受動変換は符号が逆になるため、どちらを求めるか先に確認する。回転後の並進はTR、並進後の回転はRTであり、一般に交換できない。同次座標の最後の成分1が並進項を有効にする。"
         }
       ],
-      "example": {
-        "prompt": "T(0)=(1,2), T(e1)=(3,2), T(e2)=(1,5) の同次行列。",
-        "steps": [
-          "並進は t=(1,2)。",
-          "第1列の線型部分は (2,0)、第2列は (0,3)。"
-        ],
-        "answer": "$\\begin{pmatrix}2&0&1\\\\0&3&2\\\\0&0&1\\end{pmatrix}$"
-      },
       "quizzes": [
         {
           "id": "digital-media-coordinate-transform-c1",
@@ -192,19 +256,89 @@
           "prompt": "T(0)=(2,1), T(e1)=(5,4) の線型部分の第1列の x 成分は？",
           "kind": "number",
           "numericAnswer": 3,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "5−2=3。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-coordinate-transform-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「列ベクトルのTRpでは、最初にTを作用させる。」",
+          "answer": "右側のRが先に作用する。Tは回転後の並進。",
+          "checklist": [
+            "右側のRが先に作用する。",
+            "Tは回転後の並進。"
+          ],
+          "explanation": "列ベクトルに左から行列を掛ける約束では、右側の行列から作用する。反時計回りの能動回転と、座標系を回す受動変換は符号が逆になるため、どちらを求めるか先に確認する。回転後の並進はTR、並進後の回転はRTであり、一般に交換できない。同次座標の最後の成分1が並進項を有効にする。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-coordinate-transform-c5",
+          "kind": "self-check",
+          "prompt": "p=(0,2)を−90°回転してから(−1,1)だけ並進し、途中の点も示す。",
+          "answer": "回転後は(2,0)。並進後は(1,1)。",
+          "checklist": [
+            "回転後は(2,0)。",
+            "並進後は(1,1)。"
+          ],
+          "explanation": "列ベクトルに左から行列を掛ける約束では、右側の行列から作用する。反時計回りの能動回転と、座標系を回す受動変換は符号が逆になるため、どちらを求めるか先に確認する。回転後の並進はTR、並進後の回転はRTであり、一般に交換できない。同次座標の最後の成分1が並進項を有効にする。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-coordinate-transform-retest",
-        "prompt": "A の列が (2,1),(1,3)。A(1,2) の y 成分は？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix",
+        "foundation-trigonometry"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "T(0)=(1,2), T(e1)=(3,2), T(e2)=(1,5) の同次行列。",
+          "steps": [
+            "並進は t=(1,2)。",
+            "第1列の線型部分は (2,0)、第2列は (0,3)。"
+          ],
+          "answer": "$\\begin{pmatrix}2&0&1\\\\0&3&2\\\\0&0&1\\end{pmatrix}$"
+        },
+        {
+          "prompt": "p=(1,0)に並進t=(1,0)を行い、その後90°回転する。回転後に並進する場合と比較する。",
+          "steps": [
+            "並進→回転は(2,0)を回して(0,2)。",
+            "回転→並進は(0,1)に(1,0)を加えて(1,1)。"
+          ],
+          "answer": "RTp=(0,2)、TRp=(1,1)。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-coordinate-transform-retest",
+          "prompt": "A の列が (2,1),(1,3)。A(1,2) の y 成分は？",
+          "kind": "number",
+          "numericAnswer": 7,
+          "tolerance": 1e-9,
+          "explanation": "1+2×3=7。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-coordinate-transform-retest-2",
+          "kind": "self-check",
+          "prompt": "90°の能動回転と、座標軸を90°回す受動変換でp=(1,0)の成分がどう異なるか示す。",
+          "answer": "能動回転では(0,1)。座標軸の回転では逆回転を掛けて(0,−1)となる。",
+          "checklist": [
+            "能動回転では(0,1)。",
+            "座標軸の回転では逆回転を掛けて(0,−1)となる。"
+          ],
+          "explanation": "列ベクトルに左から行列を掛ける約束では、右側の行列から作用する。反時計回りの能動回転と、座標系を回す受動変換は符号が逆になるため、どちらを求めるか先に確認する。回転後の並進はTR、並進後の回転はRTであり、一般に交換できない。同次座標の最後の成分1が並進項を有効にする。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-coordinate-transform-diagnostic",
+        "prompt": "3×3同次行列で点を表す際の最後の成分はいくつか。",
         "kind": "number",
-        "numericAnswer": 7,
-        "tolerance": 1e-09,
-        "explanation": "1+2×3=7。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 1,
+        "tolerance": 1e-10,
+        "explanation": "列ベクトルに左から行列を掛ける約束では、右側の行列から作用する。反時計回りの能動回転と、座標系を回す受動変換は符号が逆になるため、どちらを求めるか先に確認する。回転後の並進はTR、並進後の回転はRTであり、一般に交換できない。同次座標の最後の成分1が並進項を有効にする。",
+        "pitfall": "右側のRが先に作用する。Tは回転後の並進。"
       }
     },
     {
@@ -223,16 +357,12 @@
         {
           "title": "次数上げ",
           "body": "二次の $P_0,P_1,P_2$ を三次にするには $Q_0=P_0,Q_1=\\frac13P_0+\\frac23P_1,Q_2=\\frac23P_1+\\frac13P_2,Q_3=P_2$。係数を展開して同じ多項式になることを確認する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "3次ベジェ曲線は4制御点をBernstein基底で重み付けする。t=0と1を代入して端点を先に確認し、端点の接線はP₁−P₀とP₃−P₂の方向になる。制御点全てを通る補間曲線ではない。各係数が非負で和1となる区間0≤t≤1では、曲線は制御点の凸包内にある。"
         }
       ],
-      "example": {
-        "prompt": "三次の P0=(0,0),P1=(0,2),P2=(2,2),P3=(2,0) で t=1/2。",
-        "steps": [
-          "係数は 1/8,3/8,3/8,1/8。",
-          "x=0+0+6/8+2/8=1、y=6/8+6/8=1.5。"
-        ],
-        "answer": "(1,1.5)"
-      },
       "quizzes": [
         {
           "id": "digital-media-bezier-c1",
@@ -288,19 +418,89 @@
           "prompt": "t=1/2 の三次曲線で P1 の係数は？",
           "kind": "number",
           "numericAnswer": 0.375,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "3×1/2×(1/2)^2=3/8。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-bezier-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「3次ベジェ曲線は中間の制御点P₁,P₂も必ず通る。」",
+          "answer": "必ず通るのはP₀,P₃。中間制御点は形と接線を制御する。",
+          "checklist": [
+            "必ず通るのはP₀,P₃。",
+            "中間制御点は形と接線を制御する。"
+          ],
+          "explanation": "3次ベジェ曲線は4制御点をBernstein基底で重み付けする。t=0と1を代入して端点を先に確認し、端点の接線はP₁−P₀とP₃−P₂の方向になる。制御点全てを通る補間曲線ではない。各係数が非負で和1となる区間0≤t≤1では、曲線は制御点の凸包内にある。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-bezier-c5",
+          "kind": "self-check",
+          "prompt": "P₀=(0,0),P₁=(1,2)の3次ベジェ曲線のt=0での微分ベクトルを求める。",
+          "answer": "B′(0)=3(P₁−P₀)=(3,6)。接線方向は(1,2)。",
+          "checklist": [
+            "B′(0)=3(P₁−P₀)=(3,6)。",
+            "接線方向は(1,2)。"
+          ],
+          "explanation": "3次ベジェ曲線は4制御点をBernstein基底で重み付けする。t=0と1を代入して端点を先に確認し、端点の接線はP₁−P₀とP₃−P₂の方向になる。制御点全てを通る補間曲線ではない。各係数が非負で和1となる区間0≤t≤1では、曲線は制御点の凸包内にある。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-bezier-retest",
-        "prompt": "二次P0=(3,0),P1=(0,0),P2=(0,3)を次数上げしたQ1のxは？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix",
+        "foundation-calculus"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "三次の P0=(0,0),P1=(0,2),P2=(2,2),P3=(2,0) で t=1/2。",
+          "steps": [
+            "係数は 1/8,3/8,3/8,1/8。",
+            "x=0+0+6/8+2/8=1、y=6/8+6/8=1.5。"
+          ],
+          "answer": "(1,1.5)"
+        },
+        {
+          "prompt": "P₀=(0,0),P₁=(0,2),P₂=(2,2),P₃=(2,0)でt=1/2の点を求める。",
+          "steps": [
+            "係数は1/8,3/8,3/8,1/8。",
+            "xは0+0+6/8+2/8=1、yは6/8+6/8=1.5。"
+          ],
+          "answer": "B(1/2)=(1,1.5)。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-bezier-retest",
+          "prompt": "二次P0=(3,0),P1=(0,0),P2=(0,3)を次数上げしたQ1のxは？",
+          "kind": "number",
+          "numericAnswer": 1,
+          "tolerance": 1e-9,
+          "explanation": "Q1=P0/3+2P1/3。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-bezier-retest-2",
+          "kind": "self-check",
+          "prompt": "始点を固定し、始点の接線だけを水平にしたいときP₁をどこに置くか説明する。",
+          "answer": "P₁をP₀と同じy座標で、異なるx座標に置く。P₁−P₀が水平となる。",
+          "checklist": [
+            "P₁をP₀と同じy座標で、異なるx座標に置く。",
+            "P₁−P₀が水平となる。"
+          ],
+          "explanation": "3次ベジェ曲線は4制御点をBernstein基底で重み付けする。t=0と1を代入して端点を先に確認し、端点の接線はP₁−P₀とP₃−P₂の方向になる。制御点全てを通る補間曲線ではない。各係数が非負で和1となる区間0≤t≤1では、曲線は制御点の凸包内にある。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-bezier-diagnostic",
+        "prompt": "3次ベジェ曲線に必要な制御点の数はいくつか。",
         "kind": "number",
-        "numericAnswer": 1,
-        "tolerance": 1e-09,
-        "explanation": "Q1=P0/3+2P1/3。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 4,
+        "tolerance": 1e-10,
+        "explanation": "3次ベジェ曲線は4制御点をBernstein基底で重み付けする。t=0と1を代入して端点を先に確認し、端点の接線はP₁−P₀とP₃−P₂の方向になる。制御点全てを通る補間曲線ではない。各係数が非負で和1となる区間0≤t≤1では、曲線は制御点の凸包内にある。",
+        "pitfall": "必ず通るのはP₀,P₃。中間制御点は形と接線を制御する。"
       }
     },
     {
@@ -319,16 +519,12 @@
         {
           "title": "三角関数の置換",
           "body": "$[0,\\pi/2]$ で $p\\propto\\cos\\theta\\sin^m\\theta$ なら $u=\\sin\\theta$ を用い、$p=(m+1)\\cos\\theta\\sin^m\\theta$、$F=\\sin^{m+1}\\theta$。よって $\\theta=\\arcsin(\\xi^{1/(m+1)})$。この範囲以外を勝手に同じ式で扱わない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "密度fから区間の左端までを積分して累積分布Fを作る。密度が非負で全区間の積分が1かを先に確認する。Fの値域は0〜1であり、Uをその範囲の一様乱数としてF(X)=Uを解く。逆関数に複数の枝があれば元の定義域に合う枝を選ぶ。密度の逆数を求める操作とは異なる。"
         }
       ],
-      "example": {
-        "prompt": "[0,1] で p(x)∝x のサンプルを作る。",
-        "steps": [
-          "∫0^1 x dx=1/2 より p(x)=2x。",
-          "F(x)=x²。F(x)=ξ を x≥0 で解く。"
-        ],
-        "answer": "$x=\\sqrt\\xi$"
-      },
       "quizzes": [
         {
           "id": "digital-media-inverse-transform-c1",
@@ -384,19 +580,88 @@
           "prompt": "[0,1]で p(x)=cx² を正規化する c は？",
           "kind": "number",
           "numericAnswer": 3,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "∫0^1 cx² dx=c/3=1。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-inverse-transform-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「逆関数法ではf(X)=Uを直接解く。」",
+          "answer": "まず累積分布Fを積分で作り、F(X)=Uを解く。",
+          "checklist": [
+            "まず累積分布Fを積分で作り、F(X)=Uを解く。"
+          ],
+          "explanation": "密度fから区間の左端までを積分して累積分布Fを作る。密度が非負で全区間の積分が1かを先に確認する。Fの値域は0〜1であり、Uをその範囲の一様乱数としてF(X)=Uを解く。逆関数に複数の枝があれば元の定義域に合う枝を選ぶ。密度の逆数を求める操作とは異なる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-inverse-transform-c5",
+          "kind": "self-check",
+          "prompt": "0≤x≤2で一様な密度1/2から乱数を作る式とU=0.3での値を示す。",
+          "answer": "F(x)=x/2なのでX=2U。U=0.3ならX=0.6。",
+          "checklist": [
+            "F(x)=x/2なのでX=2U。",
+            "U=0.3ならX=0.6。"
+          ],
+          "explanation": "密度fから区間の左端までを積分して累積分布Fを作る。密度が非負で全区間の積分が1かを先に確認する。Fの値域は0〜1であり、Uをその範囲の一様乱数としてF(X)=Uを解く。逆関数に複数の枝があれば元の定義域に合う枝を選ぶ。密度の逆数を求める操作とは異なる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-inverse-transform-retest",
-        "prompt": "F(x)=x², ξ=0.36 の x は？",
+      "prerequisiteFoundationIds": [
+        "foundation-calculus",
+        "foundation-probability"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "[0,1] で p(x)∝x のサンプルを作る。",
+          "steps": [
+            "∫0^1 x dx=1/2 より p(x)=2x。",
+            "F(x)=x²。F(x)=ξ を x≥0 で解く。"
+          ],
+          "answer": "$x=\\sqrt\\xi$"
+        },
+        {
+          "prompt": "0≤x≤1でf(x)=2xの逆関数法を導く。",
+          "steps": [
+            "積分するとF(x)=x²でF(1)=1。",
+            "U=X²を定義域0≤X≤1で解く。"
+          ],
+          "answer": "X=√U。U=0.25ならX=0.5。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-inverse-transform-retest",
+          "prompt": "F(x)=x², ξ=0.36 の x は？",
+          "kind": "number",
+          "numericAnswer": 0.6,
+          "tolerance": 1e-9,
+          "explanation": "非負の平方根を取る。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-inverse-transform-retest-2",
+          "kind": "self-check",
+          "prompt": "F(x)=1−e^(−x)、x≥0の逆関数法を示し、U=1を避ける理由を説明する。",
+          "answer": "X=−ln(1−U)。U=1では対数の引数0となり有限値を得られないため、U<1を用いる。",
+          "checklist": [
+            "X=−ln(1−U)。",
+            "U=1では対数の引数0となり有限値を得られないため、U<1を用いる。"
+          ],
+          "explanation": "密度fから区間の左端までを積分して累積分布Fを作る。密度が非負で全区間の積分が1かを先に確認する。Fの値域は0〜1であり、Uをその範囲の一様乱数としてF(X)=Uを解く。逆関数に複数の枝があれば元の定義域に合う枝を選ぶ。密度の逆数を求める操作とは異なる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-inverse-transform-diagnostic",
+        "prompt": "確率密度を全定義域で積分した値はいくつか。",
         "kind": "number",
-        "numericAnswer": 0.6,
-        "tolerance": 1e-09,
-        "explanation": "非負の平方根を取る。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 1,
+        "tolerance": 1e-10,
+        "explanation": "密度fから区間の左端までを積分して累積分布Fを作る。密度が非負で全区間の積分が1かを先に確認する。Fの値域は0〜1であり、Uをその範囲の一様乱数としてF(X)=Uを解く。逆関数に複数の枝があれば元の定義域に合う枝を選ぶ。密度の逆数を求める操作とは異なる。",
+        "pitfall": "まず累積分布Fを積分で作り、F(X)=Uを解く。"
       }
     },
     {
@@ -417,17 +682,12 @@
         {
           "title": "内外の判定",
           "body": "非退化三角形の内部ではすべての重みが非負。三角形外でも重心座標は定義でき、負の重みが現れる。原本にない $0\\le\\alpha,\\beta,\\gamma\\le1$ を追加しない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "重心座標はP=αA+βB+γC、α+β+γ=1を満たす係数で、三角形内では全て非負になる。係数は頂点に対応しているので、頂点順を変えたら同じ順に並べ替える。面積比でも連立方程式でも求められるが、3頂点が一直線上の退化三角形では一意に決まらない。"
         }
       ],
-      "example": {
-        "prompt": "頂点 (0,0),(2,0),(0,2) に対する点 (1,1) の重み。",
-        "steps": [
-          "x=2β=1 → β=1/2。",
-          "y=2γ=1 → γ=1/2。",
-          "α=1−β−γ=0。"
-        ],
-        "answer": "$(\\alpha,\\beta,\\gamma)=(0,1/2,1/2)$"
-      },
       "quizzes": [
         {
           "id": "digital-media-barycentric-c1",
@@ -483,19 +743,89 @@
           "prompt": "α=0.2, β=0.5 のとき γ は？",
           "kind": "number",
           "numericAnswer": 0.3,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "1−0.2−0.5=0.3。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-barycentric-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「重心座標は各成分が非負であればよく、和は任意である。」",
+          "answer": "点のアフィン結合には係数の和1が必要。和の条件も確認する。",
+          "checklist": [
+            "点のアフィン結合には係数の和1が必要。",
+            "和の条件も確認する。"
+          ],
+          "explanation": "重心座標はP=αA+βB+γC、α+β+γ=1を満たす係数で、三角形内では全て非負になる。係数は頂点に対応しているので、頂点順を変えたら同じ順に並べ替える。面積比でも連立方程式でも求められるが、3頂点が一直線上の退化三角形では一意に決まらない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-barycentric-c5",
+          "kind": "self-check",
+          "prompt": "同じ三角形でP=(2,2)の係数と内外を判定する。",
+          "answer": "β=1、γ=1、α=−1。負の係数があるため三角形の外側。",
+          "checklist": [
+            "β=1、γ=1、α=−1。",
+            "負の係数があるため三角形の外側。"
+          ],
+          "explanation": "重心座標はP=αA+βB+γC、α+β+γ=1を満たす係数で、三角形内では全て非負になる。係数は頂点に対応しているので、頂点順を変えたら同じ順に並べ替える。面積比でも連立方程式でも求められるが、3頂点が一直線上の退化三角形では一意に決まらない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-barycentric-retest",
-        "prompt": "頂点(0,0),(1,0),(0,1)に対する点(2,0)の第1頂点の重みは？",
+      "prerequisiteFoundationIds": [
+        "foundation-matrix"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "頂点 (0,0),(2,0),(0,2) に対する点 (1,1) の重み。",
+          "steps": [
+            "x=2β=1 → β=1/2。",
+            "y=2γ=1 → γ=1/2。",
+            "α=1−β−γ=0。"
+          ],
+          "answer": "$(\\alpha,\\beta,\\gamma)=(0,1/2,1/2)$"
+        },
+        {
+          "prompt": "A=(0,0),B=(2,0),C=(0,2)に対するP=(0.5,1)の重心座標を求める。",
+          "steps": [
+            "x=2βからβ=1/4。y=2γからγ=1/2。",
+            "和1よりα=1/4。全係数が非負なので内部の点。"
+          ],
+          "answer": "(α,β,γ)=(1/4,1/4,1/2)。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-barycentric-retest",
+          "prompt": "頂点(0,0),(1,0),(0,1)に対する点(2,0)の第1頂点の重みは？",
+          "kind": "number",
+          "numericAnswer": -1,
+          "tolerance": 1e-9,
+          "explanation": "β=2,γ=0なのでα=−1。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-barycentric-retest-2",
+          "kind": "self-check",
+          "prompt": "三角形の重心の係数と、辺ABの中点の係数をA,B,Cの順に示す。",
+          "answer": "重心は(1/3,1/3,1/3)。ABの中点は(1/2,1/2,0)。",
+          "checklist": [
+            "重心は(1/3,1/3,1/3)。",
+            "ABの中点は(1/2,1/2,0)。"
+          ],
+          "explanation": "重心座標はP=αA+βB+γC、α+β+γ=1を満たす係数で、三角形内では全て非負になる。係数は頂点に対応しているので、頂点順を変えたら同じ順に並べ替える。面積比でも連立方程式でも求められるが、3頂点が一直線上の退化三角形では一意に決まらない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-barycentric-diagnostic",
+        "prompt": "重心座標の3係数の和はいくつか。",
         "kind": "number",
-        "numericAnswer": -1,
-        "tolerance": 1e-09,
-        "explanation": "β=2,γ=0なのでα=−1。",
-        "pitfall": "符号・単位・条件を確認する。"
+        "numericAnswer": 1,
+        "tolerance": 1e-10,
+        "explanation": "重心座標はP=αA+βB+γC、α+β+γ=1を満たす係数で、三角形内では全て非負になる。係数は頂点に対応しているので、頂点順を変えたら同じ順に並べ替える。面積比でも連立方程式でも求められるが、3頂点が一直線上の退化三角形では一意に決まらない。",
+        "pitfall": "点のアフィン結合には係数の和1が必要。和の条件も確認する。"
       }
     },
     {
@@ -514,16 +844,12 @@
         {
           "title": "分離Hamilton系のSymplectic Euler",
           "body": "$\\dot q=p,\\dot p=-\\omega^2q$ なら一例は $p_{n+1}=p_n-h\\omega^2q_n$、$q_{n+1}=q_n+hp_{n+1}$。位相空間のシンプレクティック構造を保つが、真のエネルギーを各ステップで厳密保存するとは限らない。振動系で長期のエネルギー誤差を抑えやすいが、$h\\omega<2$ などの刻み幅制約があり、一般の微分方程式すべてに同じ保証はない。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "時間刻みhと、どの時刻の値で傾きを評価するかを区別する。陽Eulerは既知の現在値のみを使う。陰Eulerは次の値を含む方程式を解く。安定性と計算の容易さは別の性質である。Symplectic Eulerは位置と運動量を異なるタイミングで更新し、Hamilton系で構造を保つことを目的とするが、エネルギーを毎段で厳密保存するとは限らない。"
         }
       ],
-      "example": {
-        "prompt": "q=1,p=0,h=0.1,ω=1 で上記Symplectic Eulerを1ステップ。",
-        "steps": [
-          "先に pnew=0−0.1×1=−0.1。",
-          "次に qnew=1+0.1×(−0.1)=0.99。"
-        ],
-        "answer": "q=0.99, p=−0.1"
-      },
       "quizzes": [
         {
           "id": "digital-media-euler-c1",
@@ -579,19 +905,92 @@
           "prompt": "y′=−y, y=1,h=0.1。Forwardの次のyは？",
           "kind": "number",
           "numericAnswer": 0.9,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "1−0.1×1=0.9。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-euler-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「Symplectic Eulerならエネルギーは毎段で厳密に一定になる。」",
+          "answer": "シンプレクティック構造の保存とエネルギーの厳密保存は異なる。エネルギーは変動し得る。",
+          "checklist": [
+            "シンプレクティック構造の保存とエネルギーの厳密保存は異なる。",
+            "エネルギーは変動し得る。"
+          ],
+          "explanation": "時間刻みhと、どの時刻の値で傾きを評価するかを区別する。陽Eulerは既知の現在値のみを使う。陰Eulerは次の値を含む方程式を解く。安定性と計算の容易さは別の性質である。Symplectic Eulerは位置と運動量を異なるタイミングで更新し、Hamilton系で構造を保つことを目的とするが、エネルギーを毎段で厳密保存するとは限らない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-euler-c5",
+          "kind": "self-check",
+          "prompt": "y′=−ay、a>0の陽Eulerで誤差を増幅させない条件を増幅率から示す。",
+          "answer": "増幅率は1−ah。|1−ah|≤1より0≤ah≤2。減衰を伴う安定性では端点に注意する。",
+          "checklist": [
+            "増幅率は1−ah。",
+            "|1−ah|≤1より0≤ah≤2。",
+            "減衰を伴う安定性では端点に注意する。"
+          ],
+          "explanation": "時間刻みhと、どの時刻の値で傾きを評価するかを区別する。陽Eulerは既知の現在値のみを使う。陰Eulerは次の値を含む方程式を解く。安定性と計算の容易さは別の性質である。Symplectic Eulerは位置と運動量を異なるタイミングで更新し、Hamilton系で構造を保つことを目的とするが、エネルギーを毎段で厳密保存するとは限らない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-euler-retest",
-        "prompt": "y′=−y, y=1,h=1。Backwardの次のyは？",
-        "kind": "number",
-        "numericAnswer": 0.5,
-        "tolerance": 1e-09,
-        "explanation": "ynew=1−ynew より ynew=1/2。",
-        "pitfall": "符号・単位・条件を確認する。"
+      "prerequisiteFoundationIds": [
+        "foundation-calculus"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "q=1,p=0,h=0.1,ω=1 で上記Symplectic Eulerを1ステップ。",
+          "steps": [
+            "先に pnew=0−0.1×1=−0.1。",
+            "次に qnew=1+0.1×(−0.1)=0.99。"
+          ],
+          "answer": "q=0.99, p=−0.1"
+        },
+        {
+          "prompt": "y′=−2y、y₀=1、h=0.25で陽Eulerと陰Eulerを1段計算する。",
+          "steps": [
+            "陽Eulerはy₁=1+0.25(−2)=0.5。",
+            "陰Eulerはy₁=1−0.5y₁を解く。"
+          ],
+          "answer": "陽は0.5、陰は2/3。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-euler-retest",
+          "prompt": "y′=−y, y=1,h=1。Backwardの次のyは？",
+          "kind": "number",
+          "numericAnswer": 0.5,
+          "tolerance": 1e-9,
+          "explanation": "ynew=1−ynew より ynew=1/2。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-euler-retest-2",
+          "kind": "self-check",
+          "prompt": "陰Eulerで次時刻の値を求める際、陽Eulerに比べて必要になる操作を説明する。",
+          "answer": "次の値が右辺にも現れるため、一般に連立方程式や非線形方程式を解く必要がある。",
+          "checklist": [
+            "次の値が右辺にも現れるため、一般に連立方程式や非線形方程式を解く必要がある。"
+          ],
+          "explanation": "時間刻みhと、どの時刻の値で傾きを評価するかを区別する。陽Eulerは既知の現在値のみを使う。陰Eulerは次の値を含む方程式を解く。安定性と計算の容易さは別の性質である。Symplectic Eulerは位置と運動量を異なるタイミングで更新し、Hamilton系で構造を保つことを目的とするが、エネルギーを毎段で厳密保存するとは限らない。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-euler-diagnostic",
+        "prompt": "陽Eulerで傾きを評価するのは現在と次のどちらの時刻か。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "現在",
+          "現在時刻",
+          "現在の時刻",
+          "現時点"
+        ],
+        "explanation": "時間刻みhと、どの時刻の値で傾きを評価するかを区別する。陽Eulerは既知の現在値のみを使う。陰Eulerは次の値を含む方程式を解く。安定性と計算の容易さは別の性質である。Symplectic Eulerは位置と運動量を異なるタイミングで更新し、Hamilton系で構造を保つことを目的とするが、エネルギーを毎段で厳密保存するとは限らない。",
+        "pitfall": "シンプレクティック構造の保存とエネルギーの厳密保存は異なる。エネルギーは変動し得る。"
       }
     },
     {
@@ -610,16 +1009,12 @@
         {
           "title": "球全体と微小面",
           "body": "球全体は $4\\pi$ sr、半球は $2\\pi$ sr。距離 $r$ の微小面積 $dA$ は、法線と視線の角を $\\theta$ として $d\\omega=|\\cos\\theta|dA/r^2$。球面上では法線方向と視線が一致する。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "平面角が円弧の長さを半径で割った量であるのに対し、立体角は球面上の面積を半径の二乗で割った量である。球の大きさを変えても同じ方向範囲なら値は変わらない。微小平面が張る立体角は、観測方向への投影面積を距離の二乗で割る近似であり、斜めの面ではcosθが必要となる。"
         }
       ],
-      "example": {
-        "prompt": "半径2の球面で面積4を切り取る方向集合の立体角。",
-        "steps": [
-          "Ω=A/r² に代入する。",
-          "Ω=4/4=1。"
-        ],
-        "answer": "1 sr"
-      },
       "quizzes": [
         {
           "id": "digital-media-solid-angle-c1",
@@ -675,19 +1070,89 @@
           "prompt": "半径3、切り取る球面積9の立体角は？",
           "kind": "number",
           "numericAnswer": 1,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "9/3²=1 sr。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-solid-angle-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「球面の面積を半径で割れば立体角になる。」",
+          "answer": "面積は半径の二乗で割る。単位はsrで、半径依存を打ち消す。",
+          "checklist": [
+            "面積は半径の二乗で割る。",
+            "単位はsrで、半径依存を打ち消す。"
+          ],
+          "explanation": "平面角が円弧の長さを半径で割った量であるのに対し、立体角は球面上の面積を半径の二乗で割った量である。球の大きさを変えても同じ方向範囲なら値は変わらない。微小平面が張る立体角は、観測方向への投影面積を距離の二乗で割る近似であり、斜めの面ではcosθが必要となる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-solid-angle-c5",
+          "kind": "self-check",
+          "prompt": "同じ微小面を観測方向から60°傾けた場合、正面の場合に比べ立体角は何倍か。",
+          "answer": "投影面積にcos60°=1/2が掛かるので1/2倍。",
+          "checklist": [
+            "投影面積にcos60°=1/2が掛かるので1/2倍。"
+          ],
+          "explanation": "平面角が円弧の長さを半径で割った量であるのに対し、立体角は球面上の面積を半径の二乗で割った量である。球の大きさを変えても同じ方向範囲なら値は変わらない。微小平面が張る立体角は、観測方向への投影面積を距離の二乗で割る近似であり、斜めの面ではcosθが必要となる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-solid-angle-retest",
-        "prompt": "半径2で立体角2 srに対応する球面積は？",
-        "kind": "number",
-        "numericAnswer": 8,
-        "tolerance": 1e-09,
-        "explanation": "A=r²Ω=4×2。",
-        "pitfall": "符号・単位・条件を確認する。"
+      "prerequisiteFoundationIds": [
+        "foundation-units",
+        "foundation-trigonometry"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "半径2の球面で面積4を切り取る方向集合の立体角。",
+          "steps": [
+            "Ω=A/r² に代入する。",
+            "Ω=4/4=1。"
+          ],
+          "answer": "1 sr"
+        },
+        {
+          "prompt": "正面を向く微小面の面積0.02m²、距離2mで立体角を近似する。",
+          "steps": [
+            "投影面積は正面なので0.02。",
+            "距離の二乗4で割る。"
+          ],
+          "answer": "約0.005sr。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-solid-angle-retest",
+          "prompt": "半径2で立体角2 srに対応する球面積は？",
+          "kind": "number",
+          "numericAnswer": 8,
+          "tolerance": 1e-9,
+          "explanation": "A=r²Ω=4×2。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-solid-angle-retest-2",
+          "kind": "self-check",
+          "prompt": "半径を3倍にした球で同じ方向範囲を切り取った場合、球面積と立体角の変化を説明する。",
+          "answer": "球面積は9倍になる。半径の二乗も9倍なので立体角は変わらない。",
+          "checklist": [
+            "球面積は9倍になる。",
+            "半径の二乗も9倍なので立体角は変わらない。"
+          ],
+          "explanation": "平面角が円弧の長さを半径で割った量であるのに対し、立体角は球面上の面積を半径の二乗で割った量である。球の大きさを変えても同じ方向範囲なら値は変わらない。微小平面が張る立体角は、観測方向への投影面積を距離の二乗で割る近似であり、斜めの面ではcosθが必要となる。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-solid-angle-diagnostic",
+        "prompt": "立体角の単位記号を答える。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "sr"
+        ],
+        "explanation": "平面角が円弧の長さを半径で割った量であるのに対し、立体角は球面上の面積を半径の二乗で割った量である。球の大きさを変えても同じ方向範囲なら値は変わらない。微小平面が張る立体角は、観測方向への投影面積を距離の二乗で割る近似であり、斜めの面ではcosθが必要となる。",
+        "pitfall": "面積は半径の二乗で割る。単位はsrで、半径依存を打ち消す。"
       }
     },
     {
@@ -708,16 +1173,12 @@
         {
           "title": "入射から反射へ",
           "body": "微小入射の $dE_i=L_i\\cos\\theta_i d\\omega_i$ に対し、BRDFは $f_r(\\omega_i,\\omega_o)=dL_o/dE_i$（sr⁻¹）。全入射を足すと $L_o(\\omega_o)=\\int f_r L_i\\cos\\theta_i d\\omega_i$。位置・波長への依存は省略した記法である。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "放射束はエネルギー/時間、照度は面積当たりの入射束、輝度は投影面積と立体角当たりの束である。照度にBRDFを掛けると、指定方向の反射輝度が得られる。一様なLambert反射ならf_r=ρ/πであり、反射率ρとBRDFの値は同じではない。入射方向のcosθは投影効果で、積分に含める。"
         }
       ],
-      "example": {
-        "prompt": "一様な照度5 W/m²が面積2 m²へ入射するときの束。",
-        "steps": [
-          "Φ=∫E dA。",
-          "一様なので Φ=5×2。"
-        ],
-        "answer": "10 W"
-      },
       "quizzes": [
         {
           "id": "digital-media-radiometry-brdf-c1",
@@ -773,19 +1234,91 @@
           "prompt": "照度3 W/m²が面積4 m²に一様なら放射束は？",
           "kind": "number",
           "numericAnswer": 12,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "3×4=12 W。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-radiometry-brdf-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「BRDFの単位は反射率と同じ無次元である。」",
+          "answer": "BRDFは輝度を照度で割るのでsr⁻¹。反射率は無次元。",
+          "checklist": [
+            "BRDFは輝度を照度で割るのでsr⁻¹。",
+            "反射率は無次元。"
+          ],
+          "explanation": "放射束はエネルギー/時間、照度は面積当たりの入射束、輝度は投影面積と立体角当たりの束である。照度にBRDFを掛けると、指定方向の反射輝度が得られる。一様なLambert反射ならf_r=ρ/πであり、反射率ρとBRDFの値は同じではない。入射方向のcosθは投影効果で、積分に含める。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-radiometry-brdf-c5",
+          "kind": "self-check",
+          "prompt": "ρ=0.8のLambert面に照度5 W/m²が入射したときの反射輝度と単位を求める。",
+          "answer": "f_r=0.8/π sr⁻¹。L_o=4/π W/(m² sr)。",
+          "checklist": [
+            "f_r=0.8/π sr⁻¹。",
+            "L_o=4/π W/(m² sr)。"
+          ],
+          "explanation": "放射束はエネルギー/時間、照度は面積当たりの入射束、輝度は投影面積と立体角当たりの束である。照度にBRDFを掛けると、指定方向の反射輝度が得られる。一様なLambert反射ならf_r=ρ/πであり、反射率ρとBRDFの値は同じではない。入射方向のcosθは投影効果で、積分に含める。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-radiometry-brdf-retest",
-        "prompt": "束10 Wが面積2 m²へ一様に入射すると照度は？",
-        "kind": "number",
-        "numericAnswer": 5,
-        "tolerance": 1e-09,
-        "explanation": "10/2=5 W/m²。",
-        "pitfall": "符号・単位・条件を確認する。"
+      "prerequisiteFoundationIds": [
+        "foundation-units",
+        "foundation-calculus",
+        "foundation-trigonometry"
+      ],
+      "intensive": true,
+      "examples": [
+        {
+          "prompt": "一様な照度5 W/m²が面積2 m²へ入射するときの束。",
+          "steps": [
+            "Φ=∫E dA。",
+            "一様なので Φ=5×2。"
+          ],
+          "answer": "10 W"
+        },
+        {
+          "prompt": "Lambert面の反射率ρ=0.5、入射照度E=10 W/m²の反射輝度を求める。",
+          "steps": [
+            "f_r=ρ/π=0.5/π sr⁻¹。",
+            "L_o=f_r E=(0.5/π)×10。"
+          ],
+          "answer": "L_o=5/π W/(m² sr)。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-radiometry-brdf-retest",
+          "prompt": "束10 Wが面積2 m²へ一様に入射すると照度は？",
+          "kind": "number",
+          "numericAnswer": 5,
+          "tolerance": 1e-9,
+          "explanation": "10/2=5 W/m²。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-radiometry-brdf-retest-2",
+          "kind": "self-check",
+          "prompt": "同じ輝度の微小入射方向が正面と60°にあるとき、照度への寄与を比較する。",
+          "answer": "同じ立体角ならdE=L_i cosθ dω。60°の寄与は正面の1/2になる。",
+          "checklist": [
+            "同じ立体角ならdE=L_i cosθ dω。",
+            "60°の寄与は正面の1/2になる。"
+          ],
+          "explanation": "放射束はエネルギー/時間、照度は面積当たりの入射束、輝度は投影面積と立体角当たりの束である。照度にBRDFを掛けると、指定方向の反射輝度が得られる。一様なLambert反射ならf_r=ρ/πであり、反射率ρとBRDFの値は同じではない。入射方向のcosθは投影効果で、積分に含める。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-radiometry-brdf-diagnostic",
+        "prompt": "放射束のSI単位を記号で答える。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "W"
+        ],
+        "explanation": "放射束はエネルギー/時間、照度は面積当たりの入射束、輝度は投影面積と立体角当たりの束である。照度にBRDFを掛けると、指定方向の反射輝度が得られる。一様なLambert反射ならf_r=ρ/πであり、反射率ρとBRDFの値は同じではない。入射方向のcosθは投影効果で、積分に含める。",
+        "pitfall": "BRDFは輝度を照度で割るのでsr⁻¹。反射率は無次元。"
       }
     },
     {
@@ -804,16 +1337,12 @@
         {
           "title": "物質微分",
           "body": "粒子に沿う変化は $Df/Dt=\\partial f/\\partial t+u\\cdot\\nabla f$。固定点の時間変化に、流れによる移流を加える。格子法は移流項を離散化し、粒子法では粒子の移動に移流が含まれる。自由表面の追跡は粒子法が自然だが、近傍探索や粒子分布の偏りが課題となる。"
+        },
+        {
+          "title": "適用条件と解き始める手順",
+          "body": "格子法は固定した場所の量を追い、粒子法は流れとともに動く点を追う。固定点での時間変化と、動く粒子から見た時間変化を区別する。物質微分Df/Dt=∂f/∂t+u・∇fは時間変化と移流の寄与の和。格子法と粒子法の長短は、自由表面、境界、精度、計算量などの扱いと結び付けて説明する。"
         }
       ],
-      "example": {
-        "prompt": "1次元で f(x,t)=x+2t、速度u=3。",
-        "steps": [
-          "$\\partial f/\\partial t=2,\\partial f/\\partial x=1$。",
-          "$Df/Dt=2+3\\times1=5$。"
-        ],
-        "answer": "物質微分は5、固定点の時間微分は2。"
-      },
       "quizzes": [
         {
           "id": "digital-media-fluid-methods-c1",
@@ -869,19 +1398,89 @@
           "prompt": "局所時間変化2、u·∇f=3なら物質微分は？",
           "kind": "number",
           "numericAnswer": 5,
-          "tolerance": 1e-09,
+          "tolerance": 1e-9,
           "explanation": "2+3=5。",
           "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-fluid-methods-c4",
+          "kind": "self-check",
+          "prompt": "次の説明の誤りを直してください：「物質微分は固定点での時間微分だけで求まる。」",
+          "answer": "粒子が移動して別の場所の値を観測する寄与u・∇fも含める。",
+          "checklist": [
+            "粒子が移動して別の場所の値を観測する寄与u・∇fも含める。"
+          ],
+          "explanation": "格子法は固定した場所の量を追い、粒子法は流れとともに動く点を追う。固定点での時間変化と、動く粒子から見た時間変化を区別する。物質微分Df/Dt=∂f/∂t+u・∇fは時間変化と移流の寄与の和。格子法と粒子法の長短は、自由表面、境界、精度、計算量などの扱いと結び付けて説明する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        },
+        {
+          "id": "digital-media-fluid-methods-c5",
+          "kind": "self-check",
+          "prompt": "f(x,t)=x²+t、x=2、u=3の物質微分を求める。",
+          "answer": "∂f/∂t=1、∂f/∂x=4なのでDf/Dt=1+3×4=13。",
+          "checklist": [
+            "∂f/∂t=1、∂f/∂x=4なのでDf/Dt=1+3×4=13。"
+          ],
+          "explanation": "格子法は固定した場所の量を追い、粒子法は流れとともに動く点を追う。固定点での時間変化と、動く粒子から見た時間変化を区別する。物質微分Df/Dt=∂f/∂t+u・∇fは時間変化と移流の寄与の和。格子法と粒子法の長短は、自由表面、境界、精度、計算量などの扱いと結び付けて説明する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
         }
       ],
-      "retest": {
-        "id": "digital-media-fluid-methods-retest",
-        "prompt": "f=x、1次元速度u=4、場は時間一定。Df/Dtは？",
-        "kind": "number",
-        "numericAnswer": 4,
-        "tolerance": 1e-09,
-        "explanation": "局所項0、移流項4。",
-        "pitfall": "符号・単位・条件を確認する。"
+      "prerequisiteFoundationIds": [
+        "foundation-calculus"
+      ],
+      "intensive": false,
+      "examples": [
+        {
+          "prompt": "1次元で f(x,t)=x+2t、速度u=3。",
+          "steps": [
+            "$\\partial f/\\partial t=2,\\partial f/\\partial x=1$。",
+            "$Df/Dt=2+3\\times1=5$。"
+          ],
+          "answer": "物質微分は5、固定点の時間微分は2。"
+        },
+        {
+          "prompt": "f(x,t)=2x−t、速度u=4で物質微分を求める。",
+          "steps": [
+            "固定点の時間微分は−1、空間微分は2。",
+            "速度による移流の寄与4×2を加える。"
+          ],
+          "answer": "Df/Dt=−1+8=7。"
+        }
+      ],
+      "retests": [
+        {
+          "id": "digital-media-fluid-methods-retest",
+          "prompt": "f=x、1次元速度u=4、場は時間一定。Df/Dtは？",
+          "kind": "number",
+          "numericAnswer": 4,
+          "tolerance": 1e-9,
+          "explanation": "局所項0、移流項4。",
+          "pitfall": "符号・単位・条件を確認する。"
+        },
+        {
+          "id": "digital-media-fluid-methods-retest-2",
+          "kind": "self-check",
+          "prompt": "量が時間に依存しなくても移動する粒子から値が変わって見える例を説明する。",
+          "answer": "f(x)=xのように空間勾配がある場合、粒子が移動すると観測値が変わる。固定点の時間変化0でも移流項は非零。",
+          "checklist": [
+            "f(x)=xのように空間勾配がある場合、粒子が移動すると観測値が変わる。",
+            "固定点の時間変化0でも移流項は非零。"
+          ],
+          "explanation": "格子法は固定した場所の量を追い、粒子法は流れとともに動く点を追う。固定点での時間変化と、動く粒子から見た時間変化を区別する。物質微分Df/Dt=∂f/∂t+u・∇fは時間変化と移流の寄与の和。格子法と粒子法の長短は、自由表面、境界、精度、計算量などの扱いと結び付けて説明する。",
+          "pitfall": "結論だけでなく、問題で指定された条件と判断の根拠を確認する。"
+        }
+      ],
+      "diagnostic": {
+        "id": "digital-media-fluid-methods-diagnostic",
+        "prompt": "格子法が通常固定するのは観測位置と粒子のどちらか。",
+        "kind": "text",
+        "acceptedAnswers": [
+          "観測位置",
+          "観測地点",
+          "位置"
+        ],
+        "explanation": "格子法は固定した場所の量を追い、粒子法は流れとともに動く点を追う。固定点での時間変化と、動く粒子から見た時間変化を区別する。物質微分Df/Dt=∂f/∂t+u・∇fは時間変化と移流の寄与の和。格子法と粒子法の長短は、自由表面、境界、精度、計算量などの扱いと結び付けて説明する。",
+        "pitfall": "粒子が移動して別の場所の値を観測する寄与u・∇fも含める。"
       }
     }
   ],

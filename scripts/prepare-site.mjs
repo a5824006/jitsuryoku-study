@@ -20,7 +20,8 @@ if (subjects.length !== 9 || questions.length !== 199 || new Set(questions.map(q
 const learning = await validateLearning(root, subjects, questions);
 await mkdir(path.join(target, 'learning'), { recursive: true });
 for (const data of learning.all) await writeFile(path.join(target, 'learning', `${data.subjectId}.json`), JSON.stringify(data), 'utf8');
-await writeFile(path.join(target, 'catalog.json'), JSON.stringify({ schemaVersion: 1, analyzedAt: aggregate.analyzedAt, subjects, questions, quizIds: learning.quizIds }), 'utf8');
+await writeFile(path.join(target, 'learning', 'foundations.json'), JSON.stringify(learning.foundations), 'utf8');
+await writeFile(path.join(target, 'catalog.json'), JSON.stringify({ schemaVersion: 2, analyzedAt: aggregate.analyzedAt, subjects, questions, quizIds: learning.quizIds, selfCheckIds: learning.selfCheckIds, learningIndex: learning.learningIndex, foundations: learning.foundations.foundations.map(f=>({id:f.id,title:f.title,topicIds:learning.all.flatMap(d=>d.lessons.filter(l=>l.prerequisiteFoundationIds.includes(f.id)).map(l=>l.topicId))})) }), 'utf8');
 await writeFile(path.join(target, 'learning-coverage.json'), JSON.stringify(learning.counts, null, 2), 'utf8');
 await copyFile(path.join(root, 'reports/analysis.md'), path.join(target, 'analysis.md'));
 await copyFile(path.join(root, 'reports/verification.md'), path.join(target, 'verification.md'));

@@ -8,7 +8,7 @@ export function gradeQuiz(quiz: Quiz, input: string | string[]): boolean {
   }
   if (typeof input !== 'string' || !input.trim()) return false;
   if (quiz.kind === 'number') {
-    const value = input.normalize('NFKC').trim();
+    const value = input.normalize('NFKC').trim().replace(/−/g, '-');
     if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/.test(value)) return false;
     const n = Number(value);
     return Number.isFinite(n) && typeof quiz.numericAnswer === 'number' && Math.abs(n - quiz.numericAnswer) <= (quiz.tolerance ?? 0);
